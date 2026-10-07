@@ -1,0 +1,132 @@
+\section{De vuelta al problema pendiente}
+
+En la Sesión 4 quedaron dos piezas sueltas. De la Sesión 3 sabemos qué anillo debe aparecer localmente en $\mathfrak p$, a saber $A_{\mathfrak p}$, y se anticipó que las secciones sobre $D(f)$ serían $A_f$, sin probarlo. Pero una gavilla está definida en todos los abiertos de $\Spec A$, no solo en los básicos; aunque $D(f)\cap D(g)=D(fg)$ sigue siendo básico, una unión arbitraria de básicos no suele serlo.
+
+El problema de hoy es general: dada información compatible solo en una base de la topología, ¿cuándo y cómo se extiende a una gavilla en todos los abiertos? Resolverlo en general en las secciones 2 y 3 permite después verificar dos condiciones algebraicas para la familia $\{A_f\}_{f\in A}$.
+
+\section{Gavillas sobre una base}
+
+\begin{defi}[Pregavilla y gavilla sobre una base]
+\label{defi:s05-pregavilla-gavilla-sobre-base}
+Sea $\mathcal B$ una base de la topología de $X$. Una pregavilla sobre $\mathcal B$ asigna secciones a los elementos de $\mathcal B$ y mapas de restricción compatibles. Es una gavilla sobre la base si, siempre que $B=\bigcup_\alpha B_\alpha$ con todos los conjuntos en $\mathcal B$, satisface identidad y pegado. En la condición de pegado, la compatibilidad entre secciones se verifica en cada elemento básico contenido en $B_\alpha\cap B_\beta$, pues la intersección no necesariamente pertenece a la base.
+\end{defi}
+
+\section{El teorema de extensión}
+
+\begin{teo}[Toda gavilla sobre una base se extiende, de manera única]
+\label{teo:s05-toda-gavilla-sobre-base-extiende}
+Toda gavilla sobre una base $\mathcal B$ se extiende a una gavilla $\mathcal F$ en $X$, de modo compatible con sus secciones y restricciones en $\mathcal B$. La extensión es única salvo isomorfismo único. El mismo resultado vale para gavillas con valores en anillos, grupos o módulos.
+\end{teo}
+\begin{proof}[Construcción y unicidad]
+Para cada $p\in X$ se define el tallo formal $\mathcal F_p=\colim_{B\in\mathcal B,\,p\in B}\mathcal F(B)$. Para un abierto $U$, se toman las familias $(s_p)_{p\in U}\in\prod_{p\in U}\mathcal F_p$ que localmente provienen de una sola sección básica: para cada $p$ existe $B\in\mathcal B$ con $p\in B\subseteq U$ y $s\in\mathcal F(B)$ cuyos gérmenes en todo $q\in B$ son los prescritos $s_q$.
+
+Las restricciones son por restricción de coordenadas. Identidad se verifica punto a punto. Para pegar secciones compatibles sobre un cubrimiento, se pegan sus coordenadas en cada tallo; la compatibilidad en las intersecciones garantiza que la sección resultante está localmente representada. En un abierto básico $B$, la aplicación que envía una sección original a sus gérmenes es biyectiva: identidad da inyectividad y los testigos básicos locales se pegan mediante el axioma de pegado sobre $\mathcal B$. Esto prueba que la construcción extiende la gavilla dada.
+
+Si $\mathcal G$ es otra extensión, las identificaciones en cada abierto básico fuerzan los mismos tallos y, por tanto, las mismas secciones sobre todo abierto: dos secciones de una gavilla que coinciden en cada germen son iguales. También fuerzan el único isomorfismo compatible con las identificaciones iniciales.
+\end{proof}
+
+\begin{obs}
+\label{obs:s05-teorema-3-1-vale-palabra}
+El \cref{teo:s05-toda-gavilla-sobre-base-extiende} vale palabra por palabra para gavillas con valores en anillos, grupos, módulos, etcétera: las construcciones de colímite, producto y subconjunto definido por compatibilidad se realizan en la categoría correspondiente.
+\end{obs}
+
+\begin{ejer}[Morfismos de gavillas sobre una base]
+\label{ejer:s05-morfismos-gavillas-sobre-base}
+Un morfismo de gavillas en $X$ queda determinado por su restricción a una base. Además, todo morfismo entre gavillas sobre la base se extiende de manera única a un morfismo entre sus extensiones.
+\end{ejer}
+
+\section{De vuelta a Spec A: los básicos son base}
+
+Los abiertos distinguidos $D(f)$ forman una base de $\Spec A$, pues
+\[
+\Spec A\setminus V(I)=\bigcup_{f\in I}D(f).
+\]
+La asignación candidata se define así.
+\begin{defi}[La asignación candidata en los básicos]
+\label{defi:s05-asignacion-candidata-basicos}
+Para cada $f\in A$, sea
+\[
+S_f=\set*{g\in A \given D(f)\subseteq D(g)},\qquad
+\mathcal O_{\Spec A}(D(f)):=S_f^{-1}A.
+\]
+Si $D(f')\subseteq D(f)$, entonces $S_f\subseteq S_{f'}$, lo que induce el mapa de restricción de localización $S_f^{-1}A\to S_{f'}^{-1}A$; estos mapas son transitivos.
+\end{defi}
+
+\section{\texorpdfstring{El teorema prometido: $A_f\cong\mathcal O_{\Spec A}(D(f))$}{El teorema prometido: Af es OSpec A(D(f))}}
+
+\begin{teo}
+\label{teo:s05-mapa-natural-f-s-f}
+El mapa natural $A_f\to S_f^{-1}A=\mathcal O_{\Spec A}(D(f))$ es un isomorfismo.
+\end{teo}
+\begin{proof}
+Como $D(f)\subseteq D(f)$, se tiene $f\in S_f$, así que la propiedad universal da $A_f\to S_f^{-1}A$. Por otra parte, si $g\in S_f$, entonces $D(f)\subseteq D(g)$, lo que equivale a $f\in\sqrt{(g)}$. Existe $n$ con $f^n=ag$; como $f$ es invertible en $A_f$, también lo es $g$. Por la propiedad universal hay un mapa inverso $S_f^{-1}A\to A_f$. Ambos compuestos son la identidad porque los mapas están determinados por su restricción desde $A$ y por el envío de los elementos invertidos a sus inversos.
+\end{proof}
+
+\section{\texorpdfstring{El corazón técnico: identidad y pegado para $\{A_f\}$}{El corazón técnico: identidad y pegado para Af}}
+
+\begin{lema}[Cuasicompacidad de los básicos]
+\label{lema:s05-cuasicompacidad-basicos}
+Todo abierto distinguido $D(f)$ es cuasicompacto.
+\end{lema}
+\begin{proof}
+Supongamos $D(f)\subseteq\bigcup_iD(f_i)$. Entonces ningún primo de $A_f$ contiene todos los $f_i/1$, por lo que el ideal que generan en $A_f$ es la unidad. Una combinación de $1$ usa finitos términos y, al limpiar denominadores, produce un cubrimiento finito de $D(f)$ por algunos $D(f_i)$.
+\end{proof}
+
+\begin{teo}[$\{A_f\}$ es gavilla sobre la base $\{D(f)\}$]
+\label{teo:s05-f-gavilla-sobre-base-d}
+La asignación $D(f)\mapsto A_f$ es una gavilla sobre la base de abiertos distinguidos.
+\end{teo}
+\begin{proof}
+Por cuasicompacidad basta verificar identidad y pegado para un cubrimiento finito $D(f)=\bigcup_{i=1}^nD(f_i)$. Al reemplazar $A$ por $A_f$ podemos suponer $f=1$. Entonces $(f_1,\ldots,f_n)=A$, así que hay una identidad $1=\sum_i c_if_i$.
+
+Para identidad, sea $s\in A$ cuya imagen se anula en cada $A_{f_i}$. Para cada $i$ existe $m_i$ con $f_i^{m_i}s=0$. Aumentando a un exponente común $m$, se tiene $f_i^ms=0$ para todo $i$. Las potencias $f_i^m$ generan el ideal unidad: basta elevar una expresión de $1$ como combinación de los $f_i$ a una potencia suficientemente grande y agrupar cada monomio, que contiene alguna potencia $f_i^m$. Así $1=\sum_i d_if_i^m$ y $s=\sum_i d_i(f_i^ms)=0$.
+
+Para pegado, sean $s_i=a_i/f_i^k\in A_{f_i}$ secciones compatibles, usando un exponente común $k$. La compatibilidad en $A_{f_if_j}$ equivale a $a_if_j^k=a_jf_i^k$ en $A$. Como las $f_j^k$ generan la unidad, elijamos $e_j$ con $1=\sum_je_jf_j^k$ y pongamos $s=\sum_je_ja_j\in A$. Para cada $i$,
+\[
+f_i^ks=\sum_je_ja_jf_i^k
+=a_i\sum_je_jf_j^k=a_i,
+\]
+por compatibilidad. Por tanto $s$ restringe a $s_i$ en $A_{f_i}$.
+\end{proof}
+
+\section{La gavilla estructural}
+
+\begin{coro}[La gavilla estructural]
+\label{coro:s05-gavilla-estructural}
+Existe una única, salvo isomorfismo único, gavilla de anillos $\mathcal O_{\Spec A}$ en $\Spec A$ tal que $\mathcal O_{\Spec A}(D(f))\cong A_f$, compatible con restricciones. En particular, $\mathcal O_{\Spec A}(\Spec A)\cong A$, y el tallo en $\mathfrak p$ es $\mathcal O_{\Spec A,\mathfrak p}\cong A_{\mathfrak p}$.
+\end{coro}
+\begin{proof}
+El resultado se sigue del \cref{teo:s05-toda-gavilla-sobre-base-extiende} y de la identificación $\mathcal O_{\Spec A}(D(f))\cong A_f$. Para el tallo, se toma el colímite de los $A_f$ sobre los básicos que contienen a $\mathfrak p$; es precisamente la localización que invierte todos los elementos fuera de $\mathfrak p$.
+\end{proof}
+
+\begin{obs}
+\label{obs:s05-esto-cierra-toda-formalidad-circulo}
+Esto cierra, con toda formalidad, el círculo abierto desde la Sesión 3: los $A_f$ son los valores de una gavilla genuina y $A_{\mathfrak p}$ es el tallo de esa gavilla en $\mathfrak p$.
+\end{obs}
+
+\section{Adelanto: gavillas de módulos}
+
+El mismo argumento, sustituyendo $A$ por un $A$-módulo $M$, da la asignación $D(f)\mapsto S_f^{-1}M=:M_f$. Las dos verificaciones de identidad y pegado se obtienen de las del \cref{teo:s05-f-gavilla-sobre-base-d} cambiando $A$ por $M$. Por el \cref{teo:s05-toda-gavilla-sobre-base-extiende}, esta gavilla sobre la base se extiende a una gavilla $\widetilde M$ en $\Spec A$ con $\widetilde M(D(f))=M_f$. Como $M_f$ es un módulo sobre $A_f=\mathcal O_{\Spec A}(D(f))$, de manera compatible con restricciones, $\widetilde M$ es una gavilla de $\mathcal O_{\Spec A}$-módulos: el prototipo de gavilla cuasicoherente.
+
+\section{Ejercicios}
+
+\begin{ejer}[Cosechando el sembrador de la Sesión 4]
+\label{ejer:s05-cosechando-sembrador-sesion-4}
+Retomamos $X=\mathbb C$, $\mathcal O_X$ las funciones holomorfas y $\mathcal O_X^*$ las que no se anulan, con $\exp(f)=e^{2\pi i f}$. Usando la base de abiertos contráctiles, verifica que $\exp$ es sobreyectiva en cada básico (todo abierto simplemente conexo admite logaritmo holomorfo) y concluye —sin repetir el contraejemplo concreto de la Sesión 4— que un morfismo de gavillas sobreyectivo en cada elemento de una base induce un epimorfismo de gavillas, pero el recíproco es falso.
+\end{ejer}
+\begin{ejer}
+\label{ejer:s05-adapta-demostracion-b1-teorema-6}
+Adapta la demostración de (B1) en el \cref{teo:s05-f-gavilla-sobre-base-d} al caso de un $D(f)$ arbitrario cubierto por básicos $D(f_i)$ con $f_i\in S_f$.
+\end{ejer}
+\begin{ejer}
+\label{ejer:s05-adapta-demostracion-b2-teorema-6}
+Adapta la demostración de (B2) en el \cref{teo:s05-f-gavilla-sobre-base-d} al caso de un $D(f)$ arbitrario cubierto por básicos $D(f_i)$ con $f_i\in S_f$.
+\end{ejer}
+\begin{ejer}
+\label{ejer:s05-escribe-b1-b2-teorema-6}
+Escribe (B1) y (B2) del \cref{teo:s05-f-gavilla-sobre-base-d} como la exactitud de $0\to A\to\prod_{i=1}^n A_{f_i}\to\prod_{i<j}A_{f_if_j}$ e identifica los mapas.
+\end{ejer}
+\begin{ejer}[Sembrador: se cosecha al estudiar gavillas cuasicoherentes]
+\label{ejer:s05-sembrador-cosecha-estudiar-gavillas-cuasicoherentes}
+Si $\varphi:M\to N$ es un morfismo de $A$-módulos, verifica que la asignación $M\mapsto\widetilde M$ es exacta: una sucesión corta exacta de módulos induce una sucesión corta exacta de gavillas.
+\end{ejer}

@@ -1,0 +1,277 @@
+% Sesión 1.
+\section{¿Por qué esquemas? De las variedades clásicas a los anillos}
+
+La geometría algebraica clásica estudia conjuntos de soluciones de ecuaciones polinomiales sobre un cuerpo. Si $k$ es algebraicamente cerrado y $I\subseteq k[x_1,\ldots,x_n]$ es un ideal, los puntos de $V(I)$ corresponden a ideales maximales del anillo de coordenadas: $a=(a_1,\ldots,a_n)$ corresponde a $\mathfrak m_a=(x_1-a_1,\ldots,x_n-a_n)$.
+
+\begin{teo}[Nullstellensatz de Hilbert (enunciado)]
+\label{teo:s01-nullstellensatz-hilbert-enunciado}
+La asignación $a=(a_1,\ldots,a_n)\mapsto\mathfrak m_a=(x_1-a_1,\ldots,x_n-a_n)$ induce una biyección entre $V(I)$ y los ideales maximales de $k[x_1,\ldots,x_n]/I$. Además, $f$ se anula en todo $V(I)$ si y solo si $f^m\in I$ para algún $m\ge1$.
+\end{teo}
+
+Esta correspondencia es el punto de partida, pero presenta cuatro limitaciones que motivan el paso a esquemas: sobre un cuerpo no algebraicamente cerrado algunas ecuaciones sin soluciones visibles esconden geometría (por ejemplo, $x^2+1=0$ sobre $\mathbb R$); los anillos aritméticos como $\mathbb Z$ no son cuerpos; el conjunto de puntos pierde multiplicidades e información infinitesimal; y una subvariedad irreducible, como una curva dentro de una superficie, todavía no aparece como un punto.
+
+La propuesta de Grothendieck consiste en asociar un espacio geométrico a todo anillo conmutativo con unidad, no solo a anillos de polinomios sobre cuerpos. Sus puntos serán los ideales primos y sus funciones los elementos del anillo. La elección de primos, en vez de solo maximales, también garantiza la funtorialidad.
+
+\section{El espectro primo como conjunto}
+
+\begin{defi}[Espectro primo]
+\label{defi:s01-espectro-primo}
+Sea $A$ un anillo conmutativo con unidad. Su espectro primo es
+\[
+\Spec A=\set*{\mathfrak p\subseteq A \given \mathfrak p\text{ es un ideal primo}}.
+\]
+Escribiremos $\mathfrak p$ cuando pensemos algebraicamente y $x\in\Spec A$ cuando pensemos geométricamente; en este último caso $\mathfrak p_x$ denota el primo correspondiente.
+\end{defi}
+
+Recordemos que un ideal $\mathfrak p$ es primo si es propio y $fg\in\mathfrak p$ implica $f\in\mathfrak p$ o $g\in\mathfrak p$; equivalentemente, $A/\mathfrak p$ es un dominio entero.
+
+\begin{lema}[Preimagen de un primo]
+\label{lema:s01-preimagen-primo}
+Si $\varphi:A\to B$ es un morfismo de anillos y $\mathfrak q\in\Spec B$, entonces $\varphi^{-1}(\mathfrak q)\in\Spec A$. Por tanto, $\varphi$ induce un mapa
+\[
+\Spec\varphi:\Spec B\longrightarrow\Spec A,\qquad \mathfrak q\longmapsto\varphi^{-1}(\mathfrak q).
+\]
+\end{lema}
+\begin{proof}
+El compuesto $A\xrightarrow{\varphi}B\to B/\mathfrak q$ tiene núcleo $\varphi^{-1}(\mathfrak q)$, así que induce una inyección $A/\varphi^{-1}(\mathfrak q)\hookrightarrow B/\mathfrak q$. Como un subanillo de un dominio es un dominio, el cociente de la izquierda es un dominio. Además, $\varphi^{-1}(\mathfrak q)$ es propio: si contuviera a $1$, entonces $1=\varphi(1)\in\mathfrak q$, contradicción. Luego es primo.
+\end{proof}
+
+\begin{obs}[Por qué primos y no maximales]
+\label{obs:s01-primos-no-maximales}
+Con maximales la construcción no funciona: la inclusión $\mathbb Z\hookrightarrow\mathbb Q$ lleva por preimagen el maximal $(0)\subset\mathbb Q$ al primo $(0)\subset\mathbb Z$, que no es maximal. En cambio, la preimagen de un primo siempre es primo. Los primos no maximales también serán necesarios para representar puntos genéricos.
+\end{obs}
+
+\begin{teo}[El espectro es vacío]
+\label{teo:s01-espectro-vacio}
+Se tiene $\Spec A=\varnothing$ si y solo si $A=0$.
+\end{teo}
+\begin{proof}
+Si $A=0$, el ideal $(0)=A$ no es propio, así que no hay ideales primos. Supongamos ahora $A\ne0$. Considérese el conjunto $\Sigma$ de ideales propios de $A$, ordenado por inclusión. Es no vacío pues contiene a $(0)$. La unión de una cadena de ideales propios sigue siendo un ideal propio: si contuviera a $1$, alguno de los ideales de la cadena ya contendría a $1$. Por el lema de Zorn, $\Sigma$ tiene un elemento maximal, que es un ideal maximal de $A$ y, en particular, primo.
+\end{proof}
+
+\section{\texorpdfstring{Los elementos de $A$ como funciones sobre $\Spec A$}{Los elementos de A como funciones sobre Spec A}}
+
+Para interpretar $f\in A$ como función en $\Spec A$, primero especificamos el cuerpo donde toma su valor en cada punto.
+
+\begin{defi}[Cuerpo residual y evaluación]
+\label{defi:s01-cuerpo-residual-evaluacion}
+Para $\mathfrak p\in\Spec A$, definimos el cuerpo residual
+\[
+\kappa(\mathfrak p)=\Frac(A/\mathfrak p).
+\]
+Si $f\in A$, su valor $f(\mathfrak p)\in\kappa(\mathfrak p)$ es su imagen bajo $A\to A/\mathfrak p\hookrightarrow\kappa(\mathfrak p)$.
+\end{defi}
+
+\begin{prop}
+\label{prop:s01-f-p-tiene-f-p}
+Para $f\in A$ y $\mathfrak p\in\Spec A$, se tiene $f(\mathfrak p)=0$ si y solo si $f\in\mathfrak p$. El punto es exactamente el conjunto de funciones que se anulan en él.
+\end{prop}
+\begin{proof}
+El valor es la imagen de $f$ en $A/\mathfrak p\hookrightarrow\kappa(\mathfrak p)$; como la segunda flecha es inyectiva, se anula exactamente cuando la clase de $f$ en $A/\mathfrak p$ es cero.
+\end{proof}
+
+El cuerpo de valores puede cambiar con el punto. Por ejemplo, en $\Spec\mathbb Z$, la función $15$ vale $1$ módulo $7$, se anula en $(3)$ y $(5)$, y en el punto genérico $(0)$ toma el valor $15\in\mathbb Q$.
+
+En los cálculos de participación de la clase, $15$ toma el valor $4$ en $(11)$; la función $12$ vale $0$ en $(2)$ y $(3)$, y vale $2$ en $(5)$.
+
+\begin{nota}[Advertencia: los valores no determinan la función]
+Los valores puntuales no siempre determinan un elemento del anillo. En $A=k[\varepsilon]/(\varepsilon^2)$, el elemento $\varepsilon\ne0$ se anula en el único punto de $\Spec A$; véase el \cref{ejem:s01-punto-gordo}. La discrepancia se mide exactamente por el nilradical.
+\end{nota}
+
+\begin{teo}[Caracterización del nilradical]
+\label{teo:s01-caracterizacion-nilradical}
+Para $f\in A$ son equivalentes: (i) $f(\mathfrak p)=0$ para todo $\mathfrak p\in\Spec A$; (ii) $f$ es nilpotente. En particular,
+\[
+\Nil(A)=\set*{f\in A \given f^n=0\text{ para algún }n\ge1}=\bigcap_{\mathfrak p\in\Spec A}\mathfrak p.
+\]
+\end{teo}
+\begin{proof}
+Si $f^n=0$, entonces $f^n\in\mathfrak p$ para todo primo $\mathfrak p$, y la primalidad implica $f\in\mathfrak p$. Para la otra dirección probamos la contrapositiva. Supongamos que $f$ no es nilpotente y consideremos
+\[
+\Sigma=\set*{I\subseteq A \given I\text{ es ideal y }f^n\notin I\text{ para todo }n\ge1}.
+\]
+El conjunto contiene $(0)$. La unión de una cadena de elementos de $\Sigma$ vuelve a pertenecer a $\Sigma$, de modo que Zorn da un ideal maximal $\mathfrak p$ de $\Sigma$. Si $g,h\notin\mathfrak p$, la maximalidad implica que existen $m,n\ge1$ con $f^m\in\mathfrak p+(g)$ y $f^n\in\mathfrak p+(h)$. Al multiplicar estas inclusiones se obtiene $f^{m+n}\in\mathfrak p+(gh)$. Si $gh\in\mathfrak p$, resultaría $f^{m+n}\in\mathfrak p$, contradiciendo la definición de $\Sigma$. Por tanto $gh\notin\mathfrak p$, y $\mathfrak p$ es primo. Además $f\notin\mathfrak p$, así que $f$ no se anula en ese punto.
+\end{proof}
+
+\section{Galería de ejemplos}
+
+\begin{ejem}[Cuerpos]
+\label{ejem:s01-cuerpos}
+Si $k$ es un cuerpo, $\Spec k=\{(0)\}$: un punto con cuerpo residual $k$. Así, $\Spec\mathbb C$ y $\Spec\mathbb F_2$ son el mismo espacio de un punto, aunque sus anillos de funciones sean distintos.
+\end{ejem}
+
+\begin{ejem}[El punto gordo]
+\label{ejem:s01-punto-gordo}
+Sea $A=k[\varepsilon]/(\varepsilon^2)$. Todo primo contiene a $\varepsilon$, pues $\varepsilon^2=0$, y $(\varepsilon)$ es maximal con cociente $k$. Por tanto $\Spec A=\{(\varepsilon)\}$. El punto tiene una sola posición, pero el anillo conserva el infinitesimal $\varepsilon$, que codifica información de primer orden y tangencia.
+\end{ejem}
+
+\begin{ejem}[El espectro de $\mathbb Z$]
+\label{ejem:s01-espectro-z}
+Los primos de $\mathbb Z$ son $(0)$ y $(p)$ para cada primo entero $p$. Entonces
+\[
+\Spec\mathbb Z=\{(0),(2),(3),(5),(7),\ldots\},\qquad
+\kappa((0))=\mathbb Q,\quad \kappa((p))=\mathbb F_p.
+\]
+Se piensa como una curva con un punto genérico $(0)$ y puntos cerrados $(p)$.
+\end{ejem}
+
+\begin{prop}[La recta afín]
+\label{prop:s01-recta-afin}
+Si $k$ es un cuerpo,
+\[
+\Spec k[x]=\{(0)\}\cup\set*{(f) \given f\in k[x]\text{ irreducible mónico}}.
+\]
+Si $k$ es algebraicamente cerrado, los puntos cerrados son $(x-a)$, $a\in k$.
+\end{prop}
+\begin{proof}
+El anillo $k[x]$ es un dominio de ideales principales. Todo primo no nulo es maximal y está generado por un polinomio irreducible; normalizando el generador, lo tomamos mónico. Si $k$ es algebraicamente cerrado, los irreducibles mónicos son precisamente los $x-a$.
+\end{proof}
+
+\begin{ejem}[La recta afín aritmética: $\mathbb Q$ y $\mathbb R$]
+\label{ejem:s01-recta-afin-aritmetica-q-r}
+Sobre cuerpos no algebraicamente cerrados aparecen puntos cerrados aritméticos. En $\Spec\mathbb Q[x]$, el punto $(x^2-2)$ tiene cuerpo residual $\mathbb Q(\sqrt2)$ y representa la pareja de raíces conjugadas $\{\sqrt2,-\sqrt2\}$. En $\Spec\mathbb R[x]$, el punto $(x^2+1)$ tiene cuerpo residual $\mathbb C$; representa una ecuación sin soluciones reales.
+\end{ejem}
+
+\begin{teo}[El plano afín]
+\label{teo:s01-plano-afin}
+Sea $k$ algebraicamente cerrado. Los ideales primos de $k[x,y]$ son exactamente $(0)$, los ideales $(f)$ con $f$ irreducible, y los maximales $(x-a,y-b)$ con $(a,b)\in k^2$.
+\end{teo}
+\begin{proof}
+Los ideales $(0)$, $(f)$ para $f$ irreducible y $(x-a,y-b)$ son primos: los dos primeros porque $k[x,y]$ es un dominio de factorización única, y el cociente por $(x-a,y-b)$ es $k$. Falta mostrar que no hay otros. Sea $\mathfrak p$ un primo no nulo que no sea principal generado por un irreducible. Elijamos un elemento no nulo de $\mathfrak p$ y un factor irreducible $f$ suyo. Por primalidad $f\in\mathfrak p$. Como $\mathfrak p\ne(f)$, existe $g\in\mathfrak p\setminus(f)$; así $f$ y $g$ no tienen factor irreducible común.
+
+Vistos en $k(x)[y]$, el máximo común divisor de $f$ y $g$ es $1$. En efecto, cualquier factor común no constante en $y$ se recuperaría, al limpiar contenido, como un factor común en $k[x,y]$ por el lema de Gauss. El anillo $k(x)[y]$ es euclidiano, así que existen $a,b\in k(x)[y]$ con $af+bg=1$. Al multiplicar por un denominador común no nulo $d\in k[x]$ obtenemos $uf+vg=d$ para ciertos $u,v\in k[x,y]$. Como $f,g\in\mathfrak p$, se sigue que $0\ne d\in\mathfrak p\cap k[x]$.
+
+El polinomio $d$ se factoriza en factores lineales sobre $k$. Como $\mathfrak p$ es primo y $d\in\mathfrak p$, algún $x-a$ pertenece a $\mathfrak p$. En el cociente $k[x,y]/(x-a)\cong k[y]$, el ideal primo $\mathfrak p/(x-a)$ es $(0)$ o está generado por un polinomio irreducible. Puesto que $k$ es algebraicamente cerrado, en el segundo caso es $(y-b)$. El caso $(0)$ daría $\mathfrak p=(x-a)$, que es el primo principal excluido. Por tanto $\mathfrak p=(x-a,y-b)$.
+\end{proof}
+\begin{obs}[La jerarquía del plano afín]
+\label{obs:s01-jerarquia-plano-afin}
+La clasificación exhibe puntos de tres tamaños: puntos clásicos, puntos genéricos de curvas y el punto genérico del plano. Sobre cuerpos no algebraicamente cerrados, los maximales corresponden a órbitas de Galois, como en el \cref{ejem:s01-recta-afin-aritmetica-q-r}.
+\end{obs}
+
+\section{Puntos cerrados, puntos genéricos y especialización}
+
+Para un ideal $I\subseteq A$ escribimos
+\[
+V(I)=\set*{\mathfrak p\in\Spec A \given I\subseteq\mathfrak p}.
+\]
+En la siguiente sesión se verá que estos conjuntos son los cerrados de la topología de Zariski y que la cerradura de $\mathfrak p$ es $V(\mathfrak p)$.
+
+\begin{defi}[Especialización]
+\label{defi:s01-especializacion}
+Para $\mathfrak p,\mathfrak q\in\Spec A$, decimos que $\mathfrak q$ es una especialización de $\mathfrak p$, y escribimos $\mathfrak p\rightsquigarrow\mathfrak q$, si $\mathfrak p\subseteq\mathfrak q$. En este caso $\mathfrak p$ generiza a $\mathfrak q$.
+\end{defi}
+
+Un punto cerrado corresponde a un ideal maximal. El primo $\mathfrak p$ es el punto genérico del cerrado $V(\mathfrak p)$. La contención de ideales se invierte geométricamente: ideales más grandes corresponden a cerrados más pequeños. En $\Spec\mathbb Z$, $(0)\rightsquigarrow(p)$ para todo primo entero $p$.
+
+\section{Ejercicios}
+
+\begin{ejer}
+\label{ejer:s01-espectro-producto-anillos}
+Sea $A=A_1\times A_2$. Demuestra que todo primo de $A$ es de la forma $\mathfrak p_1\times A_2$ o $A_1\times\mathfrak p_2$, y concluye que $\Spec A\cong\Spec A_1\amalg\Spec A_2$. (Sugerencia: considera los idempotentes $e_1=(1,0)$ y $e_2=(0,1)$.)
+\end{ejer}
+\begin{ejer}
+\label{ejer:s01-describe-explicitamente-indicando-puntos-cuerpos}
+Describe explícitamente, indicando puntos y cuerpos residuales, los espectros de $\mathbb Q[x]/(x^2-2)$, $\mathbb R[x]/(x^2+1)$, $\mathbb C[x]/(x^2-1)$, $\mathbb C[x]/(x^2)$ y $\mathbb Z/(60)$.
+\end{ejer}
+\begin{ejer}
+\label{ejer:s01-i-cociente-demuestra-i-inyectivo}
+Sea $\varphi:A\twoheadrightarrow A/I$ el cociente. Demuestra que $\Spec(A/I)\to\Spec A$ es inyectivo con imagen $V(I)$.
+\end{ejer}
+\begin{ejer}
+\label{ejer:s01-n-nilradical-red-n-usando}
+Sea $N$ el nilradical de $A$ y $A_{\mathrm{red}}=A/N$. Usando el \cref{ejer:s01-i-cociente-demuestra-i-inyectivo} y el \cref{teo:s01-caracterizacion-nilradical}, demuestra que $\Spec A_{\mathrm{red}}\to\Spec A$ es una biyección.
+\end{ejer}
+\begin{ejer}
+\label{ejer:s01-encuentra-todos-puntos-z-1}
+Encuentra todos los puntos de $\Spec\mathbb Z[1/6]$. ¿Qué puntos de $\Spec\mathbb Z$ desaparecieron? Formula una conjetura sobre $\Spec A_f$.
+\end{ejer}
+\begin{ejer}
+\label{ejer:s01-sobre-cuerpo-k-no-necesariamente}
+Sobre un cuerpo $k$ no necesariamente algebraicamente cerrado, ¿qué enunciado sustituye a la lista de los primos de $k[x,y]$ del \cref{teo:s01-plano-afin}? Formúlalo para $k=\mathbb F_p$ y da un ejemplo de ideal maximal de $\mathbb F_2[x,y]$ que no sea $(x-a,y-b)$.
+\end{ejer}
+
+\section{Los dígitos son coeficientes de Taylor}
+
+\begin{obs}[El punto gordo, releído]
+\label{obs:s01-punto-gordo-releido}
+El anillo del \cref{ejem:s01-punto-gordo}, $k[\varepsilon]/(\varepsilon^2)=k[x]/(x^2)$, es el truncamiento de Taylor de orden uno: guarda $a_0$ y $a_1$ y descarta los términos de orden superior. Que $\varepsilon\ne0$ se anule en el único punto significa que su término constante es cero; el valor puntual no ve el coeficiente infinitesimal de primer orden.
+\end{obs}
+
+\begin{obs}[Completar es la misma operación de los dos lados]
+\label{obs:s01-completar-misma-operacion-dos-lados}
+Guardar todos los coeficientes a la vez es completar:
+\[
+k[[x-a]]=\varprojlim_n k[x]/(x-a)^n,\qquad
+\mathbb Z_p=\varprojlim_n\mathbb Z/p^n\mathbb Z.
+\]
+Los enteros $p$-ádicos son series de potencias en $p$. Esta analogía explica por qué $\Spec\mathbb Z$ se dibuja como una curva: cada punto tiene vecindades infinitesimales con la estructura de las de un punto de la recta afín.
+\end{obs}
+
+\begin{ejer}
+\label{ejer:s01-calcula-primeros-cuatro-digitos-1}
+Calcula los primeros cuatro dígitos de $-1$ en base $7$, es decir, su desarrollo como elemento de $\mathbb Z_7$. ¿Por qué el desarrollo no termina, si $-1$ es un entero? Compáralo con el desarrollo de $1/(1-x)$ en $k[[x]]$.
+\end{ejer}
+
+\section{Todo ideal de un producto es producto de ideales}
+
+\begin{prop}
+\label{prop:s01-k-ideal-b-existen-ideales}
+Si $K$ es un ideal de $A\times B$, existen ideales $I\subseteq A$ y $J\subseteq B$ tales que $K=I\times J$.
+\end{prop}
+\begin{proof}
+Definamos $I=\set*{a\in A \given (a,0)\in K}$ y $J=\set*{b\in B \given (0,b)\in K}$. Si $(a,b)\in K$, al multiplicar por los idempotentes $(1,0)$ y $(0,1)$ se obtiene $(a,0),(0,b)\in K$, así que $a\in I$ y $b\in J$. Esto prueba $K\subseteq I\times J$. Recíprocamente, si $a\in I$ y $b\in J$, entonces $(a,0),(0,b)\in K$ y su suma $(a,b)$ pertenece a $K$.
+\end{proof}
+\begin{obs}
+\label{obs:s01-prueba-funciona-porque-idempotentes-1}
+La prueba funciona porque los idempotentes $(1,0)$ y $(0,1)$ pertenecen al anillo y separan sus dos factores; son la razón algebraica de la descomposición.
+\end{obs}
+
+\section{Spec y productos: dónde importa que sean finitos}
+
+\begin{teo}[La anti-equivalencia, sin restricciones]
+\label{teo:s01-anti-equivalencia-sin-restricciones}
+El funtor $\Spec:\mathbf{Ring}^{\mathrm{op}}\to\AffSch$ es una equivalencia. Por tanto, para cualquier familia finita o infinita $\{A_i\}_{i\in I}$, $\Spec(\prod_i A_i)$ es el coproducto de los $\Spec A_i$ en $\AffSch$.
+\end{teo}
+
+\begin{nota}[Advertencia]
+La unión disjunta $\coprod_i\Spec A_i$ es el coproducto en $\Sch$. Con infinitos factores no nulos no es afín, pues no es cuasicompacta, así que no es un objeto de $\AffSch$. Lo que falla no es la anti-equivalencia, sino que la inclusión $\AffSch\hookrightarrow\Sch$ no preserva coproductos infinitos.
+\end{nota}
+
+\begin{prop}[La comparación, explícita]
+\label{prop:s01-comparacion-explicita}
+Sea $e_i\in\prod_jA_j$ el idempotente coordenado y $J=(e_i:i\in I)$. El morfismo canónico
+\[
+\Phi:\coprod_i\Spec A_i\longrightarrow\Spec\Bigl(\prod_i A_i\Bigr)
+\]
+es una inmersión abierta con imagen $\bigcup_iD(e_i)=\Spec(\prod_iA_i)\setminus V(J)$. Es un isomorfismo si y solo si $J=(1)$, si y solo si solo hay finitos $A_i\ne0$.
+\end{prop}
+\begin{proof}
+Al localizar en $e_i$ se anulan todas las coordenadas salvo la $i$-ésima, así que $(\prod_jA_j)_{e_i}\cong A_i$ y $\Spec A_i$ se identifica con $D(e_i)$. Los idempotentes distintos son ortogonales, de modo que estos abiertos son disjuntos. La imagen es por tanto su unión, igual al complemento de $V(J)$. En un producto finito la suma de los idempotentes coordenados es $1$; en el producto infinito el ideal que generan consta de elementos de soporte finito y no contiene la unidad constante.
+\end{proof}
+
+\begin{obs}[Por qué la finitud]
+\label{obs:s01-finitud}
+La finitud expresa exactamente la igualdad $\sum_i e_i=1$: los idempotentes parten el espectro y para cubrirlo todo hace falta que sumen la unidad.
+\end{obs}
+
+\begin{obs}
+\label{obs:s01-ejercicio-expuesto-clase-dos-factores}
+El \cref{ejer:s01-espectro-producto-anillos} trata el caso de dos factores, donde $e_1+e_2=1$ y el morfismo sí es un isomorfismo; la \cref{prop:s01-comparacion-explicita} precisa el caso de familias arbitrarias.
+\end{obs}
+
+\section{Los dos puntos de \texorpdfstring{$\Spec \mathbb{C}[x]/(x^2-1)$}{Spec C[x]/(x2 - 1)}}
+
+Por el teorema chino del resto, $\mathbb C[x]/(x^2-1)\cong\mathbb C\times\mathbb C$, de modo que hay dos puntos cerrados, ambos con cuerpo residual $\mathbb C$.
+
+\begin{prop}[Los dos puntos no son intrínsecamente distinguibles]
+\label{prop:s01-dos-puntos-no-son-intrinsecamente}
+Existe un automorfismo de $\mathbb C$-álgebras que intercambia los dos puntos de $\Spec\mathbb C[x]/(x^2-1)$.
+\end{prop}
+\begin{proof}
+El automorfismo inducido por $x\mapsto -x$ intercambia los ideales $(x-1)$ y $(x+1)$.
+\end{proof}
+
+\begin{obs}[Lo que sí quería decir]
+\label{obs:s01-queria-decir}
+El elemento $x$ vale $1$ en uno de los puntos y $-1$ en el otro. El conjunto de dos puntos, por sí solo, no recuerda si provino de $\mathbb C\times\mathbb C$, $\mathbb F_2\times\mathbb F_2$ u otro producto de dos cuerpos; la información está en las funciones y en dónde se evalúan.
+\end{obs}

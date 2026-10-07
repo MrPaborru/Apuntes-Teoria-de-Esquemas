@@ -1,0 +1,155 @@
+\section{Dos promesas pendientes}
+
+La Sesión 1 dejó abierto el cálculo de $\Spec\mathbb Z[1/6]$ y la Sesión 2 anunció que $D(f)$ debería ser el espectro de un anillo. La localización construye ese anillo. También introduce $A_{\mathfrak p}$, que describe el entorno algebraico de un punto.
+
+\section{La localización de un anillo}
+
+\begin{defi}[Localización]
+\label{defi:s03-localizacion}
+Un subconjunto $S\subseteq A$ es multiplicativo si $1\in S$ y es cerrado bajo productos. La localización $S^{-1}A$ consta de fracciones formales $a/s$, sujetas a
+\[
+\frac{a_1}{s_1}=\frac{a_2}{s_2}\quad\Longleftrightarrow\quad
+\exists t\in S\text{ tal que }t(s_2a_1-s_1a_2)=0,
+\]
+con suma y producto como para fracciones ordinarias. El morfismo canónico es $\varphi:A\to S^{-1}A$, $a\mapsto a/1$.
+\end{defi}
+
+\begin{ejem}[Los dos sabores]
+\label{ejem:s03-dos-sabores}
+Las elecciones principales son $S=\{1,f,f^2,\ldots\}$, que da $A_f$, y $S=A\setminus\mathfrak p$, que da $A_{\mathfrak p}$. Si $A$ es dominio y $S=A\setminus\{0\}$, se obtiene $\Frac(A)$. Hay que distinguir $A_{\mathfrak p}$, que invierte lo que no pertenece a $\mathfrak p$, de $A_f$, que invierte las potencias de $f$.
+\end{ejem}
+
+\begin{obs}[El caso no conmutativo]
+\label{obs:s03-caso-no-conmutativo}
+La construcción usa que $A$ es conmutativo. En un anillo no conmutativo, para construir fracciones se requiere una condición de Ore sobre $S$; no toda multiplicativa admite una localización con las propiedades esperadas.
+\end{obs}
+
+\begin{prop}[Propiedad universal de la localización]
+\label{prop:s03-propiedad-universal-localizacion}
+El morfismo $\varphi:A\to S^{-1}A$ es inicial entre los morfismos desde $A$ que envían todos los elementos de $S$ a unidades. Es decir, si $\psi:A\to B$ y cada $\psi(s)$ es unidad, existe un único morfismo $\widetilde\psi:S^{-1}A\to B$ tal que $\widetilde\psi\circ\varphi=\psi$.
+\end{prop}
+\begin{proof}
+La única posibilidad es $\widetilde\psi(a/s)=\psi(a)\psi(s)^{-1}$. Si $a/s=a'/s'$, hay $t\in S$ con $t(s'a-sa')=0$; al aplicar $\psi$ y multiplicar por las unidades correspondientes se verifica que las dos imágenes coinciden. La misma fórmula muestra que $\widetilde\psi$ respeta suma, producto y unidad. La unicidad se sigue de que todo $a/s$ es el producto de $a/1$ por $(s/1)^{-1}$.
+\end{proof}
+
+\begin{obs}[Epimorfismo, no necesariamente monomorfismo]
+\label{obs:s03-epimorfismo-no-necesariamente-monomorfismo}
+La localización $A\to S^{-1}A$ siempre es un epimorfismo en la categoría de anillos: si dos morfismos desde $S^{-1}A$ coinciden después de componer con $\varphi$, coinciden en $a/1$ y en $s/1$, por tanto también en $1/s$ y en todo $a/s$. No tiene por qué ser inyectivo ni sobreyectivo. Por ejemplo, $\mathbb Z\to\mathbb Q$ es epimorfismo pero no sobreyectivo. Un cociente $A\to A/I$ también es epimorfismo. En la categoría de anillos con unidad, los monomorfismos son precisamente los morfismos inyectivos.
+\end{obs}
+
+\begin{nota}[Advertencia]
+La localización $A\to S^{-1}A$ no siempre es inyectiva: puede matar elementos si se invierten divisores de cero.
+\end{nota}
+
+\begin{ejem}[Localizar donde hay divisores de cero]
+\label{ejem:s03-localizar-divisores-cero}
+En $A=k[x,y]/(xy)$, al invertir $x$, la relación $xy=0$ fuerza $y=0$ y se obtiene $A_x\cong k[x]_x$. Geométricamente, $D(x)$ elimina el eje $y$ y el origen del eje $x$.
+\end{ejem}
+
+\section{El teorema de correspondencia}
+
+\begin{teo}[Correspondencia para localizaciones]
+\label{teo:s03-correspondencia-localizaciones}
+Sea $S\subseteq A$ multiplicativo. Las asignaciones
+\[
+\mathfrak q\longmapsto\varphi^{-1}(\mathfrak q),\qquad
+\mathfrak p\longmapsto S^{-1}\mathfrak p
+\]
+son biyecciones inversas entre $\Spec(S^{-1}A)$ y $\set*{\mathfrak p\in\Spec A \given \mathfrak p\cap S=\varnothing}$. Preservan inclusiones en ambos sentidos.
+\end{teo}
+\begin{proof}
+Si $\mathfrak q$ es primo de $S^{-1}A$, su contracción es primo y no corta a $S$, pues cada elemento de $S$ se vuelve unidad. Si $\mathfrak p$ es primo que no corta a $S$, su extensión $S^{-1}\mathfrak p$ es propia y primo: si $(a/s)(b/t)\in S^{-1}\mathfrak p$, algún $u\in S$ satisface $uab\in\mathfrak p$, y como $u\notin\mathfrak p$, se tiene $a\in\mathfrak p$ o $b\in\mathfrak p$. La extensión seguida de contracción devuelve $\mathfrak p$ porque $\mathfrak p$ es saturado respecto de $S$. En sentido contrario, todo ideal $J\subseteq S^{-1}A$ es extendido desde su contracción: si $a/s\in J$, entonces $a/1=(s/1)(a/s)\in J$; y si $a/1\in J$, entonces $a/s=(a/1)(s/1)^{-1}\in J$. Así, la contracción de la extensión de $\mathfrak q$ es $\mathfrak q$.
+\end{proof}
+
+\begin{coro}
+\label{coro:s03-inclusion-inducida-identifica-f-d}
+La inclusión inducida identifica $\Spec A_f$ con $D(f)$, de hecho homeomórficamente.
+\end{coro}
+\begin{proof}
+Para las potencias de $f$, la condición $\mathfrak p\cap S=\varnothing$ equivale a $f\notin\mathfrak p$. La identificación respeta la topología: todo ideal de $A_f$ es extendido, de modo que los cerrados se corresponden con los cerrados relativos de $D(f)$.
+\end{proof}
+
+\begin{coro}
+\label{coro:s03-s-p-p-identifica-q}
+Para $S=A\setminus\mathfrak p$, $\Spec A_{\mathfrak p}$ se identifica con $\set*{\mathfrak q\in\Spec A \given \mathfrak q\subseteq\mathfrak p}$, exactamente los primos que generizan a $\mathfrak p$.
+\end{coro}
+
+\begin{obs}[El epimorfismo se vuelve monomorfismo]
+\label{obs:s03-epimorfismo-vuelve-monomorfismo}
+En particular, $\Spec\mathbb Z[1/6]\cong D(6)=D(2)\cap D(3)$ consta de $(0)$ y de los $(p)$ con $p\ne2,3$: desaparecen $(2)$ y $(3)$. Más generalmente, $\Spec A_f$ elimina los primos que contienen $f$. El mapa inducido por el epimorfismo $A\to S^{-1}A$ es inyectivo sobre su imagen, un monomorfismo de espacios topológicos.
+\end{obs}
+
+\section{Anillos locales}
+
+\begin{defi}
+\label{defi:s03-anillo-conmutativo-unidad-local-tiene}
+Un anillo conmutativo con unidad es local si tiene un único ideal maximal.
+\end{defi}
+
+\begin{prop}
+\label{prop:s03-p-anillo-p-local-unico}
+Para $\mathfrak p\in\Spec A$, el anillo $A_{\mathfrak p}$ es local y su único ideal maximal es $\mathfrak pA_{\mathfrak p}$.
+\end{prop}
+\begin{proof}
+Por la correspondencia para localizaciones, los primos de $A_{\mathfrak p}$ corresponden a los primos $\mathfrak q\subseteq\mathfrak p$. El ideal extendido $\mathfrak pA_{\mathfrak p}$ es maximal, pues su cociente es el cuerpo $\Frac(A/\mathfrak p)$. Todo maximal de $A_{\mathfrak p}$ debe corresponder a un primo de $A$ contenido en $\mathfrak p$ maximal entre tales primos; necesariamente es $\mathfrak p$. Así el maximal es único.
+\end{proof}
+
+\begin{obs}[El cuerpo residual]
+\label{obs:s03-cuerpo-residual}
+El cociente $A_{\mathfrak p}/\mathfrak pA_{\mathfrak p}$ es $\Frac(A/\mathfrak p)=\kappa(\mathfrak p)$, el cuerpo residual del punto.
+\end{obs}
+
+\begin{ejem}[Un germen de curva suave]
+\label{ejem:s03-germen-curva-suave}
+Sea $A=k[x]$ y $\mathfrak p=(x)$. Los primos de $A_{\mathfrak p}$ son $(0)\subset(x)A_{\mathfrak p}$: el germen local de la recta en el origen, con una cadena de especialización de longitud uno.
+\end{ejem}
+
+\begin{ejem}[El mismo germen en teoría de números]
+\label{ejem:s03-mismo-germen-teoria-numeros}
+Para $A=\mathbb Z$ y $\mathfrak p=(p)$, los primos de $\mathbb Z_{(p)}$ son $(0)\subset(p)\mathbb Z_{(p)}$. Es el análogo aritmético del \cref{ejem:s03-germen-curva-suave}.
+\end{ejem}
+
+\begin{nota}[Advertencia: no confundir con los $p$-ádicos]
+$\mathbb Z_{(p)}$ es una localización, mientras que $\mathbb Z_p$ es la completación $p$-ádica. Se relacionan mediante una inclusión densa, pero no son el mismo anillo. Del mismo modo, $\mathbb Q=\mathbb Z_{(0)}$ no es $\mathbb Q_p$.
+\end{nota}
+
+\section{Hacia las funciones regulares}
+
+\begin{defi}[Función regular en un punto]
+\label{defi:s03-funcion-regular-punto}
+Sea $\mathfrak p\in\Spec A$. Un elemento de $A_{\mathfrak p}$ es una función regular en $\mathfrak p$: una fracción $a/s$ con $s\notin\mathfrak p$.
+\end{defi}
+
+\begin{obs}
+\label{obs:s03-fraccion-s-tiene-sentido-todo}
+La fracción $a/s$ tiene sentido en todo el abierto $D(s)\ni\mathfrak p$, con el mismo denominador para cada punto del abierto. Este comportamiento local es el que permitirá pegar información en una gavilla.
+\end{obs}
+
+El espectro de $\mathbb Z[1/p]$ es $D(p)$, todo $\Spec\mathbb Z$ salvo $(p)$; el de $\mathbb Z_{(p)}$ retiene solo $(0)$ y $(p)$. En el otro extremo, $\mathbb Z_{(0)}=\mathbb Q$ tiene un solo punto, el genérico.
+
+\section{Ejercicios}
+
+\begin{ejer}
+\label{ejer:s03-describe-isomorfismo-f-t-tf}
+Describe un isomorfismo $A_f\cong A[t]/(tf-1)$.
+\end{ejer}
+\begin{ejer}
+\label{ejer:s03-demuestra-morfismo-s-1-inyectivo}
+Demuestra que el morfismo $A\to S^{-1}A$ es inyectivo si y solo si cada elemento de $S$ es no divisor de cero en $A$.
+\end{ejer}
+\begin{ejer}
+\label{ejer:s03-completa-ejemplo-demuestra-k-x}
+Completa el ejemplo y demuestra que $(k[x,y]/(xy))_x\cong k[x]_x$, con $y\mapsto0$.
+\end{ejer}
+\begin{ejer}
+\label{ejer:s03-demuestra-todo-ideal-j-s}
+Demuestra que para todo ideal $J\subseteq S^{-1}A$ se tiene $J=(\varphi^{-1}(J))^e$. Deduce que la biyección del \cref{coro:s03-inclusion-inducida-identifica-f-d} es un homeomorfismo, comparando $V(I\cdot A_f)$ con $V(I)\cap D(f)$ para todo ideal $I\subseteq A$.
+\end{ejer}
+\begin{ejer}
+\label{ejer:s03-anillos-z-2-z-2}
+Los anillos $\mathbb Z_{(2)}$ y $\mathbb Z_2$ son anillos de valuación discreta con cuerpo residual $\mathbb F_2$ y espectros de la misma forma. ¿Son el mismo anillo? Da un elemento de $\mathbb Z_2$ que no esté en $\mathbb Z_{(2)}$ y explica por qué $\mathbb Z_{(2)}\subsetneq\mathbb Z_2$.
+\end{ejer}
+\begin{ejer}
+\label{ejer:s03-sean-p-q-primos-construye}
+Sean $\mathfrak p\subseteq\mathfrak q$ primos de $A$. Construye un morfismo natural $A_{\mathfrak q}\to A_{\mathfrak p}$ usando la propiedad universal de la localización.
+\end{ejer}

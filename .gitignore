@@ -1,0 +1,46 @@
+# Archivos generados por la compilación de LaTeX. Solo conservo el PDF final, y los auxiliares se mandan a build/ para no ensuciar el directorio principal.
+
+# Auxiliares de LaTeX
+*.aux
+*.log
+*.toc
+*.lof
+*.lot
+*.loe
+*.out
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.idx
+*.ind
+*.ilg
+*.nlo
+*.nls
+*.nav
+*.snm
+*.vrb
+*.xdv
+*.bcf-SAVE-ERROR
+*.bbl-SAVE-ERROR
+
+# Salida del documento 
+out.txt
+
+# Archivos de respaldo / temporales de editores
+*~
+*.bak
+*.backup
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Overleaf
+latexmk.out
+*.zip
+

@@ -1,0 +1,205 @@
+\section{\texorpdfstring{De vuelta a “pegar los $A_f$”}{De vuelta a pegar los Af}}
+
+La sesión retoma la observación de que cada anillo local $A_{\mathfrak p}$ ve funciones definidas en vecindades de $\mathfrak p$. Antes de formalizar el pegado, se completa el material sobre localizaciones.
+
+\begin{defi}[Localización de un módulo]
+\label{defi:s04-localizacion-modulo}
+Si $M$ es un $A$-módulo y $S\subseteq A$ es multiplicativo, $S^{-1}M$ está formado por fracciones $m/s$, con la relación $m_1/s_1=m_2/s_2$ si existe $t\in S$ tal que $t(s_2m_1-s_1m_2)=0$. Es un módulo sobre $S^{-1}A$.
+\end{defi}
+
+\begin{lema}[Localizar es exacto]
+\label{lema:s04-localizar-exacto}
+La localización es exacta: si $0\to M'\to M\to M''\to0$ es exacta, también lo es $0\to S^{-1}M'\to S^{-1}M\to S^{-1}M''\to0$.
+\end{lema}
+\begin{proof}
+La localización conmuta con cocientes: $S^{-1}(M/N)\cong S^{-1}M/S^{-1}N$, pues las clases de $m/s$ módulo $S^{-1}N$ son exactamente las fracciones de las clases de $m$ en $M/N$. Si $M'\to M$ es inyectivo, la clase de $m'/s$ que se anula en $S^{-1}M$ satisface $tm'=0$ en $M$ para algún $t\in S$, y por inyectividad también en $M'$. Así $S^{-1}M'\to S^{-1}M$ es inyectivo. Junto con la compatibilidad con cocientes, esto prueba la exactitud.
+\end{proof}
+
+\begin{lema}
+\label{lema:s04-s-p-entonces-s-1}
+Si $S=A\setminus\mathfrak p$, entonces $S^{-1}\mathfrak p=\mathfrak pA_{\mathfrak p}$ dentro de $A_{\mathfrak p}$.
+\end{lema}
+\begin{proof}
+Ambos ideales consisten en las fracciones $a/s$ con $a\in\mathfrak p$ y $s\notin\mathfrak p$: al extender $\mathfrak p$ se invierten precisamente los elementos fuera de $\mathfrak p$.
+\end{proof}
+
+\begin{prop}
+\label{prop:s04-todo-primo-p-p-pa}
+Para todo primo $\mathfrak p$, $A_{\mathfrak p}/\mathfrak pA_{\mathfrak p}\cong\Frac(A/\mathfrak p)=\kappa(\mathfrak p)$.
+\end{prop}
+\begin{proof}
+Al cocientar por $\mathfrak pA_{\mathfrak p}$ se obtiene la localización de $A/\mathfrak p$ en todas sus clases no nulas, que es su cuerpo de fracciones.
+\end{proof}
+
+\section{El ejemplo universal: funciones suaves}
+
+El ejemplo guía es el de funciones suaves sobre un espacio topológico $X$: a cada abierto $U$ se le asigna el conjunto $\mathcal O(U)$ de funciones suaves $U\to\mathbb R$, con restricciones por inclusión. Las funciones quedan determinadas por sus restricciones locales y las funciones compatibles en traslapes se pegan de manera única.
+
+\begin{obs}
+\label{obs:s04-argumento-no-usa-funciones-sean}
+El argumento no usa que las funciones sean suaves: también vale para funciones continuas, holomorfas o reales cualesquiera. Estas familias comparten la estructura que axiomatizaremos.
+\end{obs}
+
+\begin{ejem}[El germen de una función suave y su tallo]
+\label{ejem:s04-germen-funcion-suave-tallo}
+Fijemos $p\in X$. Dos funciones suaves definidas cerca de $p$ representan el mismo germen si coinciden en alguna vecindad de $p$. El tallo $\mathcal O_p$ consta de pares $(f,U)$, con $p\in U$, módulo esa relación. Es un anillo local: la evaluación $[f]\mapsto f(p)$ tiene como núcleo el único ideal maximal de los gérmenes que se anulan en $p$.
+\end{ejem}
+
+\section{Pregavillas}
+
+\begin{defi}[Pregavilla]
+\label{defi:s04-pregavilla}
+Una pregavilla de conjuntos $\mathcal F$ en $X$ asigna un conjunto $\mathcal F(U)$ a cada abierto $U\subseteq X$ y, a cada inclusión $U\subseteq V$, un mapa de restricción $\res_{V,U}:\mathcal F(V)\to\mathcal F(U)$. Se requiere que $\res_{U,U}=\id$ y que las restricciones sean compatibles con composición.
+\end{defi}
+
+\begin{obs}[Descripción categórica]
+\label{obs:s04-descripcion-categorica}
+Una pregavilla equivale a un funtor contravariante de la categoría de abiertos de $X$ a la categoría de conjuntos.
+\end{obs}
+
+\begin{ejem}[Pregavilla constante]
+\label{ejem:s04-pregavilla-constante}
+Para un conjunto $S$, la asignación $\mathcal F(U)=S$ con todas las restricciones iguales a la identidad es una pregavilla.
+\end{ejem}
+
+\section{Gavillas: los dos axiomas}
+
+\begin{defi}[Gavilla]
+\label{defi:s04-gavilla}
+Una pregavilla $\mathcal F$ es una gavilla si para todo abierto $U$ y todo cubrimiento abierto $U=\bigcup_iU_i$ satisface:
+\begin{enumerate}
+\item \textbf{Identidad:} si $s,t\in\mathcal F(U)$ restringen a la misma sección en cada $U_i$, entonces $s=t$.
+\item \textbf{Pegado:} si $s_i\in\mathcal F(U_i)$ y $s_i|_{U_i\cap U_j}=s_j|_{U_i\cap U_j}$ para todos $i,j$, existe una sección $s\in\mathcal F(U)$ que restringe a $s_i$ en cada $U_i$.
+\end{enumerate}
+\end{defi}
+
+\begin{obs}
+\label{obs:s04-identidad-dice-mas-manera-pegar}
+Identidad dice que hay a lo más una manera de pegar y pegado que hay al menos una; juntos dan existencia y unicidad. Una pregavilla que satisface identidad se llama separada.
+\end{obs}
+
+\begin{ejem}[Las funciones suaves forman una gavilla]
+\label{ejem:s04-funciones-suaves-forman-gavilla}
+Las funciones suaves (y también las continuas u holomorfas) forman una gavilla: identidad y pegado se verifican localmente y permiten recuperar las secciones globales.
+\end{ejem}
+
+\begin{ejem}[La gavilla constante]
+\label{ejem:s04-gavilla-constante}
+La gavilla constante asociada a un conjunto discreto $S$ asigna las funciones localmente constantes con valores en $S$. En general difiere de la pregavilla constante, que no satisface pegado.
+\end{ejem}
+
+\begin{ejem}[La gavilla rascacielos]
+\label{ejem:s04-gavilla-rascacielos}
+Fijados $p\in X$ y un conjunto $S$, se define $i_{p,*}S(U)=S$ si $p\in U$ y $i_{p,*}S(U)=\{*\}$ si $p\notin U$.
+\end{ejem}
+
+\section{Tallos y gérmenes, en general}
+
+\begin{defi}[Tallo]
+\label{defi:s04-tallo}
+Si $\mathcal F$ es una pregavilla y $p\in X$, el tallo es
+\[
+\mathcal F_p=\set*{(s,U) \given p\in U,\ s\in\mathcal F(U)}/\sim,
+\]
+donde $(s,U)\sim(t,V)$ si existe un abierto $W$ con $p\in W\subseteq U\cap V$ tal que $s|_W=t|_W$. La clase de $(s,U)$ es el germen de $s$ en $p$.
+\end{defi}
+
+\begin{obs}[La definición como colímite]
+\label{obs:s04-definicion-colimite}
+Equivalentemente, $\mathcal F_p=\colim_{U\ni p}\mathcal F(U)$ sobre las vecindades ordenadas por restricción. La categoría es filtrada porque la intersección de dos vecindades vuelve a ser una vecindad.
+\end{obs}
+
+\begin{nota}[Advertencia]
+Para una gavilla general no hay necesariamente una evaluación a un conjunto fijo: en su definición no aparecen valores puntuales.
+\end{nota}
+
+\begin{obs}[Evaluación para el tallo de la gavilla estructural]
+\label{obs:s04-evaluacion-tallo-gavilla-estructural}
+En $\Spec A$ habrá un mapa $A_{\mathfrak p}\to\kappa(\mathfrak p)$; el cuerpo de valores depende del punto. Si $a/s=a'/s'$ en $A_{\mathfrak p}$, existe $u\notin\mathfrak p$ con $u(s'a-sa')=0$; al pasar a $A/\mathfrak p$ se puede cancelar $u$, así que la evaluación está bien definida.
+\end{obs}
+
+\section{Secciones determinadas por sus gérmenes}
+
+\begin{teo}
+\label{teo:s04-f-gavilla-todo-abierto-u}
+Si $\mathcal F$ es una gavilla, para todo abierto $U$ el mapa $\mathcal F(U)\to\prod_{p\in U}\mathcal F_p$, $s\mapsto(s_p)_{p\in U}$, es inyectivo.
+\end{teo}
+\begin{proof}
+Si $s,t\in\mathcal F(U)$ tienen el mismo germen en cada punto, para cada $p$ hay una vecindad $W_p\subseteq U$ donde coinciden. Las $W_p$ cubren $U$, así que el axioma de identidad implica $s=t$. Solo se usa identidad, por lo que vale también para pregavillas separadas.
+\end{proof}
+
+\begin{obs}[El recíproco y el nombre “gavilla”]
+\label{obs:s04-reciproco-nombre-gavilla}
+La existencia de una sección que pegue gérmenes localmente compatibles requiere el axioma de pegado. Las secciones son tallos atados de manera compatible; de ahí viene el nombre.
+\end{obs}
+
+\section{Morfismos de (pre)gavillas}
+
+\begin{defi}[Morfismo de pregavillas]
+\label{defi:s04-morfismo-pregavillas}
+Un morfismo $\varphi:\mathcal F\to\mathcal G$ en $X$ es una familia de mapas $\varphi(U):\mathcal F(U)\to\mathcal G(U)$ compatible con las restricciones.
+\end{defi}
+
+\begin{ejem}
+\label{ejem:s04-inclusion-funciones-suaves-funciones-continuas}
+La inclusión de funciones suaves en funciones continuas es un morfismo de gavillas.
+\end{ejem}
+
+\begin{prop}[Un morfismo induce mapas de tallos]
+\label{prop:s04-morfismo-induce-mapas-tallos}
+Todo morfismo $\varphi:\mathcal F\to\mathcal G$ induce para cada $p\in X$ un mapa $\varphi_p:\mathcal F_p\to\mathcal G_p$, $[s,U]\mapsto[\varphi(U)(s),U]$.
+\end{prop}
+\begin{proof}
+La compatibilidad con las restricciones asegura que la imagen no depende del representante del germen.
+\end{proof}
+
+\section{Gavillas de anillos y de módulos}
+
+\begin{defi}[Espacio anillado]
+\label{defi:s04-espacio-anillado}
+Un espacio anillado es un par $(X,\mathcal O_X)$ donde $\mathcal O_X$ es una gavilla de anillos, llamada gavilla estructural. Una gavilla $\mathcal F$ es un $\mathcal O_X$-módulo si cada $\mathcal F(U)$ es un $\mathcal O_X(U)$-módulo y las restricciones respetan la acción.
+\end{defi}
+
+\begin{obs}
+\label{obs:s04-estructura-necesaria-construir-o-partir}
+Esta es la estructura necesaria para construir $\mathcal O_{\Spec A}$ a partir de las localizaciones $A_f$ en los abiertos básicos.
+\end{obs}
+
+\section{Hacia la gavilla estructural}
+
+La meta siguiente es construir $\mathcal O_{\Spec A}$ a partir de $A_f$ en los abiertos básicos $D(f)$, y verificar que dichos datos se pegan en una gavilla.
+\[
+A_{\mathfrak p}/\mathfrak pA_{\mathfrak p}\cong\Frac(A/\mathfrak p)=\kappa(\mathfrak p).
+\]
+La igualdad identifica el cuerpo residual del anillo local con el cuerpo residual ya asociado al punto en la Sesión 1.
+
+\section{Ejercicios}
+
+\begin{ejer}
+\label{ejer:s04-ejemplo-funciones-suaves-demuestra-ideal}
+En el \cref{ejem:s04-funciones-suaves-forman-gavilla}, demuestra que el ideal de gérmenes que se anulan en $p$ es el único ideal maximal del tallo $\mathcal O_p$.
+\end{ejer}
+\begin{ejer}
+\label{ejer:s04-x-variedad-diferenciable-p-x}
+Si $X$ es una variedad diferenciable y $p\in X$, describe $\mathfrak m_p/\mathfrak m_p^2$ en términos del cálculo diferencial usual.
+\end{ejer}
+\begin{ejer}
+\label{ejer:s04-muestra-funciones-acotadas-r-funciones}
+Muestra que las funciones acotadas en $\mathbb R$, y las funciones holomorfas en $\mathbb C$ que admiten una raíz cuadrada holomorfa local, forman pregavillas pero no gavillas.
+\end{ejer}
+\begin{ejer}
+\label{ejer:s04-mapas-continuos-u-espacio-topologico}
+Los mapas continuos $U\to Y$, para $Y$ un espacio topológico fijo, forman una gavilla de conjuntos en $X$. Si $Y$ es un grupo topológico, verifica que se obtiene una gavilla de grupos.
+\end{ejer}
+\begin{ejer}
+\label{ejer:s04-nucleo-morfismo-pregavillas-definido-abierto}
+El núcleo de un morfismo de pregavillas, definido abierto por abierto, es una pregavilla. Demuestra que si las dos pregavillas son gavillas, el núcleo también es una gavilla.
+\end{ejer}
+\begin{ejer}
+\label{ejer:s04-sean-x-c-o-x}
+Sean $X=\mathbb C$, $\mathcal O_X$ la gavilla de funciones holomorfas y $\mathcal O_X^*$ la gavilla de funciones holomorfas que no se anulan. El mapa $\exp:\mathcal O_X\to\mathcal O_X^*$, $f\mapsto e^{2\pi if}$, es sobreyectivo en cada tallo, pero no en cada abierto. Encuentra un abierto $U$ y una sección de $\mathcal O_X^*(U)$ que no esté en la imagen de $\mathcal O_X(U)$.
+\end{ejer}
+\begin{ejer}[Para pensar; no se demuestra en clase]
+\label{ejer:s04-pensar-no-demuestra-clase}
+Un morfismo de gavillas es un isomorfismo si y solo si lo es en todos los tallos. La afirmación es falsa para pregavillas generales.
+\end{ejer}

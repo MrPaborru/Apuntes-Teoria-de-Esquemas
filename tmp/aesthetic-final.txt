@@ -1,0 +1,1623 @@
+       Centro de Investigación en Matemáticas, A.C.
+
+
+
+
+Geometría Algebraica I:
+ “Teoría de Esquemas”
+
+
+
+       1ª–24ª
+        sesión
+
+             Docente:
+  Dr. Jesús Rogelio Pérez Buendía
+
+             Alumno:
+      Pablo Jair Aranda Pérez
+
+
+
+
+              Mérida, Yuc., 7 de octubre de 2026. E-mail: pablo_p1@live.com
+                                              Índice general
+Introducción
+1.   La idea y el alcance del curso
+2.   Lecturas y prerrequisitos
+
+1ª   Sesión: Motivación y el conjunto Spec 𝐴
+1.   ¿Por qué esquemas? De las variedades clásicas a los anillos
+2.   El espectro primo como conjunto
+3.   Los elementos de 𝐴 como funciones sobre Spec 𝐴
+4.   Galería de ejemplos
+5.   Puntos cerrados, puntos genéricos y especialización
+6.   Ejercicios
+1.   Los dígitos son coeficientes de Taylor
+1.   Todo ideal de un producto es producto de ideales
+2.   Spec y productos: dónde importa que sean finitos
+3.   Los dos puntos de Spec C[𝑥]/(𝑥 2 − 1)
+
+2ª   Sesión: La topología de Zariski
+1.   La topología de Zariski
+2.   Cerradura de puntos, puntos genéricos y especialización
+3.   Los abiertos distinguidos
+4.   Cuasicompacidad
+5.   Ejercicios
+
+3ª   Sesión: Localización y funciones regulares
+1.   Dos promesas pendientes
+2.   La localización de un anillo
+3.   El teorema de correspondencia
+4.   Anillos locales
+5.   Hacia las funciones regulares
+6.   Ejercicios
+
+
+
+                                              1
+4ª    Sesión: Pregavillas y gavillas
+1.    De vuelta a “pegar los 𝐴 𝑓 ”
+2.    El ejemplo universal: funciones suaves
+3.    Pregavillas
+4.    Gavillas: los dos axiomas
+5.    Tallos y gérmenes, en general
+6.    Secciones determinadas por sus gérmenes
+7.    Morfismos de (pre)gavillas
+8.    Gavillas de anillos y de módulos
+9.    Hacia la gavilla estructural
+10.   Ejercicios
+
+5ª    Sesión: La gavilla estructural
+1.    De vuelta al problema pendiente
+2.    Gavillas sobre una base
+3.    El teorema de extensión
+4.    De vuelta a Spec A: los básicos son base
+5.    El teorema prometido: 𝐴 𝑓  OSpec 𝐴 (𝐷 (𝑓 ))
+6.    El corazón técnico: identidad y pegado para {𝐴 𝑓 }
+7.    La gavilla estructural
+8.    Adelanto: gavillas de módulos
+9.    Ejercicios
+
+6ª    Sesión: Esquemas afines y la equivalencia contravariante
+1.    De vuelta al puente de la Sesión 5
+2.    Morfismos de espacios (localmente) anillados
+3.    Spec es functor contravariante a espacios localmente anillados
+4.    El teorema central: plena fidelidad de Spec
+5.    La equivalencia contravariante
+6.    Ejercicios
+
+7ª    Sesión: Definición de esquema y pegado
+1.    De vuelta al cierre de la Sesión 6
+2.    Restricción de un espacio localmente anillado a un abierto
+3.    Esquemas
+4.    Abiertos afines
+
+
+                                               2
+5.   El teorema central: el Lema de Pegado
+6.   Consistencia: pegado y cubierta afín
+7.   Ejercicios
+1.   Lo que traemos de la Sesión 7a
+2.   Datos de pegado
+3.   El Lema de Pegado
+4.   El pegado como colímite
+5.   Consistencia: pegado y cubierta
+6.   Un ejemplo: la recta con origen doble
+7.   Ejercicios
+Referencias
+
+
+
+
+                                             3
+                                                                                 I   ntroducción
+
+
+
+
+1.    La idea y el alcance del curso
+    La teoría de esquemas es el lenguaje en el que la geometría algebraica moderna pone en
+correspondencia objetos geométricos y anillos conmutativos. La idea central, que guiará el curso,
+asocia a cada anillo 𝐴 su espectro primo Spec 𝐴. Así, incluso Spec Z se interpreta geométricamente
+y los problemas aritméticos pueden estudiarse con herramientas de geometría. Los puntos no serán
+únicamente soluciones sobre un cuerpo algebraicamente cerrado: serán todos los ideales primos,
+incluidos los puntos genéricos y los puntos que reflejan información aritmética.
+    La perspectiva aritmética estará presente desde el comienzo mediante ejemplos sobre Z, cuerpos
+finitos, anillos locales y reducción módulo primos. El curso parte de los esquemas afines y su gavilla
+estructural; después construye esquemas generales por pegado y estudia sus morfismos y fibras. Más
+adelante aborda dimensión, regularidad, gavillas cuasicoherentes y coherentes, gavillas invertibles,
+divisores y la construcción Proj. El programa concluye con curvas y ejemplos aritméticos. El
+programa académico distribuye estos temas en 24 sesiones y deja cohomología avanzada, planitud,
+geometría étale, descenso y stacks para un segundo curso.
+    El hilo conceptual inicial puede resumirse así: los ideales primos de 𝐴 son los puntos de
+Spec 𝐴; la topología de Zariski describe sus especializaciones; las localizaciones 𝐴 𝑓 y 𝐴𝔭 describen
+funciones en abiertos y gérmenes; la gavilla estructural reúne esa información local; y el pegado
+de abiertos afines produce esquemas que ya no tienen por qué ser afines.
+
+
+2.    Lecturas y prerrequisitos
+    Los textos principales indicados en el programa son The Rising Sea, de Ravi Vakil, y Alge-
+braic Geometry and Arithmetic Curves, de Qing Liu. Como referencias complementarias aparecen
+Hartshorne, Görtz–Wedhorn, Mumford, Shafarevich, Atiyah–Macdonald, Eisenbud, el Stacks Pro-
+ject y EGA. Para las primeras sesiones se espera familiaridad con ideales primos y maximales,
+localización, módulos, productos tensoriales, anillos noetherianos, dimensión de Krull, el lema
+de Nakayama y los teoremas de going-up y going-down; también se usa topología general bási-
+ca. Las nociones de categorías, funtores, transformaciones naturales y propiedades universales se
+incorporan cuando hacen falta.
+Nota. Este capítulo recoge la introducción temática del programa y de la presentación de la Sesión
+0. Las indicaciones de inscripción, plataformas y evaluación pertenecen a la organización del curso
+y no forman parte del desarrollo matemático de los apuntes.
+
+
+
+
+                                                  4
+Centro de Investigación
+en Matemáticas, A.C.
+
+
+
+
+                               SESIÓN
+                                        1
+              Motivación y el conjunto Spec 𝐴
+                        Teoría de Esquemas
+Pablo J. Aranda P.                          Teoría de Esquemas                                  Sesión 1 de 24
+
+
+1.     ¿Por qué esquemas? De las variedades clásicas a los anillos
+     La geometría algebraica clásica estudia conjuntos de soluciones de ecuaciones polinomiales
+sobre un cuerpo. Si 𝑘 es algebraicamente cerrado y 𝐼 ⊆ 𝑘 [𝑥 1, . . . , 𝑥𝑛 ] es un ideal, los puntos de
+𝑉 (𝐼 ) corresponden a ideales maximales del anillo de coordenadas: 𝑎 = (𝑎 1, . . . , 𝑎𝑛 ) corresponde a
+𝔪𝑎 = (𝑥 1 − 𝑎 1, . . . , 𝑥𝑛 − 𝑎𝑛 ).
+Teorema 1.1 (Nullstellensatz de Hilbert (enunciado)). La asignación 𝑎 = (𝑎 1, . . . , 𝑎𝑛 ) ↦→ 𝔪𝑎 =
+(𝑥 1 − 𝑎 1, . . . , 𝑥𝑛 − 𝑎𝑛 ) induce una biyección entre 𝑉 (𝐼 ) y los ideales maximales de 𝑘 [𝑥 1, . . . , 𝑥𝑛 ]/𝐼 .
+Además, 𝑓 se anula en todo 𝑉 (𝐼 ) si y solo si 𝑓 𝑚 ∈ 𝐼 para algún 𝑚 ≥ 1.
+    Esta correspondencia es el punto de partida, pero presenta cuatro limitaciones que motivan el
+paso a esquemas: sobre un cuerpo no algebraicamente cerrado algunas ecuaciones sin soluciones
+visibles esconden geometría (por ejemplo, 𝑥 2 + 1 = 0 sobre R); los anillos aritméticos como Z
+no son cuerpos; el conjunto de puntos pierde multiplicidades e información infinitesimal; y una
+subvariedad irreducible, como una curva dentro de una superficie, todavía no aparece como un
+punto.
+    La propuesta de Grothendieck consiste en asociar un espacio geométrico a todo anillo con-
+mutativo con unidad, no solo a anillos de polinomios sobre cuerpos. Sus puntos serán los ideales
+primos y sus funciones los elementos del anillo. La elección de primos, en vez de solo maximales,
+también garantiza la funtorialidad.
+
+
+2.     El espectro primo como conjunto
+Definición 2.1 (Espectro primo). Sea 𝐴 un anillo conmutativo con unidad. Su espectro primo es
+                                 Spec 𝐴 = {𝔭 ⊆ 𝐴 : 𝔭 es un ideal primo}.
+Escribiremos 𝔭 cuando pensemos algebraicamente y 𝑥 ∈ Spec 𝐴 cuando pensemos geométrica-
+mente; en este último caso 𝔭𝑥 denota el primo correspondiente.
+  Recordemos que un ideal 𝔭 es primo si es propio y 𝑓 𝑔 ∈ 𝔭 implica 𝑓 ∈ 𝔭 o 𝑔 ∈ 𝔭; equivalente-
+mente, 𝐴/𝔭 es un dominio entero.
+Lema 2.2 (Preimagen de un primo). Si 𝜑 : 𝐴 → 𝐵 es un morfismo de anillos y 𝔮 ∈ Spec 𝐵, entonces
+𝜑 −1 (𝔮) ∈ Spec 𝐴. Por tanto, 𝜑 induce un mapa
+                             Spec 𝜑 : Spec 𝐵 −→ Spec 𝐴,             𝔮 ↦−→ 𝜑 −1 (𝔮).
+                                       𝜑
+Demostración. El compuesto 𝐴 →  − 𝐵 → 𝐵/𝔮 tiene núcleo 𝜑 −1 (𝔮), así que induce una inyección
+𝐴/𝜑 −1 (𝔮) ↩→ 𝐵/𝔮. Como un subanillo de un dominio es un dominio, el cociente de la izquierda es
+un dominio. Además, 𝜑 −1 (𝔮) es propio: si contuviera a 1, entonces 1 = 𝜑 (1) ∈ 𝔮, contradicción.
+Luego es primo.                                                                                □
+Observación 2.3 (Por qué primos y no maximales). Con maximales la construcción no funciona: la
+inclusión Z ↩→ Q lleva por preimagen el maximal (0) ⊂ Q al primo (0) ⊂ Z, que no es maximal.
+En cambio, la preimagen de un primo siempre es primo. Los primos no maximales también serán
+necesarios para representar puntos genéricos.
+
+                                                        6
+Pablo J. Aranda P.                     Teoría de Esquemas                            Sesión 1 de 24
+
+
+Teorema 2.4 (El espectro es vacío). Se tiene Spec 𝐴 = ∅ si y solo si 𝐴 = 0.
+Demostración. Si 𝐴 = 0, el ideal (0) = 𝐴 no es propio, así que no hay ideales primos. Supongamos
+ahora 𝐴 ≠ 0. Considérese el conjunto Σ de ideales propios de 𝐴, ordenado por inclusión. Es no
+vacío pues contiene a (0). La unión de una cadena de ideales propios sigue siendo un ideal propio:
+si contuviera a 1, alguno de los ideales de la cadena ya contendría a 1. Por el lema de Zorn, Σ tiene
+un elemento maximal, que es un ideal maximal de 𝐴 y, en particular, primo.                          □
+
+
+3.    Los elementos de 𝐴 como funciones sobre Spec 𝐴
+    Para interpretar 𝑓 ∈ 𝐴 como función en Spec 𝐴, primero especificamos el cuerpo donde toma
+su valor en cada punto.
+Definición 3.1 (Cuerpo residual y evaluación). Para 𝔭 ∈ Spec 𝐴, definimos el cuerpo residual
+                                        𝜅 (𝔭) = Frac(𝐴/𝔭).
+Si 𝑓 ∈ 𝐴, su valor 𝑓 (𝔭) ∈ 𝜅 (𝔭) es su imagen bajo 𝐴 → 𝐴/𝔭 ↩→ 𝜅 (𝔭).
+Proposición 3.2. Para 𝑓 ∈ 𝐴 y 𝔭 ∈ Spec 𝐴, se tiene 𝑓 (𝔭) = 0 si y solo si 𝑓 ∈ 𝔭. El punto es
+exactamente el conjunto de funciones que se anulan en él.
+Demostración. El valor es la imagen de 𝑓 en 𝐴/𝔭 ↩→ 𝜅 (𝔭); como la segunda flecha es inyectiva,
+se anula exactamente cuando la clase de 𝑓 en 𝐴/𝔭 es cero.                                   □
+    El cuerpo de valores puede cambiar con el punto. Por ejemplo, en Spec Z, la función 15 vale 1
+módulo 7, se anula en (3) y (5), y en el punto genérico (0) toma el valor 15 ∈ Q.
+    En los cálculos de participación de la clase, 15 toma el valor 4 en (11); la función 12 vale 0 en
+(2) y (3), y vale 2 en (5).
+Nota (Advertencia: los valores no determinan la función). Los valores puntuales no siempre deter-
+minan un elemento del anillo. En 𝐴 = 𝑘 [𝜀]/(𝜀 2 ), el elemento 𝜀 ≠ 0 se anula en el único punto de
+Spec 𝐴; véase el Ejemplo 4.2. La discrepancia se mide exactamente por el nilradical.
+Teorema 3.3 (Caracterización del nilradical). Para 𝑓 ∈ 𝐴 son equivalentes: (i) 𝑓 (𝔭) = 0 para todo
+𝔭 ∈ Spec 𝐴; (ii) 𝑓 es nilpotente. En particular,
+                                                                    Ù
+                                          𝑛
+                     Nil(𝐴) = {𝑓 ∈ 𝐴 : 𝑓 = 0 para algún 𝑛 ≥ 1} =          𝔭.
+                                                                      𝔭∈Spec 𝐴
+
+Demostración. Si 𝑓 𝑛 = 0, entonces 𝑓 𝑛 ∈ 𝔭 para todo primo 𝔭, y la primalidad implica 𝑓 ∈ 𝔭. Para
+la otra dirección probamos la contrapositiva. Supongamos que 𝑓 no es nilpotente y consideremos
+                         Σ = {𝐼 ⊆ 𝐴 : 𝐼 es ideal y 𝑓 𝑛 ∉ 𝐼 para todo 𝑛 ≥ 1}.
+El conjunto contiene (0). La unión de una cadena de elementos de Σ vuelve a pertenecer a Σ, de
+modo que Zorn da un ideal maximal 𝔭 de Σ. Si 𝑔, ℎ ∉ 𝔭, la maximalidad implica que existen 𝑚, 𝑛 ≥ 1
+con 𝑓 𝑚 ∈ 𝔭 + (𝑔) y 𝑓 𝑛 ∈ 𝔭 + (ℎ). Al multiplicar estas inclusiones se obtiene 𝑓 𝑚+𝑛 ∈ 𝔭 + (𝑔ℎ). Si
+𝑔ℎ ∈ 𝔭, resultaría 𝑓 𝑚+𝑛 ∈ 𝔭, contradiciendo la definición de Σ. Por tanto 𝑔ℎ ∉ 𝔭, y 𝔭 es primo.
+Además 𝑓 ∉ 𝔭, así que 𝑓 no se anula en ese punto.                                                □
+
+                                                 7
+Pablo J. Aranda P.                       Teoría de Esquemas                           Sesión 1 de 24
+
+
+4.    Galería de ejemplos
+Ejemplo 4.1 (Cuerpos). Si 𝑘 es un cuerpo, Spec 𝑘 = {(0)}: un punto con cuerpo residual 𝑘. Así,
+Spec C y Spec F2 son el mismo espacio de un punto, aunque sus anillos de funciones sean distintos.
+Ejemplo 4.2 (El punto gordo). Sea 𝐴 = 𝑘 [𝜀]/(𝜀 2 ). Todo primo contiene a 𝜀, pues 𝜀 2 = 0, y (𝜀) es
+maximal con cociente 𝑘. Por tanto Spec 𝐴 = {(𝜀)}. El punto tiene una sola posición, pero el anillo
+conserva el infinitesimal 𝜀, que codifica información de primer orden y tangencia.
+Ejemplo 4.3 (El espectro de Z). Los primos de Z son (0) y (𝑝) para cada primo entero 𝑝. Entonces
+              Spec Z = {(0), (2), (3), (5), (7), . . .},   𝜅 ((0)) = Q,   𝜅 ((𝑝)) = F𝑝 .
+Se piensa como una curva con un punto genérico (0) y puntos cerrados (𝑝).
+Proposición 4.4 (La recta afín). Si 𝑘 es un cuerpo,
+                    Spec 𝑘 [𝑥] = {(0)} ∪ {(𝑓 ) : 𝑓 ∈ 𝑘 [𝑥] irreducible mónico}.
+Si 𝑘 es algebraicamente cerrado, los puntos cerrados son (𝑥 − 𝑎), 𝑎 ∈ 𝑘.
+Demostración. El anillo 𝑘 [𝑥] es un dominio de ideales principales. Todo primo no nulo es maximal
+y está generado por un polinomio irreducible; normalizando el generador, lo tomamos mónico. Si
+𝑘 es algebraicamente cerrado, los irreducibles mónicos son precisamente los 𝑥 − 𝑎.             □
+Ejemplo 4.5 (La recta afín aritmética: Q y R). Sobre cuerpos no algebraicamente cerrados aparecen
+                                                                                             √
+puntos cerrados aritméticos. En Spec Q[𝑥],     el punto  (𝑥 2 − 2) tiene cuerpo residual Q( 2) y
+                                           √     √
+representa la pareja de raíces conjugadas { 2, − 2}. En Spec R[𝑥], el punto (𝑥 2 + 1) tiene cuerpo
+residual C; representa una ecuación sin soluciones reales.
+Teorema 4.6 (El plano afín). Sea 𝑘 algebraicamente cerrado. Los ideales primos de 𝑘 [𝑥, 𝑦] son
+exactamente (0), los ideales (𝑓 ) con 𝑓 irreducible, y los maximales (𝑥 − 𝑎, 𝑦 − 𝑏) con (𝑎, 𝑏) ∈ 𝑘 2 .
+Demostración. Los ideales (0), (𝑓 ) para 𝑓 irreducible y (𝑥 − 𝑎, 𝑦 −𝑏) son primos: los dos primeros
+porque 𝑘 [𝑥, 𝑦] es un dominio de factorización única, y el cociente por (𝑥 − 𝑎, 𝑦 − 𝑏) es 𝑘. Falta
+mostrar que no hay otros. Sea 𝔭 un primo no nulo que no sea principal generado por un irreducible.
+Elijamos un elemento no nulo de 𝔭 y un factor irreducible 𝑓 suyo. Por primalidad 𝑓 ∈ 𝔭. Como
+𝔭 ≠ (𝑓 ), existe 𝑔 ∈ 𝔭 \ (𝑓 ); así 𝑓 y 𝑔 no tienen factor irreducible común.
+     Vistos en 𝑘 (𝑥) [𝑦], el máximo común divisor de 𝑓 y 𝑔 es 1. En efecto, cualquier factor común
+no constante en 𝑦 se recuperaría, al limpiar contenido, como un factor común en 𝑘 [𝑥, 𝑦] por el
+lema de Gauss. El anillo 𝑘 (𝑥) [𝑦] es euclidiano, así que existen 𝑎, 𝑏 ∈ 𝑘 (𝑥) [𝑦] con 𝑎𝑓 + 𝑏𝑔 = 1.
+Al multiplicar por un denominador común no nulo 𝑑 ∈ 𝑘 [𝑥] obtenemos 𝑢 𝑓 + 𝑣𝑔 = 𝑑 para ciertos
+𝑢, 𝑣 ∈ 𝑘 [𝑥, 𝑦]. Como 𝑓 , 𝑔 ∈ 𝔭, se sigue que 0 ≠ 𝑑 ∈ 𝔭 ∩ 𝑘 [𝑥].
+     El polinomio 𝑑 se factoriza en factores lineales sobre 𝑘. Como 𝔭 es primo y 𝑑 ∈ 𝔭, algún
+𝑥 − 𝑎 pertenece a 𝔭. En el cociente 𝑘 [𝑥, 𝑦]/(𝑥 − 𝑎)  𝑘 [𝑦], el ideal primo 𝔭/(𝑥 − 𝑎) es (0) o está
+generado por un polinomio irreducible. Puesto que 𝑘 es algebraicamente cerrado, en el segundo
+caso es (𝑦 − 𝑏). El caso (0) daría 𝔭 = (𝑥 − 𝑎), que es el primo principal excluido. Por tanto
+𝔭 = (𝑥 − 𝑎, 𝑦 − 𝑏).                                                                               □
+Observación 4.7 (La jerarquía del plano afín). La clasificación exhibe puntos de tres tamaños:
+puntos clásicos, puntos genéricos de curvas y el punto genérico del plano. Sobre cuerpos no
+algebraicamente cerrados, los maximales corresponden a órbitas de Galois, como en el Ejemplo
+4.5.
+
+                                                     8
+Pablo J. Aranda P.                     Teoría de Esquemas                             Sesión 1 de 24
+
+
+5.     Puntos cerrados, puntos genéricos y especialización
+     Para un ideal 𝐼 ⊆ 𝐴 escribimos
+
+                                   𝑉 (𝐼 ) = {𝔭 ∈ Spec 𝐴 : 𝐼 ⊆ 𝔭}.
+
+En la siguiente sesión se verá que estos conjuntos son los cerrados de la topología de Zariski y que
+la cerradura de 𝔭 es 𝑉 (𝔭).
+
+Definición 5.1 (Especialización). Para 𝔭, 𝔮 ∈ Spec 𝐴, decimos que 𝔮 es una especialización de 𝔭, y
+escribimos 𝔭 ⇝ 𝔮, si 𝔭 ⊆ 𝔮. En este caso 𝔭 generiza a 𝔮.
+
+    Un punto cerrado corresponde a un ideal maximal. El primo 𝔭 es el punto genérico del cerrado
+𝑉 (𝔭). La contención de ideales se invierte geométricamente: ideales más grandes corresponden a
+cerrados más pequeños. En Spec Z, (0) ⇝ (𝑝) para todo primo entero 𝑝.
+
+
+6.     Ejercicios
+Ejercicio 6.1. Sea 𝐴 = 𝐴1 × 𝐴2 . Demuestra que todo primo de 𝐴 es de la forma 𝔭1 × 𝐴2 o 𝐴1 × 𝔭2 ,
+y concluye que Spec 𝐴  Spec 𝐴1 ⨿ Spec 𝐴2 . (Sugerencia: considera los idempotentes 𝑒 1 = (1, 0)
+y 𝑒 2 = (0, 1).)
+
+Ejercicio 6.2. Describe explícitamente, indicando puntos y cuerpos residuales, los espectros de
+Q[𝑥]/(𝑥 2 − 2), R[𝑥]/(𝑥 2 + 1), C[𝑥]/(𝑥 2 − 1), C[𝑥]/(𝑥 2 ) y Z/(60).
+
+Ejercicio 6.3. Sea 𝜑 : 𝐴 ↠ 𝐴/𝐼 el cociente. Demuestra que Spec(𝐴/𝐼 ) → Spec 𝐴 es inyectivo con
+imagen 𝑉 (𝐼 ).
+
+Ejercicio 6.4. Sea 𝑁 el nilradical de 𝐴 y 𝐴red = 𝐴/𝑁 . Usando el ejercicio anterior y el teorema del
+nilradical, demuestra que Spec 𝐴red → Spec 𝐴 es una biyección.
+
+Ejercicio 6.5. Encuentra todos los puntos de Spec Z[1/6]. ¿Qué puntos de Spec Z desaparecieron?
+Formula una conjetura sobre Spec 𝐴 𝑓 .
+
+Ejercicio 6.6. Sobre un cuerpo 𝑘 no necesariamente algebraicamente cerrado, ¿qué enunciado
+sustituye a la lista de los primos de 𝑘 [𝑥, 𝑦] del teorema de esta sesión? Formúlalo para 𝑘 = F𝑝 y da
+un ejemplo de ideal maximal de F2 [𝑥, 𝑦] que no sea (𝑥 − 𝑎, 𝑦 − 𝑏).
+
+
+1.     Los dígitos son coeficientes de Taylor
+Observación 1.1 (El punto gordo, releído). El anillo 𝑘 [𝜀]/(𝜀 2 ) = 𝑘 [𝑥]/(𝑥 2 ) es el truncamiento de
+Taylor de orden uno: guarda 𝑎 0 y 𝑎 1 y descarta los términos de orden superior. Que 𝜀 ≠ 0 se anule
+en el único punto significa que su término constante es cero; el valor puntual no ve el coeficiente
+infinitesimal de primer orden.
+
+
+
+                                                  9
+Pablo J. Aranda P.                         Teoría de Esquemas                         Sesión 1 de 24
+
+
+Observación 1.2 (Completar es la misma operación de los dos lados). Guardar todos los coeficientes
+a la vez es completar:
+
+                      𝑘 [[𝑥 − 𝑎]] = lim 𝑘 [𝑥]/(𝑥 − 𝑎)𝑛 ,      Z𝑝 = lim Z/𝑝 𝑛 Z.
+                                    ←−−                            ←−−
+                                      𝑛                              𝑛
+
+Los enteros 𝑝-ádicos son series de potencias en 𝑝. Esta analogía explica por qué Spec Z se dibuja
+como una curva: cada punto tiene vecindades infinitesimales con la estructura de las de un punto
+de la recta afín.
+
+Ejercicio 1.3. Calcula los primeros cuatro dígitos de −1 en base 7, es decir, su desarrollo como
+elemento de Z7 . ¿Por qué el desarrollo no termina, si −1 es un entero? Compáralo con el desarrollo
+de 1/(1 − 𝑥) en 𝑘 [[𝑥]].
+
+
+1.    Todo ideal de un producto es producto de ideales
+Proposición 1.1. Si 𝐾 es un ideal de 𝐴 × 𝐵, existen ideales 𝐼 ⊆ 𝐴 y 𝐽 ⊆ 𝐵 tales que 𝐾 = 𝐼 × 𝐽 .
+
+Demostración. Definamos 𝐼 = {𝑎 ∈ 𝐴 : (𝑎, 0) ∈ 𝐾 } y 𝐽 = {𝑏 ∈ 𝐵 : (0, 𝑏) ∈ 𝐾 }. Si (𝑎, 𝑏) ∈ 𝐾, al
+multiplicar por los idempotentes (1, 0) y (0, 1) se obtiene (𝑎, 0), (0, 𝑏) ∈ 𝐾, así que 𝑎 ∈ 𝐼 y 𝑏 ∈ 𝐽 .
+Esto prueba 𝐾 ⊆ 𝐼 × 𝐽 . Recíprocamente, si 𝑎 ∈ 𝐼 y 𝑏 ∈ 𝐽 , entonces (𝑎, 0), (0, 𝑏) ∈ 𝐾 y su suma
+(𝑎, 𝑏) pertenece a 𝐾.                                                                               □
+Observación 1.2. La prueba funciona porque los idempotentes (1, 0) y (0, 1) pertenecen al anillo
+y separan sus dos factores; son la razón algebraica de la descomposición.
+
+
+2.    Spec y productos: dónde importa que sean finitos
+Teorema 2.1 (La anti-equivalencia, sin restricciones). El funtor Spec : Ringop → AffSch es
+                                                                                      Î
+una equivalencia. Por tanto, para cualquier familia finita o infinita {𝐴𝑖 }𝑖∈𝐼 , Spec( 𝑖 𝐴𝑖 ) es el
+coproducto de los Spec 𝐴𝑖 en AffSch.
+                                         Ý
+Nota (Advertencia). La unión disjunta 𝑖 Spec 𝐴𝑖 es el coproducto en Sch. Con infinitos factores
+no nulos no es afín, pues no es cuasicompacta, así que no es un objeto de AffSch. Lo que falla no
+es la anti-equivalencia, sino que la inclusión AffSch ↩→ Sch no preserva coproductos infinitos.
+                                                         Î
+Proposición 2.2 (La comparación, explícita). Sea 𝑒𝑖 ∈ 𝑗 𝐴 𝑗 el idempotente coordenado y 𝐽 =
+(𝑒𝑖 : 𝑖 ∈ 𝐼 ). El morfismo canónico
+                                      Þ                   Ö 
+                                  Φ:      Spec 𝐴𝑖 −→ Spec     𝐴𝑖
+                                       𝑖                      𝑖
+                                          Ð          Î
+es una inmersión abierta con imagen 𝑖 𝐷 (𝑒𝑖 ) = Spec( 𝑖 𝐴𝑖 ) \ 𝑉 (𝐽 ). Es un isomorfismo si y solo
+si 𝐽 = (1), si y solo si solo hay finitos 𝐴𝑖 ≠ 0.
+
+
+
+
+                                                  10
+Pablo J. Aranda P.                     Teoría de Esquemas                             Sesión 1 de 24
+
+
+Demostración. Al localizar en 𝑒𝑖 se anulan todas las coordenadas salvo la 𝑖-ésima, así que
+ Î
+( 𝑗 𝐴 𝑗 )𝑒𝑖  𝐴𝑖 y Spec 𝐴𝑖 se identifica con 𝐷 (𝑒𝑖 ). Los idempotentes distintos son ortogonales,
+de modo que estos abiertos son disjuntos. La imagen es por tanto su unión, igual al complemento
+de 𝑉 (𝐽 ). En un producto finito la suma de los idempotentes coordenados es 1; en el producto infinito
+el ideal que generan consta de elementos de soporte finito y no contiene la unidad constante.        □
+                                                                                       Í
+Observación 2.3 (Por qué la finitud). La finitud expresa exactamente la igualdad 𝑖 𝑒𝑖 = 1: los
+idempotentes parten el espectro y para cubrirlo todo hace falta que sumen la unidad.
+Observación 2.4. Para el ejercicio expuesto en clase, con dos factores, 𝑒 1 + 𝑒 2 = 1 y el morfismo sí
+es un isomorfismo. La precisión anterior se refiere a familias arbitrarias.
+
+
+3.    Los dos puntos de Spec C[𝑥]/(𝑥 2 − 1)
+  Por el teorema chino del resto, C[𝑥]/(𝑥 2 − 1)  C × C, de modo que hay dos puntos cerrados,
+ambos con cuerpo residual C.
+
+Proposición 3.1 (Los dos puntos no son intrínsecamente distinguibles). Existe un automorfismo
+de C-álgebras que intercambia los dos puntos de Spec C[𝑥]/(𝑥 2 − 1).
+
+Demostración. El automorfismo inducido por 𝑥 ↦→ −𝑥 intercambia los ideales (𝑥 −1) y (𝑥 +1). □
+Observación 3.2 (Lo que sí quería decir). El elemento 𝑥 vale 1 en uno de los puntos y −1 en el otro.
+El conjunto de dos puntos, por sí solo, no recuerda si provino de C × C, F2 × F2 u otro producto
+de dos cuerpos; la información está en las funciones y en dónde se evalúan.
+
+
+
+
+                                                 11
+Centro de Investigación
+en Matemáticas, A.C.
+
+
+
+
+                                   SESIÓN
+                                            2
+                          La topología de Zariski
+                           Teoría de Esquemas
+Pablo J. Aranda P.                            Teoría de Esquemas                       Sesión 2 de 24
+
+
+1.       La topología de Zariski
+   Ahora dotamos Spec 𝐴 de una topología cuyos cerrados reflejen conjuntos de soluciones de
+ecuaciones.
+Definición 1.1. Para 𝑆 ⊆ 𝐴, definimos
+                                       𝑉 (𝑆) = {𝔭 ∈ Spec 𝐴 : 𝑆 ⊆ 𝔭}.
+Como un primo contiene a 𝑆 si y solo si contiene al ideal que 𝑆 genera, 𝑉 (𝑆) = 𝑉 ((𝑆)); escribiremos
+𝑉 (𝐼 ) para ideales 𝐼 .
+Observación 1.2. Se tiene 𝑉 (𝑆) = 𝑉 ((𝑆)), donde (𝑆) es el ideal generado; basta por ello considerar
+𝑉 (𝐼 ) para ideales. Además, si 𝐼 ⊆ 𝐽 , entonces 𝑉 (𝐽 ) ⊆ 𝑉 (𝐼 ): más ecuaciones dan menos soluciones.
+Proposición 1.3. Para ideales 𝐼, 𝐽 ⊆ 𝐴 y cualquier familia {𝐼𝛼 },
+                        !
+   Ù              ∑︁
+1.    𝑉 (𝐼𝛼 ) = 𝑉    𝐼𝛼 ;
+     𝛼                 𝛼
+
+2. 𝑉 (𝐼 ) ∪ 𝑉 (𝐽 ) = 𝑉 (𝐼 ∩ 𝐽 ) = 𝑉 (𝐼 𝐽 ).
+Demostración. La primera igualdad se sigue de que un ideal primo contiene la suma si y solo
+si contiene cada 𝐼𝛼 . Para la segunda, 𝐼 𝐽 ⊆ 𝐼 ∩ 𝐽 ⊆ 𝐼, 𝐽 y la contravariancia dan 𝑉 (𝐼 ) ∪ 𝑉 (𝐽 ) ⊆
+𝑉 (𝐼 ∩ 𝐽 ) ⊆ 𝑉 (𝐼 𝐽 ). Para la inclusión restante, supongamos 𝔭 ⊇ 𝐼 𝐽 y 𝔭 ⊉ 𝐼 . Elijamos 𝑓 ∈ 𝐼 \ 𝔭. Para
+todo 𝑔 ∈ 𝐽 , 𝑓 𝑔 ∈ 𝐼 𝐽 ⊆ 𝔭; por primalidad, 𝑔 ∈ 𝔭. Luego 𝐽 ⊆ 𝔭 y 𝔭 ∈ 𝑉 (𝐽 ).                          □
+   En particular, 𝑉 ((0)) = Spec 𝐴 y 𝑉 (𝐴) = ∅. Las igualdades anteriores muestran que los 𝑉 (𝐼 )
+son los cerrados de una topología, la topología de Zariski.
+Ejemplo 1.4 (Los cerrados de Spec Z). Por ejemplo, todo ideal de Z es principal y, para 𝑛 ≠ 0,
+𝑉 (𝑛) = {(𝑝) : 𝑝 | 𝑛} es finito. Recíprocamente, cada conjunto finito de puntos cerrados se obtiene
+de esta forma, tomando el producto de los primos correspondientes. Así, los cerrados propios de
+Spec Z son exactamente los conjuntos finitos de primos; los abiertos no vacíos son cofinitos y
+contienen (0). Dos abiertos no vacíos se intersectan, de modo que este espacio no es Hausdorff.
+
+
+2.       Cerradura de puntos, puntos genéricos y especialización
+Proposición 2.1. Para todo 𝔭 ∈ Spec 𝐴, la cerradura del punto es {𝔭} = 𝑉 (𝔭). En particular, 𝔭 es
+cerrado si y solo si es maximal.
+Demostración. Los cerrados que contienen a 𝔭 tienen la forma 𝑉 (𝐼 ) con 𝐼 ⊆ 𝔭. Por contravariancia,
+todos contienen a 𝑉 (𝔭), que es entonces el cerrado mínimo que contiene al punto.                □
+Definición 2.2. Decimos que 𝔮 es una especialización de 𝔭 si 𝔮 ∈ {𝔭}, equivalentemente, si 𝔭 ⊆ 𝔮.
+En este caso 𝔭 generiza a 𝔮 y es el punto genérico de 𝑉 (𝔭).
+Ejemplo 2.3. En Spec Z, (0) ⇝ (𝑝) para todo primo 𝑝 y {(0)} = Spec Z. En Spec 𝑘 [𝑥, 𝑦], con
+𝑘 algebraicamente cerrado, (0) ⇝ (𝑦 − 𝑥 2 ) ⇝ (𝑥 − 1, 𝑦 − 1); la inclusión de ideales registra la
+incidencia del plano, la parábola y el punto clásico.
+Observación 2.4. Los primos no maximales registran subvariedades irreducibles mediante sus
+puntos genéricos; precisaremos este hecho en la Sesión 9.
+
+                                                     13
+Pablo J. Aranda P.                     Teoría de Esquemas                                 Sesión 2 de 24
+
+
+3.    Los abiertos distinguidos
+Definición 3.1. Para 𝑓 ∈ 𝐴, el abierto distinguido asociado a 𝑓 es
+
+                               𝐷 (𝑓 ) = Spec 𝐴 \ 𝑉 (𝑓 ) = {𝔭 : 𝑓 ∉ 𝔭}.
+
+Proposición 3.2. Se cumplen las siguientes propiedades:
+1. 𝐷 (𝑓 ) ∩ 𝐷 (𝑔) = 𝐷 (𝑓 𝑔);
+2. los 𝐷 (𝑓 ) forman una base de la topología de Zariski;
+3. 𝐷 (𝑓 ) = ∅ si y solo si 𝑓 es nilpotente, y 𝐷 (𝑓 ) = Spec 𝐴 si y solo si 𝑓 es unidad.
+Demostración. La primera igualdad se desprende de la primalidad: 𝑓 𝑔 ∉ 𝔭 equivale a que 𝑓 , 𝑔 ∉ 𝔭.
+                                                              Ð
+Para la segunda, si 𝑈 = Spec 𝐴\𝑉 (𝐼 ) es abierto, entonces 𝑈 = 𝑓 ∈𝐼 𝐷 (𝑓 ). Para la tercera, 𝐷 (𝑓 ) = ∅
+equivale a que 𝑓 pertenezca a todos los primos; por el teorema del nilradical de la Sesión 1, esto
+equivale a que 𝑓 sea nilpotente. Además, 𝐷 (𝑓 ) = Spec 𝐴 significa que 𝑓 no está en ningún primo,
+en particular en ningún maximal; esto equivale a que 𝑓 sea unidad.                                    □
+Observación 3.3 (Una promesa cumplida y otra sembrada). En la demostración del teorema del
+nilradical de la Sesión 1 se construye, si 𝑓 no es nilpotente, un primo que evita todas sus potencias;
+ese primo pertenece a 𝐷 (𝑓 ), así que 𝐷 (𝑓 ) ≠ ∅. En la Sesión 3 veremos que 𝐷 (𝑓 ) es el espectro de
+un anillo localizado.
+
+
+4.    Cuasicompacidad
+Proposición 4.1. El espacio Spec 𝐴 es cuasicompacto: toda cubierta abierta admite una subcu-
+bierta finita.
+Demostración. Basta refinar una cubierta abierta a una cubierta por básicos. Supongamos Spec 𝐴 =
+Ð
+  𝛼 𝐷 (𝑓𝛼 ). Entonces ningún ideal primo contiene el ideal generado por todos los 𝑓𝛼 , por lo que este
+ideal es 𝐴 (si fuera propio estaría contenido en un maximal). Así, 1 es combinación lineal de una
+                                       Í
+cantidad finita de los 𝑓𝛼 , digamos 1 = 𝑛𝑗=1 𝑎 𝑗 𝑓𝛼 𝑗 . Los mismos índices cubren: ningún primo puede
+                                                             Ð
+contener simultáneamente esos 𝑓𝛼 𝑗 . Por tanto Spec 𝐴 = 𝑛𝑗=1 𝐷 (𝑓𝛼 𝑗 ).                             □
+Observación 4.2. No hay hipótesis de finitud sobre 𝐴: la cuasicompacidad es un fenómeno alge-
+braico que resulta de expresar 1 con una combinación finita.
+Observación 4.3 (Una tensión que vale la pena notar). Una unión disjunta infinita de espacios no
+vacíos no es cuasicompacta, pero el espectro de un producto infinito de anillos sí lo es. Los abiertos
+disjuntos 𝐷 (𝑒𝑖 ) de los idempotentes coordenados no cubren el espectro en general, porque el ideal
+que generan no contiene a 1.
+Ejercicio 4.4 (Sembrador: se cosecha en la Sesión 6). Sea {𝐴𝑖 }𝑖∈N una familia de anillos no nulos
+       Î                                                   Î
+y 𝑒𝑖 ∈ 𝑗 𝐴 𝑗 el idempotente coordenado. Comprueba que ( 𝑗 𝐴 𝑗 ) [1/𝑒𝑖 ]  𝐴𝑖 , que los 𝐷 (𝑒𝑖 ) son
+                 Ý                             Î
+disjuntos y que 𝑖 Spec 𝐴𝑖 se inyecta en Spec( 𝑖 𝐴𝑖 ). Describe 𝐽 = (𝑒𝑖 : 𝑖 ∈ N) en términos de
+soportes, demuestra 𝐽 ≠ (1) y explica en qué punto se usa que la familia sea infinita; compáralo
+con el caso finito.
+
+                                                  14
+Pablo J. Aranda P.                     Teoría de Esquemas                             Sesión 2 de 24
+
+
+5.    Ejercicios
+                                         √                                      √   √
+Ejercicio
+√         5.1. Demuestra que 𝑉 (𝐼 ) = 𝑉 ( 𝐼 ) y que 𝑉 (𝐼 ) ⊆ 𝑉 (𝐽 ) si y solo si 𝐽 ⊆ 𝐼 . Puedes usar
+     Ñ
+ 𝐼 = 𝔭⊇𝐼 𝔭, que se deduce del teorema del nilradical aplicado a 𝐴/𝐼 .
+
+Ejercicio 5.2. Describe todos los cerrados de Spec Z y de Spec 𝑘 [𝑥], y determina qué subconjuntos
+son densos.
+                                                            √︁
+Ejercicio 5.3. Demuestra que 𝐷 (𝑓 ) ⊆ 𝐷 (𝑔) si y solo si 𝑓 ∈ (𝑔).
+
+Ejercicio 5.4. Sea 𝜑 : 𝐴 → 𝐵 un morfismo de anillos. Demuestra que (Spec 𝜑) −1 (𝑉 (𝐼 )) =
+𝑉 (𝜑 (𝐼 )𝐵) y concluye que Spec 𝜑 es continua.
+
+Ejercicio 5.5. Un espacio no vacío es irreducible si no es unión de dos cerrados propios. Demuestra
+que 𝑉 (𝔭) es irreducible para todo primo 𝔭. ¿Es cierto el recíproco: todo cerrado irreducible es 𝑉 (𝔭)
+para un único primo?
+
+
+
+
+                                                 15
+Centro de Investigación
+en Matemáticas, A.C.
+
+
+
+
+                               SESIÓN
+                                        3
+           Localización y funciones regulares
+                        Teoría de Esquemas
+Pablo J. Aranda P.                     Teoría de Esquemas                             Sesión 3 de 24
+
+
+1.    Dos promesas pendientes
+    La Sesión 1 dejó abierto el cálculo de Spec Z[1/6] y la Sesión 2 anunció que 𝐷 (𝑓 ) debería ser
+el espectro de un anillo. La localización construye ese anillo. También introduce 𝐴𝔭 , que describe
+el entorno algebraico de un punto.
+
+
+2.    La localización de un anillo
+Definición 2.1 (Localización). Un subconjunto 𝑆 ⊆ 𝐴 es multiplicativo si 1 ∈ 𝑆 y es cerrado bajo
+productos. La localización 𝑆 −1𝐴 consta de fracciones formales 𝑎/𝑠, sujetas a
+                       𝑎1 𝑎2
+                         =         ⇐⇒      ∃𝑡 ∈ 𝑆 tal que 𝑡 (𝑠 2𝑎 1 − 𝑠 1𝑎 2 ) = 0,
+                       𝑠1 𝑠2
+
+con suma y producto como para fracciones ordinarias. El morfismo canónico es 𝜑 : 𝐴 → 𝑆 −1𝐴,
+𝑎 ↦→ 𝑎/1.
+
+Ejemplo 2.2 (Los dos sabores). Las elecciones principales son 𝑆 = {1, 𝑓 , 𝑓 2, . . .}, que da 𝐴 𝑓 , y
+𝑆 = 𝐴 \ 𝔭, que da 𝐴𝔭 . Si 𝐴 es dominio y 𝑆 = 𝐴 \ {0}, se obtiene Frac(𝐴). Hay que distinguir 𝐴𝔭 ,
+que invierte lo que no pertenece a 𝔭, de 𝐴 𝑓 , que invierte las potencias de 𝑓 .
+
+Observación 2.3 (El caso no conmutativo). La construcción usa que 𝐴 es conmutativo. En un
+anillo no conmutativo, para construir fracciones se requiere una condición de Ore sobre 𝑆; no toda
+multiplicativa admite una localización con las propiedades esperadas.
+
+Proposición 2.4 (Propiedad universal de la localización). El morfismo 𝜑 : 𝐴 → 𝑆 −1𝐴 es inicial
+entre los morfismos desde 𝐴 que envían todos los elementos de 𝑆 a unidades. Es decir, si 𝜓 : 𝐴 → 𝐵
+y cada 𝜓 (𝑠) es unidad, existe un único morfismo 𝜓e : 𝑆 −1𝐴 → 𝐵 tal que 𝜓e ◦ 𝜑 = 𝜓 .
+
+Demostración. La única posibilidad es 𝜓e(𝑎/𝑠) = 𝜓 (𝑎)𝜓 (𝑠) −1 . Si 𝑎/𝑠 = 𝑎′/𝑠 ′, hay 𝑡 ∈ 𝑆 con
+𝑡 (𝑠 ′𝑎 − 𝑠𝑎′) = 0; al aplicar 𝜓 y multiplicar por las unidades correspondientes se verifica que las
+dos imágenes coinciden. La misma fórmula muestra que 𝜓e respeta suma, producto y unidad. La
+unicidad se sigue de que todo 𝑎/𝑠 es el producto de 𝑎/1 por (𝑠/1) −1 .                            □
+Observación 2.5 (Epimorfismo, no necesariamente monomorfismo). La localización 𝐴 → 𝑆 −1𝐴
+siempre es un epimorfismo en la categoría de anillos: si dos morfismos desde 𝑆 −1𝐴 coinciden
+después de componer con 𝜑, coinciden en 𝑎/1 y en 𝑠/1, por tanto también en 1/𝑠 y en todo 𝑎/𝑠.
+No tiene por qué ser inyectivo ni sobreyectivo. Por ejemplo, Z → Q es epimorfismo pero no
+sobreyectivo. Un cociente 𝐴 → 𝐴/𝐼 también es epimorfismo. En la categoría de anillos con unidad,
+los monomorfismos son precisamente los morfismos inyectivos.
+Nota (Advertencia). La localización 𝐴 → 𝑆 −1𝐴 no siempre es inyectiva: puede matar elementos si
+se invierten divisores de cero.
+
+Ejemplo 2.6 (Localizar donde hay divisores de cero). En 𝐴 = 𝑘 [𝑥, 𝑦]/(𝑥𝑦), al invertir 𝑥, la relación
+𝑥𝑦 = 0 fuerza 𝑦 = 0 y se obtiene 𝐴𝑥  𝑘 [𝑥] 𝑥 . Geométricamente, 𝐷 (𝑥) elimina el eje 𝑦 y el origen
+del eje 𝑥.
+
+                                                 17
+Pablo J. Aranda P.                     Teoría de Esquemas                             Sesión 3 de 24
+
+
+3.    El teorema de correspondencia
+Teorema 3.1 (Correspondencia para localizaciones). Sea 𝑆 ⊆ 𝐴 multiplicativo. Las asignaciones
+
+                                   𝔮 ↦−→ 𝜑 −1 (𝔮),        𝔭 ↦−→ 𝑆 −1𝔭
+
+son biyecciones inversas entre Spec(𝑆 −1𝐴) y {𝔭 ∈ Spec 𝐴 : 𝔭 ∩ 𝑆 = ∅}. Preservan inclusiones en
+ambos sentidos.
+
+Demostración. Si 𝔮 es primo de 𝑆 −1𝐴, su contracción es primo y no corta a 𝑆, pues cada elemento
+de 𝑆 se vuelve unidad. Si 𝔭 es primo que no corta a 𝑆, su extensión 𝑆 −1𝔭 es propia y primo: si
+(𝑎/𝑠) (𝑏/𝑡) ∈ 𝑆 −1𝔭, algún 𝑢 ∈ 𝑆 satisface 𝑢𝑎𝑏 ∈ 𝔭, y como 𝑢 ∉ 𝔭, se tiene 𝑎 ∈ 𝔭 o 𝑏 ∈ 𝔭. La extensión
+seguida de contracción devuelve 𝔭 porque 𝔭 es saturado respecto de 𝑆. En sentido contrario, todo
+ideal 𝐽 ⊆ 𝑆 −1𝐴 es extendido desde su contracción: si 𝑎/𝑠 ∈ 𝐽 , entonces 𝑎/1 = (𝑠/1)(𝑎/𝑠) ∈ 𝐽 ; y si
+𝑎/1 ∈ 𝐽 , entonces 𝑎/𝑠 = (𝑎/1)(𝑠/1) −1 ∈ 𝐽 . Así, la contracción de la extensión de 𝔮 es 𝔮.          □
+
+Corolario 3.2. La inclusión inducida identifica Spec 𝐴 𝑓 con 𝐷 (𝑓 ), de hecho homeomórficamente.
+
+Demostración. Para las potencias de 𝑓 , la condición 𝔭 ∩ 𝑆 = ∅ equivale a 𝑓 ∉ 𝔭. La identificación
+respeta la topología: todo ideal de 𝐴 𝑓 es extendido, de modo que los cerrados se corresponden con
+los cerrados relativos de 𝐷 (𝑓 ).                                                                □
+
+Corolario 3.3. Para 𝑆 = 𝐴 \ 𝔭, Spec 𝐴𝔭 se identifica con {𝔮 ∈ Spec 𝐴 : 𝔮 ⊆ 𝔭}, exactamente los
+primos que generizan a 𝔭.
+
+Observación 3.4 (El epimorfismo se vuelve monomorfismo). En particular, Spec Z[1/6]  𝐷 (6) =
+𝐷 (2) ∩ 𝐷 (3) consta de (0) y de los (𝑝) con 𝑝 ≠ 2, 3: desaparecen (2) y (3). Más generalmente,
+Spec 𝐴 𝑓 elimina los primos que contienen 𝑓 . El mapa inducido por el epimorfismo 𝐴 → 𝑆 −1𝐴 es
+inyectivo sobre su imagen, un monomorfismo de espacios topológicos.
+
+
+4.    Anillos locales
+Definición 4.1. Un anillo conmutativo con unidad es local si tiene un único ideal maximal.
+
+Proposición 4.2. Para 𝔭 ∈ Spec 𝐴, el anillo 𝐴𝔭 es local y su único ideal maximal es 𝔭𝐴𝔭 .
+
+Demostración. Por la correspondencia para localizaciones, los primos de 𝐴𝔭 corresponden a los
+primos 𝔮 ⊆ 𝔭. El ideal extendido 𝔭𝐴𝔭 es maximal, pues su cociente es el cuerpo Frac(𝐴/𝔭). Todo
+maximal de 𝐴𝔭 debe corresponder a un primo de 𝐴 contenido en 𝔭 maximal entre tales primos;
+necesariamente es 𝔭. Así el maximal es único.                                                □
+Observación 4.3 (El cuerpo residual). El cociente 𝐴𝔭 /𝔭𝐴𝔭 es Frac(𝐴/𝔭) = 𝜅 (𝔭), el cuerpo residual
+del punto.
+
+Ejemplo 4.4 (Un germen de curva suave). Sea 𝐴 = 𝑘 [𝑥] y 𝔭 = (𝑥). Los primos de 𝐴𝔭 son
+(0) ⊂ (𝑥)𝐴𝔭 : el germen local de la recta en el origen, con una cadena de especialización de
+longitud uno.
+
+                                                     18
+Pablo J. Aranda P.                    Teoría de Esquemas                            Sesión 3 de 24
+
+
+Ejemplo 4.5 (El mismo germen en teoría de números). Para 𝐴 = Z y 𝔭 = (𝑝), los primos de Z (𝑝)
+son (0) ⊂ (𝑝)Z (𝑝) . Es el análogo aritmético del ejemplo anterior.
+
+Nota (Advertencia: no confundir con los 𝑝-ádicos). Z (𝑝) es una localización, mientras que Z𝑝 es la
+completación 𝑝-ádica. Se relacionan mediante una inclusión densa, pero no son el mismo anillo.
+Del mismo modo, Q = Z (0) no es Q𝑝 .
+
+
+5.    Hacia las funciones regulares
+Definición 5.1 (Función regular en un punto). Sea 𝔭 ∈ Spec 𝐴. Un elemento de 𝐴𝔭 es una función
+regular en 𝔭: una fracción 𝑎/𝑠 con 𝑠 ∉ 𝔭.
+
+Observación 5.2. La fracción 𝑎/𝑠 tiene sentido en todo el abierto 𝐷 (𝑠) ∋ 𝔭, con el mismo denomi-
+nador para cada punto del abierto. Este comportamiento local es el que permitirá pegar información
+en una gavilla.
+    El espectro de Z[1/𝑝] es 𝐷 (𝑝), todo Spec Z salvo (𝑝); el de Z (𝑝) retiene solo (0) y (𝑝). En el
+otro extremo, Z (0) = Q tiene un solo punto, el genérico.
+
+
+6.    Ejercicios
+Ejercicio 6.1. Describe un isomorfismo 𝐴 𝑓  𝐴[𝑡]/(𝑡 𝑓 − 1).
+
+Ejercicio 6.2. Demuestra que el morfismo 𝐴 → 𝑆 −1𝐴 es inyectivo si y solo si cada elemento de 𝑆
+es no divisor de cero en 𝐴.
+
+Ejercicio 6.3. Completa el ejemplo y demuestra que (𝑘 [𝑥, 𝑦]/(𝑥𝑦))𝑥  𝑘 [𝑥] 𝑥 , con 𝑦 ↦→ 0.
+
+Ejercicio 6.4. Demuestra que para todo ideal 𝐽 ⊆ 𝑆 −1𝐴 se tiene 𝐽 = (𝜑 −1 (𝐽 ))𝑒 . Deduce que la
+biyección del Corolario 3.2 es un homeomorfismo, comparando 𝑉 (𝐼 · 𝐴 𝑓 ) con 𝑉 (𝐼 ) ∩ 𝐷 (𝑓 ) para
+todo ideal 𝐼 ⊆ 𝐴.
+
+Ejercicio 6.5. Los anillos Z (2) y Z2 son anillos de valuación discreta con cuerpo residual F2 y
+espectros de la misma forma. ¿Son el mismo anillo? Da un elemento de Z2 que no esté en Z (2) y
+explica por qué Z (2) ⊊ Z2 .
+
+Ejercicio 6.6. Sean 𝔭 ⊆ 𝔮 primos de 𝐴. Construye un morfismo natural 𝐴𝔮 → 𝐴𝔭 usando la
+propiedad universal de la localización.
+
+
+
+
+                                                19
+Centro de Investigación
+en Matemáticas, A.C.
+
+
+
+
+                                 SESIÓN
+                                          4
+                          Pregavillas y gavillas
+                          Teoría de Esquemas
+Pablo J. Aranda P.                    Teoría de Esquemas                            Sesión 4 de 24
+
+
+1.    De vuelta a “pegar los 𝐴 𝑓 ”
+    La sesión retoma la observación de que cada anillo local 𝐴𝔭 ve funciones definidas en vecindades
+de 𝔭. Antes de formalizar el pegado, se completa el material sobre localizaciones.
+
+Definición 1.1 (Localización de un módulo). Si 𝑀 es un 𝐴-módulo y 𝑆 ⊆ 𝐴 es multiplicativo,
+𝑆 −1 𝑀 está formado por fracciones 𝑚/𝑠, con la relación 𝑚 1 /𝑠 1 = 𝑚 2 /𝑠 2 si existe 𝑡 ∈ 𝑆 tal que
+𝑡 (𝑠 2𝑚 1 − 𝑠 1𝑚 2 ) = 0. Es un módulo sobre 𝑆 −1𝐴.
+
+Lema 1.2 (Localizar es exacto). La localización es exacta: si 0 → 𝑀 ′ → 𝑀 → 𝑀 ′′ → 0 es exacta,
+también lo es 0 → 𝑆 −1 𝑀 ′ → 𝑆 −1 𝑀 → 𝑆 −1 𝑀 ′′ → 0.
+
+Demostración. La localización conmuta con cocientes: 𝑆 −1 (𝑀/𝑁 )  𝑆 −1 𝑀/𝑆 −1 𝑁 , pues las clases
+de 𝑚/𝑠 módulo 𝑆 −1 𝑁 son exactamente las fracciones de las clases de 𝑚 en 𝑀/𝑁 . Si 𝑀 ′ → 𝑀 es
+inyectivo, la clase de 𝑚′/𝑠 que se anula en 𝑆 −1 𝑀 satisface 𝑡𝑚′ = 0 en 𝑀 para algún 𝑡 ∈ 𝑆, y por
+inyectividad también en 𝑀 ′. Así 𝑆 −1 𝑀 ′ → 𝑆 −1 𝑀 es inyectivo. Junto con la compatibilidad con
+cocientes, esto prueba la exactitud.                                                            □
+
+Lema 1.3. Si 𝑆 = 𝐴 \ 𝔭, entonces 𝑆 −1𝔭 = 𝔭𝐴𝔭 dentro de 𝐴𝔭 .
+
+Demostración. Ambos ideales consisten en las fracciones 𝑎/𝑠 con 𝑎 ∈ 𝔭 y 𝑠 ∉ 𝔭: al extender 𝔭 se
+invierten precisamente los elementos fuera de 𝔭.                                              □
+
+Proposición 1.4. Para todo primo 𝔭, 𝐴𝔭 /𝔭𝐴𝔭  Frac(𝐴/𝔭) = 𝜅 (𝔭).
+
+Demostración. Al cocientar por 𝔭𝐴𝔭 se obtiene la localización de 𝐴/𝔭 en todas sus clases no nulas,
+que es su cuerpo de fracciones.                                                                 □
+
+
+2.    El ejemplo universal: funciones suaves
+    El ejemplo guía es el de funciones suaves sobre un espacio topológico 𝑋 : a cada abierto 𝑈 se le
+asigna el conjunto O(𝑈 ) de funciones suaves 𝑈 → R, con restricciones por inclusión. Las funciones
+quedan determinadas por sus restricciones locales y las funciones compatibles en traslapes se pegan
+de manera única.
+Observación 2.1. El argumento no usa que las funciones sean suaves: también vale para fun-
+ciones continuas, holomorfas o reales cualesquiera. Estas familias comparten la estructura que
+axiomatizaremos.
+
+Ejemplo 2.2 (El germen de una función suave y su tallo). Fijemos 𝑝 ∈ 𝑋 . Dos funciones suaves
+definidas cerca de 𝑝 representan el mismo germen si coinciden en alguna vecindad de 𝑝. El tallo
+O𝑝 consta de pares (𝑓 , 𝑈 ), con 𝑝 ∈ 𝑈 , módulo esa relación. Es un anillo local: la evaluación
+[𝑓 ] ↦→ 𝑓 (𝑝) tiene como núcleo el único ideal maximal de los gérmenes que se anulan en 𝑝.
+
+
+
+
+                                                21
+Pablo J. Aranda P.                     Teoría de Esquemas                              Sesión 4 de 24
+
+
+3.    Pregavillas
+Definición 3.1 (Pregavilla). Una pregavilla de conjuntos F en 𝑋 asigna un conjunto F(𝑈 ) a cada
+abierto 𝑈 ⊆ 𝑋 y, a cada inclusión 𝑈 ⊆ 𝑉 , un mapa de restricción res𝑉 ,𝑈 : F(𝑉 ) → F(𝑈 ). Se
+requiere que res𝑈 ,𝑈 = id y que las restricciones sean compatibles con composición.
+Observación 3.2 (Descripción categórica). Una pregavilla equivale a un funtor contravariante de
+la categoría de abiertos de 𝑋 a la categoría de conjuntos.
+Ejemplo 3.3 (Pregavilla constante). Para un conjunto 𝑆, la asignación F(𝑈 ) = 𝑆 con todas las
+restricciones iguales a la identidad es una pregavilla.
+
+
+4.    Gavillas: los dos axiomas
+Definición 4.1 (Gavilla). Una pregavilla F es una gavilla si para todo abierto 𝑈 y todo cubrimiento
+            Ð
+abierto 𝑈 = 𝑖 𝑈𝑖 satisface:
+1. Identidad: si 𝑠, 𝑡 ∈ F(𝑈 ) restringen a la misma sección en cada 𝑈𝑖 , entonces 𝑠 = 𝑡.
+2. Pegado: si 𝑠𝑖 ∈ F(𝑈𝑖 ) y 𝑠𝑖 |𝑈𝑖 ∩𝑈 𝑗 = 𝑠 𝑗 |𝑈𝑖 ∩𝑈 𝑗 para todos 𝑖, 𝑗, existe una sección 𝑠 ∈ F(𝑈 ) que
+   restringe a 𝑠𝑖 en cada 𝑈𝑖 .
+Observación 4.2. Identidad dice que hay a lo más una manera de pegar y pegado que hay al menos
+una; juntos dan existencia y unicidad. Una pregavilla que satisface identidad se llama separada.
+Ejemplo 4.3 (Las funciones suaves forman una gavilla). Las funciones suaves (y también las
+continuas u holomorfas) forman una gavilla: identidad y pegado son las propiedades locales descritas
+en el ejemplo anterior.
+Ejemplo 4.4 (La gavilla constante). La gavilla constante asociada a un conjunto discreto 𝑆 asigna
+las funciones localmente constantes con valores en 𝑆. En general difiere de la pregavilla constante,
+que no satisface pegado.
+Ejemplo 4.5 (La gavilla rascacielos). Fijados 𝑝 ∈ 𝑋 y un conjunto 𝑆, se define 𝑖 𝑝,∗𝑆 (𝑈 ) = 𝑆 si
+𝑝 ∈ 𝑈 y 𝑖 𝑝,∗𝑆 (𝑈 ) = {∗} si 𝑝 ∉ 𝑈 .
+
+
+5.    Tallos y gérmenes, en general
+Definición 5.1 (Tallo). Si F es una pregavilla y 𝑝 ∈ 𝑋 , el tallo es
+
+                                F𝑝 = {(𝑠, 𝑈 ) : 𝑝 ∈ 𝑈 , 𝑠 ∈ F(𝑈 )}/∼,
+
+donde (𝑠, 𝑈 ) ∼ (𝑡, 𝑉 ) si existe un abierto 𝑊 con 𝑝 ∈ 𝑊 ⊆ 𝑈 ∩ 𝑉 tal que 𝑠 |𝑊 = 𝑡 |𝑊 . La clase de
+(𝑠, 𝑈 ) es el germen de 𝑠 en 𝑝.
+Observación 5.2 (La definición como colímite). Equivalentemente, F𝑝 = colim𝑈 ∋𝑝 F(𝑈 ) sobre
+las vecindades ordenadas por restricción. La categoría es filtrada porque la intersección de dos
+vecindades vuelve a ser una vecindad.
+
+                                                  22
+Pablo J. Aranda P.                     Teoría de Esquemas                             Sesión 4 de 24
+
+
+Nota (Advertencia). Para una gavilla general no hay necesariamente una evaluación a un conjunto
+fijo: en su definición no aparecen valores puntuales.
+Observación 5.3 (Evaluación para el tallo de la gavilla estructural). En Spec 𝐴 habrá un mapa
+𝐴𝔭 → 𝜅 (𝔭); el cuerpo de valores depende del punto. Si 𝑎/𝑠 = 𝑎′/𝑠 ′ en 𝐴𝔭 , existe 𝑢 ∉ 𝔭 con
+𝑢 (𝑠 ′𝑎 − 𝑠𝑎′) = 0; al pasar a 𝐴/𝔭 se puede cancelar 𝑢, así que la evaluación está bien definida.
+
+
+6.    Secciones determinadas por sus gérmenes
+Teorema 6.1. Si F es una gavilla, para todo abierto 𝑈 el mapa F(𝑈 ) →           𝑝∈𝑈 F𝑝 , 𝑠 ↦→ (𝑠𝑝 )𝑝∈𝑈 ,
+                                                                             Î
+es inyectivo.
+
+Demostración. Si 𝑠, 𝑡 ∈ F(𝑈 ) tienen el mismo germen en cada punto, para cada 𝑝 hay una vecindad
+𝑊𝑝 ⊆ 𝑈 donde coinciden. Las 𝑊𝑝 cubren 𝑈 , así que el axioma de identidad implica 𝑠 = 𝑡. Solo se
+usa identidad, por lo que vale también para pregavillas separadas.                             □
+Observación 6.2 (El recíproco y el nombre “gavilla”). La existencia de una sección que pegue
+gérmenes localmente compatibles requiere el axioma de pegado. Las secciones son tallos atados
+de manera compatible; de ahí viene el nombre.
+
+
+7.    Morfismos de (pre)gavillas
+Definición 7.1 (Morfismo de pregavillas). Un morfismo 𝜑 : F → G en 𝑋 es una familia de mapas
+𝜑 (𝑈 ) : F(𝑈 ) → G(𝑈 ) compatible con las restricciones.
+
+Ejemplo 7.2. La inclusión de funciones suaves en funciones continuas es un morfismo de gavillas.
+
+Proposición 7.3 (Un morfismo induce mapas de tallos). Todo morfismo 𝜑 : F → G induce para
+cada 𝑝 ∈ 𝑋 un mapa 𝜑𝑝 : F𝑝 → G𝑝 , [𝑠, 𝑈 ] ↦→ [𝜑 (𝑈 )(𝑠), 𝑈 ].
+
+Demostración. La compatibilidad con las restricciones asegura que la imagen no depende del
+representante del germen.                                                               □
+
+
+8.    Gavillas de anillos y de módulos
+Definición 8.1 (Espacio anillado). Un espacio anillado es un par (𝑋, O𝑋 ) donde O𝑋 es una gavilla
+de anillos, llamada gavilla estructural. Una gavilla F es un O𝑋 -módulo si cada F(𝑈 ) es un O𝑋 (𝑈 )-
+módulo y las restricciones respetan la acción.
+
+Observación 8.2. Esta es la estructura necesaria para construir OSpec 𝐴 a partir de las localizaciones
+𝐴 𝑓 en los abiertos básicos.
+
+
+
+
+                                                 23
+Pablo J. Aranda P.                     Teoría de Esquemas                             Sesión 4 de 24
+
+
+9.    Hacia la gavilla estructural
+   La meta siguiente es construir OSpec 𝐴 a partir de 𝐴 𝑓 en los abiertos básicos 𝐷 (𝑓 ), y verificar
+que dichos datos se pegan en una gavilla.
+
+                                   𝐴𝔭 /𝔭𝐴𝔭  Frac(𝐴/𝔭) = 𝜅 (𝔭).
+
+La igualdad identifica el cuerpo residual del anillo local con el cuerpo residual ya asociado al punto
+en la Sesión 1.
+
+
+10.     Ejercicios
+Ejercicio 10.1. En el ejemplo de funciones suaves, demuestra que el ideal de gérmenes que se
+anulan en 𝑝 es el único ideal maximal del tallo O𝑝 .
+
+Ejercicio 10.2. Si 𝑋 es una variedad diferenciable y 𝑝 ∈ 𝑋 , describe 𝔪𝑝 /𝔪𝑝2 en términos del
+cálculo diferencial usual.
+
+Ejercicio 10.3. Muestra que las funciones acotadas en R, y las funciones holomorfas en C que
+admiten una raíz cuadrada holomorfa local, forman pregavillas pero no gavillas.
+
+Ejercicio 10.4. Los mapas continuos 𝑈 → 𝑌 , para 𝑌 un espacio topológico fijo, forman una gavilla
+de conjuntos en 𝑋 . Si 𝑌 es un grupo topológico, verifica que se obtiene una gavilla de grupos.
+
+Ejercicio 10.5. El núcleo de un morfismo de pregavillas, definido abierto por abierto, es una
+pregavilla. Demuestra que si las dos pregavillas son gavillas, el núcleo también es una gavilla.
+
+Ejercicio 10.6. Sean 𝑋 = C, O𝑋 la gavilla de funciones holomorfas y O𝑋∗ la gavilla de funciones
+holomorfas que no se anulan. El mapa exp : O𝑋 → O𝑋∗ , 𝑓 ↦→ 𝑒 2𝜋𝑖 𝑓 , es sobreyectivo en cada tallo,
+pero no en cada abierto. Encuentra un abierto 𝑈 y una sección de O𝑋∗ (𝑈 ) que no esté en la imagen
+de O𝑋 (𝑈 ).
+
+Ejercicio 10.7 (Para pensar; no se demuestra en clase). Un morfismo de gavillas es un isomorfismo
+si y solo si lo es en todos los tallos. La afirmación es falsa para pregavillas generales.
+
+
+
+
+                                                 24
+Centro de Investigación
+en Matemáticas, A.C.
+
+
+
+
+                                 SESIÓN
+                                          5
+                          La gavilla estructural
+                          Teoría de Esquemas
+Pablo J. Aranda P.                     Teoría de Esquemas                            Sesión 5 de 24
+
+
+1.    De vuelta al problema pendiente
+    En la Sesión 4 quedaron dos piezas sueltas. De la Sesión 3 sabemos qué anillo debe aparecer
+localmente en 𝔭, a saber 𝐴𝔭 , y se anticipó que las secciones sobre 𝐷 (𝑓 ) serían 𝐴 𝑓 , sin probarlo.
+Pero una gavilla está definida en todos los abiertos de Spec 𝐴, no solo en los básicos; aunque
+𝐷 (𝑓 ) ∩ 𝐷 (𝑔) = 𝐷 (𝑓 𝑔) sigue siendo básico, una unión arbitraria de básicos no suele serlo.
+    El problema de hoy es general: dada información compatible solo en una base de la topología,
+¿cuándo y cómo se extiende a una gavilla en todos los abiertos? Resolverlo en general en las
+secciones 2 y 3 permite después verificar dos condiciones algebraicas para la familia {𝐴 𝑓 } 𝑓 ∈𝐴 .
+
+
+2.    Gavillas sobre una base
+Definición 2.1 (Pregavilla y gavilla sobre una base). Sea B una base de la topología de 𝑋 . Una
+pregavilla sobre B asigna secciones a los elementos de B y mapas de restricción compatibles.
+Es una gavilla sobre la base si, siempre que 𝐵 = 𝛼 𝐵𝛼 con todos los conjuntos en B, satisface
+                                                   Ð
+identidad y pegado. En la condición de pegado, la compatibilidad entre secciones se verifica en
+cada elemento básico contenido en 𝐵𝛼 ∩ 𝐵 𝛽 , pues la intersección no necesariamente pertenece a la
+base.
+
+
+3.    El teorema de extensión
+Teorema 3.1 (Toda gavilla sobre una base se extiende, de manera única). Toda gavilla sobre una
+base B se extiende a una gavilla F en 𝑋 , de modo compatible con sus secciones y restricciones
+en B. La extensión es única salvo isomorfismo único. El mismo resultado vale para gavillas con
+valores en anillos, grupos o módulos.
+
+Construcción y unicidad. Para cada 𝑝 ∈ 𝑋 se define el tallo formal F𝑝 = colim𝐵∈B, 𝑝∈𝐵 F(𝐵). Para
+un abierto 𝑈 , se toman las familias (𝑠𝑝 )𝑝∈𝑈 ∈ 𝑝∈𝑈 F𝑝 que localmente provienen de una sola
+                                                   Î
+sección básica: para cada 𝑝 existe 𝐵 ∈ B con 𝑝 ∈ 𝐵 ⊆ 𝑈 y 𝑠 ∈ F(𝐵) cuyos gérmenes en todo 𝑞 ∈ 𝐵
+son los prescritos 𝑠𝑞 .
+    Las restricciones son por restricción de coordenadas. Identidad se verifica punto a punto. Para
+pegar secciones compatibles sobre un cubrimiento, se pegan sus coordenadas en cada tallo; la com-
+patibilidad en las intersecciones garantiza que la sección resultante está localmente representada.
+En un abierto básico 𝐵, la aplicación que envía una sección original a sus gérmenes es biyectiva:
+identidad da inyectividad y los testigos básicos locales se pegan mediante el axioma de pegado
+sobre B. Esto prueba que la construcción extiende la gavilla dada.
+    Si G es otra extensión, las identificaciones en cada abierto básico fuerzan los mismos tallos y,
+por tanto, las mismas secciones sobre todo abierto: dos secciones de una gavilla que coinciden en
+cada germen son iguales. También fuerzan el único isomorfismo compatible con las identificaciones
+iniciales.                                                                                        □
+Observación 3.2. El Teorema 3.1 vale palabra por palabra para gavillas con valores en anillos,
+grupos, módulos, etcétera: las construcciones de colímite, producto y subconjunto definido por
+compatibilidad se realizan en la categoría correspondiente.
+
+                                                 26
+Pablo J. Aranda P.                       Teoría de Esquemas                             Sesión 5 de 24
+
+
+Ejercicio 3.3 (Morfismos de gavillas sobre una base). Un morfismo de gavillas en 𝑋 queda
+determinado por su restricción a una base. Además, todo morfismo entre gavillas sobre la base se
+extiende de manera única a un morfismo entre sus extensiones.
+
+
+4.     De vuelta a Spec A: los básicos son base
+     Los abiertos distinguidos 𝐷 (𝑓 ) forman una base de Spec 𝐴, pues
+                                                         Ø
+                                       Spec 𝐴 \ 𝑉 (𝐼 ) =   𝐷 (𝑓 ).
+                                                        𝑓 ∈𝐼
+
+La asignación candidata se define así.
+
+Definición 4.1 (La asignación candidata en los básicos). Para cada 𝑓 ∈ 𝐴, sea
+
+                     𝑆 𝑓 = {𝑔 ∈ 𝐴 : 𝐷 (𝑓 ) ⊆ 𝐷 (𝑔)},      OSpec 𝐴 (𝐷 (𝑓 )) := 𝑆 𝑓−1𝐴.
+
+Si 𝐷 (𝑓 ′) ⊆ 𝐷 (𝑓 ), entonces 𝑆 𝑓 ⊆ 𝑆 𝑓 ′ , lo que induce el mapa de restricción de localización 𝑆 𝑓−1𝐴 →
+𝑆 𝑓−1′ 𝐴; estos mapas son transitivos.
+
+
+5.     El teorema prometido: 𝐴 𝑓  OSpec 𝐴 (𝐷 (𝑓 ))
+Teorema 5.1. El mapa natural 𝐴 𝑓 → 𝑆 𝑓−1𝐴 = OSpec 𝐴 (𝐷 (𝑓 )) es un isomorfismo.
+
+Demostración. Como 𝐷 (𝑓 ) ⊆ 𝐷 (𝑓 ), se tiene 𝑓 ∈ 𝑆 𝑓 , así que la propiedad universal da 𝐴 𝑓 → 𝑆 𝑓−1𝐴.
+                                                                           √︁
+Por otra parte, si 𝑔 ∈ 𝑆 𝑓 , entonces 𝐷 (𝑓 ) ⊆ 𝐷 (𝑔), lo que equivale a 𝑓 ∈ (𝑔). Existe 𝑛 con 𝑓 𝑛 = 𝑎𝑔;
+como 𝑓 es invertible en 𝐴 𝑓 , también lo es 𝑔. Por la propiedad universal hay un mapa inverso
+𝑆 𝑓−1𝐴 → 𝐴 𝑓 . Ambos compuestos son la identidad porque los mapas están determinados por su
+restricción desde 𝐴 y por el envío de los elementos invertidos a sus inversos.                       □
+
+
+6.     El corazón técnico: identidad y pegado para {𝐴 𝑓 }
+Lema 6.1 (Cuasicompacidad de los básicos). Todo abierto distinguido 𝐷 (𝑓 ) es cuasicompacto.
+                                         Ð
+Demostración. Supongamos 𝐷 (𝑓 ) ⊆ 𝑖 𝐷 (𝑓𝑖 ). Entonces ningún primo de 𝐴 𝑓 contiene todos los
+𝑓𝑖 /1, por lo que el ideal que generan en 𝐴 𝑓 es la unidad. Una combinación de 1 usa finitos términos
+y, al limpiar denominadores, produce un cubrimiento finito de 𝐷 (𝑓 ) por algunos 𝐷 (𝑓𝑖 ).           □
+
+Teorema 6.2 ({𝐴 𝑓 } es gavilla sobre la base {𝐷 (𝑓 )}). La asignación 𝐷 (𝑓 ) ↦→ 𝐴 𝑓 es una gavilla
+sobre la base de abiertos distinguidos.
+
+Demostración. Por cuasicompacidad basta verificar identidad y pegado para un cubrimiento finito
+         Ð
+𝐷 (𝑓 ) = 𝑛𝑖=1 𝐷 (𝑓𝑖 ). Al reemplazar 𝐴 por 𝐴 𝑓 podemos suponer 𝑓 = 1. Entonces (𝑓1, . . . , 𝑓𝑛 ) = 𝐴,
+                               Í
+así que hay una identidad 1 = 𝑖 𝑐𝑖 𝑓𝑖 .
+
+                                                   27
+Pablo J. Aranda P.                          Teoría de Esquemas                             Sesión 5 de 24
+
+
+    Para identidad, sea 𝑠 ∈ 𝐴 cuya imagen se anula en cada 𝐴 𝑓𝑖 . Para cada 𝑖 existe 𝑚𝑖 con 𝑓𝑖𝑚𝑖 𝑠 = 0.
+Aumentando a un exponente común 𝑚, se tiene 𝑓𝑖𝑚𝑠 = 0 para todo 𝑖. Las potencias 𝑓𝑖𝑚 generan
+el ideal unidad: basta elevar una expresión de 1 como combinación de los 𝑓𝑖 a una potencia
+                                                                                                   Í
+suficientemente grande y agrupar cada monomio, que contiene alguna potencia 𝑓𝑖𝑚 . Así 1 = 𝑖 𝑑𝑖 𝑓𝑖𝑚
+      Í
+y 𝑠 = 𝑖 𝑑𝑖 (𝑓𝑖𝑚𝑠) = 0.
+    Para pegado, sean 𝑠𝑖 = 𝑎𝑖 /𝑓𝑖𝑘 ∈ 𝐴 𝑓𝑖 secciones compatibles, usando un exponente común 𝑘. La
+compatibilidad en 𝐴 𝑓𝑖 𝑓 𝑗 equivale a 𝑎𝑖 𝑓 𝑗𝑘 = 𝑎 𝑗 𝑓𝑖𝑘 en 𝐴. Como las 𝑓 𝑗𝑘 generan la unidad, elijamos 𝑒 𝑗
+         Í                          Í
+con 1 = 𝑗 𝑒 𝑗 𝑓 𝑗𝑘 y pongamos 𝑠 = 𝑗 𝑒 𝑗 𝑎 𝑗 ∈ 𝐴. Para cada 𝑖,
+                                            ∑︁                      ∑︁
+                                  𝑓𝑖𝑘 𝑠 =        𝑒 𝑗 𝑎 𝑗 𝑓𝑖𝑘 = 𝑎𝑖        𝑒 𝑗 𝑓 𝑗𝑘 = 𝑎𝑖 ,
+                                            𝑗                       𝑗
+
+por compatibilidad. Por tanto 𝑠 restringe a 𝑠𝑖 en 𝐴 𝑓𝑖 .                                                 □
+
+
+7.    La gavilla estructural
+Corolario 7.1 (La gavilla estructural). Existe una única, salvo isomorfismo único, gavilla de
+anillos OSpec 𝐴 en Spec 𝐴 tal que OSpec 𝐴 (𝐷 (𝑓 ))  𝐴 𝑓 , compatible con restricciones. En particular,
+OSpec 𝐴 (Spec 𝐴)  𝐴, y el tallo en 𝔭 es OSpec 𝐴,𝔭  𝐴𝔭 .
+
+Demostración. El resultado se sigue del teorema de extensión desde una base y de la identificación
+OSpec 𝐴 (𝐷 (𝑓 ))  𝐴 𝑓 . Para el tallo, se toma el colímite de los 𝐴 𝑓 sobre los básicos que contienen a
+𝔭; es precisamente la localización que invierte todos los elementos fuera de 𝔭.                       □
+Observación 7.2. Esto cierra, con toda formalidad, el círculo abierto desde la Sesión 3: los 𝐴 𝑓 son
+los valores de una gavilla genuina y 𝐴𝔭 es el tallo de esa gavilla en 𝔭.
+
+
+8.    Adelanto: gavillas de módulos
+     El mismo argumento, sustituyendo 𝐴 por un 𝐴-módulo 𝑀, da la asignación 𝐷 (𝑓 ) ↦→ 𝑆 𝑓−1 𝑀 =:
+𝑀 𝑓 . Las dos verificaciones de identidad y pegado se obtienen de las del Teorema 6.2 cambiando
+𝐴 por 𝑀. Por el Teorema 3.1, esta gavilla sobre la base se extiende a una gavilla 𝑀 e en Spec 𝐴 con
+𝑀e (𝐷 (𝑓 )) = 𝑀 𝑓 . Como 𝑀 𝑓 es un módulo sobre 𝐴 𝑓 = OSpec 𝐴 (𝐷 (𝑓 )), de manera compatible con
+               e es una gavilla de OSpec 𝐴 -módulos: el prototipo de gavilla cuasicoherente.
+restricciones, 𝑀
+
+
+9.    Ejercicios
+Ejercicio 9.1 (Cosechando el sembrador de la Sesión 4). Retomamos 𝑋 = C, O𝑋 las funciones
+holomorfas y O𝑋∗ las que no se anulan, con exp(𝑓 ) = 𝑒 2𝜋𝑖 𝑓 . Usando la base de abiertos contráctiles,
+verifica que exp es sobreyectiva en cada básico (todo abierto simplemente conexo admite logaritmo
+holomorfo) y concluye —sin repetir el contraejemplo concreto de la Sesión 4— que un morfismo
+de gavillas sobreyectivo en cada elemento de una base induce un epimorfismo de gavillas, pero el
+recíproco es falso.
+
+                                                          28
+Pablo J. Aranda P.                   Teoría de Esquemas                          Sesión 5 de 24
+
+
+Ejercicio 9.2. Adapta la demostración de (B1) en el Teorema 6.2 al caso de un 𝐷 (𝑓 ) arbitrario
+cubierto por básicos 𝐷 (𝑓𝑖 ) con 𝑓𝑖 ∈ 𝑆 𝑓 .
+
+Ejercicio 9.3. Adapta la demostración de (B2) en el Teorema 6.2 al caso de un 𝐷 (𝑓 ) arbitrario
+cubierto por básicos 𝐷 (𝑓𝑖 ) con 𝑓𝑖 ∈ 𝑆 𝑓 .
+                                                                                  Î
+Ejercicio 9.4. Escribe (B1) y (B2) del Teorema 6.2 como la exactitud de 0 → 𝐴 → 𝑛𝑖=1 𝐴 𝑓𝑖 →
+Î
+  𝑖< 𝑗 𝐴 𝑓𝑖 𝑓 𝑗 e identifica los mapas.
+
+Ejercicio 9.5 (Sembrador: se cosecha al estudiar gavillas cuasicoherentes). Si 𝜑 : 𝑀 → 𝑁 es un
+morfismo de 𝐴-módulos, verifica que la asignación 𝑀 ↦→ 𝑀   e es exacta: una sucesión corta exacta
+de módulos induce una sucesión corta exacta de gavillas.
+
+
+
+
+                                               29
+Centro de Investigación
+en Matemáticas, A.C.
+
+
+
+
+                               SESIÓN
+                                        6
+            Esquemas afines y la equivalencia
+                               contravariante
+                       Teoría de Esquemas
+Pablo J. Aranda P.                     Teoría de Esquemas                             Sesión 6 de 24
+
+
+1.    De vuelta al puente de la Sesión 5
+    Arrancamos la Sesión 6. La meta es cerrar la pregunta que quedó abierta: ¿todo morfismo de
+espacios localmente anillados entre dos espectros proviene de un único morfismo de anillos? Dado
+𝜑 : 𝐴 → 𝐵, ya conocemos Spec 𝜑 : Spec 𝐵 → Spec 𝐴. En cada básico 𝐷 (𝑓0 ) ⊆ Spec 𝐴, la propiedad
+universal de la localización da un mapa compatible 𝐴 𝑓0 → 𝐵𝜑 (𝑓0 ) . Como estos mapas son compati-
+bles con las restricciones, se extienden a un morfismo de gavillas OSpec 𝐴 → (Spec 𝜑)∗ OSpec 𝐵 por
+el teorema de extensión de la Sesión 5.
+
+Ejercicio 1.1. Sea 𝜑 : 𝐴 → 𝐵 y 𝑓 = Spec 𝜑. Para cada 𝑓0 ∈ 𝐴, verifica que 𝑓 −1 (𝐷 (𝑓0 )) = 𝐷 (𝜑 (𝑓0 ))
+y que existe un único morfismo 𝐴 𝑓0 → 𝐵𝜑 (𝑓0 ) que extiende 𝜑 a través de las localizaciones.
+
+    Dos preguntas organizan la sesión. Primero, ¿el par (𝑓 , 𝑓 # ) respeta la estructura local de los
+tallos, de modo que es un morfismo entre espacios localmente anillados? (§2–§3.) Segundo, ¿todo
+morfismo de espacios localmente anillados Spec 𝐵 → Spec 𝐴 proviene, de esta manera, de un único
+𝜑 : 𝐴 → 𝐵? (§4.) La respuesta afirmativa significa que ningún morfismo se pierde ni aparece al
+pasar entre anillos y esquemas afines; esa es la equivalencia contravariante de la sección 5.
+
+
+2.    Morfismos de espacios (localmente) anillados
+Definición 2.1 (Morfismo de espacios anillados). Un morfismo (𝑋, O𝑋 ) → (𝑌, O𝑌 ) es un par
+(𝑓 , 𝑓 # ) donde 𝑓 : 𝑋 → 𝑌 es continuo y 𝑓 # : O𝑌 → 𝑓∗ O𝑋 es un morfismo de gavillas de anillos. En
+cada abierto 𝑉 ⊆ 𝑌 , la componente es O𝑌 (𝑉 ) → O𝑋 (𝑓 −1𝑉 ).
+
+Definición 2.2 (Morfismo de espacios localmente anillados). Si los espacios son localmente ani-
+llados, (𝑓 , 𝑓 # ) es un morfismo localmente anillado si para todo 𝑥 ∈ 𝑋 el morfismo de tallos
+𝑓𝑥# : O𝑌 ,𝑓 (𝑥) → O𝑋,𝑥 es local: la preimagen del ideal maximal de O𝑋,𝑥 es el ideal maximal de
+O𝑌 ,𝑓 (𝑥) .
+
+Observación 2.3. La contención (𝑓𝑥# ) −1 (𝔪𝑥 ) ⊇ 𝔪 𝑓 (𝑥) debe verificarse. La contención opuesta
+es automática para un homomorfismo de anillos locales que envía 1 a 1: un elemento fuera del
+maximal es unidad, y su imagen también. La localidad exige además que ningún elemento maximal
+del anillo de origen salga del maximal del anillo de llegada.
+
+
+3.    Spec es functor contravariante a espacios localmente anilla-
+      dos
+Teorema 3.1. Todo morfismo de anillos 𝜑 : 𝐴 → 𝐵 induce un morfismo de espacios localmente
+anillados (Spec 𝐵, OSpec 𝐵 ) → (Spec 𝐴, OSpec 𝐴 ).
+
+Demostración. Sea 𝔮 ∈ Spec 𝐵 y 𝔭 = 𝜑 −1 (𝔮). En los tallos, el morfismo es 𝜑𝔮 : 𝐴𝔭 → 𝐵𝔮 ,
+𝑎/𝑠 ↦→ 𝜑 (𝑎)/𝜑 (𝑠). Basta verificar que 𝜑𝔮−1 (𝔮𝐵𝔮 ) = 𝔭𝐴𝔭 .
+    Para todo primo 𝔮 ⊆ 𝐵, se tiene 𝑏/1 ∈ 𝔮𝐵𝔮 si y solo si 𝑏 ∈ 𝔮. Una dirección es inmediata. Para
+la otra, si 𝑏/1 = 𝑐/𝑡 con 𝑐 ∈ 𝔮 y 𝑡 ∉ 𝔮, existe 𝑢 ∉ 𝔮 tal que 𝑢 (𝑡𝑏 − 𝑐) = 0. Entonces 𝑢𝑡𝑏 ∈ 𝔮, y como
+
+
+                                                 31
+Pablo J. Aranda P.                        Teoría de Esquemas                            Sesión 6 de 24
+
+
+𝑢𝑡 ∉ 𝔮, la primalidad da 𝑏 ∈ 𝔮. Aplicando esto en 𝐴 y en 𝐵 se obtiene, para 𝑎 ∈ 𝐴,
+
+                    𝑎 ∈ 𝔭 ⇐⇒ 𝜑 (𝑎) ∈ 𝔮 ⇐⇒ 𝜑 (𝑎)/1 ∈ 𝔮𝐵𝔮 ⇐⇒ 𝑎/1 ∈ 𝔭𝐴𝔭 .
+
+Como 𝑠 ∉ 𝔭 se envía a una unidad, el mismo criterio vale para toda fracción 𝑎/𝑠. Por tanto el
+morfismo de tallos es local.                                                               □
+     La composición de morfismos corresponde, por la contravariancia, a la composición inversa
+                                𝜑     𝜓
+                              − 𝐵→
+de morfismos de anillos: si 𝐴 →      − 𝐶, entonces Spec(𝜓 ◦ 𝜑) = Spec 𝜑 ◦ Spec𝜓 . En los mapas
+de gavillas, la igualdad se verifica en cada básico por la unicidad de la propiedad universal de
+localización.
+                                                                                    𝜑        𝜓
+                                                                               − 𝐵→
+Ejercicio 3.2 (Funtorialidad). Verifica que Spec(id𝐴 ) = idSpec 𝐴 y que para 𝐴 →  − 𝐶 se tiene
+Spec(𝜓 ◦ 𝜑) = Spec 𝜑 ◦ Spec𝜓 , incluyendo la igualdad correspondiente de morfismos de gavillas.
+
+Desarrollo en clase. En puntos, ambos mapas coinciden porque
+
+              Spec(𝜓 ◦ 𝜑)(𝔯) = (𝜓 ◦ 𝜑) −1 (𝔯) = 𝜑 −1 (𝜓 −1 (𝔯)) = (Spec 𝜑 ◦ Spec𝜓 )(𝔯).
+
+En las gavillas, sobre cada abierto básico la unicidad de la propiedad universal de la localización
+fuerza la igualdad de los morfismos inducidos. Para la identidad, ambos mapas de anillos y los
+mapas de gavillas son identidades.                                                                □
+
+
+4.     El teorema central: plena fidelidad de Spec
+Teorema 4.1 (Plena fidelidad de Spec). Para cualesquiera anillos 𝐴, 𝐵, la asignación
+
+             HomRing (𝐴, 𝐵) −→ HomLocAn (Spec 𝐵, Spec 𝐴),             𝜑 ↦−→ (Spec 𝜑, 𝜑 # )
+
+es una biyección.
+
+Demostración. La construcción anterior da la aplicación. Para probar que es biyectiva, sea (𝑓 , 𝑓 # ) un
+morfismo localmente anillado entre los dos espectros. En secciones globales define necesariamente
+
+                               𝐴 : 𝐴 = OSpec 𝐴 (Spec 𝐴) −→ 𝐵 = OSpec 𝐵 (Spec 𝐵).
+                           #
+                     𝜑 = 𝑓Spec
+
+Esto prueba la unicidad del candidato. Veamos que 𝑓 = Spec 𝜑. Para 𝔮 ∈ Spec 𝐵, sea 𝔭 = 𝑓 (𝔮). El
+cuadrado de secciones globales y gérmenes conmuta. Para 𝑎 ∈ 𝐴, la localidad de 𝑓𝔮# da
+
+       𝑎 ∈ 𝜑 −1 (𝔮) ⇐⇒ 𝜑 (𝑎)/1 ∈ 𝔮𝐵𝔮 ⇐⇒ 𝑓𝔮# (𝑎/1) ∈ 𝔮𝐵𝔮 ⇐⇒ 𝑎/1 ∈ 𝔭𝐴𝔭 ⇐⇒ 𝑎 ∈ 𝔭.
+
+Así 𝑓 (𝔮) = 𝜑 −1 (𝔮) para todo 𝔮.
+   Finalmente, sobre cada básico 𝐷 (𝑓0 ) el mapa 𝑓 # es una extensión 𝐴 𝑓0 → 𝐵𝜑 (𝑓0 ) del mapa 𝜑 y
+envía 𝑓0 a una unidad. Por la propiedad universal de 𝐴 𝑓0 , coincide con el mapa construido a partir
+de 𝜑. Los básicos cubren Spec 𝐴, así que los morfismos de gavillas coinciden globalmente. Esto
+prueba existencia y unicidad.                                                                     □
+
+
+                                                  32
+Pablo J. Aranda P.                   Teoría de Esquemas                           Sesión 6 de 24
+
+
+5.    La equivalencia contravariante
+Corolario 5.1 (La equivalencia). El funtor Spec : Ringop → LocAn es plenamente fiel. Restringido
+a su imagen esencial, establece una anti-equivalencia entre anillos y esquemas afines.
+
+Definición 5.2 (Esquema afín). Un esquema afín es un espacio localmente anillado isomorfo, como
+espacio localmente anillado, a (Spec 𝐴, OSpec 𝐴 ) para algún anillo conmutativo 𝐴.
+
+    Por la plena fidelidad, dar un morfismo de esquemas afines equivale a dar un morfismo de
+anillos en dirección opuesta, y este último es único.
+Observación 5.3. La imagen esencial del Corolario 5.1 es, por definición, la categoría de esquemas
+afines. Dar un morfismo entre esquemas afines equivale a dar un único morfismo de anillos en la
+dirección opuesta; el Teorema 4.1 garantiza su existencia y unicidad.
+
+
+6.    Ejercicios
+Ejercicio 6.1 (Automorfismos). Deduce que Aut(Spec 𝐴)  Aut(𝐴) op como grupos. Explica por
+qué aparece el grupo opuesto.
+
+Ejercicio 6.2 (Un caso pequeño). Describe Spec 𝑘 como espacio localmente anillado cuando 𝑘
+es cuerpo. Usa la plena fidelidad para describir el conjunto de morfismos de espacios localmente
+anillados Spec 𝑘 → Spec 𝐴.
+
+
+
+
+                                               33
+Centro de Investigación
+en Matemáticas, A.C.
+
+
+
+
+                               SESIÓN
+                                        7
+              Definición de esquema y pegado
+                         Teoría de Esquemas
+Pablo J. Aranda P.                       Teoría de Esquemas                              Sesión 7 de 24
+
+
+1.    De vuelta al cierre de la Sesión 6
+    La Sesión 6 cerró la anti-equivalencia entre anillos y esquemas afines. Quedó la frase por
+formalizar: un esquema es un espacio localmente anillado que admite una cubierta por abiertos
+afines. Dos preguntas organizan esta sesión: si cada abierto básico 𝐷 (𝑓 ) ⊆ Spec 𝐴 vuelve a ser
+afín (§4), y si una familia de esquemas con reglas de traslape da un esquema resultante único (§5,
+desarrollado en la Sesión 7b). El Lema de Pegado convierte esas reglas en una construcción de
+esquemas nuevos.
+
+
+2.    Restricción de un espacio localmente anillado a un abierto
+Lema 2.1 (Restricción a un abierto). Sea (𝑋, O𝑋 ) un espacio anillado y 𝑈 ⊆ 𝑋 abierto. Para
+abiertos 𝑉 ⊆ 𝑈 , definamos O𝑋 |𝑈 (𝑉 ) = O𝑋 (𝑉 ), con las mismas restricciones. Entonces (𝑈 , O𝑋 |𝑈 )
+es un espacio anillado y, para cada 𝑥 ∈ 𝑈 , (O𝑋 |𝑈 )𝑥  O𝑋,𝑥 . En particular, la restricción de un
+espacio localmente anillado sigue siendo localmente anillada.
+Demostración. Los axiomas de gavilla se heredan de O𝑋 . Los abiertos de 𝑈 que contienen a 𝑥 son
+cofinales en los abiertos de 𝑋 que contienen a 𝑥: a una vecindad 𝑊 de 𝑥 en 𝑋 se le asocia 𝑊 ∩ 𝑈 .
+Por ello los colímites que definen ambos tallos son canónicamente isomorfos.                   □
+Definición 2.2 (Subespacio localmente anillado abierto). En la situación del Lema 2.1, (𝑈 , O𝑋 |𝑈 )
+es el subespacio localmente anillado abierto determinado por 𝑈 . La inclusión 𝑗 : 𝑈 ↩→ 𝑋 induce
+𝑗 # : O𝑋 → 𝑗∗ (O𝑋 |𝑈 ); sobre un abierto 𝑉 ⊆ 𝑋 , el mapa es la restricción O𝑋 (𝑉 ) → O𝑋 (𝑉 ∩ 𝑈 ). Es
+un morfismo de espacios localmente anillados cuando 𝑋 lo es.
+
+
+3.    Esquemas
+Definición 3.1 (Esquema). Un esquema es un espacio localmente anillado (𝑋, O𝑋 ) tal que cada
+𝑥 ∈ 𝑋 tiene un abierto 𝑈 ∋ 𝑥 isomorfo, como espacio localmente anillado, a (Spec 𝐴, OSpec 𝐴 ) para
+algún anillo conmutativo 𝐴. Un morfismo de esquemas es un morfismo de espacios localmente
+anillados.
+Observación 3.2. No hace falta una definición adicional de morfismo de esquemas: es el morfismo
+de espacios localmente anillados entre los esquemas. Todo esquema afín es un esquema, tomando
+el abierto afín igual al espacio entero.
+Ejemplo 3.3 (El espacio afín A𝑛𝐴 ). Para 𝐴 un anillo conmutativo y 𝑛 ≥ 0, A𝑛𝐴 = Spec 𝐴[𝑥 1, . . . , 𝑥𝑛 ]
+ya es un esquema afín. Si 𝐴 = 𝑘 es algebraicamente cerrado, sus puntos cerrados son los ideales
+(𝑥 1 − 𝑎 1, . . . , 𝑥𝑛 − 𝑎𝑛 ) y se identifican con 𝑘 𝑛 . Para 𝐴 = Z, el espacio registra puntos sobre cada
+primo de Spec Z.
+
+
+4.    Abiertos afines
+Proposición 4.1 (𝐷 (𝑓 ) es un abierto afín). Para 𝑓 ∈ 𝐴, el abierto 𝐷 (𝑓 ) ⊆ Spec 𝐴, con la gavilla
+estructural restringida, es isomorfo como espacio localmente anillado a Spec 𝐴 𝑓 .
+
+                                                   35
+Pablo J. Aranda P.                           Teoría de Esquemas                                       Sesión 7 de 24
+
+
+Demostración. La correspondencia de la Sesión 3 ya da el homeomorfismo Spec 𝐴 𝑓  𝐷 (𝑓 ). En
+la base común formada por los abiertos 𝐷 (𝑓 𝑔), la gavilla restringida de Spec 𝐴 tiene secciones
+𝐴 𝑓 𝑔 , mientras que la gavilla de Spec 𝐴 𝑓 tiene secciones (𝐴 𝑓 )𝑔¯. Ambos anillos son la 𝐴-álgebra
+universal en la que 𝑓 y 𝑔 son unidades, de modo que son canónicamente isomorfos. La unicidad
+de extensión desde una base de la Sesión 5 da el isomorfismo de gavillas y, por consiguiente, de
+espacios localmente anillados.                                                                    □
+
+Proposición 4.2 (Todo abierto de un esquema es un esquema). Todo abierto 𝑉 de un esquema 𝑋
+es un esquema con estructura O𝑋 |𝑉 .
+
+Demostración. Para 𝑥 ∈ 𝑉 , elige un abierto afín 𝑈 ∋ 𝑥 en 𝑋 . En 𝑈 ∩ 𝑉 , que es abierto en
+𝑈  Spec 𝐴, existe un básico 𝐷 (𝑔) que contiene a 𝑥. Por la proposición anterior, 𝐷 (𝑔) es afín. Estos
+abiertos dan una cubierta afín de 𝑉 .                                                                □
+
+Definición 4.3 (Subesquema abierto, abierto afín, inmersión abierta). Si 𝑉 ⊆ 𝑋 es abierto,
+(𝑉 , O𝑋 |𝑉 ) es el subesquema abierto de 𝑋 determinado por 𝑉 , y es un abierto afín si además es
+afín. Un morfismo de esquemas 𝑌 → 𝑋 es una inmersión abierta si factoriza como un isomorfismo
+   ∼
+𝑌 −→ 𝑉 seguido de la inclusión de un subesquema abierto 𝑉 ⊆ 𝑋 .
+
+Observación 4.4. Los abiertos 𝐷 (𝑓 ) forman una base de abiertos afines en cada esquema afín. En
+cualquier esquema, cada punto tiene abiertos afines arbitrariamente pequeños: dentro de una carta
+afín se elige un básico contenido en el abierto dado. Por tanto los abiertos afines forman una base
+de la topología.
+
+
+5.     El teorema central: el Lema de Pegado
+Definición 5.1 (Datos de pegado). Para una familia de esquemas {𝑋𝑖 }𝑖∈𝐼 , unos datos de pegado
+                                                                                           ∼
+                                                                                           → 𝑋 𝑗𝑖 que
+consisten en subesquemas abiertos 𝑋𝑖 𝑗 ⊆ 𝑋𝑖 , con 𝑋𝑖𝑖 = 𝑋𝑖 , y en isomorfismos 𝜑𝑖 𝑗 : 𝑋𝑖 𝑗 −
+satisfacen:
+
+1. 𝜑𝑖𝑖 = id𝑋𝑖 ;
+
+2. 𝜑 𝑗𝑖 = 𝜑𝑖−1
+             𝑗 ;
+
+3. para toda terna 𝑖, 𝑗, 𝑘, 𝜑𝑖 𝑗 (𝑋𝑖 𝑗 ∩ 𝑋𝑖𝑘 ) = 𝑋 𝑗𝑖 ∩ 𝑋 𝑗𝑘 y, en 𝑋𝑖 𝑗 ∩ 𝑋𝑖𝑘 , 𝜑𝑖𝑘 = 𝜑 𝑗𝑘 ◦ 𝜑𝑖 𝑗 .
+
+    La última condición asegura que los cambios de carta están definidos en los traslapes pertinentes
+y que componer dos cambios de carta coincide con el cambio directo. Con dos piezas no hay una
+condición nueva de cociclo que verificar: las ternas repiten un índice y las condiciones se reducen
+a las dos primeras.
+
+Teorema 5.2 (Lema de Pegado). Dados datos de pegado como arriba, existe un esquema 𝑋 y unas
+inmersiones abiertas 𝜓𝑖 : 𝑋𝑖 → 𝑋 tales que
+        Ð
+ 1. 𝑋 = 𝑖 𝜓𝑖 (𝑋𝑖 );
+
+2. 𝜓𝑖 (𝑋𝑖 ) ∩ 𝜓 𝑗 (𝑋 𝑗 ) = 𝜓𝑖 (𝑋𝑖 𝑗 );
+
+
+                                                        36
+Pablo J. Aranda P.                        Teoría de Esquemas                            Sesión 7 de 24
+
+
+3. 𝜓 𝑗 ◦ 𝜑𝑖 𝑗 = 𝜓𝑖 en 𝑋𝑖 𝑗 .
+
+Además, si (𝑋 ′,𝜓𝑖′) satisface las mismas propiedades, existe un único isomorfismo ℎ : 𝑋 → 𝑋 ′ con
+ℎ ◦ 𝜓𝑖 = 𝜓𝑖′ para todo 𝑖.
+
+Demostración. La construcción y verificación se organizan en los cinco pasos de la clase.
+                                          Ý
+  1. Conjunto subyacente. Tomemos 𝑋 0 = 𝑖 𝑋𝑖 y definamos, para 𝑥 ∈ 𝑋𝑖 , 𝑦 ∈ 𝑋 𝑗 ,
+
+                                   𝑥 ∼𝑦    ⇐⇒        𝑥 ∈ 𝑋𝑖 𝑗 y 𝑦 = 𝜑𝑖 𝑗 (𝑥).
+
+La condición diagonal da reflexividad y la inversa 𝜑 𝑗𝑖 = 𝜑𝑖−1      𝑗 da simetría. Para transitividad,
+supongamos 𝑥 ∼ 𝑦 y 𝑦 ∼ 𝑧, con 𝑥 ∈ 𝑋𝑖 , 𝑦 ∈ 𝑋 𝑗 , 𝑧 ∈ 𝑋𝑘 . Entonces 𝑦 = 𝜑𝑖 𝑗 (𝑥) pertenece a 𝑋 𝑗𝑖 ∩ 𝑋 𝑗𝑘 .
+Por la condición de traslape, existe 𝑥 ′ ∈ 𝑋𝑖 𝑗 ∩ 𝑋𝑖𝑘 con 𝑦 = 𝜑𝑖 𝑗 (𝑥 ′). La inyectividad de 𝜑𝑖 𝑗 implica
+𝑥 = 𝑥 ′, así que 𝑥 ∈ 𝑋𝑖𝑘 . La condición de cociclo da 𝜑𝑖𝑘 (𝑥) = 𝜑 𝑗𝑘 (𝜑𝑖 𝑗 (𝑥)) = 𝑧, y por tanto 𝑥 ∼ 𝑧.
+    Definimos 𝑋 = 𝑋 0 /∼ y 𝜓𝑖 como la composición de la inclusión de 𝑋𝑖 con la proyección
+al cociente. Cada 𝜓𝑖 es inyectiva: si 𝑥, 𝑥 ′ ∈ 𝑋𝑖 son equivalentes, entonces 𝑥 ′ = 𝜑𝑖𝑖 (𝑥) = 𝑥.
+Se tiene 𝜓 𝑗 ◦ 𝜑𝑖 𝑗 = 𝜓𝑖 . Toda clase tiene representante en alguna pieza, y la definición de ∼ da
+𝜓𝑖 (𝑋𝑖 ) ∩ 𝜓 𝑗 (𝑋 𝑗 ) = 𝜓𝑖 (𝑋𝑖 𝑗 ).
+    2. Topología. Damos a 𝑋 la topología cociente. Entonces 𝑊 ⊆ 𝑋 es abierto si y solo si 𝜓𝑖−1 (𝑊 )
+es abierto en cada 𝑋𝑖 . Para un abierto 𝑉 ⊆ 𝑋𝑖 se verifica
+
+                                      𝜓 𝑗−1 (𝜓𝑖 (𝑉 )) = 𝜑𝑖 𝑗 (𝑉 ∩ 𝑋𝑖 𝑗 ).
+
+El lado derecho es abierto en 𝑋 𝑗 , pues 𝑉 ∩ 𝑋𝑖 𝑗 es abierto y 𝜑𝑖 𝑗 es un isomorfismo. Por la definición
+de la topología cociente, 𝜓𝑖 (𝑉 ) es abierto en 𝑋 . Así 𝜓𝑖 es un homeomorfismo de 𝑋𝑖 sobre un abierto.
+    3. Gavilla estructural. Si 𝜑 : 𝑌 → 𝑍 es un isomorfismo de esquemas, induce por pullback
+un isomorfismo 𝜑 # : O𝑍 (𝑈 ) → O𝑌 (𝜑 −1𝑈 ) compatible con restricciones. Para 𝑊 ⊆ 𝑋 abierto,
+definimos
+                   (                                                                                   )
+                              Ö
+         O𝑋 (𝑊 ) = (𝑠𝑖 )𝑖 ∈       O𝑋𝑖 (𝜓𝑖−1𝑊 ) : 𝑠𝑖 |𝜓 −1𝑊 ∩𝑋𝑖 𝑗 = 𝜑𝑖∗𝑗 𝑠 𝑗 |𝜓 −1𝑊 ∩𝑋 𝑗𝑖 para todo 𝑖, 𝑗 .
+                                                                                        
+                                                      𝑖                     𝑗
+                               𝑖
+
+Las restricciones se definen coordenada a coordenada. Identidad se comprueba en cada pieza. Para
+pegar secciones compatibles sobre un cubrimiento de 𝑊 , se pegan primero sus coordenadas usando
+que cada O𝑋𝑖 es gavilla. Las igualdades de compatibilidad entre piezas se cumplen al restringir a
+cada miembro del cubrimiento; por identidad en 𝑋𝑖 se cumplen en todo el traslape. Por tanto O𝑋 es
+una gavilla de anillos.
+   4. Estructura de esquema y mapas abiertos. Fijemos 𝑖 y un abierto 𝑉 ⊆ 𝑋𝑖 , y pongamos
+𝑊 = 𝜓𝑖 (𝑉 ). Por el paso 2, 𝜓 𝑗−1 (𝑊 ) = 𝜑𝑖 𝑗 (𝑉 ∩ 𝑋𝑖 𝑗 ). La proyección
+
+                               𝜋𝑖 : O𝑋 (𝑊 ) −→ O𝑋𝑖 (𝑉 ),           (𝑠 𝑗 ) 𝑗 ↦−→ 𝑠𝑖
+
+es inyectiva, pues la condición de compatibilidad determina cada 𝑠 𝑗 a partir de 𝑠𝑖 . Es sobreyectiva:
+dada 𝑠𝑖 ∈ O𝑋𝑖 (𝑉 ), se define 𝑠 𝑗 transportando la restricción de 𝑠𝑖 mediante 𝜑𝑖−1
+                                                                                 𝑗 . La condición para
+cualquier par ( 𝑗, 𝑘) se verifica en los traslapes mediante la identidad de cociclo 𝜑𝑖𝑘 = 𝜑 𝑗𝑘 ◦ 𝜑𝑖 𝑗 .
+Así 𝜋𝑖 es un isomorfismo, compatible con restricciones. Luego 𝜓𝑖 identifica 𝑋𝑖 con el subesquema
+abierto 𝜓𝑖 (𝑋𝑖 ). Los tallos de O𝑋 en esos abiertos son los tallos locales de O𝑋𝑖 ; por ello 𝑋 es
+
+                                                      37
+Pablo J. Aranda P.                     Teoría de Esquemas                             Sesión 7 de 24
+
+
+localmente anillado. Los abiertos 𝜓𝑖 (𝑋𝑖 ) cubren 𝑋 y son esquemas, así que 𝑋 es esquema y cada 𝜓𝑖
+una inmersión abierta.
+    5. Unicidad. Dado otro pegado (𝑋 ′,𝜓𝑖′), definimos ℎ(𝜓𝑖 (𝑥)) = 𝜓𝑖′ (𝑥). La condición de traslape
+hace que la definición no dependa del representante. Intercambiando 𝑋 y 𝑋 ′ se construye la inversa.
+En cada abierto 𝜓𝑖 (𝑋𝑖 ), ℎ es 𝜓𝑖′ ◦ 𝜓𝑖−1 , un isomorfismo de esquemas; estos mapas coinciden en los
+traslapes por la condición de cociclo. Por tanto se pegan en un isomorfismo de esquemas. Es único
+porque las imágenes 𝜓𝑖 (𝑋𝑖 ) cubren 𝑋 .                                                            □
+
+
+6.    Consistencia: pegado y cubierta afín
+Corolario 6.1. Sea (𝑋, O𝑋 ) un esquema con una cubierta por abiertos afines {𝑈𝑖 }. Tomando
+𝑈𝑖 𝑗 = 𝑈𝑖 ∩ 𝑈 𝑗 y los mapas de transición identidad, los datos satisfacen la Definición 5.1 y el
+esquema producido por el Teorema 5.2 es canónicamente isomorfo a 𝑋 .
+
+Demostración. El mapa de cada pieza 𝑈𝑖 a 𝑋 es una inmersión abierta. Como los 𝑈𝑖 cubren 𝑋 y
+sus intersecciones son exactamente 𝑈𝑖 𝑗 , estos mapas satisfacen las tres propiedades del Teorema
+5.2. La unicidad de ese teorema da el isomorfismo canónico.                                     □
+Observación 6.2. La definición de esquema por cubiertas afines y el teorema de pegado describen
+la misma clase de objetos desde dos direcciones. Todo esquema resulta de pegar su propia cubierta
+afín; el pegado también permite construir esquemas cuando las piezas no están previamente dentro
+de uno común.
+
+
+7.    Ejercicios
+Ejercicio 7.1 (Pegado con una sola pieza). Verifica que el pegado de una sola pieza 𝑋 1 , con
+𝑋 11 = 𝑋 1 y 𝜑 11 = id, es canónicamente 𝑋 1 .
+
+Ejercicio 7.2 (Dos copias de Spec 𝐴 pegadas por la identidad). Sean 𝑋 1 = 𝑋 2 = Spec 𝐴 dos copias,
+𝑓 ∈ 𝐴, 𝑋 12 = 𝑋 21 = 𝐷 (𝑓 ) y el isomorfismo de pegado la identidad. Describe el esquema en los
+casos (i) 𝑓 es unidad en 𝐴; (ii) 𝐴 = 𝑘 [𝑥] y 𝑓 = 𝑥.
+
+Ejercicio 7.3 (Restricción de un morfismo a un abierto). Sea 𝑓 : 𝑋 → 𝑌 un morfismo de esquemas
+y 𝑉 ⊆ 𝑌 abierto. Verifica que 𝑓 −1 (𝑉 ) es abierto y que la restricción induce un morfismo de
+esquemas 𝑓 | 𝑓 −1 (𝑉 ) : 𝑓 −1 (𝑉 ) → 𝑉 .
+
+
+1.    Lo que traemos de la Sesión 7a
+    La Sesión 7a dejó la definición de esquema y las herramientas para trabajar con abiertos: la
+restricción a un abierto, el hecho de que 𝐷 (𝑓 ) es afín, y que todo abierto de un esquema vuelve a ser
+esquema. Las repasamos porque el Lema de Pegado las usa para construir un esquema y verificar
+su estructura.
+
+
+
+
+                                                  38
+Pablo J. Aranda P.                       Teoría de Esquemas                               Sesión 7 de 24
+
+
+Definición 1.1 (Esquema). Un esquema es un espacio localmente anillado (𝑋, O𝑋 ) tal que todo
+punto tiene un abierto que, con la gavilla restringida, es isomorfo a algún (Spec 𝐴, OSpec 𝐴 ). Un
+morfismo de esquemas es un morfismo de espacios localmente anillados.
+Proposición 1.2 (𝐷 (𝑓 ) es un abierto afín). Para 𝑓 ∈ 𝐴, (𝐷 (𝑓 ), OSpec 𝐴 | 𝐷 (𝑓 ) ) es isomorfo a
+(Spec 𝐴 𝑓 , OSpec 𝐴 𝑓 ).
+Proposición 1.3 (Todo abierto de un esquema es un esquema). Si 𝑋 es un esquema y 𝑉 ⊆ 𝑋 es
+abierto, (𝑉 , O𝑋 |𝑉 ) es un esquema.
+Definición 1.4 (Subesquema abierto, abierto afín, inmersión abierta). Si 𝑉 ⊆ 𝑋 es abierto,
+(𝑉 , O𝑋 |𝑉 ) es el subesquema abierto determinado por 𝑉 , y es un abierto afín si además es afín.
+Un morfismo 𝑌 → 𝑋 es una inmersión abierta si factoriza por un isomorfismo con un subesquema
+abierto seguido de su inclusión.
+Observación 1.5. Los 𝐷 (𝑓 ) forman una base de abiertos afines en un esquema afín. En todo
+esquema hay abiertos afines arbitrariamente pequeños alrededor de cada punto. El isomorfismo
+Spec 𝐴 𝑓 → Spec 𝐴 es inducido por 𝐴 → 𝐴 𝑓 y tiene imagen 𝐷 (𝑓 ).
+Ejemplo 1.6 (La hipérbola). Sea 𝐵 = 𝑘 [𝑥, 𝑦]/(𝑥𝑦 − 1). El mapa 𝑘 [𝑥] → 𝐵 induce una inmersión
+abierta Spec 𝐵 → A𝑘1 con imagen 𝐷 (𝑥), pues 𝐵  𝑘 [𝑥] 𝑥 y 𝑦 corresponde a 𝑥 −1 .
+Observación 1.7. El mismo esquema es cerrado en A𝑘2 , como conjunto de ceros de 𝑥𝑦 − 1, y abierto
+en A𝑘1 , como complemento del origen. Ser abierto o cerrado depende del esquema ambiente.
+
+
+2.    Datos de pegado
+   Pegar objetos es construir un colímite. Para espacios topológicos 𝐴, 𝑋, 𝑌 con mapas 𝐴 → 𝑋
+y 𝐴 → 𝑌 , el pushout es el cociente (𝑋 ⨿ 𝑌 )/∼ con topología cociente, que identifica las dos
+imágenes de cada punto de 𝐴. Mapas continuos desde ese cociente equivalen a mapas desde 𝑋 y 𝑌
+compatibles sobre 𝐴.
+Ejemplo 2.1 (El círculo). Sean 𝐼 1, 𝐼 2 dos copias de [0, 1] y 𝐴 = {0, 1}, incluidas como extremos.
+El pushout 𝐼 1 ⨿𝐴 𝐼 2 es homeomorfo a 𝑆 1 : identifica los dos ceros y los dos unos, y los intervalos
+son los dos arcos.
+    En esquemas se pegan piezas por subesquemas abiertos y los cambios de carta son isomorfismos.
+La receta debe especificar qué partes se identifican y cómo. Por ejemplo, dos copias de A𝑘1 pueden
+pegarse a lo largo de 𝐷 (𝑥) mediante la identidad o mediante 𝑥 ↦→ 1/𝑥; son datos distintos y
+producen esquemas distintos.
+Definición 2.2 (Datos de pegado). Para una familia de esquemas {𝑋𝑖 }, se eligen subesquemas
+                                                                     ∼
+abiertos 𝑋𝑖 𝑗 ⊆ 𝑋𝑖 con 𝑋𝑖𝑖 = 𝑋𝑖 e isomorfismos 𝜑𝑖 𝑗 : 𝑋𝑖 𝑗 −        → 𝑋 𝑗𝑖 que cumplen: (P1) 𝜑𝑖𝑖 = id; (P2)
+𝜑 𝑗𝑖 = 𝜑𝑖−1
+          𝑗 ; (P3) para toda terna, 𝜑𝑖 𝑗 (𝑋𝑖 𝑗 ∩ 𝑋𝑖𝑘 ) = 𝑋 𝑗𝑖 ∩ 𝑋 𝑗𝑘 y 𝜑𝑖𝑘 = 𝜑 𝑗𝑘 ◦ 𝜑𝑖 𝑗 en 𝑋𝑖 𝑗 ∩ 𝑋𝑖𝑘 .
+Observación 2.3. La primera parte de (P3) garantiza que la composición 𝜑 𝑗𝑘 ◦ 𝜑𝑖 𝑗 está definida en
+el traslape; la segunda dice que los dos cambios de carta coinciden.
+Observación 2.4 (Con dos piezas no hay cociclo que verificar). Si hay solo dos piezas, basta dar
+los abiertos 𝑋 12, 𝑋 21 y el isomorfismo 𝜑 12 . Las condiciones diagonales e inversas fijan lo demás, y
+la condición de cociclo se sigue de ellas.
+
+                                                    39
+Pablo J. Aranda P.                       Teoría de Esquemas                               Sesión 7 de 24
+
+
+3.    El Lema de Pegado
+Teorema 3.1 (Lema de Pegado). Dados datos de pegado como en la Definición 2.2, existe un
+                                                                          Ð
+esquema 𝑋 y unas inmersiones abiertas 𝜓𝑖 : 𝑋𝑖 → 𝑋 tales que 𝑋 = 𝑖 𝜓𝑖 (𝑋𝑖 ), 𝜓𝑖 (𝑋𝑖 ) ∩ 𝜓 𝑗 (𝑋 𝑗 ) =
+𝜓𝑖 (𝑋𝑖 𝑗 ) y 𝜓 𝑗 ◦ 𝜑𝑖 𝑗 = 𝜓𝑖 en 𝑋𝑖 𝑗 . El esquema es único salvo isomorfismo único compatible con los
+mapas 𝜓𝑖 .
+
+Demostración. La construcción completa del cociente, su topología, la gavilla pegada y la verifi-
+cación de los axiomas se dio en la Sesión 7a, §5. Es el Teorema 5.2; ese desarrollo prueba también
+la unicidad.                                                                                     □
+
+
+4.    El pegado como colímite
+                                                                Ý                  Ý
+Proposición 4.1 (El pegado es un coigualador). Sean 𝐸 = 𝑖,𝑗 𝑋𝑖 𝑗 y 𝑋 ⨿ = 𝑖 𝑋𝑖 , con mapas
+𝑠, 𝑡 : 𝐸 ⇒ 𝑋 ⨿ dados respectivamente por la inclusión de 𝑋𝑖 𝑗 en 𝑋𝑖 y por 𝜑𝑖 𝑗 seguida de la inclusión
+                               𝜓
+                             − 𝑋 es un coigualador en la categoría de esquemas.
+en 𝑋 𝑗 . El diagrama 𝐸 ⇒ 𝑋 ⨿ →
+
+Demostración. Un morfismo 𝑋 ⨿ → 𝑌 equivale a una familia 𝑓𝑖 : 𝑋𝑖 → 𝑌 . La igualdad 𝑓 ◦ 𝑠 = 𝑓 ◦ 𝑡
+dice exactamente que 𝑓𝑖 |𝑋𝑖 𝑗 = 𝑓 𝑗 ◦ 𝜑𝑖 𝑗 . En los abiertos 𝜓𝑖 (𝑋𝑖 ), los mapas 𝑓𝑖 ◦ 𝜓𝑖−1 coinciden en los
+traslapes por esta igualdad, así que se pegan a un único morfismo 𝑋 → 𝑌 . La unicidad se sigue de
+que los 𝜓𝑖 (𝑋𝑖 ) cubren 𝑋 .                                                                               □
+Observación 4.2. Dar un morfismo 𝑋 → 𝑌 equivale a dar mapas 𝑋𝑖 → 𝑌 compatibles con 𝜑𝑖 𝑗 .
+El argumento usa solo las propiedades (a), (b), (c), por lo que vale para cualquier pegado que las
+satisfaga y expresa de nuevo la unicidad.
+
+
+5.    Consistencia: pegado y cubierta
+   Si un esquema 𝑋 ya tiene una cubierta por abiertos afines 𝑈𝑖 , tomamos 𝑋𝑖 𝑗 = 𝑈𝑖 ∩ 𝑈 𝑗 y los
+mapas de transición iguales a la identidad. El esquema obtenido por el lema es canónicamente
+isomorfo a 𝑋 . El pegado construye objetos nuevos cuando las piezas no están dadas de antemano
+como abiertos de un esquema común.
+
+Corolario 5.1. Sea 𝑋 un esquema con una cubierta por abiertos {𝑈𝑖 }. Con 𝑈𝑖 𝑗 = 𝑈𝑖 ∩ 𝑈 𝑗 y
+transiciones identidad, los datos son de pegado y el esquema que produce el Teorema 3.1 es
+canónicamente isomorfo a 𝑋 .
+
+Demostración. Las inclusiones 𝑈𝑖 ↩→ 𝑋 satisfacen las propiedades del Teorema 3.1. Su unicidad
+da el isomorfismo con 𝑋 .                                                                   □
+Observación 5.2. La definición de esquema por una cubierta afín y el teorema de pegado describen
+la misma clase de objetos desde dos direcciones. El teorema produce esquemas nuevos cuando las
+piezas no viven de antemano en un esquema común.
+
+
+
+
+                                                    40
+Pablo J. Aranda P.                     Teoría de Esquemas                             Sesión 7 de 24
+
+
+6.    Un ejemplo: la recta con origen doble
+Ejemplo 6.1 (La recta con origen doble). Sea 𝑘 un campo, 𝑋 1 = 𝑋 2 = A𝑘1 = Spec 𝑘 [𝑥], 𝑋 12 =
+𝑋 21 = 𝐷 (𝑥) y 𝜑 12 = id. El esquema pegado contiene dos orígenes distintos 𝑂 1, 𝑂 2 y una sola copia
+de cada punto no nulo. Es la recta con origen doble.
+
+                                               𝑂1
+                                                                     𝑋1
+                                                                     𝑋2
+                                               𝑂2
+                                    Las dos copias se identifican en 𝐷 (𝑥)
+
+
+    Una sección global es un par de polinomios en 𝑘 [𝑥] que coinciden en 𝑘 [𝑥] 𝑥 ; la inclusión
+𝑘 [𝑥] ↩→ 𝑘 [𝑥] 𝑥 es inyectiva, así que los dos polinomios son iguales. Por tanto Γ(𝑋, O𝑋 ) = 𝑘 [𝑥]. Si
+𝑋 fuera afín, sería isomorfo a Spec Γ(𝑋, O𝑋 ) = Spec 𝑘 [𝑥]. Sin embargo, bajo el mapa canónico a
+ese espectro ambos orígenes van al ideal (𝑥), aunque son distintos. Luego 𝑋 no es afín.
+
+    Esto también explica por qué no basta calcular el pegado en la categoría de esquemas afines.
+Allí el pushout de Spec𝑇 → Spec 𝑅 y Spec𝑇 → Spec 𝑆 es Spec(𝑅 ×𝑇 𝑆). Para 𝑅 = 𝑆 = 𝑘 [𝑥]
+y 𝑇 = 𝑘 [𝑥] 𝑥 , el producto fibrado de anillos es 𝑘 [𝑥], así que el pushout entre afines sería A𝑘1 . El
+pushout en esquemas es, en cambio, la recta con origen doble; la inclusión de esquemas afines en
+esquemas no preserva este colímite.
+Observación 6.2 (El colímite entre esquemas afines). El pushout afín de Spec 𝑘 [𝑥] ← Spec 𝑘 [𝑥] 𝑥 →
+Spec 𝑘 [𝑥] es Spec 𝑘 [𝑥], mientras que el pushout en esquemas es la recta con origen doble. Por
+tanto, la inclusión de esquemas afines en esquemas no preserva este colímite.
+
+
+7.    Ejercicios
+Ejercicio 7.1 (Pegado con una sola pieza). Verifica que si hay una sola pieza 𝑋 1 , con 𝑋 11 = 𝑋 1 y
+𝜑 11 = id, el esquema pegado es canónicamente 𝑋 1 .
+
+Ejercicio 7.2 (El plano con recta doble). Sea 𝑘 un campo y pega dos copias de A𝑘2 = Spec 𝑘 [𝑥, 𝑦]
+a lo largo de 𝐷 (𝑥) mediante la identidad. Calcula Γ(𝑋, O𝑋 ), demuestra que el esquema no es afín
+adaptando el argumento del Ejemplo 6.1 (considera el primo (𝑥) en las dos copias) y explica por
+qué esto no contradice el Corolario 5.1.
+
+Ejercicio 7.3 (Restricción de un morfismo a un abierto). Sea 𝑓 : 𝑋 → 𝑌 un morfismo de esquemas
+y 𝑉 ⊆ 𝑌 abierto. Verifica que 𝑓 −1 (𝑉 ) es abierto y que la restricción induce un morfismo de
+esquemas 𝑓 | 𝑓 −1 (𝑉 ) : 𝑓 −1 (𝑉 ) → 𝑉 .
+
+
+
+
+                                                    41
+                                  Referencias
+
+[1] R. Vakil, The Rising Sea: Foundations of Algebraic Geometry, Princeton University Press,
+    2025.
+
+[2] Q. Liu, Algebraic Geometry and Arithmetic Curves, Oxford University Press.
+
+[3] M. F. Atiyah y I. G. Macdonald, Introduction to Commutative Algebra, Addison–Wesley, 1969.
+
+[4] R. Hartshorne, Algebraic Geometry, Graduate Texts in Mathematics 52, Springer, 1977.
+
+[5] U. Görtz y T. Wedhorn, Algebraic Geometry I: Schemes with Examples and Exercises, Springer.
+
+[6] The Stacks Project, https://stacks.math.columbia.edu.
+
+[7] A. Grothendieck y J. Dieudonné, Éléments de géométrie algébrique.
+

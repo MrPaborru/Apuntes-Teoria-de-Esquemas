@@ -1,0 +1,274 @@
+\section{De vuelta al cierre de la Sesión 6}
+
+La Sesión 6 cerró la anti-equivalencia entre anillos y esquemas afines. Quedó la frase por formalizar: un esquema es un espacio localmente anillado que admite una cubierta por abiertos afines. Dos preguntas organizan esta sesión: si cada abierto básico $D(f)\subseteq\Spec A$ vuelve a ser afín y cómo construir un esquema a partir de piezas con reglas de traslape. La construcción descrita en el \cref{teo:s07-lema-pegado} responde la segunda pregunta y convierte esas reglas en una construcción de esquemas nuevos.
+
+\section{Restricción de un espacio localmente anillado a un abierto}
+
+\begin{lema}[Restricción a un abierto]
+\label{lema:s07-restriccion-abierto}
+Sea $(X,\mathcal O_X)$ un espacio anillado y $U\subseteq X$ abierto. Para abiertos $V\subseteq U$, definamos $\mathcal O_X|_U(V)=\mathcal O_X(V)$, con las mismas restricciones. Entonces $(U,\mathcal O_X|_U)$ es un espacio anillado y, para cada $x\in U$, $ (\mathcal O_X|_U)_x\cong\mathcal O_{X,x}$. En particular, la restricción de un espacio localmente anillado sigue siendo localmente anillada.
+\end{lema}
+\begin{proof}
+Los axiomas de gavilla se heredan de $\mathcal O_X$. Los abiertos de $U$ que contienen a $x$ son cofinales en los abiertos de $X$ que contienen a $x$: a una vecindad $W$ de $x$ en $X$ se le asocia $W\cap U$. Por ello los colímites que definen ambos tallos son canónicamente isomorfos.
+\end{proof}
+
+\begin{defi}[Subespacio localmente anillado abierto]
+\label{defi:s07-subespacio-localmente-anillado-abierto}
+En la situación descrita en el \cref{lema:s07-restriccion-abierto}, $(U,\mathcal O_X|_U)$ es el subespacio localmente anillado abierto determinado por $U$. La inclusión $j:U\hookrightarrow X$ induce $j^\#:\mathcal O_X\to j_*(\mathcal O_X|_U)$; sobre un abierto $V\subseteq X$, el mapa es la restricción $\mathcal O_X(V)\to\mathcal O_X(V\cap U)$. Es un morfismo de espacios localmente anillados cuando $X$ lo es.
+\end{defi}
+
+\section{Esquemas}
+
+\begin{defi}[Esquema]
+\label{defi:s07-esquema}
+Un esquema es un espacio localmente anillado $(X,\mathcal O_X)$ tal que cada $x\in X$ tiene un abierto $U\ni x$ isomorfo, como espacio localmente anillado, a $(\Spec A,\mathcal O_{\Spec A})$ para algún anillo conmutativo $A$. Un morfismo de esquemas es un morfismo de espacios localmente anillados.
+\end{defi}
+
+\begin{obs}
+\label{obs:s07-no-hace-falta-definicion-adicional}
+No hace falta una definición adicional de morfismo de esquemas: es el morfismo de espacios localmente anillados entre los esquemas. Todo esquema afín es un esquema, tomando el abierto afín igual al espacio entero.
+\end{obs}
+
+\begin{ejem}[El espacio afín $\mathbb A_A^n$]
+\label{ejem:s07-espacio-afin-n}
+Para $A$ un anillo conmutativo y $n\geq0$, $\mathbb A_A^n=\Spec A[x_1,\ldots,x_n]$ ya es un esquema afín. Si $A=k$ es algebraicamente cerrado, sus puntos cerrados son los ideales $(x_1-a_1,\ldots,x_n-a_n)$ y se identifican con $k^n$. Para $A=\mathbb Z$, el espacio registra puntos sobre cada primo de $\Spec\mathbb Z$.
+\end{ejem}
+
+\section{Abiertos afines}
+
+\begin{prop}[$D(f)$ es un abierto afín]
+\label{prop:s07-d-f-abierto-afin}
+Para $f\in A$, el abierto $D(f)\subseteq\Spec A$, con la gavilla estructural restringida, es isomorfo como espacio localmente anillado a $\Spec A_f$.
+\end{prop}
+\begin{proof}
+El homeomorfismo se obtiene en el \cref{teo:s03-correspondencia-localizaciones} $\Spec A_f\cong D(f)$. En la base común formada por los abiertos $D(fg)$, la gavilla restringida de $\Spec A$ tiene secciones $A_{fg}$, mientras que la gavilla de $\Spec A_f$ tiene secciones $(A_f)_{\bar g}$. Ambos anillos son la $A$-álgebra universal en la que $f$ y $g$ son unidades, de modo que son canónicamente isomorfos. La unicidad del \cref{teo:s05-toda-gavilla-sobre-base-extiende} da el isomorfismo de gavillas y, por consiguiente, de espacios localmente anillados.
+\end{proof}
+
+\begin{prop}[Todo abierto de un esquema es un esquema]
+\label{prop:s07-todo-abierto-esquema-esquema}
+Todo abierto $V$ de un esquema $X$ es un esquema con estructura $\mathcal O_X|_V$.
+\end{prop}
+\begin{proof}
+Para $x\in V$, elige un abierto afín $U\ni x$ en $X$. En $U\cap V$, que es abierto en $U\cong\Spec A$, existe un básico $D(g)$ que contiene a $x$. Por la \cref{prop:s07-d-f-abierto-afin}, $D(g)$ es afín. Estos abiertos dan una cubierta afín de $V$.
+\end{proof}
+
+\begin{defi}[Subesquema abierto, abierto afín, inmersión abierta]
+\label{defi:s07-subesquema-abierto-abierto-afin-inmersion}
+Si $V\subseteq X$ es abierto, $(V,\mathcal O_X|_V)$ es el subesquema abierto de $X$ determinado por $V$, y es un abierto afín si además es afín. Un morfismo de esquemas $Y\to X$ es una inmersión abierta si factoriza como un isomorfismo $Y\xrightarrow{\sim}V$ seguido de la inclusión de un subesquema abierto $V\subseteq X$.
+\end{defi}
+
+\begin{obs}
+\label{obs:s07-abiertos-d-f-forman-base}
+Los abiertos $D(f)$ forman una base de abiertos afines en cada esquema afín. En cualquier esquema, cada punto tiene abiertos afines arbitrariamente pequeños: dentro de una carta afín se elige un básico contenido en el abierto dado. Por tanto los abiertos afines forman una base de la topología.
+\end{obs}
+
+\section{El teorema central: el Lema de Pegado}
+
+\begin{defi}[Datos de pegado]
+\label{defi:s07-datos-pegado}
+Para una familia de esquemas $\{X_i\}_{i\in I}$, unos datos de pegado consisten en subesquemas abiertos $X_{ij}\subseteq X_i$, con $X_{ii}=X_i$, y en isomorfismos $\varphi_{ij}:X_{ij}\xrightarrow{\sim}X_{ji}$ que satisfacen:
+\begin{enumerate}
+\item $\varphi_{ii}=\id_{X_i}$;
+\item $\varphi_{ji}=\varphi_{ij}^{-1}$;
+\item para toda terna $i,j,k$, $\varphi_{ij}(X_{ij}\cap X_{ik})=X_{ji}\cap X_{jk}$ y, en $X_{ij}\cap X_{ik}$, $\varphi_{ik}=\varphi_{jk}\circ\varphi_{ij}$.
+\end{enumerate}
+\end{defi}
+
+La última condición asegura que los cambios de carta están definidos en los traslapes pertinentes y que componer dos cambios de carta coincide con el cambio directo. Con dos piezas no hay una condición nueva de cociclo que verificar: las ternas repiten un índice y las condiciones se reducen a las dos primeras.
+
+\begin{teo}[Lema de Pegado]
+\label{teo:s07-lema-pegado}
+Dados datos de pegado como arriba, existe un esquema $X$ y unas inmersiones abiertas $\psi_i:X_i\to X$ tales que
+\begin{enumerate}
+\item $X=\bigcup_i\psi_i(X_i)$;
+\item $\psi_i(X_i)\cap\psi_j(X_j)=\psi_i(X_{ij})$;
+\item $\psi_j\circ\varphi_{ij}=\psi_i$ en $X_{ij}$.
+\end{enumerate}
+Además, si $(X',\psi_i')$ satisface las mismas propiedades, existe un único isomorfismo $h:X\to X'$ con $h\circ\psi_i=\psi_i'$ para todo $i$.
+\end{teo}
+\begin{proof}
+La construcción y verificación se organizan en los cinco pasos de la clase.
+
+\emph{1. Conjunto subyacente.} Tomemos $X_0=\coprod_iX_i$ y definamos, para $x\in X_i$, $y\in X_j$,
+\[
+x\sim y\quad\Longleftrightarrow\quad x\in X_{ij}\text{ y }y=\varphi_{ij}(x).
+\]
+La condición diagonal da reflexividad y la inversa $\varphi_{ji}=\varphi_{ij}^{-1}$ da simetría. Para transitividad, supongamos $x\sim y$ y $y\sim z$, con $x\in X_i$, $y\in X_j$, $z\in X_k$. Entonces $y=\varphi_{ij}(x)$ pertenece a $X_{ji}\cap X_{jk}$. Por la condición de traslape, existe $x'\in X_{ij}\cap X_{ik}$ con $y=\varphi_{ij}(x')$. La inyectividad de $\varphi_{ij}$ implica $x=x'$, así que $x\in X_{ik}$. La condición de cociclo da $\varphi_{ik}(x)=\varphi_{jk}(\varphi_{ij}(x))=z$, y por tanto $x\sim z$.
+
+Definimos $X=X_0/\sim$ y $\psi_i$ como la composición de la inclusión de $X_i$ con la proyección al cociente. Cada $\psi_i$ es inyectiva: si $x,x'\in X_i$ son equivalentes, entonces $x'=\varphi_{ii}(x)=x$. Se tiene $\psi_j\circ\varphi_{ij}=\psi_i$. Toda clase tiene representante en alguna pieza, y la definición de $\sim$ da $\psi_i(X_i)\cap\psi_j(X_j)=\psi_i(X_{ij})$.
+
+\emph{2. Topología.} Damos a $X$ la topología cociente. Entonces $W\subseteq X$ es abierto si y solo si $\psi_i^{-1}(W)$ es abierto en cada $X_i$. Para un abierto $V\subseteq X_i$ se verifica
+\[
+\psi_j^{-1}(\psi_i(V))=\varphi_{ij}(V\cap X_{ij}).
+\]
+El lado derecho es abierto en $X_j$, pues $V\cap X_{ij}$ es abierto y $\varphi_{ij}$ es un isomorfismo. Por la definición de la topología cociente, $\psi_i(V)$ es abierto en $X$. Así $\psi_i$ es un homeomorfismo de $X_i$ sobre un abierto.
+
+\emph{3. Gavilla estructural.} Si $\varphi:Y\to Z$ es un isomorfismo de esquemas, induce por pullback un isomorfismo $\varphi^\#:\mathcal O_Z(U)\to\mathcal O_Y(\varphi^{-1}U)$ compatible con restricciones. Para $W\subseteq X$ abierto, definimos
+\[
+\mathcal O_X(W)=\set*{(s_i)_i\in\prod_i\mathcal O_{X_i}(\psi_i^{-1}W) \given
+s_i|_{\psi_i^{-1}W\cap X_{ij}}=\varphi_{ij}^*\bigl(s_j|_{\psi_j^{-1}W\cap X_{ji}}\bigr)\text{ para todo }i,j}.
+\]
+Las restricciones se definen coordenada a coordenada. Identidad se comprueba en cada pieza. Para pegar secciones compatibles sobre un cubrimiento de $W$, se pegan primero sus coordenadas usando que cada $\mathcal O_{X_i}$ es gavilla. Las igualdades de compatibilidad entre piezas se cumplen al restringir a cada miembro del cubrimiento; por identidad en $X_i$ se cumplen en todo el traslape. Por tanto $\mathcal O_X$ es una gavilla de anillos.
+
+\emph{4. Estructura de esquema y mapas abiertos.} Fijemos $i$ y un abierto $V\subseteq X_i$, y pongamos $W=\psi_i(V)$. Por el paso 2, $\psi_j^{-1}(W)=\varphi_{ij}(V\cap X_{ij})$. La proyección
+\[
+\pi_i:\mathcal O_X(W)\longrightarrow\mathcal O_{X_i}(V),\qquad (s_j)_j\longmapsto s_i
+\]
+es inyectiva, pues la condición de compatibilidad determina cada $s_j$ a partir de $s_i$. Es sobreyectiva: dada $s_i\in\mathcal O_{X_i}(V)$, se define $s_j$ transportando la restricción de $s_i$ mediante $\varphi_{ij}^{-1}$. La condición para cualquier par $(j,k)$ se verifica en los traslapes mediante la identidad de cociclo $\varphi_{ik}=\varphi_{jk}\circ\varphi_{ij}$. Así $\pi_i$ es un isomorfismo, compatible con restricciones. Luego $\psi_i$ identifica $X_i$ con el subesquema abierto $\psi_i(X_i)$. Los tallos de $\mathcal O_X$ en esos abiertos son los tallos locales de $\mathcal O_{X_i}$; por ello $X$ es localmente anillado. Los abiertos $\psi_i(X_i)$ cubren $X$ y son esquemas, así que $X$ es esquema y cada $\psi_i$ una inmersión abierta.
+
+\emph{5. Unicidad.} Dado otro pegado $(X',\psi_i')$, definimos $h(\psi_i(x))=\psi_i'(x)$. La condición de traslape hace que la definición no dependa del representante. Intercambiando $X$ y $X'$ se construye la inversa. En cada abierto $\psi_i(X_i)$, $h$ es $\psi_i'\circ\psi_i^{-1}$, un isomorfismo de esquemas; estos mapas coinciden en los traslapes por la condición de cociclo. Por tanto se pegan en un isomorfismo de esquemas. Es único porque las imágenes $\psi_i(X_i)$ cubren $X$.
+\end{proof}
+
+\section{Consistencia: pegado y cubierta afín}
+
+\begin{coro}
+\label{coro:s07-x-o-x-esquema-cubierta}
+Sea $(X,\mathcal O_X)$ un esquema con una cubierta por abiertos afines $\{U_i\}$. Tomando $U_{ij}=U_i\cap U_j$ y los mapas de transición identidad, los datos satisfacen la \cref{defi:s07-datos-pegado} y el esquema producido por el \cref{teo:s07-lema-pegado} es canónicamente isomorfo a $X$.
+\end{coro}
+\begin{proof}
+El mapa de cada pieza $U_i$ a $X$ es una inmersión abierta. Como los $U_i$ cubren $X$ y sus intersecciones son exactamente $U_{ij}$, estos mapas satisfacen las tres propiedades del \cref{teo:s07-lema-pegado}. Su unicidad da el isomorfismo canónico.
+\end{proof}
+\begin{obs}
+\label{obs:s07-definicion-esquema-cubiertas-afines-teorema}
+La \cref{defi:s07-esquema} y el \cref{teo:s07-lema-pegado} describen la misma clase de objetos desde dos direcciones. Todo esquema resulta de pegar su propia cubierta afín; el pegado también permite construir esquemas cuando las piezas no están previamente dentro de uno común.
+\end{obs}
+
+\section{Ejercicios}
+
+\begin{ejer}[Pegado con una sola pieza]
+\label{ejer:s07-pegado-sola-pieza}
+Verifica que el pegado de una sola pieza $X_1$, con $X_{11}=X_1$ y $\varphi_{11}=\id$, es canónicamente $X_1$.
+\end{ejer}
+\begin{ejer}[Dos copias de $\Spec A$ pegadas por la identidad]
+\label{ejer:s07-dos-copias-pegadas-identidad}
+Sean $X_1=X_2=\Spec A$ dos copias, $f\in A$, $X_{12}=X_{21}=D(f)$ y el isomorfismo de pegado la identidad. Describe el esquema en los casos (i) $f$ es unidad en $A$; (ii) $A=k[x]$ y $f=x$.
+\end{ejer}
+\begin{ejer}[Restricción de un morfismo a un abierto]
+\label{ejer:s07-restriccion-morfismo-abierto}
+Sea $f:X\to Y$ un morfismo de esquemas y $V\subseteq Y$ abierto. Verifica que $f^{-1}(V)$ es abierto y que la restricción induce un morfismo de esquemas $f|_{f^{-1}(V)}:f^{-1}(V)\to V$.
+\end{ejer}
+
+\section{Un ejemplo de abierto afín}
+
+La hipérbola muestra cómo un esquema afín aparece como abierto de la recta afín.
+
+\begin{ejem}[La hipérbola]
+\label{ejem:s07-hiperbola}
+Sea $B=k[x,y]/(xy-1)$. El mapa $k[x]\to B$ induce una inmersión abierta $\Spec B\to\mathbb A_k^1$ con imagen $D(x)$, pues $B\cong k[x]_x$ y $y$ corresponde a $x^{-1}$.
+\end{ejem}
+\begin{obs}
+\label{obs:s07-mismo-esquema-cerrado-k-2}
+El mismo esquema es cerrado en $\mathbb A_k^2$, como conjunto de ceros de $xy-1$, y abierto en $\mathbb A_k^1$, como complemento del origen. Ser abierto o cerrado depende del esquema ambiente.
+\end{obs}
+
+\section{Datos de pegado}
+
+Pegar objetos es construir un colímite. Para espacios topológicos $A,X,Y$ con mapas $A\to X$ y $A\to Y$, el pushout es el cociente $(X\amalg Y)/\sim$ con topología cociente, que identifica las dos imágenes de cada punto de $A$. Mapas continuos desde ese cociente equivalen a mapas desde $X$ y $Y$ compatibles sobre $A$.
+
+\begin{ejem}[El círculo]
+\label{ejem:s07-circulo}
+Sean $I_1,I_2$ dos copias de $[0,1]$ y $A=\{0,1\}$, incluidas como extremos. El pushout $I_1\amalg_A I_2$ es homeomorfo a $S^1$: identifica los dos ceros y los dos unos, y los intervalos son los dos arcos.
+\end{ejem}
+
+En esquemas se pegan piezas por subesquemas abiertos y los cambios de carta son isomorfismos. La receta debe especificar qué partes se identifican y cómo. Por ejemplo, dos copias de $\mathbb A_k^1$ pueden pegarse a lo largo de $D(x)$ mediante la identidad o mediante $x\mapsto1/x$; son datos distintos y producen esquemas distintos.
+
+\begin{defi}[Datos de pegado]
+\label{defi:s07-datos-pegado-2}
+Para una familia de esquemas $\{X_i\}$, se eligen subesquemas abiertos $X_{ij}\subseteq X_i$ con $X_{ii}=X_i$ e isomorfismos $\varphi_{ij}:X_{ij}\xrightarrow{\sim}X_{ji}$ que cumplen: (P1) $\varphi_{ii}=\id$; (P2) $\varphi_{ji}=\varphi_{ij}^{-1}$; (P3) para toda terna, $\varphi_{ij}(X_{ij}\cap X_{ik})=X_{ji}\cap X_{jk}$ y $\varphi_{ik}=\varphi_{jk}\circ\varphi_{ij}$ en $X_{ij}\cap X_{ik}$.
+\end{defi}
+\begin{obs}
+\label{obs:s07-primera-parte-p3-garantiza-composicion}
+La primera parte de (P3) garantiza que la composición $\varphi_{jk}\circ\varphi_{ij}$ está definida en el traslape; la segunda dice que los dos cambios de carta coinciden.
+\end{obs}
+\begin{obs}[Con dos piezas no hay cociclo que verificar]
+\label{obs:s07-dos-piezas-no-cociclo-verificar}
+Si hay solo dos piezas, basta dar los abiertos $X_{12},X_{21}$ y el isomorfismo $\varphi_{12}$. Las condiciones diagonales e inversas fijan lo demás, y la condición de cociclo se sigue de ellas.
+\end{obs}
+
+\section{El Lema de Pegado}
+
+\begin{teo}[Lema de Pegado]
+\label{teo:s07-lema-pegado-2}
+Dados datos de pegado como en la \cref{defi:s07-datos-pegado-2}, existe un esquema $X$ y unas inmersiones abiertas $\psi_i:X_i\to X$ tales que $X=\bigcup_i\psi_i(X_i)$, $\psi_i(X_i)\cap\psi_j(X_j)=\psi_i(X_{ij})$ y $\psi_j\circ\varphi_{ij}=\psi_i$ en $X_{ij}$. El esquema es único salvo isomorfismo único compatible con los mapas $\psi_i$.
+\end{teo}
+\begin{proof}[Demostración]
+La construcción completa del cociente, su topología, la gavilla pegada y la verificación de los axiomas aparecen en el \cref{teo:s07-lema-pegado}, que también prueba la unicidad.
+\end{proof}
+
+\section{El pegado como colímite}
+
+\begin{prop}[El pegado es un coigualador]
+\label{prop:s07-pegado-coigualador}
+Sean $E=\coprod_{i,j}X_{ij}$ y $X_\amalg=\coprod_iX_i$, con mapas $s,t:E\rightrightarrows X_\amalg$ dados respectivamente por la inclusión de $X_{ij}$ en $X_i$ y por $\varphi_{ij}$ seguida de la inclusión en $X_j$. El diagrama $E\rightrightarrows X_\amalg\xrightarrow{\psi}X$ es un coigualador en la categoría de esquemas.
+\end{prop}
+\begin{proof}
+Un morfismo $X_\amalg\to Y$ equivale a una familia $f_i:X_i\to Y$. La igualdad $f\circ s=f\circ t$ dice exactamente que $f_i|_{X_{ij}}=f_j\circ\varphi_{ij}$. En los abiertos $\psi_i(X_i)$, los mapas $f_i\circ\psi_i^{-1}$ coinciden en los traslapes por esta igualdad, así que se pegan a un único morfismo $X\to Y$. La unicidad se sigue de que los $\psi_i(X_i)$ cubren $X$.
+\end{proof}
+
+\begin{obs}
+\label{obs:s07-dar-morfismo-x-equivale-dar}
+Dar un morfismo $X\to Y$ equivale a dar mapas $X_i\to Y$ compatibles con $\varphi_{ij}$. El argumento usa solo las propiedades (a), (b), (c), por lo que vale para cualquier pegado que las satisfaga y expresa de nuevo la unicidad.
+\end{obs}
+
+\section{Consistencia: pegado y cubierta}
+
+Si un esquema $X$ ya tiene una cubierta por abiertos afines $U_i$, tomamos $X_{ij}=U_i\cap U_j$ y los mapas de transición iguales a la identidad. El esquema obtenido por el \cref{teo:s07-lema-pegado-2} es canónicamente isomorfo a $X$. El pegado construye objetos nuevos cuando las piezas no están dadas de antemano como abiertos de un esquema común.
+
+\begin{coro}
+\label{coro:s07-x-esquema-cubierta-abiertos-u}
+Sea $X$ un esquema con una cubierta por abiertos $\{U_i\}$. Con $U_{ij}=U_i\cap U_j$ y transiciones identidad, los datos son de pegado y el esquema que produce el \cref{teo:s07-lema-pegado-2} es canónicamente isomorfo a $X$.
+\end{coro}
+\begin{proof}
+Las inclusiones $U_i\hookrightarrow X$ satisfacen las propiedades del \cref{teo:s07-lema-pegado-2}. Su unicidad da el isomorfismo con $X$.
+\end{proof}
+\begin{obs}
+\label{obs:s07-definicion-esquema-cubierta-afin-teorema}
+La \cref{defi:s07-esquema} y el \cref{teo:s07-lema-pegado-2} describen la misma clase de objetos desde dos direcciones. El \cref{teo:s07-lema-pegado-2} produce esquemas nuevos cuando las piezas no viven de antemano en un esquema común.
+\end{obs}
+
+\section{Un ejemplo: la recta con origen doble}
+
+\begin{ejem}[La recta con origen doble]
+\label{ejem:s07-recta-origen-doble}
+Sea $k$ un campo, $X_1=X_2=\mathbb A_k^1=\Spec k[x]$, $X_{12}=X_{21}=D(x)$ y $\varphi_{12}=\id$. El esquema pegado contiene dos orígenes distintos $O_1,O_2$ y una sola copia de cada punto no nulo. Es la recta con origen doble.
+
+\begin{center}
+\begin{tikzpicture}[>=to, every node/.style={font=\small}]
+  \draw[->] (-3,0)--(-0.25,0);
+  \draw[->] (0.25,0)--(3,0);
+  \draw[->] (-3,-0.45)--(-0.25,-0.45);
+  \draw[->] (0.25,-0.45)--(3,-0.45);
+  \fill[rojoCIMAT] (0,0) circle (2pt);
+  \fill[grisCIMAT] (0,-0.45) circle (2pt);
+  \node[above] at (0,0) {$O_1$};
+  \node[below] at (0,-0.45) {$O_2$};
+  \node[right] at (3,0) {$X_1$};
+  \node[right] at (3,-0.45) {$X_2$};
+  \node at (0.9,-1.05) {Las dos copias se identifican en $D(x)$};
+\end{tikzpicture}
+\end{center}
+
+Una sección global es un par de polinomios en $k[x]$ que coinciden en $k[x]_x$; la inclusión $k[x]\hookrightarrow k[x]_x$ es inyectiva, así que los dos polinomios son iguales. Por tanto $\Gamma(X,\mathcal O_X)=k[x]$. Si $X$ fuera afín, sería isomorfo a $\Spec\Gamma(X,\mathcal O_X)=\Spec k[x]$. Sin embargo, bajo el mapa canónico a ese espectro ambos orígenes van al ideal $(x)$, aunque son distintos. Luego $X$ no es afín.
+\end{ejem}
+
+Esto también explica por qué no basta calcular el pegado en la categoría de esquemas afines. Allí el pushout de $\Spec T\to\Spec R$ y $\Spec T\to\Spec S$ es $\Spec(R\times_T S)$. Para $R=S=k[x]$ y $T=k[x]_x$, el producto fibrado de anillos es $k[x]$, así que el pushout entre afines sería $\mathbb A_k^1$. El pushout en esquemas es, en cambio, la recta con origen doble; la inclusión de esquemas afines en esquemas no preserva este colímite.
+
+\begin{obs}[El colímite entre esquemas afines]
+\label{obs:s07-colimite-entre-esquemas-afines}
+El pushout afín de $\Spec k[x]\leftarrow\Spec k[x]_x\to\Spec k[x]$ es $\Spec k[x]$, mientras que el pushout en esquemas es la recta con origen doble. Por tanto, la inclusión de esquemas afines en esquemas no preserva este colímite.
+\end{obs}
+
+\section{Ejercicios}
+
+\begin{ejer}[Pegado con una sola pieza]
+\label{ejer:s07-pegado-sola-pieza-2}
+Verifica que si hay una sola pieza $X_1$, con $X_{11}=X_1$ y $\varphi_{11}=\id$, el esquema pegado es canónicamente $X_1$.
+\end{ejer}
+\begin{ejer}[El plano con recta doble]
+\label{ejer:s07-plano-recta-doble}
+Sea $k$ un campo y pega dos copias de $\mathbb A_k^2=\Spec k[x,y]$ a lo largo de $D(x)$ mediante la identidad. Calcula $\Gamma(X,\mathcal O_X)$, demuestra que el esquema no es afín adaptando el argumento del \cref{ejem:s07-recta-origen-doble} (considera el primo $(x)$ en las dos copias) y explica por qué esto no contradice el \cref{coro:s07-x-esquema-cubierta-abiertos-u}.
+\end{ejer}
+\begin{ejer}[Restricción de un morfismo a un abierto]
+\label{ejer:s07-restriccion-morfismo-abierto-2}
+Sea $f:X\to Y$ un morfismo de esquemas y $V\subseteq Y$ abierto. Verifica que $f^{-1}(V)$ es abierto y que la restricción induce un morfismo de esquemas $f|_{f^{-1}(V)}:f^{-1}(V)\to V$.
+\end{ejer}

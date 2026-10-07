@@ -1,0 +1,141 @@
+% Esta sesión comienza con la topología de Zariski; la prueba del plano afín
+% El ejemplo sobre primos del plano quedó incorporado en la Sesión 1.
+
+\section{La topología de Zariski}
+
+Ahora dotamos $\Spec A$ de una topología cuyos cerrados reflejen conjuntos de soluciones de ecuaciones.
+
+\begin{defi}
+\label{defi:s02-s-definimos-v-s-p}
+Para $S\subseteq A$, definimos
+\[
+V(S)=\set*{\mathfrak p\in\Spec A \given S\subseteq\mathfrak p}.
+\]
+Como un primo contiene a $S$ si y solo si contiene al ideal que $S$ genera, $V(S)=V((S))$; escribiremos $V(I)$ para ideales $I$.
+\end{defi}
+
+\begin{obs}
+\label{obs:s02-tiene-v-s-v-s}
+Se tiene $V(S)=V((S))$, donde $(S)$ es el ideal generado; basta por ello considerar $V(I)$ para ideales. Además, si $I\subseteq J$, entonces $V(J)\subseteq V(I)$: más ecuaciones dan menos soluciones.
+\end{obs}
+
+\begin{prop}
+\label{prop:s02-ideales-i-j-cualquier-familia}
+Para ideales $I,J\subseteq A$ y cualquier familia $\{I_\alpha\}$,
+\begin{enumerate}
+\item $\displaystyle\bigcap_\alpha V(I_\alpha)=V\left(\sum_\alpha I_\alpha\right)$;
+\item $V(I)\cup V(J)=V(I\cap J)=V(IJ)$.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+La primera igualdad se sigue de que un ideal primo contiene la suma si y solo si contiene cada $I_\alpha$. Para la segunda, $IJ\subseteq I\cap J\subseteq I,J$ y la contravariancia dan $V(I)\cup V(J)\subseteq V(I\cap J)\subseteq V(IJ)$. Para la inclusión restante, supongamos $\mathfrak p\supseteq IJ$ y $\mathfrak p\not\supseteq I$. Elijamos $f\in I\setminus\mathfrak p$. Para todo $g\in J$, $fg\in IJ\subseteq\mathfrak p$; por primalidad, $g\in\mathfrak p$. Luego $J\subseteq\mathfrak p$ y $\mathfrak p\in V(J)$.
+\end{proof}
+
+En particular, $V((0))=\Spec A$ y $V(A)=\varnothing$. Las igualdades anteriores muestran que los $V(I)$ son los cerrados de una topología, la topología de Zariski.
+
+\begin{ejem}[Los cerrados de $\Spec\mathbb Z$]
+\label{ejem:s02-cerrados-z}
+Por ejemplo, todo ideal de $\mathbb Z$ es principal y, para $n\ne0$, $V(n)=\set*{(p) \given p\mid n}$ es finito. Recíprocamente, cada conjunto finito de puntos cerrados se obtiene de esta forma, tomando el producto de los primos correspondientes. Así, los cerrados propios de $\Spec\mathbb Z$ son exactamente los conjuntos finitos de primos; los abiertos no vacíos son cofinitos y contienen $(0)$. Dos abiertos no vacíos se intersectan, de modo que este espacio no es Hausdorff.
+\end{ejem}
+
+\section{Cerradura de puntos, puntos genéricos y especialización}
+
+\begin{prop}
+\label{prop:s02-todo-p-cerradura-punto-p}
+Para todo $\mathfrak p\in\Spec A$, la cerradura del punto es $\overline{\{\mathfrak p\}}=V(\mathfrak p)$. En particular, $\mathfrak p$ es cerrado si y solo si es maximal.
+\end{prop}
+\begin{proof}
+Los cerrados que contienen a $\mathfrak p$ tienen la forma $V(I)$ con $I\subseteq\mathfrak p$. Por contravariancia, todos contienen a $V(\mathfrak p)$, que es entonces el cerrado mínimo que contiene al punto.
+\end{proof}
+
+\begin{defi}
+\label{defi:s02-decimos-q-especializacion-p-q}
+Decimos que $\mathfrak q$ es una especialización de $\mathfrak p$ si $\mathfrak q\in\overline{\{\mathfrak p\}}$, equivalentemente, si $\mathfrak p\subseteq\mathfrak q$. En este caso $\mathfrak p$ generiza a $\mathfrak q$ y es el punto genérico de $V(\mathfrak p)$.
+\end{defi}
+
+\begin{ejem}
+\label{ejem:s02-z-0-p-todo-primo}
+En $\Spec\mathbb Z$, $(0)\rightsquigarrow(p)$ para todo primo $p$ y $\overline{\{(0)\}}=\Spec\mathbb Z$. En $\Spec k[x,y]$, con $k$ algebraicamente cerrado, $(0)\rightsquigarrow(y-x^2)\rightsquigarrow(x-1,y-1)$; la inclusión de ideales registra la incidencia del plano, la parábola y el punto clásico.
+\end{ejem}
+
+\begin{obs}
+\label{obs:s02-primos-no-maximales-registran-subvariedades}
+Los primos no maximales registran subvariedades irreducibles mediante sus puntos genéricos; precisaremos este hecho en la Sesión 9.
+\end{obs}
+
+\section{Los abiertos distinguidos}
+
+\begin{defi}
+\label{defi:s02-f-abierto-distinguido-asociado-f}
+Para $f\in A$, el abierto distinguido asociado a $f$ es
+\[
+D(f)=\Spec A\setminus V(f)=\set*{\mathfrak p \given f\notin\mathfrak p}.
+\]
+\end{defi}
+
+\begin{prop}
+\label{prop:s02-cumplen-siguientes-propiedades-d-f}
+Se cumplen las siguientes propiedades:
+\begin{enumerate}
+\item $D(f)\cap D(g)=D(fg)$;
+\item los $D(f)$ forman una base de la topología de Zariski;
+\item $D(f)=\varnothing$ si y solo si $f$ es nilpotente, y $D(f)=\Spec A$ si y solo si $f$ es unidad.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+La primera igualdad se desprende de la primalidad: $fg\notin\mathfrak p$ equivale a que $f,g\notin\mathfrak p$. Para la segunda, si $U=\Spec A\setminus V(I)$ es abierto, entonces $U=\bigcup_{f\in I}D(f)$. Para la tercera, $D(f)=\varnothing$ equivale a que $f$ pertenezca a todos los primos; por el \cref{teo:s01-caracterizacion-nilradical}, esto equivale a que $f$ sea nilpotente. Además, $D(f)=\Spec A$ significa que $f$ no está en ningún primo, en particular en ningún maximal; esto equivale a que $f$ sea unidad.
+\end{proof}
+
+\begin{obs}[Una promesa cumplida y otra sembrada]
+\label{obs:s02-promesa-cumplida-otra-sembrada}
+En la demostración del \cref{teo:s01-caracterizacion-nilradical} se construye, si $f$ no es nilpotente, un primo que evita todas sus potencias; ese primo pertenece a $D(f)$, así que $D(f)\ne\varnothing$. En el \cref{teo:s03-correspondencia-localizaciones} veremos que $D(f)$ es el espectro de un anillo localizado.
+\end{obs}
+
+\section{Cuasicompacidad}
+
+\begin{prop}
+\label{prop:s02-espacio-cuasicompacto-toda-cubierta-abierta}
+El espacio $\Spec A$ es cuasicompacto: toda cubierta abierta admite una subcubierta finita.
+\end{prop}
+\begin{proof}
+Basta refinar una cubierta abierta a una cubierta por básicos. Supongamos $\Spec A=\bigcup_{\alpha}D(f_\alpha)$. Entonces ningún ideal primo contiene el ideal generado por todos los $f_\alpha$, por lo que este ideal es $A$ (si fuera propio estaría contenido en un maximal). Así, $1$ es combinación lineal de una cantidad finita de los $f_\alpha$, digamos $1=\sum_{j=1}^n a_jf_{\alpha_j}$. Los mismos índices cubren: ningún primo puede contener simultáneamente esos $f_{\alpha_j}$. Por tanto $\Spec A=\bigcup_{j=1}^nD(f_{\alpha_j})$.
+\end{proof}
+
+\begin{obs}
+\label{obs:s02-no-hipotesis-finitud-sobre-cuasicompacidad}
+No hay hipótesis de finitud sobre $A$: la cuasicompacidad es un fenómeno algebraico que resulta de expresar $1$ con una combinación finita.
+\end{obs}
+
+\begin{obs}[Una tensión que vale la pena notar]
+\label{obs:s02-tension-vale-pena-notar}
+Una unión disjunta infinita de espacios no vacíos no es cuasicompacta, pero el espectro de un producto infinito de anillos sí lo es. Los abiertos disjuntos $D(e_i)$ de los idempotentes coordenados no cubren el espectro en general, porque el ideal que generan no contiene a $1$.
+\end{obs}
+
+\begin{ejer}[Sembrador: se cosecha en la Sesión 6]
+\label{ejer:s02-sembrador-cosecha-sesion-6}
+Sea $\{A_i\}_{i\in\mathbb N}$ una familia de anillos no nulos y $e_i\in\prod_jA_j$ el idempotente coordenado. Comprueba que $(\prod_jA_j)[1/e_i]\cong A_i$, que los $D(e_i)$ son disjuntos y que $\coprod_i\Spec A_i$ se inyecta en $\Spec(\prod_iA_i)$. Describe $J=(e_i:i\in\mathbb N)$ en términos de soportes, demuestra $J\ne(1)$ y explica en qué punto se usa que la familia sea infinita; compáralo con el caso finito.
+\end{ejer}
+
+\section{Ejercicios}
+
+\begin{ejer}
+\label{ejer:s02-demuestra-v-i-v-i}
+Demuestra que $V(I)=V(\sqrt I)$ y que $V(I)\subseteq V(J)$ si y solo si $\sqrt J\subseteq\sqrt I$. Puedes usar $\sqrt I=\bigcap_{\mathfrak p\supseteq I}\mathfrak p$, que se deduce del \cref{teo:s01-caracterizacion-nilradical} aplicado a $A/I$.
+\end{ejer}
+\begin{ejer}
+\label{ejer:s02-describe-todos-cerrados-z-k}
+Describe todos los cerrados de $\Spec\mathbb Z$ y de $\Spec k[x]$, y determina qué subconjuntos son densos.
+\end{ejer}
+\begin{ejer}
+\label{ejer:s02-demuestra-d-f-d-g}
+Demuestra que $D(f)\subseteq D(g)$ si y solo si $f\in\sqrt{(g)}$.
+\end{ejer}
+\begin{ejer}
+\label{ejer:s02-b-morfismo-anillos-demuestra-1}
+Sea $\varphi:A\to B$ un morfismo de anillos. Demuestra que $(\Spec\varphi)^{-1}(V(I))=V(\varphi(I)B)$ y concluye que $\Spec\varphi$ es continua.
+\end{ejer}
+\begin{ejer}
+\label{ejer:s02-espacio-no-vacio-irreducible-no}
+Un espacio no vacío es irreducible si no es unión de dos cerrados propios. Demuestra que $V(\mathfrak p)$ es irreducible para todo primo $\mathfrak p$. ¿Es cierto el recíproco: todo cerrado irreducible es $V(\mathfrak p)$ para un único primo?
+\end{ejer}
+

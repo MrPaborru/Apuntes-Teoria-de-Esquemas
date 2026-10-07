@@ -1,0 +1,120 @@
+\section{De vuelta al puente de la Sesión 5}
+
+Arrancamos la Sesión 6. La meta es cerrar la pregunta que quedó abierta: ¿todo morfismo de espacios localmente anillados entre dos espectros proviene de un único morfismo de anillos? Dado $\varphi:A\to B$, ya conocemos $\Spec\varphi:\Spec B\to\Spec A$. En cada básico $D(f_0)\subseteq\Spec A$, la propiedad universal de la localización da un mapa compatible $A_{f_0}\to B_{\varphi(f_0)}$. Como estos mapas son compatibles con las restricciones, se extienden a un morfismo de gavillas $\mathcal O_{\Spec A}\to (\Spec\varphi)_*\mathcal O_{\Spec B}$ por el \cref{teo:s05-toda-gavilla-sobre-base-extiende}.
+
+\begin{ejer}
+\label{ejer:s06-b-f-cada-f-0}
+Sea $\varphi:A\to B$ y $f=\Spec\varphi$. Para cada $f_0\in A$, verifica que $f^{-1}(D(f_0))=D(\varphi(f_0))$ y que existe un único morfismo $A_{f_0}\to B_{\varphi(f_0)}$ que extiende $\varphi$ a través de las localizaciones.
+\end{ejer}
+
+Dos preguntas organizan la sesión. Primero, ¿el par $(f,f^\#)$ respeta la estructura local de los tallos, de modo que es un morfismo entre espacios localmente anillados? (§2–§3.) Segundo, ¿todo morfismo de espacios localmente anillados $\Spec B\to\Spec A$ proviene, de esta manera, de un único $\varphi:A\to B$? (§4.) La respuesta afirmativa significa que ningún morfismo se pierde ni aparece al pasar entre anillos y esquemas afines; esa es la equivalencia contravariante de la sección 5.
+
+\section{Morfismos de espacios (localmente) anillados}
+
+\begin{defi}[Morfismo de espacios anillados]
+\label{defi:s06-morfismo-espacios-anillados}
+Un morfismo $(X,\mathcal O_X)\to(Y,\mathcal O_Y)$ es un par $(f,f^\#)$ donde $f:X\to Y$ es continuo y $f^\#:\mathcal O_Y\to f_*\mathcal O_X$ es un morfismo de gavillas de anillos. En cada abierto $V\subseteq Y$, la componente es $\mathcal O_Y(V)\to\mathcal O_X(f^{-1}V)$.
+\end{defi}
+
+\begin{defi}[Morfismo de espacios localmente anillados]
+\label{defi:s06-morfismo-espacios-localmente-anillados}
+Si los espacios son localmente anillados, $(f,f^\#)$ es un morfismo localmente anillado si para todo $x\in X$ el morfismo de tallos $f_x^\#:\mathcal O_{Y,f(x)}\to\mathcal O_{X,x}$ es local: la preimagen del ideal maximal de $\mathcal O_{X,x}$ es el ideal maximal de $\mathcal O_{Y,f(x)}$.
+\end{defi}
+
+\begin{obs}
+\label{obs:s06-contencion-f-x-1-m}
+La contención $(f_x^\#)^{-1}(\mathfrak m_x)\supseteq\mathfrak m_{f(x)}$ debe verificarse. La contención opuesta es automática para un homomorfismo de anillos locales que envía $1$ a $1$: un elemento fuera del maximal es unidad, y su imagen también. La localidad exige además que ningún elemento maximal del anillo de origen salga del maximal del anillo de llegada.
+\end{obs}
+
+\section{Spec es functor contravariante a espacios localmente anillados}
+
+\begin{teo}
+\label{teo:s06-todo-morfismo-anillos-b-induce}
+Todo morfismo de anillos $\varphi:A\to B$ induce un morfismo de espacios localmente anillados $(\Spec B,\mathcal O_{\Spec B})\to(\Spec A,\mathcal O_{\Spec A})$.
+\end{teo}
+\begin{proof}
+Sea $\mathfrak q\in\Spec B$ y $\mathfrak p=\varphi^{-1}(\mathfrak q)$. En los tallos, el morfismo es $\varphi_{\mathfrak q}:A_{\mathfrak p}\to B_{\mathfrak q}$, $a/s\mapsto\varphi(a)/\varphi(s)$. Basta verificar que $\varphi_{\mathfrak q}^{-1}(\mathfrak qB_{\mathfrak q})=\mathfrak pA_{\mathfrak p}$.
+
+Para todo primo $\mathfrak q\subseteq B$, se tiene $b/1\in\mathfrak qB_{\mathfrak q}$ si y solo si $b\in\mathfrak q$. Una dirección es inmediata. Para la otra, si $b/1=c/t$ con $c\in\mathfrak q$ y $t\notin\mathfrak q$, existe $u\notin\mathfrak q$ tal que $u(tb-c)=0$. Entonces $utb\in\mathfrak q$, y como $ut\notin\mathfrak q$, la primalidad da $b\in\mathfrak q$. Aplicando esto en $A$ y en $B$ se obtiene, para $a\in A$,
+\[
+a\in\mathfrak p\iff\varphi(a)\in\mathfrak q
+\iff\varphi(a)/1\in\mathfrak qB_{\mathfrak q}
+\iff a/1\in\mathfrak pA_{\mathfrak p}.
+\]
+Como $s\notin\mathfrak p$ se envía a una unidad, el mismo criterio vale para toda fracción $a/s$. Por tanto el morfismo de tallos es local.
+\end{proof}
+
+La composición de morfismos corresponde, por la contravariancia, a la composición inversa de morfismos de anillos: si $A\xrightarrow{\varphi}B\xrightarrow{\psi}C$, entonces $\Spec(\psi\circ\varphi)=\Spec\varphi\circ\Spec\psi$. En los mapas de gavillas, la igualdad se verifica en cada básico por la unicidad de la propiedad universal de localización.
+
+\begin{ejer}[Funtorialidad]
+\label{ejer:s06-funtorialidad}
+Verifica que $\Spec(\id_A)=\id_{\Spec A}$ y que para $A\xrightarrow{\varphi}B\xrightarrow{\psi}C$ se tiene $\Spec(\psi\circ\varphi)=\Spec\varphi\circ\Spec\psi$, incluyendo la igualdad correspondiente de morfismos de gavillas.
+\end{ejer}
+\begin{proof}[Desarrollo en clase]
+En puntos, ambos mapas coinciden porque
+\[
+\Spec(\psi\circ\varphi)(\mathfrak r)=(\psi\circ\varphi)^{-1}(\mathfrak r)=\varphi^{-1}(\psi^{-1}(\mathfrak r))=(\Spec\varphi\circ\Spec\psi)(\mathfrak r).
+\]
+En las gavillas, sobre cada abierto básico la unicidad de la propiedad universal de la localización fuerza la igualdad de los morfismos inducidos. Para la identidad, ambos mapas de anillos y los mapas de gavillas son identidades.
+\end{proof}
+
+\section{El teorema central: plena fidelidad de Spec}
+
+\begin{teo}[Plena fidelidad de $\Spec$]
+\label{teo:s06-plena-fidelidad}
+Para cualesquiera anillos $A,B$, la asignación
+\[
+\Hom_{\mathbf{Ring}}(A,B)\longrightarrow
+\Hom_{\LocAn}(\Spec B,\Spec A),\qquad
+\varphi\longmapsto(\Spec\varphi,\varphi^\#)
+\]
+es una biyección.
+\end{teo}
+\begin{proof}
+La construcción anterior da la aplicación. Para probar que es biyectiva, sea $(f,f^\#)$ un morfismo localmente anillado entre los dos espectros. En secciones globales define necesariamente
+\[
+\varphi=f^\#_{\Spec A}:A=\mathcal O_{\Spec A}(\Spec A)\longrightarrow
+B=\mathcal O_{\Spec B}(\Spec B).
+\]
+Esto prueba la unicidad del candidato. Veamos que $f=\Spec\varphi$. Para $\mathfrak q\in\Spec B$, sea $\mathfrak p=f(\mathfrak q)$. El cuadrado de secciones globales y gérmenes conmuta. Para $a\in A$, la localidad de $f^\#_{\mathfrak q}$ da
+\[
+a\in\varphi^{-1}(\mathfrak q)
+\iff \varphi(a)/1\in\mathfrak qB_{\mathfrak q}
+\iff f^\#_{\mathfrak q}(a/1)\in\mathfrak qB_{\mathfrak q}
+\iff a/1\in\mathfrak pA_{\mathfrak p}
+\iff a\in\mathfrak p.
+\]
+Así $f(\mathfrak q)=\varphi^{-1}(\mathfrak q)$ para todo $\mathfrak q$.
+
+Finalmente, sobre cada básico $D(f_0)$ el mapa $f^\#$ es una extensión $A_{f_0}\to B_{\varphi(f_0)}$ del mapa $\varphi$ y envía $f_0$ a una unidad. Por la propiedad universal de $A_{f_0}$, coincide con el mapa construido a partir de $\varphi$. Los básicos cubren $\Spec A$, así que los morfismos de gavillas coinciden globalmente. Esto prueba existencia y unicidad.
+\end{proof}
+
+\section{La equivalencia contravariante}
+
+\begin{coro}[La equivalencia]
+\label{coro:s06-equivalencia}
+El funtor $\Spec:\mathbf{Ring}^{\mathrm{op}}\to\LocAn$ es plenamente fiel. Restringido a su imagen esencial, establece una anti-equivalencia entre anillos y esquemas afines.
+\end{coro}
+
+\begin{defi}[Esquema afín]
+\label{defi:s06-esquema-afin}
+Un esquema afín es un espacio localmente anillado isomorfo, como espacio localmente anillado, a $(\Spec A,\mathcal O_{\Spec A})$ para algún anillo conmutativo $A$.
+\end{defi}
+
+Por la plena fidelidad, dar un morfismo de esquemas afines equivale a dar un morfismo de anillos en dirección opuesta, y este último es único.
+
+\begin{obs}
+\label{obs:s06-imagen-esencial-corolario-5-1}
+La imagen esencial del \cref{coro:s06-equivalencia} es, por definición, la categoría de esquemas afines. Dar un morfismo entre esquemas afines equivale a dar un único morfismo de anillos en la dirección opuesta; el \cref{teo:s06-plena-fidelidad} garantiza su existencia y unicidad.
+\end{obs}
+
+\section{Ejercicios}
+
+\begin{ejer}[Automorfismos]
+\label{ejer:s06-automorfismos}
+Deduce que $\operatorname{Aut}(\Spec A)\cong\operatorname{Aut}(A)^{\mathrm{op}}$ como grupos. Explica por qué aparece el grupo opuesto.
+\end{ejer}
+\begin{ejer}[Un caso pequeño]
+\label{ejer:s06-caso-pequeno}
+Describe $\Spec k$ como espacio localmente anillado cuando $k$ es cuerpo. Usa la plena fidelidad para describir el conjunto de morfismos de espacios localmente anillados $\Spec k\to\Spec A$.
+\end{ejer}
