@@ -1,6 +1,8 @@
 # Apuntes de Teoría de Esquemas
 
-Proyecto LaTeX basado en la plantilla de los apuntes de Homotopía Estable. Cada capítulo corresponde a una sesión del profesor; las partes 1.a, 1.b y 1.c se reúnen en el capítulo de la Sesión 1, y 7.a y 7.b en el de la Sesión 7.
+Proyecto LaTeX basado en la plantilla de los apuntes de Homotopía Estable. Cada capítulo corresponde a una sesión del profesor. Las partes de una misma sesión se agregan completas en orden, sin fusionar sus secciones: 1.a → 1.b → 1.c y 7.a → 7.b → 7.c.
+
+Las reglas permanentes del proyecto están en [AGENTS.md](AGENTS.md). Los prompts originales se conservan íntegros en [docs/criterios](docs/criterios).
 
 ## Compilación
 
@@ -8,4 +10,4 @@ Desde la raíz del proyecto, ejecuta `latexmk -pdf`. Los archivos auxiliares y e
 
 ## Alcance de los materiales recibidos
 
-El programa académico enumera 24 sesiones. En `Recursos` se recibieron el programa, el material de introducción de la Sesión 0 y materiales de clase hasta la Sesión 7.b. Por eso las sesiones 0–7 tienen apuntes desarrollados. Los capítulos 8–24 conservan los títulos y el alcance señalados en el programa, pero llevan un aviso de que falta el material de clase; no se han reconstruido a partir de fuentes externas.
+El programa académico enumera 24 sesiones. En `Recursos` se recibieron el programa, la introducción de la Sesión 0 y materiales de clase hasta la Sesión 7.c. Las sesiones 0–7 tienen apuntes desarrollados; las sesiones pendientes no se incluyen en el documento compilado. `NumClases` cuenta las sesiones actualmente apuntadas.
