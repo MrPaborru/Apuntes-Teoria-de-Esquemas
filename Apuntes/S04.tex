@@ -33,11 +33,11 @@ Al cocientar por $\mathfrak pA_{\mathfrak p}$ se obtiene la localización de $A/
 
 \section{El ejemplo universal: funciones suaves}
 
-El ejemplo guía es el de funciones suaves sobre un espacio topológico $X$: a cada abierto $U$ se le asigna el conjunto $\mathcal O(U)$ de funciones suaves $U\to\mathbb R$, con restricciones por inclusión. Las funciones quedan determinadas por sus restricciones locales y las funciones compatibles en traslapes se pegan de manera única.
+El ejemplo guía son las funciones suaves: a cada abierto $U\subseteq X$ se asigna $\mathcal O(U)$, el conjunto de funciones suaves $U\to\mathbb R$, con restricciones por inclusión. Las secciones compatibles se pegan de forma única.
 
 \begin{obs}
 \label{obs:s04-argumento-no-usa-funciones-sean}
-El argumento no usa que las funciones sean suaves: también vale para funciones continuas, holomorfas o reales cualesquiera. Estas familias comparten la estructura que axiomatizaremos.
+El argumento vale también para funciones continuas, holomorfas o reales. Todas estas familias comparten una estructura que formalizaremos enseguida.
 \end{obs}
 
 \begin{ejem}[El germen de una función suave y su tallo]
@@ -122,7 +122,10 @@ En $\Spec A$ habrá un mapa $A_{\mathfrak p}\to\kappa(\mathfrak p)$; el cuerpo d
 
 \begin{teo}
 \label{teo:s04-f-gavilla-todo-abierto-u}
-Si $\mathcal F$ es una gavilla, para todo abierto $U$ el mapa $\mathcal F(U)\to\prod_{p\in U}\mathcal F_p$, $s\mapsto(s_p)_{p\in U}$, es inyectivo.
+En toda gavilla, una sección sobre $U$ queda determinada por sus gérmenes. En particular, para cada abierto $U$, el mapa siguiente es inyectivo:
+\[
+\mathcal F(U)\longrightarrow\prod_{p\in U}\mathcal F_p,\qquad s\longmapsto(s_p)_{p\in U}.
+\]
 \end{teo}
 \begin{proof}
 Si $s,t\in\mathcal F(U)$ tienen el mismo germen en cada punto, para cada $p$ hay una vecindad $W_p\subseteq U$ donde coinciden. Las $W_p$ cubren $U$, así que el axioma de identidad implica $s=t$. Solo se usa identidad, por lo que vale también para pregavillas separadas.
@@ -181,7 +184,7 @@ En el \cref{ejem:s04-funciones-suaves-forman-gavilla}, demuestra que el ideal de
 \end{ejer}
 \begin{ejer}
 \label{ejer:s04-x-variedad-diferenciable-p-x}
-Si $X$ es una variedad diferenciable y $p\in X$, describe $\mathfrak m_p/\mathfrak m_p^2$ en términos del cálculo diferencial usual.
+Si $X$ es una variedad diferenciable y $p\in X$, identifica $\mathfrak m_p/\mathfrak m_p^2$ con el espacio cotangente $T_p^*X$.
 \end{ejer}
 \begin{ejer}
 \label{ejer:s04-muestra-funciones-acotadas-r-funciones}
@@ -189,7 +192,7 @@ Muestra que las funciones acotadas en $\mathbb R$, y las funciones holomorfas en
 \end{ejer}
 \begin{ejer}
 \label{ejer:s04-mapas-continuos-u-espacio-topologico}
-Los mapas continuos $U\to Y$, para $Y$ un espacio topológico fijo, forman una gavilla de conjuntos en $X$. Si $Y$ es un grupo topológico, verifica que se obtiene una gavilla de grupos.
+Los mapas continuos $U\to Y$, para $Y$ un espacio topológico fijo, forman una gavilla de conjuntos en $X$. Si $Y$ es un grupo topológico, forman también una gavilla de grupos.
 \end{ejer}
 \begin{ejer}
 \label{ejer:s04-nucleo-morfismo-pregavillas-definido-abierto}

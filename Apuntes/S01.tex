@@ -5,10 +5,10 @@ La geometría algebraica clásica estudia conjuntos de soluciones de ecuaciones 
 
 \begin{teo}[Nullstellensatz de Hilbert (enunciado)]
 \label{teo:s01-nullstellensatz-hilbert-enunciado}
-La asignación $a=(a_1,\ldots,a_n)\mapsto\mathfrak m_a=(x_1-a_1,\ldots,x_n-a_n)$ induce una biyección entre $V(I)$ y los ideales maximales de $k[x_1,\ldots,x_n]/I$. Además, $f$ se anula en todo $V(I)$ si y solo si $f^m\in I$ para algún $m\ge1$.
+Cada punto $a=(a_1,\ldots,a_n)$ determina el ideal maximal $\mathfrak m_a=(x_1-a_1,\ldots,x_n-a_n)$. Así, $V(I)$ está en biyección con los maximales de $k[x_1,\ldots,x_n]/I$. Además, $f$ se anula en $V(I)$ si y solo si $f^m\in I$ para algún $m\ge1$.
 \end{teo}
 
-Esta correspondencia es el punto de partida, pero presenta cuatro limitaciones que motivan el paso a esquemas: sobre un cuerpo no algebraicamente cerrado algunas ecuaciones sin soluciones visibles esconden geometría (por ejemplo, $x^2+1=0$ sobre $\mathbb R$); los anillos aritméticos como $\mathbb Z$ no son cuerpos; el conjunto de puntos pierde multiplicidades e información infinitesimal; y una subvariedad irreducible, como una curva dentro de una superficie, todavía no aparece como un punto.
+Esta correspondencia es el punto de partida, pero tiene cuatro límites: sobre un cuerpo no algebraicamente cerrado, ecuaciones sin soluciones visibles esconden geometría (por ejemplo, $x^2+1=0$ sobre $\mathbb R$); los anillos aritméticos como $\mathbb Z$ no son cuerpos; el conjunto de puntos pierde multiplicidades e información infinitesimal; y una subvariedad irreducible —como una curva dentro de una superficie— tampoco queda representada por un punto.
 
 La propuesta de Grothendieck consiste en asociar un espacio geométrico a todo anillo conmutativo con unidad, no solo a anillos de polinomios sobre cuerpos. Sus puntos serán los ideales primos y sus funciones los elementos del anillo. La elección de primos, en vez de solo maximales, también garantiza la funtorialidad.
 

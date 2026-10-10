@@ -55,7 +55,7 @@ Sea $S\subseteq A$ multiplicativo. Las asignaciones
 \mathfrak q\longmapsto\varphi^{-1}(\mathfrak q),\qquad
 \mathfrak p\longmapsto S^{-1}\mathfrak p
 \]
-son biyecciones inversas entre $\Spec(S^{-1}A)$ y $\set*{\mathfrak p\in\Spec A \given \mathfrak p\cap S=\varnothing}$. Preservan inclusiones en ambos sentidos.
+establecen una biyección entre $\Spec(S^{-1}A)$ y $\set*{\mathfrak p\in\Spec A \given \mathfrak p\cap S=\varnothing}$. La correspondencia inversa también preserva inclusiones.
 \end{teo}
 \begin{proof}
 Si $\mathfrak q$ es primo de $S^{-1}A$, su contracción es primo y no corta a $S$, pues cada elemento de $S$ se vuelve unidad. Si $\mathfrak p$ es primo que no corta a $S$, su extensión $S^{-1}\mathfrak p$ es propia y primo: si $(a/s)(b/t)\in S^{-1}\mathfrak p$, algún $u\in S$ satisface $uab\in\mathfrak p$, y como $u\notin\mathfrak p$, se tiene $a\in\mathfrak p$ o $b\in\mathfrak p$. La extensión seguida de contracción devuelve $\mathfrak p$ porque $\mathfrak p$ es saturado respecto de $S$. En sentido contrario, todo ideal $J\subseteq S^{-1}A$ es extendido desde su contracción: si $a/s\in J$, entonces $a/1=(s/1)(a/s)\in J$; y si $a/1\in J$, entonces $a/s=(a/1)(s/1)^{-1}\in J$. Así, la contracción de la extensión de $\mathfrak q$ es $\mathfrak q$.
@@ -76,7 +76,11 @@ Para $S=A\setminus\mathfrak p$, $\Spec A_{\mathfrak p}$ se identifica con $\set*
 
 \begin{obs}[El epimorfismo se vuelve monomorfismo]
 \label{obs:s03-epimorfismo-vuelve-monomorfismo}
-En particular, $\Spec\mathbb Z[1/6]\cong D(6)=D(2)\cap D(3)$ consta de $(0)$ y de los $(p)$ con $p\ne2,3$: desaparecen $(2)$ y $(3)$. Más generalmente, $\Spec A_f$ elimina los primos que contienen $f$. El mapa inducido por el epimorfismo $A\to S^{-1}A$ es inyectivo sobre su imagen, un monomorfismo de espacios topológicos.
+Por ejemplo,
+\[
+\Spec\mathbb Z[1/6]=D(6)=D(2)\cap D(3).
+\]
+Este espacio contiene $(0)$ y los $(p)$ con $p\ne2,3$; se eliminan $(2)$ y $(3)$. En general, $\Spec A_f$ elimina los primos que contienen $f$. El mapa inducido por $A\to S^{-1}A$ es inyectivo.
 \end{obs}
 
 \section{Anillos locales}
@@ -96,12 +100,15 @@ Por la correspondencia para localizaciones, los primos de $A_{\mathfrak p}$ corr
 
 \begin{obs}[El cuerpo residual]
 \label{obs:s03-cuerpo-residual}
-El cociente $A_{\mathfrak p}/\mathfrak pA_{\mathfrak p}$ es $\Frac(A/\mathfrak p)=\kappa(\mathfrak p)$, el cuerpo residual del punto.
+El cuerpo residual del punto se identifica con $\kappa(\mathfrak p)$:
+\[
+A_{\mathfrak p}/\mathfrak pA_{\mathfrak p}\cong\Frac(A/\mathfrak p)=\kappa(\mathfrak p).
+\]
 \end{obs}
 
 \begin{ejem}[Un germen de curva suave]
 \label{ejem:s03-germen-curva-suave}
-Sea $A=k[x]$ y $\mathfrak p=(x)$. Los primos de $A_{\mathfrak p}$ son $(0)\subset(x)A_{\mathfrak p}$: el germen local de la recta en el origen, con una cadena de especialización de longitud uno.
+Sea $A=k[x]$ y $\mathfrak p=(x)$. Los primos de $A_{\mathfrak p}$ son $(0)\subset(x)A_{\mathfrak p}$: el germen local de la recta en el origen tiene dimensión uno.
 \end{ejem}
 
 \begin{ejem}[El mismo germen en teoría de números]

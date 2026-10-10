@@ -8,7 +8,7 @@ El problema de hoy es general: dada información compatible solo en una base de 
 
 \begin{defi}[Pregavilla y gavilla sobre una base]
 \label{defi:s05-pregavilla-gavilla-sobre-base}
-Sea $\mathcal B$ una base de la topología de $X$. Una pregavilla sobre $\mathcal B$ asigna secciones a los elementos de $\mathcal B$ y mapas de restricción compatibles. Es una gavilla sobre la base si, siempre que $B=\bigcup_\alpha B_\alpha$ con todos los conjuntos en $\mathcal B$, satisface identidad y pegado. En la condición de pegado, la compatibilidad entre secciones se verifica en cada elemento básico contenido en $B_\alpha\cap B_\beta$, pues la intersección no necesariamente pertenece a la base.
+Sea $\mathcal B$ una base de la topología de $X$. Una pregavilla sobre $\mathcal B$ asigna secciones a los elementos de $\mathcal B$ y mapas de restricción compatibles. Es una gavilla sobre la base si, siempre que $B=\bigcup_\alpha B_\alpha$ con todos los conjuntos en $\mathcal B$, satisface identidad y pegado. Si $B_\alpha\cap B_\beta$ no es básico, basta verificar compatibilidad en los elementos básicos contenidos en esa intersección.
 \end{defi}
 
 \section{El teorema de extensión}
@@ -106,13 +106,13 @@ Esto cierra, con toda formalidad, el círculo abierto desde la Sesión 3: los $A
 
 \section{Adelanto: gavillas de módulos}
 
-El mismo argumento, sustituyendo $A$ por un $A$-módulo $M$, da la asignación $D(f)\mapsto S_f^{-1}M=:M_f$. Las dos verificaciones de identidad y pegado se obtienen de las del \cref{teo:s05-f-gavilla-sobre-base-d} cambiando $A$ por $M$. Por el \cref{teo:s05-toda-gavilla-sobre-base-extiende}, esta gavilla sobre la base se extiende a una gavilla $\widetilde M$ en $\Spec A$ con $\widetilde M(D(f))=M_f$. Como $M_f$ es un módulo sobre $A_f=\mathcal O_{\Spec A}(D(f))$, de manera compatible con restricciones, $\widetilde M$ es una gavilla de $\mathcal O_{\Spec A}$-módulos: el prototipo de gavilla cuasicoherente.
+Para un $A$-módulo $M$, el mismo argumento da $D(f)\mapsto M_f:=S_f^{-1}M$. Las verificaciones de identidad y pegado se deducen del \cref{teo:s05-f-gavilla-sobre-base-d}, reemplazando $A$ por $M$. El \cref{teo:s05-toda-gavilla-sobre-base-extiende} extiende esta gavilla a $\widetilde M$ sobre $\Spec A$, con $\widetilde M(D(f))=M_f$. Como $M_f$ es módulo sobre $A_f=\mathcal O_{\Spec A}(D(f))$ y las restricciones son compatibles, $\widetilde M$ es una gavilla de $\mathcal O_{\Spec A}$-módulos: el prototipo cuasicoherente.
 
 \section{Ejercicios}
 
 \begin{ejer}[Cosechando el sembrador de la Sesión 4]
 \label{ejer:s05-cosechando-sembrador-sesion-4}
-Retomamos $X=\mathbb C$, $\mathcal O_X$ las funciones holomorfas y $\mathcal O_X^*$ las que no se anulan, con $\exp(f)=e^{2\pi i f}$. Usando la base de abiertos contráctiles, verifica que $\exp$ es sobreyectiva en cada básico (todo abierto simplemente conexo admite logaritmo holomorfo) y concluye —sin repetir el contraejemplo concreto de la Sesión 4— que un morfismo de gavillas sobreyectivo en cada elemento de una base induce un epimorfismo de gavillas, pero el recíproco es falso.
+Retomamos $X=\mathbb C$, $\mathcal O_X$ las funciones holomorfas y $\mathcal O_X^*$ las que no se anulan, con $\exp(f)=e^{2\pi i f}$. Usa la base de abiertos contráctiles y el logaritmo holomorfo para probar que $\exp$ es sobreyectiva en cada básico. Concluye que la sobreyectividad en una base no caracteriza a los epimorfismos de gavillas; contrasta con el resultado de la Sesión 4.
 \end{ejer}
 \begin{ejer}
 \label{ejer:s05-adapta-demostracion-b1-teorema-6}
@@ -124,7 +124,11 @@ Adapta la demostración de (B2) en el \cref{teo:s05-f-gavilla-sobre-base-d} al c
 \end{ejer}
 \begin{ejer}
 \label{ejer:s05-escribe-b1-b2-teorema-6}
-Escribe (B1) y (B2) del \cref{teo:s05-f-gavilla-sobre-base-d} como la exactitud de $0\to A\to\prod_{i=1}^n A_{f_i}\to\prod_{i<j}A_{f_if_j}$ e identifica los mapas.
+Escribe (B1) y (B2) del \cref{teo:s05-f-gavilla-sobre-base-d} como la exactitud de
+\[
+0\longrightarrow A\longrightarrow\prod_{i=1}^n A_{f_i}\longrightarrow\prod_{i<j}A_{f_if_j},
+\]
+e identifica los mapas.
 \end{ejer}
 \begin{ejer}[Sembrador: se cosecha al estudiar gavillas cuasicoherentes]
 \label{ejer:s05-sembrador-cosecha-estudiar-gavillas-cuasicoherentes}
