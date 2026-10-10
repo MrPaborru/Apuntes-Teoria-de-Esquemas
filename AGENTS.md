@@ -1,6 +1,6 @@
 # Instrucciones permanentes del proyecto
 
-Estas pautas son la base del proyecto y se aplican a toda incorporación o corrección futura. Leer también los prompts íntegros conservados en `docs/criterios/`: `01-prompt-inicial.md`, `02-fidelidad-estructural.md` y `03-incorporacion-secuencial.md`. En conflictos, prevalecen las instrucciones posteriores del usuario y las indicaciones vigentes de la conversación.
+Estas pautas son la base del proyecto y se aplican a toda incorporación o corrección futura. Si están disponibles, consultar también las copias locales de los prompts íntegros en `docs/criterios/`: `01-prompt-inicial.md`, `02-fidelidad-estructural.md` y `03-incorporacion-secuencial.md`. Esa carpeta es auxiliar y no se versiona; este archivo conserva las reglas permanentes. En conflictos, prevalecen las instrucciones posteriores del usuario y las indicaciones vigentes de la conversación.
 
 ## Fuentes y estructura
 
@@ -14,6 +14,10 @@ Estas pautas son la base del proyecto y se aplican a toda incorporación o corre
 - Usar la notación, convenciones, orden y argumentos del profesor. No añadir teoría externa, resultados nuevos ni adelantar contenido. Integrar los desarrollos del Beamer dentro de las secciones del esqueleto, sin crear una estructura paralela.
 - Conservar ejercicios y pistas de las fuentes, SIN resolverlos ni añadir pistas propias. Solo reproducir una solución cuando las fuentes documenten que el profesor la desarrolló como exposición.
 
+## Sesión 7: unificación pendiente
+
+El usuario ha observado que 7a, 7b y 7c se completan y recuerdan resultados anteriores, por lo que su concatenación literal resulta repetitiva. Esperará a disponer de la sesión 7 completa y entonces solicitará expresamente su unificación coherente. Hasta esa petición, dejar pendiente la unificación y conservar el capítulo actual. Cuando la solicite, se permite sacrificar para esta sesión la fidelidad estructural estricta a los esqueletos: integrar desarrollos, eliminar recordatorios redundantes y organizar una exposición coherente conservando el contenido matemático. Esta excepción prevalece sobre la regla general de concatenación para la sesión 7.
+
 ## LaTeX y edición
 
 - Español matemático compacto y claro; reproducir diagramas relevantes. La fidelidad a los títulos del esqueleto prevalece sobre reducir la cantidad de secciones.
@@ -24,6 +28,8 @@ Estas pautas son la base del proyecto y se aplican a toda incorporación o corre
 - Conservar los estilos aprobados de portada, TOC, Introducción, referencias y ejercicios; no cambiarlos para incorporar contenido.
 
 ## Revisión y entrega
+
+- Toda carpeta auxiliar creada por el asistente (temporales, extracciones, imágenes de revisión o copias de prompts) debe tener una entrada específica en `.gitignore`. Si ya estaba versionada, retirarla del índice conservando los archivos locales. No ignorar fuentes, recursos del profesor ni otros archivos útiles del proyecto. `AGENTS.md` se conserva versionado para mantener estas instrucciones.
 
 - Cotejar secciones, títulos, orden, TODOS los resultados, fórmulas, diagramas, pruebas y ejercicios con cada esqueleto correspondiente. Reconstruir desarrollos de clase con las presentaciones. Conservar las repeticiones que figuren en las fuentes.
 - Compilar con `latexmk -pdf`; salida en `build/main.pdf`. Corregir errores y referencias indefinidas; revisar visualmente las páginas modificadas.

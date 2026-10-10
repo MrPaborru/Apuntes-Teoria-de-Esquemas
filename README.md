@@ -1,8 +1,8 @@
 # Apuntes de Teoría de Esquemas
 
-Proyecto LaTeX basado en la plantilla de los apuntes de Homotopía Estable. Cada capítulo corresponde a una sesión del profesor. Las partes de una misma sesión se agregan completas en orden, sin fusionar sus secciones: 1.a → 1.b → 1.c y 7.a → 7.b → 7.c.
+Proyecto LaTeX basado en la plantilla de los apuntes de Homotopía Estable. Cada capítulo corresponde a una sesión del profesor. Como regla general, sus partes se agregan completas en orden. La sesión 7 queda pendiente de una unificación coherente cuando estén disponibles todos sus materiales y el usuario la solicite; para ese trabajo se permite apartarse de la estructura estricta de los esqueletos.
 
-Las reglas permanentes del proyecto están en [AGENTS.md](AGENTS.md). Los prompts originales se conservan íntegros en [docs/criterios](docs/criterios).
+Las reglas permanentes del proyecto están en [AGENTS.md](AGENTS.md). Las carpetas auxiliares `tmp/` y `docs/criterios/` son locales y están excluidas de Git.
 
 ## Compilación
 

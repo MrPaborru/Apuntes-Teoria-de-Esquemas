@@ -44,3 +44,7 @@ Thumbs.db
 latexmk.out
 *.zip
 
+# Carpetas auxiliares locales de trabajo y copias de prompts del asistente
+/tmp/
+/docs/criterios/
+
