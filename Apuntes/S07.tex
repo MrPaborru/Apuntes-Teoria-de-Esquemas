@@ -86,38 +86,17 @@ Dados datos de pegado como arriba, existe un esquema $X$ y unas inmersiones abie
 \end{enumerate}
 Además, si $(X',\psi_i')$ satisface las mismas propiedades, existe un único isomorfismo $h:X\to X'$ con $h\circ\psi_i=\psi_i'$ para todo $i$.
 \end{teo}
-\begin{proof}
-La construcción y verificación se organizan en los cinco pasos de la clase.
+La demostración del \cref{teo:s07-lema-pegado} se desarrollará más adelante, al retomar el enunciado en el \cref{teo:s07-lema-pegado-2}. Seguiremos estos cinco pasos:
+\begin{enumerate}
+\item Construir el conjunto $X$ y las aplicaciones $\psi_i:X_i\to X$.
+\item Dar a $X$ la topología cociente y probar que cada $\psi_i$ es un homeomorfismo sobre un abierto.
+\item Construir la gavilla estructural $\mathcal O_X$ a partir de familias compatibles de secciones y verificar sus axiomas.
+\item Probar que $(X,\mathcal O_X)$ es un esquema y que las $\psi_i$ son inmersiones abiertas.
+\item Probar la unicidad del pegado y del isomorfismo compatible con las $\psi_i$.
+\end{enumerate}
+Los pasos finales se detallarán de nuevo en la \cref{prop:s07c-gavilla-estructural}, el \cref{lema:s07c-proyeccion-coordenada-iso} y las \cref{prop:s07c-pegado-esquema,prop:s07c-unicidad-pegado}.
 
-\emph{1. Conjunto subyacente.} Tomemos $X_0=\coprod_iX_i$ y definamos, para $x\in X_i$, $y\in X_j$,
-\[
-x\sim y\quad\Longleftrightarrow\quad x\in X_{ij}\text{ y }y=\varphi_{ij}(x).
-\]
-La condición diagonal da reflexividad y la inversa $\varphi_{ji}=\varphi_{ij}^{-1}$ da simetría. Para transitividad, supongamos $x\sim y$ y $y\sim z$, con $x\in X_i$, $y\in X_j$, $z\in X_k$. Entonces $y=\varphi_{ij}(x)$ pertenece a $X_{ji}\cap X_{jk}$. Por la condición de traslape, existe $x'\in X_{ij}\cap X_{ik}$ con $y=\varphi_{ij}(x')$. La inyectividad de $\varphi_{ij}$ implica $x=x'$, así que $x\in X_{ik}$. La condición de cociclo da $\varphi_{ik}(x)=\varphi_{jk}(\varphi_{ij}(x))=z$, y por tanto $x\sim z$.
 
-Definimos $X=X_0/\sim$ y $\psi_i$ como la composición de la inclusión de $X_i$ con la proyección al cociente. Cada $\psi_i$ es inyectiva: si $x,x'\in X_i$ son equivalentes, entonces $x'=\varphi_{ii}(x)=x$. Se tiene $\psi_j\circ\varphi_{ij}=\psi_i$. Toda clase tiene representante en alguna pieza, y la definición de $\sim$ da $\psi_i(X_i)\cap\psi_j(X_j)=\psi_i(X_{ij})$.
-
-\emph{2. Topología.} Damos a $X$ la topología cociente. Entonces $W\subseteq X$ es abierto si y solo si $\psi_i^{-1}(W)$ es abierto en cada $X_i$. Para un abierto $V\subseteq X_i$ se verifica
-\[
-\psi_j^{-1}(\psi_i(V))=\varphi_{ij}(V\cap X_{ij}).
-\]
-El lado derecho es abierto en $X_j$, pues $V\cap X_{ij}$ es abierto y $\varphi_{ij}$ es un isomorfismo. Por la definición de la topología cociente, $\psi_i(V)$ es abierto en $X$. Así $\psi_i$ es un homeomorfismo de $X_i$ sobre un abierto.
-
-\emph{3. Gavilla estructural.} Si $\varphi:Y\to Z$ es un isomorfismo de esquemas, induce por pullback un isomorfismo $\varphi^\#:\mathcal O_Z(U)\to\mathcal O_Y(\varphi^{-1}U)$ compatible con restricciones. Para $W\subseteq X$ abierto, definimos
-\[
-\mathcal O_X(W)=\set*{(s_i)_i\in\prod_i\mathcal O_{X_i}(\psi_i^{-1}W) \given
-s_i|_{\psi_i^{-1}W\cap X_{ij}}=\varphi_{ij}^*\bigl(s_j|_{\psi_j^{-1}W\cap X_{ji}}\bigr)\text{ para todo }i,j}.
-\]
-Las restricciones se definen coordenada a coordenada. Identidad se comprueba en cada pieza. Para pegar secciones compatibles sobre un cubrimiento de $W$, se pegan primero sus coordenadas usando que cada $\mathcal O_{X_i}$ es gavilla. Las igualdades de compatibilidad entre piezas se cumplen al restringir a cada miembro del cubrimiento; por identidad en $X_i$ se cumplen en todo el traslape. Por tanto $\mathcal O_X$ es una gavilla de anillos.
-
-\emph{4. Estructura de esquema y mapas abiertos.} Fijemos $i$ y un abierto $V\subseteq X_i$, y pongamos $W=\psi_i(V)$. Por el paso 2, $\psi_j^{-1}(W)=\varphi_{ij}(V\cap X_{ij})$. La proyección
-\[
-\pi_i:\mathcal O_X(W)\longrightarrow\mathcal O_{X_i}(V),\qquad (s_j)_j\longmapsto s_i
-\]
-es inyectiva, pues la condición de compatibilidad determina cada $s_j$ a partir de $s_i$. Es sobreyectiva: dada $s_i\in\mathcal O_{X_i}(V)$, se define $s_j$ transportando la restricción de $s_i$ mediante $\varphi_{ij}^{-1}$. La condición para cualquier par $(j,k)$ se verifica en los traslapes mediante la identidad de cociclo $\varphi_{ik}=\varphi_{jk}\circ\varphi_{ij}$. Así $\pi_i$ es un isomorfismo, compatible con restricciones. Luego $\psi_i$ identifica $X_i$ con el subesquema abierto $\psi_i(X_i)$. Los tallos de $\mathcal O_X$ en esos abiertos son los tallos locales de $\mathcal O_{X_i}$; por ello $X$ es localmente anillado. Los abiertos $\psi_i(X_i)$ cubren $X$ y son esquemas, así que $X$ es esquema y cada $\psi_i$ una inmersión abierta.
-
-\emph{5. Unicidad.} Dado otro pegado $(X',\psi_i')$, definimos $h(\psi_i(x))=\psi_i'(x)$. La condición de traslape hace que la definición no dependa del representante. Intercambiando $X$ y $X'$ se construye la inversa. En cada abierto $\psi_i(X_i)$, $h$ es $\psi_i'\circ\psi_i^{-1}$, un isomorfismo de esquemas; estos mapas coinciden en los traslapes por la condición de cociclo. Por tanto se pegan en un isomorfismo de esquemas. Es único porque las imágenes $\psi_i(X_i)$ cubren $X$.
-\end{proof}
 
 \section{Consistencia: pegado y cubierta afín}
 
@@ -222,8 +201,37 @@ Dados datos de pegado como en la \cref{defi:s07-datos-pegado-2}, existe un esque
 \end{enumerate}
 Además, si $(X',\psi_i')$ es otro esquema con inmersiones abiertas que cumplen estas propiedades, existe un único isomorfismo $h:X\to X'$ con $h\circ\psi_i=\psi_i'$ para todo $i$.
 \end{teo}
-\begin{proof}[Demostración]
-La construcción completa del cociente, su topología, la gavilla pegada y la verificación de los axiomas aparecen en el \cref{teo:s07-lema-pegado}, que también prueba la unicidad.
+\begin{proof}
+La construcción y verificación se organizan en los cinco pasos de la clase.
+
+\emph{1. Conjunto subyacente.} Tomemos $X_0=\coprod_iX_i$ y definamos, para $x\in X_i$, $y\in X_j$,
+\[
+x\sim y\quad\Longleftrightarrow\quad x\in X_{ij}\text{ y }y=\varphi_{ij}(x).
+\]
+La condición diagonal da reflexividad y la inversa $\varphi_{ji}=\varphi_{ij}^{-1}$ da simetría. Para transitividad, supongamos $x\sim y$ y $y\sim z$, con $x\in X_i$, $y\in X_j$, $z\in X_k$. Entonces $y=\varphi_{ij}(x)$ pertenece a $X_{ji}\cap X_{jk}$. Por la condición de traslape, existe $x'\in X_{ij}\cap X_{ik}$ con $y=\varphi_{ij}(x')$. La inyectividad de $\varphi_{ij}$ implica $x=x'$, así que $x\in X_{ik}$. La condición de cociclo da $\varphi_{ik}(x)=\varphi_{jk}(\varphi_{ij}(x))=z$, y por tanto $x\sim z$.
+
+Definimos $X=X_0/\sim$ y $\psi_i$ como la composición de la inclusión de $X_i$ con la proyección al cociente. Cada $\psi_i$ es inyectiva: si $x,x'\in X_i$ son equivalentes, entonces $x'=\varphi_{ii}(x)=x$. Se tiene $\psi_j\circ\varphi_{ij}=\psi_i$. Toda clase tiene representante en alguna pieza, y la definición de $\sim$ da $\psi_i(X_i)\cap\psi_j(X_j)=\psi_i(X_{ij})$.
+
+\emph{2. Topología.} Damos a $X$ la topología cociente. Entonces $W\subseteq X$ es abierto si y solo si $\psi_i^{-1}(W)$ es abierto en cada $X_i$. Para un abierto $V\subseteq X_i$ se verifica
+\[
+\psi_j^{-1}(\psi_i(V))=\varphi_{ij}(V\cap X_{ij}).
+\]
+El lado derecho es abierto en $X_j$, pues $V\cap X_{ij}$ es abierto y $\varphi_{ij}$ es un isomorfismo. Por la definición de la topología cociente, $\psi_i(V)$ es abierto en $X$. Así $\psi_i$ es un homeomorfismo de $X_i$ sobre un abierto.
+
+\emph{3. Gavilla estructural.} Si $\varphi:Y\to Z$ es un isomorfismo de esquemas, induce por pullback un isomorfismo $\varphi^\#:\mathcal O_Z(U)\to\mathcal O_Y(\varphi^{-1}U)$ compatible con restricciones. Para $W\subseteq X$ abierto, definimos
+\[
+\mathcal O_X(W)=\set*{(s_i)_i\in\prod_i\mathcal O_{X_i}(\psi_i^{-1}W) \given
+s_i|_{\psi_i^{-1}W\cap X_{ij}}=\varphi_{ij}^*\bigl(s_j|_{\psi_j^{-1}W\cap X_{ji}}\bigr)\text{ para todo }i,j}.
+\]
+Las restricciones se definen coordenada a coordenada. Identidad se comprueba en cada pieza. Para pegar secciones compatibles sobre un cubrimiento de $W$, se pegan primero sus coordenadas usando que cada $\mathcal O_{X_i}$ es gavilla. Las igualdades de compatibilidad entre piezas se cumplen al restringir a cada miembro del cubrimiento; por identidad en $X_i$ se cumplen en todo el traslape. Por tanto $\mathcal O_X$ es una gavilla de anillos.
+
+\emph{4. Estructura de esquema y mapas abiertos.} Fijemos $i$ y un abierto $V\subseteq X_i$, y pongamos $W=\psi_i(V)$. Por el paso 2, $\psi_j^{-1}(W)=\varphi_{ij}(V\cap X_{ij})$. La proyección
+\[
+\pi_i:\mathcal O_X(W)\longrightarrow\mathcal O_{X_i}(V),\qquad (s_j)_j\longmapsto s_i
+\]
+es inyectiva, pues la condición de compatibilidad determina cada $s_j$ a partir de $s_i$. Es sobreyectiva: dada $s_i\in\mathcal O_{X_i}(V)$, se define $s_j$ transportando la restricción de $s_i$ mediante $\varphi_{ij}^{-1}$. La condición para cualquier par $(j,k)$ se verifica en los traslapes mediante la identidad de cociclo $\varphi_{ik}=\varphi_{jk}\circ\varphi_{ij}$. Así $\pi_i$ es un isomorfismo, compatible con restricciones. Luego $\psi_i$ identifica $X_i$ con el subesquema abierto $\psi_i(X_i)$. Los tallos de $\mathcal O_X$ en esos abiertos son los tallos locales de $\mathcal O_{X_i}$; por ello $X$ es localmente anillado. Los abiertos $\psi_i(X_i)$ cubren $X$ y son esquemas, así que $X$ es esquema y cada $\psi_i$ una inmersión abierta.
+
+\emph{5. Unicidad.} Dado otro pegado $(X',\psi_i')$, definimos $h(\psi_i(x))=\psi_i'(x)$. La condición de traslape hace que la definición no dependa del representante. Intercambiando $X$ y $X'$ se construye la inversa. En cada abierto $\psi_i(X_i)$, $h$ es $\psi_i'\circ\psi_i^{-1}$, un isomorfismo de esquemas; estos mapas coinciden en los traslapes por la condición de cociclo. Por tanto se pegan en un isomorfismo de esquemas. Es único porque las imágenes $\psi_i(X_i)$ cubren $X$.
 \end{proof}
 
 \section{El pegado como colímite}

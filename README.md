@@ -10,4 +10,4 @@ Desde la raíz del proyecto, ejecuta `latexmk -pdf`. Los archivos auxiliares y e
 
 ## Alcance de los materiales recibidos
 
-El programa académico enumera 24 sesiones. En `Recursos` se recibieron el programa, la introducción de la Sesión 0 y materiales de clase hasta la Sesión 7.c. Las sesiones 0–7 tienen apuntes desarrollados; las sesiones pendientes no se incluyen en el documento compilado. `NumClases` cuenta las sesiones actualmente apuntadas.
+El programa académico enumera 24 sesiones. En `Recursos` se recibieron el programa, la introducción de la Sesión 0 y materiales de clase hasta la Sesión 7.c. Las sesiones 0–7 tienen apuntes desarrollados; las sesiones pendientes no se incluyen en el documento compilado. `NumClases` cuenta las sesiones numeradas actualmente apuntadas, excluyendo la introducción: su valor actual es 7.
