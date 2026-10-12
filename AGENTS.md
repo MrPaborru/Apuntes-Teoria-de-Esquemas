@@ -14,9 +14,9 @@ Estas pautas son la base del proyecto y se aplican a toda incorporación o corre
 - Usar la notación, convenciones, orden y argumentos del profesor. No añadir teoría externa, resultados nuevos ni adelantar contenido. Integrar los desarrollos del Beamer dentro de las secciones del esqueleto, sin crear una estructura paralela.
 - Conservar ejercicios y pistas de las fuentes, SIN resolverlos ni añadir pistas propias. Solo reproducir una solución cuando las fuentes documenten que el profesor la desarrolló como exposición.
 
-## Sesión 7: unificación pendiente
+## Sesión 7: excepción de unificación coherente
 
-El usuario ha observado que 7a, 7b y 7c se completan y recuerdan resultados anteriores, por lo que su concatenación literal resulta repetitiva. Esperará a disponer de la sesión 7 completa y entonces solicitará expresamente su unificación coherente. Hasta esa petición, dejar pendiente la unificación y conservar el capítulo actual. Cuando la solicite, se permite sacrificar para esta sesión la fidelidad estructural estricta a los esqueletos: integrar desarrollos, eliminar recordatorios redundantes y organizar una exposición coherente conservando el contenido matemático. Esta excepción prevalece sobre la regla general de concatenación para la sesión 7.
+El usuario confirmó que 7a, 7b y 7c completan la sesión 7 y solicitó expresamente su unificación coherente, solo para esta sesión. El capítulo integra los desarrollos complementarios en una exposición continua: cada resultado se enuncia una vez, la demostración del Lema de Pegado conserva sus cinco pasos y los detalles de 7c completan los de 7b y 7a. Se conservan todos los contenidos matemáticos distintos, ejemplos, correcciones, ejercicios y pistas de las tres fuentes. Mantener esta organización en futuras correcciones de la sesión 7. Esta excepción prevalece sobre las reglas de concatenación y conservación literal de repeticiones; las demás sesiones mantienen la fidelidad estructural estricta a sus esqueletos.
 
 ## LaTeX y edición
 
