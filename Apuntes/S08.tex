@@ -1,0 +1,590 @@
+\section{Lo que traemos de la Sesión 7c}
+
+\emph{Advertencia. Dos correcciones de la sesión pasada.} El morfismo canónico entre el límite de un diagrama y el producto de sus objetos va del límite al producto: el límite es un cono sobre el diagrama sin flechas y se factoriza por el producto. La gavilla $\mathcal O_X$ del pegado se obtiene, sobre cada abierto, como un límite inverso o proyectivo de anillos. Un límite directo es un colímite sobre un conjunto dirigido; el pegado no es de ese tipo.
+
+La sesión anterior probó el \myref{teo:s07-lema-pegado}. Hoy lo usamos con dos piezas, caso en el que el cociclo se cumple automáticamente.
+
+\begin{defi}[Datos de pegado]
+\label{defi:s08-datos-pegado}
+Unos datos de pegado para una familia de esquemas $\set{X_i}_{i\in I}$ consisten, para cada par $(i,j)\in I\times I$, en un subesquema abierto $X_{ij}\subseteq X_i$, con $X_{ii}=X_i$, y un isomorfismo de esquemas $\varphi_{ij}:X_{ij}\to X_{ji}$ que cumplen:
+\begin{enumerate}[label=(P\arabic*)]
+\item $\varphi_{ii}=\id_{X_i}$ para todo $i$;
+\item $\varphi_{ji}=\varphi_{ij}^{-1}$ para todo $i,j$;
+\item para toda terna $i,j,k$, $\varphi_{ij}(X_{ij}\cap X_{ik})=X_{ji}\cap X_{jk}$ y $\varphi_{ik}=\varphi_{jk}\circ\varphi_{ij}$ en $X_{ij}\cap X_{ik}$.
+\end{enumerate}
+\end{defi}
+
+Con dos piezas, $I=\set{1,2}$, basta dar abiertos $X_{12}\subseteq X_1$, $X_{21}\subseteq X_2$ y un isomorfismo $\varphi_{12}:X_{12}\to X_{21}$. Se pone $\varphi_{11}=\varphi_{22}=\id$ y $\varphi_{21}=\varphi_{12}^{-1}$: (P1) y (P2) valen por construcción y (P3) se sigue de ellas. \emph{[Hartshorne, II.2, ejercicio 2.12; \cref{obs:s07-dos-piezas-no-cociclo-verificar}.]}
+
+\begin{teo}[Lema de Pegado]
+\label{teo:s08-lema-pegado}
+Dados datos de pegado para $\set{X_i}_{i\in I}$, existe un esquema $X$ con inmersiones abiertas $\psi_i:X_i\to X$ tales que:
+\begin{enumerate}[label=(\alph*)]
+\item $X=\bigcup_{i\in I}\psi_i(X_i)$;
+\item $\psi_i(X_i)\cap\psi_j(X_j)=\psi_i(X_{ij})$ para todo $i,j$;
+\item $\psi_j\circ\varphi_{ij}=\psi_i$ en $X_{ij}$ para todo $i,j$.
+\end{enumerate}
+Si $(X',\psi_i')$ es otro esquema con inmersiones abiertas que cumplen estas propiedades, existe un único isomorfismo $h:X\to X'$ con $h\circ\psi_i=\psi_i'$ para todo $i$.
+\end{teo}
+La demostración está en el \cref{teo:s07-lema-pegado}. \emph{[Hartshorne, II.2, ejercicio 2.12; EGA I, \S2.3.]}
+
+\begin{obs}[Morfismos desde un pegado]
+\label{obs:s08-morfismos-desde-pegado}
+Dar un morfismo $f:X\to Y$ equivale a dar morfismos $f_i:X_i\to Y$ tales que $f_i|_{X_{ij}}=f_j\circ\varphi_{ij}$ para todo $i,j$, por la \cref{prop:s07-pegado-coigualador}. Hoy usaremos esta propiedad con $Y=\Spec A$.
+\end{obs}
+
+% Presentación S08, diapositiva 6: coigualador y morfismos desde el pegado.
+\begin{center}
+\begin{tikzcd}[column sep=large]
+\displaystyle\coprod_{i,j}X_{ij}
+  \arrow[r,shift left=.65ex,"\text{inclusión}"]
+  \arrow[r,shift right=.65ex,swap,"\varphi_{ij}\text{ e inclusión}"]
+& \displaystyle\coprod_iX_i \arrow[r,"\psi"] & X \arrow[r,"f"] & Y
+\end{tikzcd}
+\end{center}
+
+\section{El plano afín menos el origen}
+
+\begin{ejem}[El plano afín menos el origen]
+\label{ejem:s08-plano-menos-origen}
+Sea $k$ un campo, $A=k[x,y]$ y $\mathbb A_k^2=\Spec A$. El punto cerrado $(x,y)$ es el único primo que contiene a $(x,y)$. Su complemento
+\[
+U=\mathbb A_k^2\setminus\set{(x,y)}=D(x)\cup D(y)
+\]
+es abierto, pues $V(x)\cap V(y)=V(x,y)=\set{(x,y)}$. Con su estructura de subesquema abierto, $U$ es un esquema. Vamos a calcular $\Gamma(U,\mathcal O_U)$. \emph{[Vakil, \S4.4.1 a \S4.4.3.]}
+\end{ejem}
+
+% Presentación S08, diapositiva 8: los cuatro dibujos de abiertos del plano.
+\begin{center}
+\begin{tikzpicture}[every node/.style={font=\small}]
+\foreach \a/\col in {0/blue,3.6/green,7.2/green,10.8/orange}{
+  \fill[\col!12] (\a,0) rectangle ++(2,2);
+  \draw[grisCIMAT] (\a,0) rectangle ++(2,2);
+}
+\draw[rojoCIMAT,dashed,thick] (1,0)--(1,2);
+\draw[rojoCIMAT,dashed,thick] (3.6,1)--(5.6,1);
+\draw[rojoCIMAT,dashed,thick] (8.2,0)--(8.2,2);
+\draw[rojoCIMAT,dashed,thick] (7.2,1)--(9.2,1);
+\draw[grisCIMAT] (11.8,0)--(11.8,2) (10.8,1)--(12.8,1);
+\fill[white] (11.8,1) circle (3pt);
+\draw[rojoCIMAT,thick] (11.8,1) circle (3pt);
+\node at (1,-.4) {$D(x)$};
+\node at (1,-.8) {$x\ne0$};
+\node at (4.6,-.4) {$D(y)$};
+\node at (4.6,-.8) {$y\ne0$};
+\node at (8.2,-.4) {$D(x)\cap D(y)=D(xy)$};
+\node at (8.2,-.8) {$xy\ne0$};
+\node at (11.8,-.4) {$U=D(x)\cup D(y)$};
+\node at (11.8,-.8) {todo salvo el origen};
+\end{tikzpicture}
+\end{center}
+
+\begin{prop}
+\label{prop:s08-secciones-plano-menos-origen}
+Se tiene $\Gamma(U,\mathcal O_U)=k[x,y]$: la restricción $\Gamma(\mathbb A_k^2,\mathcal O)\to\Gamma(U,\mathcal O_U)$ es un isomorfismo. Además, $U$ no es afín.
+\end{prop}
+\begin{proof}
+\emph{Las secciones.} La cubierta $U=D(x)\cup D(y)$ tiene traslape $D(xy)$. Por los axiomas de identidad y pegado, una sección global es un par $(f,g)\in A_x\times A_y$ cuyas imágenes coinciden en $A_{xy}$. Como $A$ es un dominio, las localizaciones son inyectivas y podemos considerar
+\[
+A\subseteq A_x,A_y\subseteq A_{xy},
+\qquad \Gamma(U,\mathcal O_U)=A_x\cap A_y.
+\]
+Si $h=p/x^a=q/y^b$ pertenece a la intersección, con $p,q\in A$ y $a,b\geq0$, entonces $py^b=qx^a$. El anillo $A$ es un dominio de factorización única, y $x,y$ son primos distintos. De $x^a\mid py^b$ y $x\nmid y$ se obtiene $x^a\mid p$, luego $h\in A$. La inclusión opuesta es inmediata: la restricción es un isomorfismo.
+
+\emph{Advertencia.} La inclusión $A\hookrightarrow A_x$ usa que $A$ es un dominio; para un anillo cualquiera la localización puede perder elementos.
+
+\emph{No es afín.} Si $U$ fuera afín, el morfismo canónico
+\[
+U\longrightarrow\Spec\Gamma(U,\mathcal O_U)=\mathbb A_k^2
+\]
+sería un isomorfismo, por el \cref{coro:s06-equivalencia}. Un punto $\mathfrak p\in U$ se envía a
+\[
+\set*{f\in A\given f_{\mathfrak p}\in\mathfrak p A_{\mathfrak p}}
+=\mathfrak p,
+\]
+pues el germen de $f$ está en el ideal maximal del tallo precisamente cuando $f\in\mathfrak p$. El morfismo canónico es la inclusión $U\subseteq\mathbb A_k^2$: omite $(x,y)$, así que no es sobreyectivo ni un isomorfismo.
+\end{proof}
+
+\begin{obs}[Lectura geométrica]
+\label{obs:s08-hartogs}
+Los polos de $p/x^a$ están en la recta $x=0$, y los de $q/y^b$ en la recta $y=0$. Si representan la misma función, sus polos tendrían que estar en el origen. En dimensión dos, los polos de una función forman una curva y un punto no lo es. Toda función regular en $\mathbb A_k^2$ menos el origen se extiende al plano: es el análogo algebraico del lema de Hartogs. En $\mathbb A_k^1\setminus\set{0}$ sí hay funciones nuevas, como $1/x$. Para $n\geq2$ se usa la cubierta $D(x_1),\ldots,D(x_n)$ de $\mathbb A_k^n$ menos el origen; véase el \cref{ejer:s08-afin-menos-origen}.
+\end{obs}
+
+\section{La recta proyectiva por cartas}
+
+Con la técnica anterior, calculemos secciones globales de un esquema construido por pegado. Primero construiremos sus cartas y sus transiciones.
+
+\begin{defi}[La recta proyectiva $\mathbb P_A^1$]
+\label{defi:s08-recta-proyectiva}
+Sea $A$ un anillo. Sean $U_0=\Spec A[t]$ y $U_1=\Spec A[s]$, dos copias de la recta afín $\mathbb A_A^1$, llamadas cartas. Los abiertos $U_{01}=D(t)\subseteq U_0$ y $U_{10}=D(s)\subseteq U_1$ tienen anillos de funciones $A[t,t^{-1}]$ y $A[s,s^{-1}]$. El isomorfismo de anillos
+\[
+A[s,s^{-1}]\longrightarrow A[t,t^{-1}],\qquad s\longmapsto t^{-1},
+\]
+define un isomorfismo de esquemas $\varphi_{01}:U_{01}\to U_{10}$. Por la \cref{defi:s08-datos-pegado}, son datos de pegado. La recta proyectiva $\mathbb P_A^1$ es el esquema del \cref{teo:s08-lema-pegado}, con inmersiones abiertas $\psi_0:U_0\to\mathbb P_A^1$ y $\psi_1:U_1\to\mathbb P_A^1$. \emph{[Vakil, \S4.4.6 y \S4.4.10; Hartshorne, II.2, ejercicio 2.12.]}
+\end{defi}
+
+\begin{obs}[Coordenadas]
+\label{obs:s08-coordenadas}
+Un punto $[x_0:x_1]$ con $x_0\ne0$ tiene coordenada $t=x_1/x_0$; cuando $x_1\ne0$, tiene coordenada $s=x_0/x_1$. En el traslape se cumple $s=t^{-1}$, la transición de la \cref{defi:s08-recta-proyectiva}. Si $A=k$ y $a\in k^\times$, los puntos $t=a$ y $s=a^{-1}$ de ambas cartas se identifican.
+\end{obs}
+
+% Presentación S08, diapositiva 13: círculo y las dos proyecciones.
+\begin{center}
+\begin{minipage}{.47\textwidth}
+\centering
+\begin{tikzpicture}[scale=1,every node/.style={font=\small}]
+\draw[grisCIMAT,thick] (0,0) circle (1.2);
+\draw[blue!60!black,thick] (-2.4,-1.2)--(2.4,-1.2) node[right] {$t$};
+\draw[green!45!black,thick] (-2.4,1.2)--(2.4,1.2) node[right] {$s$};
+\begin{scope}
+\clip (-2.4,-1.2) rectangle (2.4,1.2);
+\foreach \x/\y in {-.98/.69,.98/.69,-.98/-.69,.98/-.69}{
+ \pgfmathsetmacro{\projt}{2.4*\x/(1.2-\y)}
+ \pgfmathsetmacro{\projs}{2.4*\x/(1.2+\y)}
+ \draw[blue!60!black,dashed] (0,1.2)--(\projt,-1.2);
+ \draw[green!45!black,dashed] (0,-1.2)--(\projs,1.2);
+}
+\end{scope}
+\foreach \x/\y in {-.98/.69,.98/.69,-.98/-.69,.98/-.69}{
+ \fill[rojoCIMAT] (\x,\y) circle (1.8pt);
+}
+\fill[rojoCIMAT] (0,1.2) circle (2.5pt);
+\fill[rojoCIMAT] (0,-1.2) circle (2.5pt);
+\node[above] at (0,1.2) {$s=0$};
+\node[below] at (0,-1.2) {$t=0$};
+\end{tikzpicture}
+\end{minipage}\hfill
+\begin{minipage}{.49\textwidth}
+\small
+La carta $t$ proyecta desde $s=0$ sobre la recta tangente en $t=0$. La carta $s$ proyecta desde $t=0$ sobre la tangente en $s=0$. El traslape es el círculo menos los dos polos, donde $ts=1$. Sobre $\mathbb R$ se ve un círculo; sobre $\mathbb C$, la esfera de Riemann.
+\end{minipage}
+\end{center}
+
+\begin{obs}[El morfismo estructural]
+\label{obs:s08-morfismo-estructural}
+Los morfismos $U_0\to\Spec A$ y $U_1\to\Spec A$ inducidos por $A\to A[t]$ y $A\to A[s]$ coinciden en el traslape, pues $s\mapsto t^{-1}$ es un homomorfismo de $A$-álgebras. La \cref{obs:s08-morfismos-desde-pegado} da $\pi:\mathbb P_A^1\to\Spec A$; sus fibras se estudian en el \cref{sec:s08-puntos}.
+\end{obs}
+
+\begin{prop}[$\mathbb P_A^1$ como conjunto]
+\label{prop:s08-proyectiva-como-conjunto}
+Se tiene $\mathbb P_A^1=\psi_0(U_0)\amalg\psi_1(V(s))$, con
+\[
+V(s)=\Spec(A[s]/(s))\cong\Spec A.
+\]
+Así, $\mathbb P_A^1$ es la recta afín $\mathbb A_A^1$ más una copia de $\Spec A$, la sección del infinito. Esta sección es un punto cuando $A$ es un campo.
+\end{prop}
+\begin{proof}
+Por (a) y (b) del \cref{teo:s08-lema-pegado}, el complemento de $\psi_0(U_0)$ es
+\[
+\psi_1(U_1\setminus D(s))=\psi_1(V(s)).
+\]
+El cociente $A[s]/(s)\cong A$ identifica este conjunto con $\Spec A$.
+\end{proof}
+
+% Presentación S08, diapositiva 14: mismas piezas, dos pegados.
+\begin{center}
+\begin{tikzpicture}[every node/.style={font=\small}]
+\begin{scope}
+\node at (0,1.7) {recta con origen doble};
+\draw[blue!60!black,thick] (-2.2,1)--(2.2,1) node[right] {$X_1$};
+\draw[green!45!black,thick] (-2.2,0)--(2.2,0) node[right] {$X_2$};
+\foreach \x in {-1.8,-1.2,-.6,.6,1.2,1.8}{\draw[grisCIMAT,dotted] (\x,0)--(\x,1);}
+\fill[rojoCIMAT] (0,1) circle (2.5pt) node[above] {$O_1$};
+\fill[rojoCIMAT] (0,0) circle (2.5pt) node[below] {$O_2$};
+\node at (0,-.9) {$\varphi^\sharp(y)=x$};
+\end{scope}
+\begin{scope}[xshift=7cm]
+\node at (0,1.7) {$\mathbb P_k^1$};
+\draw[blue!60!black,thick] (-2.2,1)--(2.2,1) node[right] {$t$};
+\draw[green!45!black,thick] (-2.2,0)--(2.2,0) node[right] {$s$};
+\draw[grisCIMAT,dotted] (-2,1)--(-.4,0) (-.4,1)--(-2,0) (.4,1)--(2,0) (2,1)--(.4,0);
+\fill[rojoCIMAT] (0,1) circle (2.5pt) node[above] {$t=0$};
+\fill[rojoCIMAT] (0,0) circle (2.5pt) node[below] {$s=0$};
+\node at (0,-.9) {$\varphi^\sharp(y)=x^{-1}$};
+\end{scope}
+\end{tikzpicture}
+\end{center}
+Las piezas $\mathbb A_k^1$ y el traslape $D(x)$ son los mismos. Con la identidad, cerca de $O_1$ y de $O_2$ aparecen los mismos puntos. Con la inversión, cerca de $t=0$ en una carta es lejos en la otra. El morfismo de pegado distingue las dos construcciones.
+
+\section{Secciones globales y no afinidad}
+
+\begin{prop}
+\label{prop:s08-secciones-proyectiva}
+Para todo anillo $A$, se tiene $\Gamma(\mathbb P_A^1,\mathcal O)=A$: el homomorfismo $A\to\Gamma(\mathbb P_A^1,\mathcal O)$ inducido por $\pi$ es un isomorfismo. \emph{[Vakil, \S4.4.8.]}
+\end{prop}
+\begin{proof}
+Una sección global es un par $(f,g)\in A[t]\times A[s]$ con $f=g(t^{-1})$ en $A[t,t^{-1}]$, por la \cref{defi:s07-gavilla-estructural-pegado}. Escribamos
+\[
+f=\sum_{n\geq0}a_nt^n,\qquad g(t^{-1})=\sum_{n\geq0}b_nt^{-n}.
+\]
+El anillo de Laurent es libre como $A$-módulo con base $\set{t^n}_{n\in\mathbb Z}$. Comparar coeficientes da $a_n=b_n=0$ para $n>0$ y $a_0=b_0$. Luego $f=g=a_0\in A$. Cada $a\in A$ da, a su vez, la sección compatible $(a,a)$.
+
+\emph{Advertencia.} $A[t]\hookrightarrow A[t,t^{-1}]$ es inyectivo para cualquier $A$, sin suponer que sea un dominio.
+\end{proof}
+
+\begin{coro}
+\label{coro:s08-proyectiva-no-afin}
+Si $A\ne0$, la recta proyectiva $\mathbb P_A^1$ no es afín.
+\end{coro}
+\begin{proof}
+Si fuera afín, el morfismo canónico $\mathbb P_A^1\to\Spec\Gamma(\mathbb P_A^1,\mathcal O)=\Spec A$ sería un isomorfismo, por el \cref{coro:s06-equivalencia} y la \cref{prop:s08-secciones-proyectiva}. En particular, sería biyectivo.
+
+Como $A\ne0$, existe un primo $\mathfrak r\subseteq A$. En la carta $U_0$ consideremos
+\[
+P_0=\mathfrak r A[t]+(t),\qquad
+P_1=\mathfrak r A[t]+(t-1).
+\]
+Ambos son primos, pues $A[t]/P_i\cong A/\mathfrak r$. Son distintos: la imagen de $t-1$ en $A[t]/P_0$ es $-1\ne0$. Además, $P_i\cap A=\mathfrak r$. El germen de $a\in A$ en $P_i$ está en el ideal maximal del tallo si y solo si $a\in\mathfrak r$. Así, los dos puntos se envían a $\mathfrak r$ y el morfismo canónico no es inyectivo.
+\end{proof}
+
+% Presentación S08, diapositiva 18: no sobreyectividad y no inyectividad.
+\begin{center}
+\begin{tikzpicture}[every node/.style={font=\small}]
+\fill[orange!12] (0,0) rectangle (1.6,1.6);
+\draw[grisCIMAT] (0,0) rectangle (1.6,1.6);
+\draw[rojoCIMAT,thick,fill=white] (.8,.8) circle (2.5pt);
+\draw[->,blue!60!black,thick] (1.95,.8)--(3.15,.8) node[midway,above] {canónico};
+\fill[orange!12] (3.5,0) rectangle (5.1,1.6);
+\draw[grisCIMAT] (3.5,0) rectangle (5.1,1.6);
+\fill[rojoCIMAT] (4.3,.8) circle (2.5pt) node[above right] {$(x,y)$};
+\node at (.8,-.4) {$U$};
+\node at (4.3,-.4) {$\mathbb A_k^2=\Spec\Gamma(U,\mathcal O_U)$};
+\node[align=center] at (2.55,-1.05) {Falta el origen:\\el mapa no es sobreyectivo.};
+\begin{scope}[xshift=9cm]
+\draw[green!45!black,thick] (0,.8)--(0,2.3);
+\node[left] at (0,1.6) {$\mathbb P_A^1$};
+\foreach \y/\lab in {2.1/P_0,1.6/P_1,1.1/\infty}{\fill[rojoCIMAT] (0,\y) circle (2.5pt) node[right] {$\lab$};}
+\draw[->,blue!60!black,thick] (0,.7)--(0,.05) node[midway,left] {$\pi$};
+\draw[grisCIMAT] (-1.4,-.2)--(1.4,-.2) node[right] {$\Spec A$};
+\fill[rojoCIMAT] (0,-.2) circle (2.5pt) node[below] {$\mathfrak r$};
+\node[align=center] at (0,-1.05) {$P_0\ne P_1$ tienen la misma imagen:\\el mapa no es inyectivo.};
+\end{scope}
+\end{tikzpicture}
+\end{center}
+Un esquema afín se reconstruye con sus funciones. En $U$ las funciones no detectan el hueco del origen; en $\mathbb P_A^1$ no distinguen los dos puntos elegidos.
+
+\begin{obs}
+\label{obs:s08-constantes-compacidad}
+Es el análogo de que las únicas funciones holomorfas en $\mathbb{CP}^1$ son constantes; en ambos casos la causa es la compacidad. Su versión algebraica es la propiedad, que se estudiará en la Sesión 15. Con las mismas piezas, la recta con origen doble tiene como secciones globales todo $k[x]$. Esto la distingue de la recta proyectiva; véase el \cref{sec:s08-dos-rectas}. \emph{[Vakil, ejercicio 4.4.B.]}
+\end{obs}
+
+\section{Los puntos de la recta proyectiva}
+\label{sec:s08-puntos}
+
+\subsection{Sobre un cuerpo}
+
+\begin{ejem}[Puntos de $\mathbb P_k^1$]
+\label{ejem:s08-puntos-proyectiva-cuerpo}
+Sea $k$ un campo. Por la \cref{prop:s08-proyectiva-como-conjunto},
+\[
+\mathbb P_k^1=\mathbb A_k^1\amalg\set{\infty},
+\qquad \infty=\psi_1((s)).
+\]
+Los puntos de $\mathbb A_k^1=\Spec k[t]$ son el genérico $(0)$ y los puntos cerrados $(f)$, con $f\in k[t]$ mónico irreducible. Su cuerpo residual es $k[t]/(f)$ y tiene grado $\deg f$ sobre $k$. El punto $\infty$ es cerrado y tiene cuerpo residual $k$.
+\begin{itemize}
+\item Si $k=\mathbb C$, los puntos cerrados son $\mathbb C\cup\set{\infty}$, la esfera de Riemann como conjunto.
+\item Si $k=\mathbb R$, los puntos de grado uno son $\mathbb R\cup\set{\infty}$. Los de grado dos son $(t^2+bt+c)$ con $b^2<4c$, de cuerpo residual $\mathbb C$. Cada uno corresponde a un par $\set{z,\bar z}$ de complejos conjugados. Los puntos cerrados de $\mathbb P_{\mathbb R}^1$ son las órbitas de $\operatorname{Gal}(\mathbb C/\mathbb R)$ en $\mathbb C\cup\set{\infty}$.
+\end{itemize}
+\emph{[Vakil, \S4.4.6 y \S4.4.7.]}
+\end{ejem}
+
+% Presentación S08, diapositiva 21: órbita de la conjugación.
+\begin{center}
+\begin{tikzpicture}[every node/.style={font=\small}]
+\draw[grisCIMAT] (-2.5,0)--(2.5,0) node[right] {$\mathbb R$};
+\draw[grisCIMAT] (0,-1.5)--(0,1.5);
+\foreach \x in {-1.8,.7,1.8}{\fill[rojoCIMAT] (\x,0) circle (2pt);}
+\fill[rojoCIMAT] (-.8,1.1) circle (2.5pt) node[left] {$z$};
+\fill[rojoCIMAT] (-.8,-1.1) circle (2.5pt) node[left] {$\bar z$};
+\draw[->,blue!60!black,dashed,thick] (-.8,1.05) to[bend left=25] (-.8,-1.05);
+\node[right,blue!60!black] at (.25,.7) {$\operatorname{Gal}(\mathbb C/\mathbb R)$};
+\end{tikzpicture}
+\end{center}
+\emph{Advertencia.} Un punto cerrado de grado dos es el par $\set{z,\bar z}$, no dos puntos. El polinomio $t^2+1$ da un solo punto de $\mathbb P_{\mathbb R}^1$, aunque $i$ y $-i$ son dos números.
+
+\begin{prop}[Puntos cerrados de $\mathbb P_{\mathbb F_q}^1$]
+\label{prop:s08-puntos-cerrados-campo-finito}
+Sea $q$ una potencia de un primo, y sea $M_d$ el número de puntos cerrados de $\mathbb P_{\mathbb F_q}^1$ de grado $d$, donde el grado de $x$ es $[\kappa(x):\mathbb F_q]$. Para todo $n\geq1$,
+\[
+\sum_{d\mid n}dM_d=q^n+1.
+\]
+En particular, $M_1=q+1$ y $M_2=(q^2-q)/2$.
+\end{prop}
+\begin{proof}
+Sea $N_d$ el número de polinomios mónicos irreducibles de grado $d$ en $\mathbb F_q[t]$. El polinomio $t^{q^n}-t$ es el producto de los mónicos irreducibles cuyos grados dividen a $n$, cada uno con multiplicidad uno. Comparando grados,
+\[
+\sum_{d\mid n}dN_d=q^n.
+\]
+Los puntos cerrados de grado $d$ de $\mathbb A_{\mathbb F_q}^1$ son esos $N_d$. El infinito añade un punto de grado uno, de modo que $M_1=N_1+1$ y $M_d=N_d$ para $d\geq2$. Así se obtiene la fórmula. Para $n=1$ da $M_1=q+1$, y para $n=2$ da $M_1+2M_2=q^2+1$, de donde resulta el valor de $M_2$.
+\end{proof}
+
+\begin{obs}[Lectura geométrica]
+\label{obs:s08-orbitas-frobenius}
+Un punto cerrado de grado $d$ es una órbita de Frobenius de $d$ puntos de $\mathbb P^1(\overline{\mathbb F}_q)$, como $\set{z,\bar z}$ es una órbita de conjugación sobre $\mathbb R$. La órbita cae en $\mathbb P^1(\mathbb F_{q^n})$ cuando $d\mid n$ y aporta $d$ puntos. Como este conjunto tiene $q^n+1$ puntos $[a:b]$, la suma cuenta las órbitas por su tamaño.
+\end{obs}
+
+\subsection{Sobre \texorpdfstring{$\mathbb Z$}{Z}}
+
+\begin{ejem}[Los puntos de $\mathbb A_{\mathbb Z}^1$ y de $\mathbb P_{\mathbb Z}^1$]
+\label{ejem:s08-puntos-sobre-z}
+Clasificamos los primos $\mathfrak q\subseteq\mathbb Z[t]$ según $\mathfrak q\cap\mathbb Z$.
+\begin{itemize}
+\item Si $\mathfrak q\cap\mathbb Z=(0)$, el primo corresponde a uno de $\mathbb Z[t]\otimes\mathbb Q=\mathbb Q[t]$. Es $(0)$, o $(f)$ con $f\in\mathbb Z[t]$ irreducible primitivo no constante, por el lema de Gauss.
+\item Si $\mathfrak q\cap\mathbb Z=(p)$ con $p$ primo, contiene a $p$ y corresponde a un primo de $\mathbb Z[t]/(p)=\mathbb F_p[t]$. Es $(p)$, o $(p,g)$ con $g\in\mathbb Z[t]$ mónico cuya reducción $\bar g\in\mathbb F_p[t]$ es irreducible.
+\end{itemize}
+A estos se suman los puntos de $\psi_1(V(s))\cong\Spec\mathbb Z$: son $(s)$ y los $(s,p)$ en $\mathbb Z[s]$. \emph{[Vakil, ejercicio 3.2.Q, para la fibra sobre $(p)$.]}
+\end{ejem}
+
+\emph{Advertencia.} El ideal $(p,g)$ depende solo de $\bar g$, no del levantamiento $g$.
+
+% Esqueleto y presentación S08, diapositiva 25: tabla de puntos y cuerpos.
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lccc}
+\hline
+Punto & Ideal & Cuerpo residual & Sobre\\
+\hline
+genérico & $(0)$ & $\mathbb Q(t)$ & $(0)$\\
+cerrado en la fibra racional & $(f)$ & $\mathbb Q[t]/(f)$ & $(0)$\\
+genérico de la fibra en $p$ & $(p)$ & $\mathbb F_p(t)$ & $(p)$\\
+cerrado en la fibra en $p$ & $(p,g)$ & $\mathbb F_p[t]/(\bar g)$ & $(p)$\\
+infinito, fibra racional & $(s)$ & $\mathbb Q$ & $(0)$\\
+infinito, fibra en $p$ & $(s,p)$ & $\mathbb F_p$ & $(p)$\\
+\hline
+\end{tabular}
+\end{center}
+Las cuatro primeras filas son primos de $\mathbb Z[t]$ en $U_0$; las dos últimas son primos de $\mathbb Z[s]$ en $U_1$.
+
+% Presentación S08, diapositiva 26: superficie aritmética y secciones.
+\begin{center}
+\begin{tikzpicture}[every node/.style={font=\small},x=1.05cm,y=.85cm]
+\draw[grisCIMAT,->] (-.4,0)--(9.4,0) node[right] {$\Spec\mathbb Z$};
+\foreach \x/\p in {2/2,4/3,6/5,8/7}{
+ \draw[green!45!black,thick] (\x,.5)--(\x,3.7);
+ \fill[grisCIMAT] (\x,0) circle (2pt) node[below] {$(\p)$};
+}
+\draw[blue!60!black,thick] plot[domain=.5:3.7,samples=75] ({.05*sin(700*\x)},\x);
+\node[below] at (0,0) {$(0)$};
+\node[above right,blue!60!black] at (0,3.7) {$\mathbb P_{\mathbb Q}^1$};
+\node[above,green!45!black] at (2,3.7) {$\mathbb P_{\mathbb F_2}^1$};
+\draw[orange!70!black,thick] (-.35,3.35)--(9,3.35) node[right] {$s=0$};
+\draw[rojoCIMAT,thick] (-.35,1.35)--(9,1.35) node[right] {$t=0$};
+\draw[orange!70!black,thick] (-.35,2.35) .. controls (.8,2.1) and (1.3,1.7) .. (2,1.35)
+ .. controls (4,.6) and (6,.55) .. (9,.55) node[right] {$t=2$};
+\fill[rojoCIMAT] (2,1.35) circle (3pt) node[above right] {$(2,t)$};
+\node at (8.8,.65) {$\cdots$};
+\draw[->,blue!60!black,thick] (-1,2.25)--(-1,.3) node[midway,left] {$\pi$};
+\end{tikzpicture}
+\end{center}
+La base $\Spec\mathbb Z$ es una curva y cada fibra es una recta proyectiva: el dibujo representa $\mathbb P_{\mathbb Z}^1$ como superficie aritmética. Las secciones $t=0$ y $t=2$ se cortan solo sobre $(2)$, en el punto $(2,t)$.
+
+\begin{obs}[Puntos cerrados de $\mathbb P_{\mathbb Z}^1$]
+\label{obs:s08-puntos-cerrados-sobre-z}
+Los puntos cerrados de $\mathbb P_{\mathbb Z}^1$ tienen cuerpo residual finito, pues un cuerpo que es una $\mathbb Z$-álgebra finitamente generada es finito. Los de cuerpo residual $\mathbb F_{p^d}$ son exactamente los puntos cerrados de grado $d$ de $\mathbb P_{\mathbb F_p}^1$. Para cada primo $p$ hay $p+1$ puntos cerrados con cuerpo residual $\mathbb F_p$ y $(p^2-p)/2$ con cuerpo residual $\mathbb F_{p^2}$. La cadena $(0)\subset(p)\subset(p,t)$ muestra que la dimensión de $\mathbb P_{\mathbb Z}^1$ es al menos dos; la dimensión se definirá en la Sesión 16.
+\end{obs}
+
+\emph{Advertencia.} Un punto $(f)$ de la fibra racional es cerrado en $\mathbb P_{\mathbb Q}^1$, pero no en $\mathbb P_{\mathbb Z}^1$. Por ejemplo,
+\[
+\mathbb Z[t]/(2t-1)\cong\mathbb Z[1/2]
+\]
+no es un cuerpo. La cerradura de $(2t-1)$ es una curva horizontal que corta cada fibra, incluida la de $2$, donde pasa por el infinito.
+
+\subsection{Sobre un anillo de valoración discreta}
+
+\begin{ejem}[$\mathbb P_A^1$ con $A$ un DVR]
+\label{ejem:s08-proyectiva-dvr}
+Sea $A$ un anillo de valoración discreta (DVR), es decir, un dominio de ideales principales local que no es un cuerpo. Sean $K$ su cuerpo de fracciones, $\mathfrak m=(\varpi)$ su ideal maximal y $\kappa=A/\mathfrak m$ su cuerpo residual. El generador $\varpi$ es un uniformizante. Por ejemplo, para $A=\mathbb Z_{(p)}$ se tiene $K=\mathbb Q$, $\kappa=\mathbb F_p$ y $\varpi=p$. Entonces $\Spec A=\set{(0),\mathfrak m}$ y $\pi:\mathbb P_A^1\to\Spec A$ tiene dos fibras:
+\begin{itemize}
+\item la fibra genérica sobre $(0)$ es $\mathbb P_K^1$ y es abierta;
+\item la fibra especial sobre $\mathfrak m$ es $\mathbb P_\kappa^1$ y es cerrada.
+\end{itemize}
+Se piensa $\Spec A$ como un disco pequeño: el punto cerrado es el centro, y el genérico representa el disco sin su centro. Como $(0)$ en $A[t]$ es el genérico de todo $\mathbb P_A^1$, la fibra genérica es densa.
+\end{ejem}
+
+\begin{defi}[Reducción]
+\label{defi:s08-reduccion}
+El punto $K$-racional $[a:b]$ de $\mathbb P_K^1$ se representa por un par no nulo $(a,b)\in K^2$ módulo $K^\times$. Tiene coordenada $t=b/a$ si $a\ne0$, y $s=a/b$ si $b\ne0$. Denotamos por $\mathbb P^1(K)$ el conjunto de estos puntos. Multiplicando por una potencia de $\varpi$, podemos suponer $a,b\in A$ y que no ambos pertenecen a $\mathfrak m$. La reducción de $[a:b]$ es $[\bar a:\bar b]\in\mathbb P^1(\kappa)$.
+\end{defi}
+
+\begin{obs}
+\label{obs:s08-reduccion-bien-definida}
+La reducción no depende del representante: dos representantes con coordenadas en $A$ no ambas en $\mathfrak m$ difieren por una unidad de $A$. Para $A=\mathbb Z_{(p)}$ es la reducción de un punto racional módulo $p$. Que todo punto $K$-racional se extienda a un punto con valores en $A$ es la parte de existencia del criterio valuativo de propiedad de la Sesión 15.
+\end{obs}
+
+% Presentación S08, diapositiva 30: especialización de un punto racional.
+\begin{center}
+\begin{minipage}{.45\textwidth}
+\centering
+\begin{tikzpicture}[every node/.style={font=\small}]
+\draw[grisCIMAT] (-.7,0)--(3.3,0);
+\draw[blue!60!black,thick] plot[domain=.35:2.9,samples=65] ({.05*sin(700*\x)},\x);
+\draw[green!45!black,thick] (2.3,.35)--(2.3,2.9);
+\node[above,blue!60!black] at (0,2.9) {$\mathbb P_K^1$};
+\node[above,green!45!black] at (2.3,2.9) {$\mathbb P_\kappa^1$};
+\fill[blue!60!black] (0,0) circle (2pt) node[below] {$(0)$};
+\fill[green!45!black] (2.3,0) circle (2pt) node[below] {$\mathfrak m$};
+\draw[rojoCIMAT,thick] (0,1.85) .. controls (.8,2.2) and (1.7,2.15) .. (2.3,1.6);
+\fill[rojoCIMAT] (0,1.85) circle (2.5pt) node[left] {$[a:b]$};
+\fill[rojoCIMAT] (2.3,1.6) circle (2.5pt) node[right] {$[\bar a:\bar b]$};
+\end{tikzpicture}
+\end{minipage}\hfill
+\begin{minipage}{.51\textwidth}
+\small
+La cerradura de un punto $K$-racional corta la fibra especial en su reducción. Si $A=k[u]_{(u)}$, se interpreta como el límite cuando $u\to0$. Para $A=\mathbb Z_{(p)}$, con $p$ impar, $1/2=[2:1]$ se reduce a $t=2^{-1}$ en $\mathbb F_p$.
+\end{minipage}
+\end{center}
+\emph{Advertencia.} Para $A=\mathbb Z_{(2)}$, el punto $1/2=[2:1]$ se reduce a $[0:1]=\infty$. Hay que usar un representante con una coordenada unidad: $[1:1/2]$ no sirve.
+
+\section{\texorpdfstring{$\mathbb P_A^n$}{PnA} por cartas}
+
+\begin{defi}[Las cartas de $\mathbb P_A^n$]
+\label{defi:s08-cartas-proyectiva-n}
+Sea $n\geq1$. Para $i=0,\ldots,n$, sea $A_i=A[x_{k/i}:k\ne i]$, el anillo de polinomios en las $n$ variables $x_{k/i}$, y $U_i=\Spec A_i$. Se pone $x_{i/i}=1$, $U_{ii}=U_i$ y $\varphi_{ii}=\id$. Para $j\ne i$, sea $U_{ij}=D(x_{j/i})\subseteq U_i$, con anillo de funciones $A_i[x_{j/i}^{-1}]$, y
+\[
+\varphi_{ij}^\sharp:A_j[x_{i/j}^{-1}]\longrightarrow A_i[x_{j/i}^{-1}],
+\qquad x_{k/j}\longmapsto\frac{x_{k/i}}{x_{j/i}}.
+\]
+Es un isomorfismo: envía $x_{i/j}$ a $x_{j/i}^{-1}$, con inversa $x_{k/i}\mapsto x_{k/j}/x_{i/j}$. \emph{[Vakil, \S4.4.9 y \S4.4.10.]}
+\end{defi}
+
+\begin{prop}
+\label{prop:s08-cociclo-proyectiva-n}
+Los $U_i$, $U_{ij}$ y $\varphi_{ij}$ son datos de pegado, incluida la igualdad de dominios de (P3):
+\[
+\varphi_{ij}(U_{ij}\cap U_{ik})=U_{ji}\cap U_{jk}.
+\]
+El esquema del \cref{teo:s08-lema-pegado} es el espacio proyectivo $\mathbb P_A^n$.
+\end{prop}
+
+\emph{Advertencia.} (P3) exige dos cosas: que $\varphi_{ij}$ lleve exactamente $U_{ij}\cap U_{ik}$ sobre $U_{ji}\cap U_{jk}$, y que el triángulo de transiciones conmute. La primera no se sigue de la segunda.
+
+% Presentación S08, diapositiva 32: dominios y triángulo del cociclo.
+\begin{center}
+\begin{tikzcd}[column sep=small,row sep=large]
+& U_{ij}\cap U_{ik}\subseteq U_i
+  \arrow[dl,swap,"\varphi_{ij}"] \arrow[dr,"\varphi_{ik}"] &\\
+U_{ji}\cap U_{jk}\subseteq U_j \arrow[rr,swap,"\varphi_{jk}"]
+&& U_{ki}\cap U_{kj}\subseteq U_k
+\end{tikzcd}
+\end{center}
+\begin{proof}
+Sea
+\[
+L=A[x_0^{\pm1},\ldots,x_n^{\pm1}],\qquad
+L_0=\bigoplus_{\substack{m\in\mathbb Z^{n+1}\\ \sum_\ell m_\ell=0}}Ax^m,
+\quad x^m=x_0^{m_0}\cdots x_n^{m_n}.
+\]
+El submódulo $L_0$ es un subanillo. Para cada $i$, definimos
+\[
+\iota_i:A_i\hookrightarrow L_0,\qquad x_{k/i}\longmapsto x_kx_i^{-1}.
+\]
+Es inyectivo porque monomios distintos se envían a monomios distintos. La imagen de $A_i[x_{j/i}^{-1}]$ es
+\[
+R_{ij}=\bigoplus_{\substack{\sum_\ell m_\ell=0\\m_\ell\geq0\text{ si }\ell\notin\set{i,j}}}Ax^m.
+\]
+En efecto, los exponentes fuera de $i,j$ son no negativos; el exponente en $j$ puede ser cualquiera, y el grado total cero fija el exponente en $i$. La descripción es simétrica en $i,j$. Además,
+\[
+\iota_j(x_{k/j})=\iota_i(x_{k/i}/x_{j/i}),
+\qquad \varphi_{ij}^\sharp=\iota_i^{-1}\iota_j
+\]
+en las localizaciones identificadas con $R_{ij}$. Así se verifican (P1) y (P2).
+
+El anillo del traslape triple en la carta $i$ se identifica con
+\[
+R_{ijk}=\bigoplus_{\substack{\sum_\ell m_\ell=0\\m_\ell\geq0\text{ si }\ell\notin\set{i,j,k}}}Ax^m,
+\]
+al invertir $x_{j/i}$ y $x_{k/i}$. En la carta $j$, los abiertos $U_{ji}\cap U_{jk}$ tienen el mismo anillo: bajo $\varphi_{ij}^\sharp$, invertir $x_{k/j}$ equivale a invertir $x_{k/i}/x_{j/i}$, y $x_{j/i}$ ya es unidad. Por tanto la transición lleva exactamente el primer abierto triple al segundo. Las tres transiciones inducen la identidad de $R_{ijk}$; su composición coincide con la transición directa. Esto prueba ambas partes de (P3).
+\end{proof}
+
+\begin{obs}
+\label{obs:s08-hiperplano-infinito}
+Geométricamente, $U_i$ es el abierto donde $x_i\ne0$. La carta $U_0$ es isomorfa a $\mathbb A_A^n$. Su complemento es el cerrado donde se anula $x_0$, descrito en $U_i$ por $V(x_{0/i})$. Es una copia de $\mathbb P_A^{n-1}$, el hiperplano al infinito de la Sesión 10. Para $n=1$ se recupera la \cref{defi:s08-recta-proyectiva}, con $t=x_{1/0}$ y $s=x_{0/1}$. La construcción formal mediante $\operatorname{Proj}$ llegará en la Sesión 21.
+\end{obs}
+
+\section{Los pegados de dos rectas a lo largo de \texorpdfstring{$D(x)$}{D(x)}}
+\label{sec:s08-dos-rectas}
+
+\begin{lema}[Funtorialidad del pegado]
+\label{lema:s08-funtorialidad-pegado}
+Sean $(X_i,X_{ij},\varphi_{ij})$ y $(X_i',X_{ij}',\varphi_{ij}')$ datos de pegado con los mismos índices, y pegados $(X,\psi_i)$ y $(X',\psi_i')$. Sean $\nu_i:X_i\to X_i'$ isomorfismos tales que $\nu_i(X_{ij})=X_{ij}'$ y $\nu_j\circ\varphi_{ij}=\varphi_{ij}'\circ\nu_i$ en $X_{ij}$. Existe un único isomorfismo $h:X\to X'$ con $h\circ\psi_i=\psi_i'\circ\nu_i$.
+\end{lema}
+
+% Presentación S08, diapositiva 34: los dos cuadrados de funtorialidad.
+\begin{center}
+\begin{minipage}{.43\textwidth}
+\centering
+\begin{tikzcd}
+X_i\arrow[r,"\psi_i"]\arrow[d,swap,"\nu_i"]
+ &X\arrow[d,"h"]\\
+X_i'\arrow[r,swap,"\psi_i'"]&X'
+\end{tikzcd}
+\end{minipage}\hfill
+\begin{minipage}{.53\textwidth}
+\centering
+\begin{tikzcd}
+X_{ij}\arrow[r,"\varphi_{ij}"]\arrow[d,swap,"\nu_i"]
+ &X_{ji}\arrow[d,"\nu_j"]\\
+X_{ij}'\arrow[r,swap,"\varphi_{ij}'"]&X_{ji}'
+\end{tikzcd}
+\end{minipage}
+\end{center}
+\begin{proof}
+Los morfismos $\psi_i'\circ\nu_i:X_i\to X'$ son compatibles, pues
+\[
+\psi_j'\circ\nu_j\circ\varphi_{ij}
+=\psi_j'\circ\varphi_{ij}'\circ\nu_i
+=\psi_i'\circ\nu_i.
+\]
+La \cref{obs:s08-morfismos-desde-pegado} da un único $h:X\to X'$ con la propiedad requerida. Los $\nu_i^{-1}$ satisfacen las mismas condiciones en sentido inverso y producen $h':X'\to X$. Sus composiciones restringen a la identidad en cada carta; como las cartas cubren, $h'h=\id_X$ y $hh'=\id_{X'}$.
+\end{proof}
+
+\begin{prop}[Pegados de dos rectas]
+\label{prop:s08-pegados-dos-rectas}
+Sea $k$ un campo, $X_1=\Spec k[x]$, $X_2=\Spec k[y]$, $X_{12}=D(x)$ y $X_{21}=D(y)$. Para un isomorfismo de $k$-esquemas $\varphi:X_{12}\to X_{21}$, el pegado es isomorfo a la recta con origen doble si $\varphi^\sharp(y)=cx$, o a $\mathbb P_k^1$ si $\varphi^\sharp(y)=cx^{-1}$, con $c\in k^\times$. No hay otros casos, y los dos esquemas no son isomorfos.
+\end{prop}
+\begin{proof}
+El isomorfismo de $k$-álgebras
+\[
+\varphi^\sharp:k[y,y^{-1}]\xrightarrow{\sim}k[x,x^{-1}]
+\]
+envía $y$ a una unidad. Las unidades de $k[x,x^{-1}]$ son los monomios $cx^n$, con $c\in k^\times$ y $n\in\mathbb Z$. En un producto de polinomios de Laurent sobre un campo, los exponentes mínimo y máximo se suman. Si el producto es uno, cada factor tiene un solo exponente.
+
+La inversa también envía $x$ a una unidad, digamos $dy^m$. Al componer,
+\[
+x=dc^m x^{nm},
+\]
+de modo que $nm=1$ y $n=\pm1$. Tomemos $\nu_1=\id$ y el cambio de coordenada en la segunda carta definido por $\nu_2^\sharp(y')=c^{-1}y$. Entonces
+\[
+\varphi^\sharp\nu_2^\sharp(y')=c^{-1}cx^{\pm1}=x^{\pm1}.
+\]
+El \cref{lema:s08-funtorialidad-pegado} identifica el pegado con el de $y'=x$ o el de $y'=x^{-1}$. Son la recta con origen doble del \cref{ejem:s07-recta-origen-doble} y la recta proyectiva de la \cref{defi:s08-recta-proyectiva}. La constante se absorbe en el cambio de carta; el exponente distingue los casos.
+\end{proof}
+Los dos esquemas no son isomorfos porque sus anillos de secciones globales, $k[x]$ y $k$, no lo son: $k$ es un campo y $k[x]$ no. \emph{[Vakil, ejercicio 4.4.B.]}
+
+\section{Ejercicios}
+
+\begin{ejer}[El espacio afín menos el origen]
+\label{ejer:s08-afin-menos-origen}
+Sea $k$ un campo, $n\geq2$ y $U=\mathbb A_k^n\setminus\set{(x_1,\ldots,x_n)}$. Muestra que $\Gamma(U,\mathcal O_U)=k[x_1,\ldots,x_n]$ y que $U$ no es afín. Pista: cubre $U$ con $D(x_1),\ldots,D(x_n)$ y adapta la \cref{prop:s08-secciones-plano-menos-origen}. \emph{[Cf. Vakil, \S4.4.1 a \S4.4.3 (caso $n=2$) y \S4.4.2.]}
+\end{ejer}
+
+\begin{ejer}[El automorfismo que intercambia las cartas]
+\label{ejer:s08-intercambio-cartas}
+Muestra que $t\leftrightarrow s$ define un automorfismo de $\mathbb P_A^1$ que intercambia $\psi_0(U_0)$ y $\psi_1(U_1)$. Pista: usa el \cref{lema:s08-funtorialidad-pegado} con $\nu_0:U_0\to U_1$, $\nu_1:U_1\to U_0$ y, como segundos datos de pegado, los mismos con los índices $0$ y $1$ intercambiados.
+\end{ejer}
+
+\begin{ejer}[Puntos de $\mathbb P_{\mathbb F_2}^1$ y $\mathbb P_{\mathbb F_3}^1$]
+\label{ejer:s08-puntos-f2-f3}
+Lista los puntos cerrados de $\mathbb P_{\mathbb F_q}^1$ de grado uno y dos para $q=2$ y $q=3$. Verifica $M_2=(q^2-q)/2$ y encuentra $M_3$ para $q=2$.
+\end{ejer}
+
+\begin{ejer}[Los puntos cerrados de $\mathbb P_{\mathbb Z}^1$ sobre $2$]
+\label{ejer:s08-puntos-sobre-dos}
+Describe la fibra de $\mathbb P_{\mathbb Z}^1\to\Spec\mathbb Z$ sobre $(2)$ y lista sus puntos cerrados con cuerpo residual $\mathbb F_2$ y $\mathbb F_4$.
+\end{ejer}
+
+\begin{ejer}[$\mathbb P_A^n$]
+\label{ejer:s08-proyectiva-n}
+Muestra que $\Gamma(\mathbb P_A^n,\mathcal O)=A$ y que $\mathbb P_A^n$ no es afín si $n\geq1$ y $A\ne0$. Pista: una sección global se restringe de forma inyectiva a $U_0$, pues $A_i\to A_i[x_{0/i}^{-1}]$ es inyectivo. Basta entonces intersecar los anillos de $U_0$ y $U_1$ dentro de $L_0$, como en la \cref{prop:s08-cociclo-proyectiva-n}. \emph{[Vakil, ejercicio 4.4.E.]}
+\end{ejer}

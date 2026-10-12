@@ -20,11 +20,11 @@ El usuario confirmó que 7a, 7b y 7c completan la sesión 7 y solicitó expresam
 
 ## LaTeX y edición
 
-- Español matemático compacto y claro; reproducir diagramas relevantes. La fidelidad a los títulos del esqueleto prevalece sobre reducir la cantidad de secciones.
+- Español matemático compacto y claro; reproducir todos los diagramas y dibujos matemáticos de las presentaciones, así como las tablas de las fuentes. La fidelidad a los títulos del esqueleto prevalece sobre reducir la cantidad de secciones.
 - Cada entorno numerado debe tener inmediatamente un `\\label{entorno:etiqueta-descriptiva}`, único y consistente. Las referencias posteriores usan `\\cref`, `\\myref` (incluye nombre) o `\\abvref`; no escribir tipo/número manualmente ni usar `\\ref` sin una razón específica.
 - Para conjuntos explícitos usar `\\set{...}` o `\\set*{...}`, con `\\given` cuando corresponda; no usar llaves y barras manuales para sustituir estos comandos.
 - Evitar finales de párrafo de apenas palabras cortas mediante ajustes mínimos de redacción. Las fórmulas inline no deben partirse entre líneas. Conservar los ajustes editoriales del proyecto.
-- `NumClases` cuenta únicamente las sesiones numeradas actualmente apuntadas: la introducción o sesión 0 NO cuenta. Con las sesiones 1 a 7 desarrolladas, su valor es 7. Actualizar al añadir una nueva sesión; añadir una parte a una sesión existente no incrementa el total. Las sesiones pendientes no aparecen en el documento.
+- `NumClases` cuenta únicamente las sesiones numeradas actualmente apuntadas: la introducción o sesión 0 NO cuenta. Con las sesiones 1 a 8 desarrolladas, su valor es 8. Actualizar al añadir una nueva sesión; añadir una parte a una sesión existente no incrementa el total. Las sesiones pendientes no aparecen en el documento.
 - Conservar los estilos aprobados de portada, TOC, Introducción, referencias y ejercicios; no cambiarlos para incorporar contenido.
 
 ## Revisión y entrega
