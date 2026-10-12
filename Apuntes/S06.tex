@@ -7,26 +7,26 @@ Arrancamos la Sesión 6. La meta es cerrar la pregunta que quedó abierta: ¿tod
 Sea $\varphi:A\to B$ y $f=\Spec\varphi$. Para cada $f_0\in A$, verifica que $f^{-1}(D(f_0))=D(\varphi(f_0))$ y que existe un único morfismo $A_{f_0}\to B_{\varphi(f_0)}$ que extiende $\varphi$ a través de las localizaciones.
 \end{ejer}
 
-Dos preguntas organizan la sesión. Primero, ¿el par $(f,f^\#)$ respeta la estructura local de los tallos, de modo que es un morfismo entre espacios localmente anillados? (§2–§3.) Segundo, ¿todo morfismo de espacios localmente anillados $\Spec B\to\Spec A$ proviene, de esta manera, de un único $\varphi:A\to B$? (§4.) La respuesta afirmativa significa que ningún morfismo se pierde ni aparece al pasar entre anillos y esquemas afines; esa es la equivalencia contravariante de la sección 5.
+Dos preguntas organizan la sesión. Primero, ¿el par $(f,f^\sharp)$ respeta la estructura local de los tallos, de modo que es un morfismo entre espacios localmente anillados? (§2–§3.) Segundo, ¿todo morfismo de espacios localmente anillados $\Spec B\to\Spec A$ proviene, de esta manera, de un único $\varphi:A\to B$? (§4.) La respuesta afirmativa significa que ningún morfismo se pierde ni aparece al pasar entre anillos y esquemas afines; esa es la equivalencia contravariante de la sección 5.
 
 \section{Morfismos de espacios (localmente) anillados}
 
 \begin{defi}[Morfismo de espacios anillados]
 \label{defi:s06-morfismo-espacios-anillados}
-Un morfismo $(X,\mathcal O_X)\to(Y,\mathcal O_Y)$ es un par $(f,f^\#)$ donde $f:X\to Y$ es continuo y $f^\#:\mathcal O_Y\to f_*\mathcal O_X$ es un morfismo de gavillas de anillos. En cada abierto $V\subseteq Y$, la componente es $\mathcal O_Y(V)\to\mathcal O_X(f^{-1}V)$.
+Un morfismo $(X,\mathcal O_X)\to(Y,\mathcal O_Y)$ es un par $(f,f^\sharp)$ donde $f:X\to Y$ es continuo y $f^\sharp:\mathcal O_Y\to f_*\mathcal O_X$ es un morfismo de gavillas de anillos. En cada abierto $V\subseteq Y$, la componente es $\mathcal O_Y(V)\to\mathcal O_X(f^{-1}V)$.
 \end{defi}
 
 \begin{defi}[Morfismo de espacios localmente anillados]
 \label{defi:s06-morfismo-espacios-localmente-anillados}
-Si los espacios son localmente anillados, $(f,f^\#)$ es un morfismo localmente anillado si para todo $x\in X$ el morfismo de tallos $f_x^\#:\mathcal O_{Y,f(x)}\to\mathcal O_{X,x}$ es local: la preimagen del ideal maximal de $\mathcal O_{X,x}$ es el ideal maximal de $\mathcal O_{Y,f(x)}$.
+Si los espacios son localmente anillados, $(f,f^\sharp)$ es un morfismo localmente anillado si para todo $x\in X$ el morfismo de tallos $f_x^\sharp:\mathcal O_{Y,f(x)}\to\mathcal O_{X,x}$ es local: la preimagen del ideal maximal de $\mathcal O_{X,x}$ es el ideal maximal de $\mathcal O_{Y,f(x)}$.
 \end{defi}
 
 \begin{obs}
 \label{obs:s06-contencion-f-x-1-m}
-La contención $(f_x^\#)^{-1}(\mathfrak m_x)\supseteq\mathfrak m_{f(x)}$ debe verificarse. La contención opuesta es automática para un homomorfismo de anillos locales que envía $1$ a $1$: un elemento fuera del maximal es unidad, y su imagen también. La localidad exige además que ningún elemento maximal del anillo de origen salga del maximal del anillo de llegada.
+La contención $(f_x^\sharp)^{-1}(\mathfrak m_x)\supseteq\mathfrak m_{f(x)}$ debe verificarse. La contención opuesta es automática para un homomorfismo de anillos locales que envía $1$ a $1$: un elemento fuera del maximal es unidad, y su imagen también. La localidad exige además que ningún elemento maximal del anillo de origen salga del maximal del anillo de llegada.
 \end{obs}
 
-\section{Spec es functor contravariante a espacios localmente anillados}
+\section{\texorpdfstring{$\Spec$}{Spec} es funtor contravariante a \texorpdfstring{$\LocAn$}{espacios localmente anillados}}
 
 \begin{teo}
 \label{teo:s06-todo-morfismo-anillos-b-induce}
@@ -58,7 +58,7 @@ En puntos, ambos mapas coinciden porque
 En las gavillas, sobre cada abierto básico la unicidad de la propiedad universal de la localización fuerza la igualdad de los morfismos inducidos. Para la identidad, ambos mapas de anillos y los mapas de gavillas son identidades.
 \end{proof}
 
-\section{El teorema central: plena fidelidad de Spec}
+\section{El teorema central: plena fidelidad de \texorpdfstring{$\Spec$}{Spec}}
 
 \begin{teo}[Plena fidelidad de $\Spec$]
 \label{teo:s06-plena-fidelidad}
@@ -66,26 +66,26 @@ Para cualesquiera anillos $A,B$, la asignación
 \[
 \Hom_{\mathbf{Ring}}(A,B)\xrightarrow{\sim}
 \Hom_{\LocAn}(\Spec B,\Spec A),\qquad
-\varphi\longmapsto(\Spec\varphi,\varphi^\#)
+\varphi\longmapsto(\Spec\varphi,\varphi^\sharp)
 \]
 \end{teo}
 \begin{proof}
-La construcción anterior da la aplicación. Para probar que es biyectiva, sea $(f,f^\#)$ un morfismo localmente anillado entre los dos espectros. En secciones globales define necesariamente
+La construcción anterior da la aplicación. Para probar que es biyectiva, sea $(f,f^\sharp)$ un morfismo localmente anillado entre los dos espectros. En secciones globales define necesariamente
 \[
-\varphi=f^\#_{\Spec A}:A=\mathcal O_{\Spec A}(\Spec A)\longrightarrow
+\varphi=f^\sharp_{\Spec A}:A=\mathcal O_{\Spec A}(\Spec A)\longrightarrow
 B=\mathcal O_{\Spec B}(\Spec B).
 \]
-Esto prueba la unicidad del candidato. Veamos que $f=\Spec\varphi$. Para $\mathfrak q\in\Spec B$, sea $\mathfrak p=f(\mathfrak q)$. El cuadrado de secciones globales y gérmenes conmuta. Para $a\in A$, la localidad de $f^\#_{\mathfrak q}$ da
+Esto prueba la unicidad del candidato. Veamos que $f=\Spec\varphi$. Para $\mathfrak q\in\Spec B$, sea $\mathfrak p=f(\mathfrak q)$. El cuadrado de secciones globales y gérmenes conmuta. Para $a\in A$, la localidad de $f^\sharp_{\mathfrak q}$ da
 \[
 a\in\varphi^{-1}(\mathfrak q)
 \iff \varphi(a)/1\in\mathfrak qB_{\mathfrak q}
-\iff f^\#_{\mathfrak q}(a/1)\in\mathfrak qB_{\mathfrak q}
+\iff f^\sharp_{\mathfrak q}(a/1)\in\mathfrak qB_{\mathfrak q}
 \iff a/1\in\mathfrak pA_{\mathfrak p}
 \iff a\in\mathfrak p.
 \]
 Así $f(\mathfrak q)=\varphi^{-1}(\mathfrak q)$ para todo $\mathfrak q$.
 
-Finalmente, sobre cada básico $D(f_0)$ el mapa $f^\#$ es una extensión $A_{f_0}\to B_{\varphi(f_0)}$ del mapa $\varphi$ y envía $f_0$ a una unidad. Por la propiedad universal de $A_{f_0}$, coincide con el mapa construido a partir de $\varphi$. Los básicos cubren $\Spec A$, así que los morfismos de gavillas coinciden globalmente. Esto prueba existencia y unicidad.
+Finalmente, sobre cada básico $D(f_0)$ el mapa $f^\sharp$ es una extensión $A_{f_0}\to B_{\varphi(f_0)}$ del mapa $\varphi$ y envía $f_0$ a una unidad. Por la propiedad universal de $A_{f_0}$, coincide con el mapa construido a partir de $\varphi$. Los básicos cubren $\Spec A$, así que los morfismos de gavillas coinciden globalmente. Esto prueba existencia y unicidad.
 \end{proof}
 
 \section{La equivalencia contravariante}
