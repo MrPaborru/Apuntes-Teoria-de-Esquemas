@@ -89,7 +89,7 @@ En esquemas se pegan piezas por subesquemas abiertos y los cambios de carta son 
 \begin{defi}[Datos de pegado]
 \label{defi:s07-datos-pegado}
 Los datos de pegado para esquemas $\set{X_i}_{i\in I}$ consisten en subesquemas abiertos $X_{ij}\subseteq X_i$, con $X_{ii}=X_i$, e isomorfismos $\varphi_{ij}:X_{ij}\xrightarrow{\sim}X_{ji}$ que satisfacen:
-\begin{enumerate}[label=(P\arabic*)]
+\begin{enumerate}[label=(P\arabic*), leftmargin=2.1em]
 \item $\varphi_{ii}=\id_{X_i}$ para todo $i$;
 \item $\varphi_{ji}=\varphi_{ij}^{-1}$ para todo $i,j$;
 \item para toda terna $i,j,k$, $\varphi_{ij}(X_{ij}\cap X_{ik})=X_{ji}\cap X_{jk}$ y, en $X_{ij}\cap X_{ik}$, $\varphi_{ik}=\varphi_{jk}\circ\varphi_{ij}$.
@@ -133,7 +133,7 @@ Como ejemplo guía, podemos pensar en dos copias de $\mathbb A_k^1$ pegadas por 
 
 Tomemos $X_0=\coprod_iX_i$ y definamos, para $x\in X_i$, $y\in X_j$,
 \[
-x\sim y\quad\Longleftrightarrow\quad x\in X_{ij}\text{ y }y=\varphi_{ij}(x).
+x\sim y\qquad\Longleftrightarrow\qquad x\in X_{ij}\quad\text{y}\quad y=\varphi_{ij}(x).
 \]
 La condición diagonal da reflexividad y la inversa $\varphi_{ji}=\varphi_{ij}^{-1}$ da simetría. Para transitividad, supongamos $x\sim y$ y $y\sim z$, con $x\in X_i$, $y\in X_j$, $z\in X_k$. Entonces $y=\varphi_{ij}(x)$ pertenece a $X_{ji}\cap X_{jk}$. Por la condición de traslape, existe $x'\in X_{ij}\cap X_{ik}$ con $y=\varphi_{ij}(x')$. La inyectividad de $\varphi_{ij}$ implica $x=x'$, así que $x\in X_{ik}$. La condición de cociclo da $\varphi_{ik}(x)=\varphi_{jk}(\varphi_{ij}(x))=z$, y por tanto $x\sim z$.
 
