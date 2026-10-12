@@ -12,6 +12,7 @@ Estas pautas son la base del proyecto y se aplican a toda incorporación o corre
 - Mantener numeración automática continua dentro de la sesión: no reiniciar contadores entre partes. Los títulos internos explícitos del esqueleto se conservan, aunque mencionen una parte previa.
 - Preservar el trabajo previo correcto. Modificarlo solo por una omisión, título distinto, cambio importante de orden, error real o desarrollo relevante ausente. No sustituir formulaciones ni pruebas correctas por alternativas propias.
 - Usar la notación, convenciones, orden y argumentos del profesor. No añadir teoría externa, resultados nuevos ni adelantar contenido. Integrar los desarrollos del Beamer dentro de las secciones del esqueleto, sin crear una estructura paralela.
+- El cotejo de las presentaciones incluye las construcciones y explicaciones que preparan las demostraciones, aunque no aparezcan como entornos numerados en el esqueleto. Antes de usar un morfismo canónico, dejar explícita su construcción o remitir mediante los comandos del proyecto a donde se haya definido.
 - Conservar ejercicios y pistas de las fuentes, SIN resolverlos ni añadir pistas propias. Solo reproducir una solución cuando las fuentes documenten que el profesor la desarrolló como exposición.
 
 ## Sesión 7: excepción de unificación coherente

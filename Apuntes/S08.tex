@@ -79,6 +79,36 @@ es abierto, pues $V(x)\cap V(y)=V(x,y)=\set{(x,y)}$. Con su estructura de subesq
 \end{tikzpicture}
 \end{center}
 
+% Construcción general del morfismo usado en las diapositivas 10 y 17.
+\begin{defi}[Morfismo canónico]
+\label{defi:s08-morfismo-canonico}
+Sea $X$ un esquema y $R=\Gamma(X,\mathcal O_X)$. El morfismo canónico de $X$ hacia el espectro de sus secciones globales es
+\[
+\eta_X:X\longrightarrow\Spec R.
+\]
+Para $x\in X$, sean $\mathfrak m_x$ el ideal maximal de $\mathcal O_{X,x}$ y $\kappa(x)=\mathcal O_{X,x}/\mathfrak m_x$. En puntos se define por
+\[
+\eta_X(x)=\set*{a\in R\given a_x\in\mathfrak m_x}
+=\ker\bigl(R\longrightarrow\mathcal O_{X,x}\longrightarrow\kappa(x)\bigr).
+\]
+Es un ideal primo, porque es el núcleo de un homomorfismo hacia un cuerpo. Así, $\eta_X(x)$ recoge las secciones globales que se anulan en $x$.
+\end{defi}
+
+\emph{Construcción como morfismo de esquemas.} En cada abierto afín $V\cong\Spec B$ de $X$, la restricción de secciones
+\[
+\rho_V:R\longrightarrow\Gamma(V,\mathcal O_X)\cong B
+\]
+induce $\Spec\rho_V:V\to\Spec R$. Si $x$ corresponde a $\mathfrak q\subseteq B$, su imagen es $\rho_V^{-1}(\mathfrak q)$, que coincide con $\eta_X(x)$: el germen de $a$ está en $\mathfrak qB_{\mathfrak q}$ si y solo si $\rho_V(a)\in\mathfrak q$, como en la prueba del \cref{teo:s06-todo-morfismo-anillos-b-induce}.
+
+Estos morfismos coinciden en los traslapes. En un abierto afín $W\subseteq V\cap V'$, ambos vienen de la misma restricción $R\to\Gamma(W,\mathcal O_X)$, por el \cref{teo:s06-plena-fidelidad}. Como los abiertos afines forman una base, se pegan mediante la \cref{obs:s08-morfismos-desde-pegado} y dan un morfismo independiente de la cubierta. Su mapa en secciones globales es $\id_R$. En los tallos, su componente es
+\[
+(\eta_X)^\sharp_x:R_{\eta_X(x)}\longrightarrow\mathcal O_{X,x},
+\qquad \frac{a}{b}\longmapsto\frac{a_x}{b_x}.
+\]
+El denominador es unidad porque $b\notin\eta_X(x)$; el mapa es local por la definición de $\eta_X(x)$.
+
+\emph{El caso afín.} Si $X\cong\Spec B$, la restricción al abierto afín $X$ entero identifica $R$ con $B$. Por el \cref{coro:s06-equivalencia}, $\eta_X$ es un isomorfismo. En general puede fallar la biyectividad, como mostrarán la \cref{prop:s08-secciones-plano-menos-origen} y el \cref{coro:s08-proyectiva-no-afin}.
+
 \begin{prop}
 \label{prop:s08-secciones-plano-menos-origen}
 Se tiene $\Gamma(U,\mathcal O_U)=k[x,y]$: la restricción $\Gamma(\mathbb A_k^2,\mathcal O)\to\Gamma(U,\mathcal O_U)$ es un isomorfismo. Además, $U$ no es afín.
@@ -93,9 +123,9 @@ Si $h=p/x^a=q/y^b$ pertenece a la intersección, con $p,q\in A$ y $a,b\geq0$, en
 
 \emph{Advertencia.} La inclusión $A\hookrightarrow A_x$ usa que $A$ es un dominio; para un anillo cualquiera la localización puede perder elementos.
 
-\emph{No es afín.} Si $U$ fuera afín, el morfismo canónico
+\emph{No es afín.} Si $U$ fuera afín, el morfismo de la \cref{defi:s08-morfismo-canonico},
 \[
-U\longrightarrow\Spec\Gamma(U,\mathcal O_U)=\mathbb A_k^2
+\eta_U:U\longrightarrow\Spec\Gamma(U,\mathcal O_U)=\mathbb A_k^2,
 \]
 sería un isomorfismo, por el \cref{coro:s06-equivalencia}. Un punto $\mathfrak p\in U$ se envía a
 \[
@@ -227,7 +257,11 @@ El anillo de Laurent es libre como $A$-módulo con base $\set{t^n}_{n\in\mathbb 
 Si $A\ne0$, la recta proyectiva $\mathbb P_A^1$ no es afín.
 \end{coro}
 \begin{proof}
-Si fuera afín, el morfismo canónico $\mathbb P_A^1\to\Spec\Gamma(\mathbb P_A^1,\mathcal O)=\Spec A$ sería un isomorfismo, por el \cref{coro:s06-equivalencia} y la \cref{prop:s08-secciones-proyectiva}. En particular, sería biyectivo.
+Si fuera afín, el morfismo de la \cref{defi:s08-morfismo-canonico},
+\[
+\eta_{\mathbb P_A^1}:\mathbb P_A^1\longrightarrow\Spec\Gamma(\mathbb P_A^1,\mathcal O)=\Spec A,
+\]
+sería un isomorfismo, por el \cref{coro:s06-equivalencia} y la \cref{prop:s08-secciones-proyectiva}. En particular, sería biyectivo.
 
 Como $A\ne0$, existe un primo $\mathfrak r\subseteq A$. En la carta $U_0$ consideremos
 \[
