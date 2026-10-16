@@ -79,39 +79,13 @@ es abierto, pues $V(x)\cap V(y)=V(x,y)=\set{(x,y)}$. Con su estructura de subesq
 \end{tikzpicture}
 \end{center}
 
-% Construcción general del morfismo usado en las diapositivas 10 y 17.
-\begin{defi}[Morfismo canónico]
-\label{defi:s08-morfismo-canonico}
-Sea $X$ un esquema y $R=\Gamma(X,\mathcal O_X)$. El morfismo canónico de $X$ hacia el espectro de sus secciones globales es
-\[
-\eta_X:X\longrightarrow\Spec R.
-\]
-Para $x\in X$, sean $\mathfrak m_x$ el ideal maximal de $\mathcal O_{X,x}$ y $\kappa(x)=\mathcal O_{X,x}/\mathfrak m_x$. En puntos se define por
-\[
-\eta_X(x)=\set*{a\in R\given a_x\in\mathfrak m_x}
-=\ker\bigl(R\longrightarrow\mathcal O_{X,x}\longrightarrow\kappa(x)\bigr).
-\]
-Es un ideal primo, porque es el núcleo de un homomorfismo hacia un cuerpo. Así, $\eta_X(x)$ recoge las secciones globales que se anulan en $x$.
-\end{defi}
-
-\emph{Construcción como morfismo de esquemas.} En cada abierto afín $V\cong\Spec B$ de $X$, la restricción de secciones
-\[
-\rho_V:R\longrightarrow\Gamma(V,\mathcal O_X)\cong B
-\]
-induce $\Spec\rho_V:V\to\Spec R$. Si $x$ corresponde a $\mathfrak q\subseteq B$, su imagen es $\rho_V^{-1}(\mathfrak q)$, que coincide con $\eta_X(x)$: el germen de $a$ está en $\mathfrak qB_{\mathfrak q}$ si y solo si $\rho_V(a)\in\mathfrak q$, como en la prueba del \cref{teo:s06-todo-morfismo-anillos-b-induce}.
-
-Estos morfismos coinciden en los traslapes. En un abierto afín $W\subseteq V\cap V'$, ambos vienen de la misma restricción $R\to\Gamma(W,\mathcal O_X)$, por el \cref{teo:s06-plena-fidelidad}. Como los abiertos afines forman una base, se pegan mediante la \cref{obs:s08-morfismos-desde-pegado} y dan un morfismo independiente de la cubierta. Su mapa en secciones globales es $\id_R$. En los tallos, su componente es
-\[
-(\eta_X)^\sharp_x:R_{\eta_X(x)}\longrightarrow\mathcal O_{X,x},
-\qquad \frac{a}{b}\longmapsto\frac{a_x}{b_x}.
-\]
-El denominador es unidad porque $b\notin\eta_X(x)$; el mapa es local por la definición de $\eta_X(x)$.
-
-\emph{El caso afín.} Si $X\cong\Spec B$, la restricción al abierto afín $X$ entero identifica $R$ con $B$. Por el \cref{coro:s06-equivalencia}, $\eta_X$ es un isomorfismo. En general puede fallar la biyectividad, como mostrarán la \cref{prop:s08-secciones-plano-menos-origen} y el \cref{coro:s08-proyectiva-no-afin}.
-
-\begin{prop}
+\begin{prop}[El plano menos el origen]
 \label{prop:s08-secciones-plano-menos-origen}
-Se tiene $\Gamma(U,\mathcal O_U)=k[x,y]$: la restricción $\Gamma(\mathbb A_k^2,\mathcal O)\to\Gamma(U,\mathcal O_U)$ es un isomorfismo. Además, $U$ no es afín.
+La restricción
+\[
+\Gamma(\mathbb A_k^2,\mathcal O)\longrightarrow\Gamma(U,\mathcal O_U)
+\]
+es un isomorfismo. En particular, $\Gamma(U,\mathcal O_U)=k[x,y]$.
 \end{prop}
 \begin{proof}
 \emph{Las secciones.} La cubierta $U=D(x)\cup D(y)$ tiene traslape $D(xy)$. Por los axiomas de identidad y pegado, una sección global es un par $(f,g)\in A_x\times A_y$ cuyas imágenes coinciden en $A_{xy}$. Como $A$ es un dominio, las localizaciones son inyectivas y podemos considerar
@@ -122,23 +96,262 @@ A\subseteq A_x,A_y\subseteq A_{xy},
 Si $h=p/x^a=q/y^b$ pertenece a la intersección, con $p,q\in A$ y $a,b\geq0$, entonces $py^b=qx^a$. El anillo $A$ es un dominio de factorización única, y $x,y$ son primos distintos. De $x^a\mid py^b$ y $x\nmid y$ se obtiene $x^a\mid p$, luego $h\in A$. La inclusión opuesta es inmediata: la restricción es un isomorfismo.
 
 \emph{Advertencia.} La inclusión $A\hookrightarrow A_x$ usa que $A$ es un dominio; para un anillo cualquiera la localización puede perder elementos.
-
-\emph{No es afín.} Si $U$ fuera afín, el morfismo de la \cref{defi:s08-morfismo-canonico},
-\[
-\eta_U:U\longrightarrow\Spec\Gamma(U,\mathcal O_U)=\mathbb A_k^2,
-\]
-sería un isomorfismo, por el \cref{coro:s06-equivalencia}. Un punto $\mathfrak p\in U$ se envía a
-\[
-\set*{f\in A\given f_{\mathfrak p}\in\mathfrak p A_{\mathfrak p}}
-=\mathfrak p,
-\]
-pues el germen de $f$ está en el ideal maximal del tallo precisamente cuando $f\in\mathfrak p$. El morfismo canónico es la inclusión $U\subseteq\mathbb A_k^2$: omite $(x,y)$, así que no es sobreyectivo ni un isomorfismo.
 \end{proof}
 
 \begin{obs}[Lectura geométrica]
 \label{obs:s08-hartogs}
 Los polos de $p/x^a$ están en la recta $x=0$, y los de $q/y^b$ en la recta $y=0$. Si representan la misma función, sus polos tendrían que estar en el origen. En dimensión dos, los polos de una función forman una curva y un punto no lo es. Toda función regular en $\mathbb A_k^2$ menos el origen se extiende al plano: es el análogo algebraico del lema de Hartogs. En $\mathbb A_k^1\setminus\set{0}$ sí hay funciones nuevas, como $1/x$. Para $n\geq2$ se usa la cubierta $D(x_1),\ldots,D(x_n)$ de $\mathbb A_k^n$ menos el origen; véase el \cref{ejer:s08-afin-menos-origen}.
 \end{obs}
+
+\clearpage
+\subsection{El morfismo canónico}
+\label{sec:s08-morfismo-canonico}
+
+\begin{defi}[El morfismo canónico $\eta_X$]
+\label{defi:s08-morfismo-canonico}
+Sea $X$ un esquema y $R=\Gamma(X,\mathcal O_X)$. El morfismo canónico $\eta_X:X\to\Spec R$ se define de la siguiente manera. Para $x\in X$, denotamos por $\mathfrak m_x$ el ideal maximal de $\mathcal O_{X,x}$ y por $\kappa(x)=\mathcal O_{X,x}/\mathfrak m_x$ su cuerpo residual.
+\begin{enumerate}[label=(\roman*)]
+\item En puntos,
+\[
+\eta_X(x)=\set*{a\in R\given a_x\in\mathfrak m_x}
+=\ker\bigl(R\longrightarrow\mathcal O_{X,x}\longrightarrow\kappa(x)\bigr).
+\]
+Es un primo porque $\kappa(x)$ es un campo.
+\item En abiertos, para $f\in R$,
+\[
+\eta_X^{-1}(D(f))=X_f
+:=\set*{x\in X\given f_x\notin\mathfrak m_x},
+\]
+el abierto donde $f$ no se anula.
+\item En gavillas, sobre cada básico,
+\[
+\eta_f^\sharp:\mathcal O_{\Spec R}(D(f))=R_f
+\longrightarrow\mathcal O_X(X_f),
+\qquad
+\frac{a}{f^n}\longmapsto\frac{a|_{X_f}}{(f|_{X_f})^n}.
+\]
+\end{enumerate}
+El conjunto $X_f$ es abierto porque un germen invertible tiene una inversa en algún entorno. Las inversas locales se pegan, de modo que $f|_{X_f}$ es invertible y la fórmula tiene sentido. En tallos, $a/s\mapsto a_x/s_x$ es un homomorfismo local. \emph{[Hartshorne, II, ejercicio 2.4; EGA I, 1.6.3.]}
+\end{defi}
+
+\begin{ejer}[Verificación del morfismo canónico]
+\label{ejer:s08-verificacion-morfismo-canonico}
+Sea $X$ un esquema y $R=\Gamma(X,\mathcal O_X)$. Muestra que $\eta_X:X\to\Spec R$ es un morfismo de esquemas verificando:
+\begin{enumerate}[label=(\roman*)]
+\item $\eta_X(x)$ es un ideal primo de $R$.
+\item $\eta_X$ es continuo, pues $\eta_X^{-1}(D(f))=X_f$ es abierto.
+\item $\eta_X^\sharp$ está bien definido: $f|_{X_f}$ es invertible en $\mathcal O_X(X_f)$ y los homomorfismos $R_f\to\mathcal O_X(X_f)$ son compatibles con las restricciones.
+\item En tallos, $(\eta_X)_x^\sharp:R_{\eta_X(x)}\to\mathcal O_{X,x}$ es un homomorfismo local.
+\end{enumerate}
+\end{ejer}
+% S08b, diapositivas 3--5: esta verificación se desarrolla en clase.
+\begin{proof}[Desarrollo en clase]
+\emph{Puntos y topología.} El ideal $\eta_X(x)$ es primo como núcleo de la evaluación en el cuerpo $\kappa(x)$; es propio porque $1$ se envía a $1\ne0$. Si $x\in X_f$, el germen $f_x$ es unidad. Elige un representante local $g$ de su inversa. La igualdad $g_xf_x=1$ vale en un entorno $V$ de $x$, pues dos secciones con el mismo germen coinciden cerca de $x$. Así $V\subseteq X_f$, luego $X_f$ es abierto. La igualdad $\eta_X^{-1}(D(f))=X_f$ y la base de abiertos $D(f)$ prueban la continuidad.
+
+\emph{Gavillas.} Las inversas locales de $f$ en $X_f$ son únicas y por ello se pegan en una inversa de $f|_{X_f}$. La propiedad universal de la localización factoriza la restricción de manera única:
+% S08b, diapositiva 4: localización y compatibilidad con restricciones.
+\begin{center}
+\begin{minipage}{.45\textwidth}
+\centering
+\begin{tikzcd}[column sep=large]
+R\arrow[r,"\mathrm{res}"]\arrow[d,swap,"\mathrm{loc}"]
+ &\mathcal O_X(X_f)\\
+R_f\arrow[ur,dashed,swap,"\eta_f^\sharp"]&
+\end{tikzcd}
+\end{minipage}\hfill
+\begin{minipage}{.51\textwidth}
+\centering
+\begin{tikzcd}[column sep=large]
+R_f\arrow[r,"\eta_f^\sharp"]\arrow[d]
+ &\mathcal O_X(X_f)\arrow[d,"\mathrm{res}"]\\
+R_g\arrow[r,swap,"\eta_g^\sharp"]&\mathcal O_X(X_g)
+\end{tikzcd}
+\end{minipage}
+\end{center}
+Si $D(g)\subseteq D(f)$, también $X_g\subseteq X_f$. Ambos caminos son mapas $R_f\to\mathcal O_X(X_g)$ que coinciden en $R$. La unicidad de la localización da la igualdad. Por el \cref{teo:s05-toda-gavilla-sobre-base-extiende}, los mapas sobre los básicos definen un morfismo de gavillas. La compatibilidad con las restricciones es indispensable.
+
+\emph{Tallos.} Sea $\mathfrak p=\eta_X(x)$. Si $s\notin\mathfrak p$, el germen $s_x$ es unidad; por tanto el mapa de gérmenes se factoriza por $R_{\mathfrak p}$:
+\nopagebreak
+% S08b, diapositiva 5: gérmenes, localización y cuerpo residual.
+\begin{center}
+\begin{tikzcd}[column sep=large]
+R\arrow[r,"\text{germen}"]\arrow[d,swap,"\mathrm{loc}"]
+ &\mathcal O_{X,x}\arrow[r]&\kappa(x)\\
+R_{\mathfrak p}\arrow[ur,dashed,swap,"(\eta_X)_x^\sharp"]&&
+\end{tikzcd}
+\end{center}
+El mapa inducido es
+\[
+(\eta_X)_x^\sharp:R_{\mathfrak p}\longrightarrow\mathcal O_{X,x},
+\qquad \frac{a}{s}\longmapsto\frac{a_x}{s_x}.
+\]
+Como $s_x$ es unidad, la imagen de $a/s$ está en $\mathfrak m_x$ si y solo si $a_x\in\mathfrak m_x$, es decir, si y solo si $a\in\mathfrak p$. La preimagen de $\mathfrak m_x$ es $\mathfrak pR_{\mathfrak p}$: el homomorfismo es local. Así $\eta_X$ es un morfismo de espacios localmente anillados y, entre esquemas, un morfismo de esquemas.
+\end{proof}
+
+En una carta afín $V\cong\Spec B$, el morfismo es $\Spec(\rho_V)$ para la restricción
+\[
+\rho_V:R\longrightarrow\Gamma(V,\mathcal O_X)\cong B.
+\]
+En puntos manda $\mathfrak q$ a $\rho_V^{-1}(\mathfrak q)$ y en básicos induce las localizaciones de $\rho_V$, como en el \cref{teo:s06-todo-morfismo-anillos-b-induce}. Esta descripción muestra también que la construcción es independiente de la cubierta.
+
+\begin{prop}[Qué dice el morfismo canónico]
+\label{prop:s08-propiedades-morfismo-canonico}
+Sea $X$ un esquema y $R=\Gamma(X,\mathcal O_X)$.
+\begin{enumerate}[label=(\alph*)]
+\item $\eta_X$ es un morfismo de espacios localmente anillados que en secciones globales es la identidad de $R$.
+\item Para todo anillo $B$ y todo $\varphi:B\to R$ hay un único $g:X\to\Spec B$ que induce $\varphi$ en secciones globales, a saber $g=\Spec(\varphi)\circ\eta_X$. Es decir,
+\[
+\Hom(X,\Spec B)\cong\Hom_{\mathbf{Ring}}(B,\Gamma(X,\mathcal O_X)).
+\]
+\item Si $h:X\to Y$ es un morfismo, entonces
+\[
+\eta_Y\circ h=\Spec(\Gamma(h))\circ\eta_X.
+\]
+\item Si $\psi:X\to Y$ es un isomorfismo, $\eta_X$ es un isomorfismo si y solo si $\eta_Y$ lo es.
+\item $X$ es afín si y solo si $\eta_X$ es un isomorfismo.
+\end{enumerate}
+\emph{[Hartshorne, II, ejercicio 2.4; EGA I, 1.6.3.]}
+\end{prop}
+\begin{proof}
+\emph{La identidad en secciones globales.} La verificación está en el \cref{ejer:s08-verificacion-morfismo-canonico}. Con $f=1$, se tiene $X_1=X$ y el mapa $R\to\mathcal O_X(X)$ es la identidad; esto prueba (a).
+
+\emph{Naturalidad y propiedad universal.} Para (c), sea $h:X\to Y$, con $h(x)=y$. Como el homomorfismo $h_x^\sharp:\mathcal O_{Y,y}\to\mathcal O_{X,x}$ es local, para $a\in\Gamma(Y,\mathcal O_Y)$,
+\[
+\Gamma(h)(a)\in\eta_X(x)
+\iff h_x^\sharp(a_y)\in\mathfrak m_x
+\iff a_y\in\mathfrak m_y
+\iff a\in\eta_Y(y).
+\]
+Así $\Gamma(h)^{-1}(\eta_X(x))=\eta_Y(h(x))$, que da la igualdad en puntos. En gavillas, sobre $D(a)$ ambos caminos envían una fracción $b/a^n$ a la misma fracción de secciones restringidas, por la compatibilidad de $h^\sharp$ con restricciones y gérmenes. Luego los mapas de gavillas también coinciden.
+% S08b, diapositiva 8: naturalidad general y con destino afín.
+\begin{center}
+\begin{minipage}{.48\textwidth}
+\centering
+\begin{tikzcd}[column sep=large]
+X\arrow[r,"\eta_X"]\arrow[d,swap,"h"]
+ &\Spec\Gamma(X,\mathcal O_X)\arrow[d,"\Spec\Gamma(h)"]\\
+Y\arrow[r,swap,"\eta_Y"]&\Spec\Gamma(Y,\mathcal O_Y)
+\end{tikzcd}
+\end{minipage}\hfill
+\begin{minipage}{.48\textwidth}
+\centering
+\begin{tikzcd}[column sep=large]
+X\arrow[r,"\eta_X"]\arrow[d,swap,"g"]
+ &\Spec\Gamma(X,\mathcal O_X)\arrow[d,"\Spec\Gamma(g)"]\\
+\Spec B\arrow[r,swap,"\id"]&\Spec B
+\end{tikzcd}
+\end{minipage}
+\end{center}
+Aquí hemos identificado $\Gamma(\Spec B,\mathcal O)$ con $B$. En efecto, para $X=\Spec B$, la fórmula en puntos es
+\[
+\eta_{\Spec B}(\mathfrak p)
+=\set*{b\in B\given b/1\in\mathfrak pB_{\mathfrak p}}
+=\mathfrak p,
+\]
+y en gavillas $B_f\to B_f$ es la identidad. Por tanto $\eta_{\Spec B}=\id$.
+
+Dado $\varphi:B\to R$, el compuesto $g=\Spec(\varphi)\circ\eta_X$ induce $\varphi$, por (a). Recíprocamente, la naturalidad aplicada a cualquier $g:X\to\Spec B$ da $g=\Spec(\Gamma(g))\circ\eta_X$. Por tanto el homomorfismo en secciones globales determina $g$, lo que prueba (b).
+% S08b, diapositiva 7: factorización universal y correspondencia de Hom.
+\begin{center}
+\begin{minipage}{.47\textwidth}
+\centering
+\begin{tikzcd}[column sep=large,row sep=large]
+X\arrow[r,"\eta_X"]\arrow[dr,swap,"g"]
+ &\Spec R\arrow[d,dashed,"\exists!\,\Spec(\varphi)"]\\
+&\Spec B
+\end{tikzcd}
+\end{minipage}\hfill
+\begin{minipage}{.49\textwidth}
+\centering
+\begin{tikzcd}[row sep=large]
+\Hom(X,\Spec B)\arrow[d,shift left=.8ex,"\Gamma"]\\
+\Hom_{\mathbf{Ring}}(B,R)
+ \arrow[u,shift left=.8ex,"\varphi\mapsto\Spec(\varphi)\circ\eta_X"]
+\end{tikzcd}
+\end{minipage}
+\end{center}
+Todo morfismo de $X$ a un esquema afín se factoriza de manera única por $\eta_X$. Es la unidad de la adjunción entre $\Gamma$ y $\Spec$: la correspondencia anterior envía $g$ a $\Gamma(g)$ y $\varphi$ a $\Spec(\varphi)\circ\eta_X$.
+
+\emph{Isomorfismos y afinidad.} Si $\psi:X\to Y$ es un isomorfismo, también lo son $\Gamma(\psi)$ y $\Spec(\Gamma(\psi))$. El cuadrado de naturalidad tiene flechas verticales invertibles:
+% S08b, diapositiva 9: transporte del morfismo canónico por un isomorfismo.
+\begin{center}
+\begin{tikzcd}[column sep=large]
+X\arrow[r,"\eta_X"]\arrow[d,swap,"\psi","\sim"']
+ &\Spec\Gamma(X,\mathcal O_X)
+ \arrow[d,"\Spec\Gamma(\psi)","\sim"']\\
+Y\arrow[r,swap,"\eta_Y"]&\Spec\Gamma(Y,\mathcal O_Y)
+\end{tikzcd}
+\end{center}
+Por ello
+\[
+\eta_X=\Spec(\Gamma(\psi))^{-1}\circ\eta_Y\circ\psi,
+\]
+y $\eta_X$ es un isomorfismo si y solo si lo es $\eta_Y$, que es (d). En puntos, si $Y=\Spec B$ y $\psi(x)=\mathfrak p$, para $a=\Gamma(\psi)(b)$ se tiene $a_x=\psi_x^\sharp(b/1)$. Este isomorfismo local lleva $b/1$ al maximal si y solo si $b\in\mathfrak p$. Así $\eta_X(x)$ es el ideal transportado $\Gamma(\psi)(\mathfrak p)$.
+
+Si $X$ es afín, elige $\psi:X\xrightarrow{\sim}\Spec B$. Como $\eta_{\Spec B}=\id$, (d) muestra que $\eta_X$ es un isomorfismo. A la inversa, si $\eta_X$ es un isomorfismo, identifica $X$ con el esquema afín $\Spec\Gamma(X,\mathcal O_X)$.
+
+La presentación da también el argumento mediante Yoneda. Para todo esquema $Z$, conmuta el triángulo
+% S08b, diapositiva 10: argumento de adjunción y Yoneda.
+\begin{center}
+\begin{tikzcd}[column sep=large,row sep=large]
+\Hom(Z,X)\arrow[r,"\eta_X\circ-"]\arrow[dr,swap,"\Gamma"]
+ &\Hom(Z,\Spec\Gamma(X,\mathcal O_X))
+ \arrow[d,"\sim"]\\
+&\Hom_{\mathbf{Ring}}(\Gamma(X,\mathcal O_X),\Gamma(Z,\mathcal O_Z)).
+\end{tikzcd}
+\end{center}
+La flecha vertical es biyectiva por (b). Si $X$ es afín, la diagonal también lo es, aplicando (b) tras identificar $X$ con un espectro. Por tanto $\eta_X\circ-$ induce biyecciones en todos los conjuntos $\Hom(Z,-)$, y Yoneda implica que $\eta_X$ es un isomorfismo.
+\end{proof}
+
+\subsection{Aplicación al plano menos el origen}
+
+\begin{obs}[El caso afín: identidad e inclusión]
+\label{obs:s08-canonico-identidad-inclusion}
+Para $X=\Spec A$, el morfismo canónico es la identidad bajo $\Gamma(X,\mathcal O_X)=A$. Si $U\subseteq\Spec A$ es abierto, con inclusión $j$ y restricción $\rho:A\to\Gamma(U,\mathcal O_U)$, la naturalidad da
+\[
+j=\Spec(\rho)\circ\eta_U.
+\]
+\end{obs}
+% S08b, diapositiva 11: distinguir el canónico y la inclusión.
+\begin{center}
+\begin{tikzcd}[column sep=large,row sep=large]
+U\arrow[r,"\eta_U"]\arrow[d,swap,"j"]
+ &\Spec\Gamma(U,\mathcal O_U)\arrow[d,"\Spec(\rho)"]\\
+\Spec A\arrow[r,swap,"\eta_{\Spec A}=\id"]&\Spec A
+\end{tikzcd}
+\end{center}
+En puntos, para $\mathfrak p\in U$,
+\[
+\Spec(\rho)(\eta_U(\mathfrak p))
+=\rho^{-1}\set*{g\in\Gamma(U,\mathcal O_U)\given g_{\mathfrak p}\in\mathfrak m_{\mathfrak p}}
+=\mathfrak p.
+\]
+El germen de $a|_U$ en $\mathfrak p$ es el de $a$. Si $\rho$ es un isomorfismo, $\eta_U$ se identifica con la inclusión $j$ al identificar sus destinos mediante $\Spec(\rho)$. Antes de hacerlo, los destinos son distintos.
+
+\begin{coro}
+\label{coro:s08-plano-menos-origen-no-afin}
+El abierto $U=\mathbb A_k^2\setminus\set{(x,y)}$ no es afín.
+\end{coro}
+\begin{proof}
+Por la \cref{prop:s08-secciones-plano-menos-origen}, la restricción $\rho:k[x,y]\to\Gamma(U,\mathcal O_U)$ es un isomorfismo. La \cref{obs:s08-canonico-identidad-inclusion} da el cuadrado
+% S08b, diapositiva 12: el canónico del plano perforado y la inclusión.
+\begin{center}
+\begin{tikzcd}[column sep=large,row sep=large]
+U\arrow[r,"\eta_U"]\arrow[d,swap,"j"]
+ &\Spec\Gamma(U,\mathcal O_U)\arrow[d,"\Spec(\rho)","\sim"']\\
+\mathbb A_k^2\arrow[r,swap,"\eta_{\mathbb A_k^2}=\id"]&\mathbb A_k^2
+\end{tikzcd}
+\end{center}
+Si $U$ fuera afín, $\eta_U$ sería un isomorfismo por la \cref{prop:s08-propiedades-morfismo-canonico}(e). Como $\Spec(\rho)$ lo es, también lo sería $j=\Spec(\rho)\circ\eta_U$. Pero $j$ omite el origen $(x,y)$ y no es sobreyectiva.
+
+En la identificación $\Gamma(U,\mathcal O_U)=A=k[x,y]$, la fórmula es
+\[
+\eta_U(\mathfrak p)
+=\set*{a\in A\given a_{\mathfrak p}\in\mathfrak pA_{\mathfrak p}}
+=\mathfrak p,
+\]
+pues $a_{\mathfrak p}\in\mathfrak pA_{\mathfrak p}$ equivale a $a\in\mathfrak p$. Las funciones globales de $U$ son las del plano entero, cuyo espectro recupera el origen ausente.
+\end{proof}
 
 \section{La recta proyectiva por cartas}
 
@@ -195,6 +408,30 @@ La carta $t$ proyecta desde $s=0$ sobre la recta tangente en $t=0$. La carta $s$
 Los morfismos $U_0\to\Spec A$ y $U_1\to\Spec A$ inducidos por $A\to A[t]$ y $A\to A[s]$ coinciden en el traslape, pues $s\mapsto t^{-1}$ es un homomorfismo de $A$-álgebras. La \cref{obs:s08-morfismos-desde-pegado} da $\pi:\mathbb P_A^1\to\Spec A$; sus fibras se estudian en el \cref{sec:s08-puntos}.
 \end{obs}
 
+% S08b, diapositiva 15: propiedad universal del pegado y triángulo de anillos.
+Sean $\iota_0:U_{01}\hookrightarrow U_0$ y $\iota_1:U_{10}\hookrightarrow U_1$. La condición para pegar $f_0:U_0\to Y$ y $f_1:U_1\to Y$ es $f_0\circ\iota_0=f_1\circ\iota_1\circ\varphi_{01}$. La \cref{obs:s08-morfismos-desde-pegado} da entonces un único $f:\mathbb P_A^1\to Y$:
+\begin{center}
+\begin{minipage}{.59\textwidth}
+\centering
+\begin{tikzcd}[column sep=large,row sep=large]
+U_{01}\arrow[r,"\iota_0"]\arrow[d,swap,"\iota_1\circ\varphi_{01}"]
+ &U_0\arrow[d,"\psi_0"]\arrow[ddr,bend left=25,"f_0"]&\\
+U_1\arrow[r,swap,"\psi_1"]\arrow[drr,bend right=20,swap,"f_1"]
+ &\mathbb P_A^1\arrow[dr,dashed,"\exists!\,f"]&\\
+&&Y
+\end{tikzcd}
+\end{minipage}\hfill
+\begin{minipage}{.37\textwidth}
+\centering
+\begin{tikzcd}[column sep=large,row sep=large]
+A\arrow[r]\arrow[dr,swap]
+ &A[s,s^{-1}]\arrow[d,"s\mapsto t^{-1}"]\\
+&A[t,t^{-1}]
+\end{tikzcd}
+\end{minipage}
+\end{center}
+Para $Y=\Spec A$, el triángulo de anillos verifica la compatibilidad de los morfismos estructurales: la transición es un homomorfismo de $A$-álgebras. De este pegado se obtiene $\pi$.
+
 \begin{prop}[$\mathbb P_A^1$ como conjunto]
 \label{prop:s08-proyectiva-como-conjunto}
 Se tiene $\mathbb P_A^1=\psi_0(U_0)\amalg\psi_1(V(s))$, con
@@ -243,7 +480,18 @@ Las piezas $\mathbb A_k^1$ y el traslape $D(x)$ son los mismos. Con la identidad
 Para todo anillo $A$, se tiene $\Gamma(\mathbb P_A^1,\mathcal O)=A$: el homomorfismo $A\to\Gamma(\mathbb P_A^1,\mathcal O)$ inducido por $\pi$ es un isomorfismo. \emph{[Vakil, \S4.4.8.]}
 \end{prop}
 \begin{proof}
-Una sección global es un par $(f,g)\in A[t]\times A[s]$ con $f=g(t^{-1})$ en $A[t,t^{-1}]$, por la \cref{defi:s07-gavilla-estructural-pegado}. Escribamos
+Una sección global es un par $(f,g)\in A[t]\times A[s]$ con $f=g(t^{-1})$ en $A[t,t^{-1}]$, por la \cref{defi:s07-gavilla-estructural-pegado}. Es el igualador de las dos restricciones:
+% S08b, diapositiva 19: las secciones globales como igualador.
+\begin{center}
+\begin{tikzcd}[column sep=huge]
+\Gamma(\mathbb P_A^1,\mathcal O)\arrow[r,hook]
+ &A[t]\times A[s]
+ \arrow[r,shift left=.8ex,"{(f,g)\mapsto f}"]
+ \arrow[r,shift right=.8ex,swap,"{(f,g)\mapsto g(t^{-1})}"]
+ &A[t,t^{-1}]
+\end{tikzcd}
+\end{center}
+Escribamos
 \[
 f=\sum_{n\geq0}a_nt^n,\qquad g(t^{-1})=\sum_{n\geq0}b_nt^{-n}.
 \]
@@ -257,18 +505,30 @@ El anillo de Laurent es libre como $A$-módulo con base $\set{t^n}_{n\in\mathbb 
 Si $A\ne0$, la recta proyectiva $\mathbb P_A^1$ no es afín.
 \end{coro}
 \begin{proof}
-Si fuera afín, el morfismo de la \cref{defi:s08-morfismo-canonico},
+Sea $R=\Gamma(\mathbb P_A^1,\mathcal O)$ y $\varphi:A\to R$ el isomorfismo de la \cref{prop:s08-secciones-proyectiva}. Por la \cref{prop:s08-propiedades-morfismo-canonico}(b), aplicada a $g=\pi$, se tiene
 \[
-\eta_{\mathbb P_A^1}:\mathbb P_A^1\longrightarrow\Spec\Gamma(\mathbb P_A^1,\mathcal O)=\Spec A,
+\pi=\Spec(\varphi)\circ\eta_{\mathbb P_A^1}.
 \]
-sería un isomorfismo, por el \cref{coro:s06-equivalencia} y la \cref{prop:s08-secciones-proyectiva}. En particular, sería biyectivo.
+% S08b, diapositiva 21: identificar pi con el morfismo canónico.
+\begin{center}
+\begin{tikzcd}[column sep=large,row sep=large]
+\mathbb P_A^1\arrow[r,"\eta_{\mathbb P_A^1}"]\arrow[dr,swap,"\pi"]
+ &\Spec R\arrow[d,"\Spec(\varphi)","\sim"']\\
+&\Spec A
+\end{tikzcd}
+\end{center}
+Si $\mathbb P_A^1$ fuera afín, su morfismo canónico sería un isomorfismo por la \cref{prop:s08-propiedades-morfismo-canonico}(e). Como $\Spec(\varphi)$ también lo es, $\pi$ sería un isomorfismo y, en particular, biyectivo.
 
 Como $A\ne0$, existe un primo $\mathfrak r\subseteq A$. En la carta $U_0$ consideremos
 \[
 P_0=\mathfrak r A[t]+(t),\qquad
 P_1=\mathfrak r A[t]+(t-1).
 \]
-Ambos son primos, pues $A[t]/P_i\cong A/\mathfrak r$. Son distintos: la imagen de $t-1$ en $A[t]/P_0$ es $-1\ne0$. Además, $P_i\cap A=\mathfrak r$. El germen de $a\in A$ en $P_i$ está en el ideal maximal del tallo si y solo si $a\in\mathfrak r$. Así, los dos puntos se envían a $\mathfrak r$ y el morfismo canónico no es inyectivo.
+Ambos son primos, pues $A[t]/P_i\cong A/\mathfrak r$. Son distintos: la imagen de $t-1$ en $A[t]/P_0$ es $-1\ne0$. Además, $P_i\cap A=\mathfrak r$. En $U_0$, el morfismo $\pi$ es $\Spec$ de la inclusión $A\to A[t]$, por lo que envía cada primo a su contracción. Así,
+\[
+\pi(P_0)=\mathfrak r=\pi(P_1),
+\]
+y $\pi$ no es inyectivo. En términos de gérmenes, $a\in A$ pertenece al maximal del tallo en $P_i$ si y solo si $a\in\mathfrak r$. Esto confirma la fórmula del morfismo canónico.
 \end{proof}
 
 % Presentación S08, diapositiva 18: no sobreyectividad y no inyectividad.
@@ -277,7 +537,7 @@ Ambos son primos, pues $A[t]/P_i\cong A/\mathfrak r$. Son distintos: la imagen d
 \fill[orange!12] (0,0) rectangle (1.6,1.6);
 \draw[grisCIMAT] (0,0) rectangle (1.6,1.6);
 \draw[rojoCIMAT,thick,fill=white] (.8,.8) circle (2.5pt);
-\draw[->,blue!60!black,thick] (1.95,.8)--(3.15,.8) node[midway,above] {\scriptsize canónico};
+\draw[->,blue!60!black,thick] (1.95,.8)--(3.15,.8) node[midway,above] {$\eta_U$};
 \fill[orange!12] (3.5,0) rectangle (5.1,1.6);
 \draw[grisCIMAT] (3.5,0) rectangle (5.1,1.6);
 \fill[rojoCIMAT] (4.3,.8) circle (2.5pt) node[above right,xshift=-2.5pt,yshift=-2.5pt] {$\scriptstyle(x,y)$};
@@ -446,6 +706,16 @@ El punto $K$-racional $[a:b]$ de $\mathbb P_K^1$ se representa por un par no nul
 La reducción no depende del representante: dos representantes con coordenadas en $A$ no ambas en $\mathfrak m$ difieren por una unidad de $A$. Para $A=\mathbb Z_{(p)}$ es la reducción de un punto racional módulo $p$. Que todo punto $K$-racional se extienda a un punto con valores en $A$ es la parte de existencia del criterio valuativo de propiedad de la Sesión 15.
 \end{obs}
 
+% S08b, diapositiva 33 y esqueleto, sección 5.3: extensión sobre el DVR.
+\begin{center}
+\begin{tikzcd}[column sep=large,row sep=large]
+\Spec K\arrow[r,"{[a:b]}"]\arrow[d]
+ &\mathbb P_A^1\arrow[d,"\pi"]\\
+\Spec A\arrow[r,swap,"\id"]\arrow[ur,dashed]&\Spec A
+\end{tikzcd}
+\end{center}
+La flecha discontinua representa la extensión a $\Spec A$ del punto definido sobre $K$; su valor en el punto cerrado es la reducción.
+
 % Presentación S08, diapositiva 30: especialización de un punto racional.
 \begin{center}
 \begin{minipage}{.45\textwidth}
@@ -553,6 +823,7 @@ X_i\arrow[r,"\psi_i"]\arrow[d,swap,"\nu_i"]
  &X\arrow[d,"h"]\\
 X_i'\arrow[r,swap,"\psi_i'"]&X'
 \end{tikzcd}
+\par\smallskip{\small La conclusión, para todo $i$.}
 \end{minipage}\hfill
 \begin{minipage}{.53\textwidth}
 \centering
@@ -561,6 +832,7 @@ X_{ij}\arrow[r,"\varphi_{ij}"]\arrow[d,swap,"\nu_i"]
  &X_{ji}\arrow[d,"\nu_j"]\\
 X_{ij}'\arrow[r,swap,"\varphi_{ij}'"]&X_{ji}'
 \end{tikzcd}
+\par\smallskip{\small La hipótesis.}
 \end{minipage}
 \end{center}
 \begin{proof}
@@ -601,6 +873,11 @@ Los dos esquemas no son isomorfos porque sus anillos de secciones globales, $k[x
 \begin{ejer}[El espacio afín menos el origen]
 \label{ejer:s08-afin-menos-origen}
 Sea $k$ un campo, $n\geq2$ y $U=\mathbb A_k^n\setminus\set{(x_1,\ldots,x_n)}$. Muestra que $\Gamma(U,\mathcal O_U)=k[x_1,\ldots,x_n]$ y que $U$ no es afín. Pista: cubre $U$ con $D(x_1),\ldots,D(x_n)$ y adapta la \cref{prop:s08-secciones-plano-menos-origen}. \emph{[Cf. Vakil, \S4.4.1 a \S4.4.3 (caso $n=2$) y \S4.4.2.]}
+\end{ejer}
+
+\begin{ejer}[La recta menos el origen]
+\label{ejer:s08-recta-menos-origen}
+Sea $k$ un campo y $V=\mathbb A_k^1\setminus\set{0}=D(x)$. Calcula $\Gamma(V,\mathcal O_V)$ y describe $\eta_V$. Justifica por qué es un isomorfismo, a diferencia del plano menos el origen.
 \end{ejer}
 
 \begin{ejer}[El automorfismo que intercambia las cartas]
