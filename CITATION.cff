@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "Si utilizas este material, cita la versión consultada con los datos siguientes."
+title: "Apuntes de Teoría de Esquemas"
+authors:
+  - family-names: "Aranda Pérez"
+    given-names: "Pablo Jair"
+repository-code: "https://github.com/MrPaborru/Apuntes-Teoria-de-Esquemas"
+url: "https://github.com/MrPaborru/Apuntes-Teoria-de-Esquemas"
+abstract: "Apuntes personales en español del curso de Teoría de Esquemas del CIMAT, con definiciones, demostraciones, ejemplos y diagramas."
+keywords:
+  - "Teoría de esquemas"
+  - "Geometría algebraica"
+  - "Material de estudio"
+preferred-citation:
+  type: generic
+  title: "Apuntes de Teoría de Esquemas"
+  authors:
+    - family-names: "Aranda Pérez"
+      given-names: "Pablo Jair"
+  year: 2026
+  url: "https://github.com/MrPaborru/Apuntes-Teoria-de-Esquemas"
