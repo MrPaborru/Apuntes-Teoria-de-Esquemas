@@ -2,6 +2,8 @@
 
 \emph{Advertencia. Dos correcciones de la sesión pasada.} El morfismo canónico entre el límite de un diagrama y el producto de sus objetos va del límite al producto: el límite es un cono sobre el diagrama sin flechas y se factoriza por el producto. La gavilla $\mathcal O_X$ del pegado se obtiene, sobre cada abierto, como un límite inverso o proyectivo de anillos. Un límite directo es un colímite sobre un conjunto dirigido; el pegado no es de ese tipo.
 
+Para los tallos, en cambio, $\mathcal O_{X,x}=\varinjlim_{U\ni x}\mathcal O_X(U)$ es un límite directo o colímite de las restricciones a vecindades cada vez menores.
+
 La sesión anterior probó el \myref{teo:s07-lema-pegado}. Hoy lo usamos con dos piezas, caso en el que el cociclo se cumple automáticamente.
 
 \begin{defi}[Datos de pegado]
@@ -102,6 +104,8 @@ Si $h=p/x^a=q/y^b$ pertenece a la intersección, con $p,q\in A$ y $a,b\geq0$, en
 \label{obs:s08-hartogs}
 Los polos de $p/x^a$ están en la recta $x=0$, y los de $q/y^b$ en la recta $y=0$. Si representan la misma función, sus polos tendrían que estar en el origen. En dimensión dos, los polos de una función forman una curva y un punto no lo es. Toda función regular en $\mathbb A_k^2$ menos el origen se extiende al plano: es el análogo algebraico del lema de Hartogs. En $\mathbb A_k^1\setminus\set{0}$ sí hay funciones nuevas, como $1/x$. Para $n\geq2$ se usa la cubierta $D(x_1),\ldots,D(x_n)$ de $\mathbb A_k^n$ menos el origen; véase el \cref{ejer:s08-afin-menos-origen}.
 \end{obs}
+
+\emph{Comparación topológica.} El plano real $\mathbb R^2$ es contráctil, mientras que $\mathbb R^2\setminus\set{0}$ tiene el tipo de homotopía de $S^1$ y grupo fundamental $\mathbb Z$. En el caso complejo, $\mathbb C^2\setminus\set{0}$ tiene el tipo de homotopía de $S^3$, que es simplemente conexa; lo distingue de $\mathbb C^2$ su tercer grupo de homología $H_3=\mathbb Z$ (o su $\pi_3$).
 
 \clearpage
 \subsection{El morfismo canónico}
@@ -524,7 +528,7 @@ Como $A\ne0$, existe un primo $\mathfrak r\subseteq A$. En la carta $U_0$ consid
 P_0=\mathfrak r A[t]+(t),\qquad
 P_1=\mathfrak r A[t]+(t-1).
 \]
-Ambos son primos, pues $A[t]/P_i\cong A/\mathfrak r$. Son distintos: la imagen de $t-1$ en $A[t]/P_0$ es $-1\ne0$. Además, $P_i\cap A=\mathfrak r$. En $U_0$, el morfismo $\pi$ es $\Spec$ de la inclusión $A\to A[t]$, por lo que envía cada primo a su contracción. Así,
+Ambos son primos de la misma carta $U_0$, pues $A[t]/P_i\cong A/\mathfrak r$. Son distintos: la imagen de $t-1$ en $A[t]/P_0$ es $-1\ne0$. La inmersión abierta $\psi_0$ es inyectiva, de modo que también son distintos en $\mathbb P_A^1$; no hace falta cambiar de carta. Además, $P_i\cap A=\mathfrak r$. En $U_0$, el morfismo $\pi$ es $\Spec$ de la inclusión $A\to A[t]$, por lo que envía cada primo a su contracción. Así,
 \[
 \pi(P_0)=\mathfrak r=\pi(P_1),
 \]
@@ -559,28 +563,156 @@ Un esquema afín se reconstruye con sus funciones. En $U$ las funciones no detec
 
 \begin{obs}
 \label{obs:s08-constantes-compacidad}
-Es el análogo de que las únicas funciones holomorfas en $\mathbb{CP}^1$ son constantes; en ambos casos la causa es la compacidad. Su versión algebraica es la propiedad, que se estudiará en la Sesión 15. Con las mismas piezas, la recta con origen doble tiene como secciones globales todo $k[x]$. Esto la distingue de la recta proyectiva; véase el \cref{sec:s08-dos-rectas}. \emph{[Vakil, ejercicio 4.4.B.]}
+Es el análogo de que las únicas funciones holomorfas en $\mathbb{CP}^1$ son constantes; en el caso complejo, esto se explica por la compacidad. Una función entera no constante tiene en $\infty$ un polo si es un polinomio y una singularidad esencial si no lo es, como $e^z$. Si fuera holomorfa también en $\infty$, sería constante por Liouville. La versión algebraica de la compacidad es la propiedad, que se estudiará en la Sesión 15. La recta con origen doble tiene secciones globales $k[x]$, que la distinguen de $\mathbb P_k^1$; véase el \cref{sec:s08-dos-rectas}. \emph{[Vakil, ejercicio 4.4.B.]}
 \end{obs}
 
 \section{Los puntos de la recta proyectiva}
 \label{sec:s08-puntos}
 
+\begin{obs}[Qué buscamos]
+\label{obs:s08-objetivos-puntos}
+Describiremos los puntos de la recta proyectiva sobre un cuerpo, sobre $\mathbb Z$ y sobre un anillo de valoración discreta. Las cartas reducen el problema a clasificar primos de anillos de polinomios. Después estudiaremos la reducción de puntos racionales a una fibra especial, construiremos $\mathbb P_A^n$ y clasificaremos los pegados de dos rectas.
+\end{obs}
+
+\subsection{Lo que se usa hoy}
+
+\subsubsection{Definiciones y resultados previos}
+Recordemos las \cref{defi:s01-espectro-primo,defi:s02-s-definimos-v-s-p,defi:s02-f-abierto-distinguido-asociado-f}: los puntos de $\Spec A$ son sus ideales primos, los cerrados son $V(I)=\set{\mathfrak p\in\Spec A\given I\subseteq\mathfrak p}$ y los abiertos básicos son $D(f)=\set{\mathfrak p\given f\notin\mathfrak p}$. Por el \cref{coro:s05-gavilla-estructural}, $\mathcal O(D(f))=A_f$; además, $D(f)\cong\Spec A_f$ por el \cref{coro:s03-inclusion-inducida-identifica-f-d}.
+
+Un punto $x$ es cerrado cuando $\set{x}$ es cerrado, y es genérico de un cerrado $Z$ cuando $\overline{\set{x}}=Z$. Por la \cref{prop:s02-todo-p-cerradura-punto-p}, $\overline{\set{\mathfrak p}}=V(\mathfrak p)$: los puntos cerrados del espectro son los ideales máximos y, si $A$ es un dominio, $(0)$ es su punto genérico. La \cref{defi:s02-decimos-q-especializacion-p-q} describe las especializaciones.
+
+\begin{obs}[La especialización es local]
+\label{obs:s08-especializacion-local}
+Si $y\in\overline{\set{x}}$ y un abierto $U$ contiene a $y$, contiene también a $x$: toda vecindad de $y$ corta a $\set{x}$. Así, $x\notin U$ implica $\overline{\set{x}}\cap U=\varnothing$.
+\end{obs}
+
+Por la \cref{obs:s03-cuerpo-residual}, el cuerpo residual de $\mathfrak p$ es
+\[
+\kappa(\mathfrak p)=A_{\mathfrak p}/\mathfrak pA_{\mathfrak p}=\Frac(A/\mathfrak p).
+\]
+En un esquema, $\kappa(x)=\mathcal O_{X,x}/\mathfrak m_x$, y una carta afín conserva este cuerpo. Un homomorfismo $\varphi:A\to B$ induce $\Spec\varphi$, dado por $\mathfrak q\mapsto\varphi^{-1}(\mathfrak q)$; véanse el \cref{lema:s01-preimagen-primo} y el \cref{ejer:s02-b-morfismo-anillos-demuestra-1}. Además,
+\[
+(\Spec\varphi)^{-1}(D(f))=D(\varphi(f)).
+\]
+
+Una inmersión abierta identifica su fuente con un subesquema abierto de la meta; en particular, es inyectiva en puntos. Las cartas de la \cref{defi:s08-recta-proyectiva} son inmersiones abiertas. Su morfismo estructural se construyó en la \cref{obs:s08-morfismo-estructural}; para sus secciones y su no afinidad, véanse \cref{prop:s08-secciones-proyectiva,coro:s08-proyectiva-no-afin}. El criterio de afinidad y el plano menos el origen se trataron en \cref{prop:s08-propiedades-morfismo-canonico,obs:s08-canonico-identidad-inclusion,prop:s08-secciones-plano-menos-origen,coro:s08-plano-menos-origen-no-afin}.
+
+\begin{defi}[Esquema sobre $A$, morfismo estructural y fibra]
+\label{defi:s08-esquema-sobre-anillo-fibra}
+Un esquema sobre $A$ es un esquema $X$ con un morfismo $\pi:X\to\Spec A$, llamado morfismo estructural. Para $\mathbb A_A^1=\Spec A[t]$, la inclusión $A\to A[t]$ induce $\pi(\mathfrak q)=\mathfrak q\cap A$. La fibra sobre $y\in\Spec A$ es el conjunto $\pi^{-1}(y)$. Aquí solo se usa como conjunto de puntos; la fibra como esquema, $X\times_{\Spec A}\Spec\kappa(y)$, se construirá en las Sesiones 12 y 14.
+\end{defi}
+
+\begin{defi}[Grado de un punto]
+\label{defi:s08-grado-punto}
+Sea $k$ un campo y $x$ un punto de un esquema sobre $k$ cuyo cuerpo residual es una extensión finita de $k$. Su grado es $[\kappa(x):k]$, donde la estructura de $k$-álgebra viene del morfismo estructural. Un punto de grado uno se llama racional.
+\end{defi}
+
+\begin{defi}[Polinomios mónicos, irreducibles y primitivos]
+\label{defi:s08-polinomios-primitivos}
+Sea $B$ un dominio. Un polinomio de $B[t]$ es mónico si su coeficiente principal es uno. Es irreducible si no es una unidad y no es producto de dos no unidades. El contenido de un polinomio no nulo de $\mathbb Z[t]$ es el máximo común divisor de sus coeficientes; el polinomio es primitivo si su contenido es uno.
+\end{defi}
+
+\subsubsection{Hechos de álgebra}
+
+\begin{prop}[Hecho A, polinomios sobre un campo]
+\label{prop:s08-polinomios-campo}
+Si $k$ es un campo, $k[t]$ es un dominio de ideales principales. Sus primos son $(0)$ y los $(f)$, con $f$ irreducible; estos últimos son máximos y tienen un único generador mónico. Si $\deg f=d$, el campo $k[t]/(f)$ tiene $k$-base $1,t,\ldots,t^{d-1}$. En cualquier dominio de ideales principales, todo primo no nulo es máximo. \emph{[Lang, Algebra, cap.~IV, \S1; Dummit--Foote, \S8.2.]}
+\end{prop}
+
+\begin{prop}[Hecho B, primos de una localización]
+\label{prop:s08-primos-localizacion}
+Sea $B$ un anillo y $S\subseteq B$ multiplicativo. La aplicación $\mathfrak q\mapsto S^{-1}\mathfrak q$ es una biyección entre los primos de $B$ disjuntos de $S$ y $\Spec S^{-1}B$. Su inversa es la contracción por $B\to S^{-1}B$. Es el \cref{teo:s03-correspondencia-localizaciones}. \emph{[Atiyah--Macdonald, prop.~3.11(iv).]}
+\end{prop}
+
+\begin{prop}[Hecho C, primos de un cociente]
+\label{prop:s08-primos-cociente}
+Sea $B$ un anillo e $I$ un ideal. La aplicación $\mathfrak q\mapsto\mathfrak q/I$ es una biyección entre los primos de $B$ que contienen a $I$ y $\Spec(B/I)$. Su inversa es la contracción por $B\to B/I$; véase el \cref{ejer:s01-i-cociente-demuestra-i-inyectivo}. \emph{[Atiyah--Macdonald, cap.~1.]}
+\end{prop}
+
+\begin{prop}[Hecho D, lema de Gauss]
+\label{prop:s08-gauss}
+El producto de dos polinomios primitivos de $\mathbb Z[t]$ es primitivo. \emph{[Lang, Algebra, cap.~IV, \S2.]} En consecuencia:
+\begin{enumerate}[label=(G\arabic*)]
+\item Todo irreducible de $\mathbb Q[t]$ de grado positivo es, salvo un factor de $\mathbb Q^\times$, un polinomio primitivo $g\in\mathbb Z[t]$, único salvo signo e irreducible en $\mathbb Z[t]$. Recíprocamente, un primitivo de grado positivo irreducible en $\mathbb Z[t]$ es irreducible en $\mathbb Q[t]$. Como $\mathbb Z[t]$ es un dominio de factorización única, $(g)$ es primo.
+\item Si $g\in\mathbb Z[t]$ es primitivo y divide a $h\in\mathbb Z[t]$ en $\mathbb Q[t]$, también lo divide en $\mathbb Z[t]$; equivalentemente,
+\[
+g\mathbb Q[t]\cap\mathbb Z[t]=g\mathbb Z[t].
+\]
+\end{enumerate}
+\end{prop}
+
+\begin{prop}[Hecho E, cuerpos finitos]
+\label{prop:s08-cuerpos-finitos}
+Sea $K$ un campo de característica $p>0$ y $q$ una potencia de $p$.
+\begin{enumerate}[label=(E\arabic*)]
+\item El Frobenius $x\mapsto x^q$ es un homomorfismo de anillos $K\to K$.
+\item Si $K$ tiene $q$ elementos, todo $x\in K$ cumple $x^q=x$.
+\item Si $K$ es finito, el grupo multiplicativo $K^\times$ es cíclico.
+\end{enumerate}
+\emph{[Lang, Algebra, cap.~V, \S5; Dummit--Foote, \S14.3.]}
+\end{prop}
+
+\begin{lema}[Fibra de la recta afín]
+\label{lema:s08-fibra-recta-afin}
+Sean $A$ un anillo, $\mathfrak p\in\Spec A$ y $\kappa=\kappa(\mathfrak p)$. La fibra sobre $\mathfrak p$ de la contracción $\Spec A[t]\to\Spec A$ está en biyección con $\Spec\kappa[t]$. La biyección lleva $\mathfrak r\in\Spec\kappa[t]$ a su imagen inversa por $A[t]\to\kappa[t]$. Lo mismo vale con $s$ en lugar de $t$.
+\end{lema}
+\begin{proof}
+Localizamos primero en $S=A\setminus\mathfrak p$. Los primos $\mathfrak q$ de $A[t]$ con $\mathfrak q\cap A=\mathfrak p$ corresponden a los primos de $A_{\mathfrak p}[t]$ que contienen a $\mathfrak pA_{\mathfrak p}[t]$, por la \cref{prop:s08-primos-localizacion}. Al reducir por ese ideal, la \cref{prop:s08-primos-cociente} los identifica con los primos de
+\[
+A_{\mathfrak p}[t]/\mathfrak pA_{\mathfrak p}[t]=\kappa[t].
+\]
+Recíprocamente, un primo que contiene a $\mathfrak pA_{\mathfrak p}[t]$ contrae a $\mathfrak pA_{\mathfrak p}$ en $A_{\mathfrak p}$, porque este ideal es máximo. Su contracción a $A$ es $\mathfrak p$. Las dos correspondencias inversas son contracciones y su compuesto es el mapa anunciado.
+\end{proof}
+
+\begin{lema}[Cerrados y cartas]
+\label{lema:s08-cerrados-cartas}
+Si $X$ está cubierto por abiertos $U_i$, un subconjunto $Z$ es cerrado si y solo si $Z\cap U_i$ es cerrado en $U_i$ para todo $i$. En particular, un punto es cerrado si y solo si es cerrado en cada carta que lo contiene.
+\end{lema}
+\begin{proof}
+Una intersección de un cerrado con $U_i$ es cerrada en $U_i$. Recíprocamente, si todas las intersecciones son cerradas, cada $U_i\setminus Z$ es abierto en $U_i$ y en $X$; su unión es $X\setminus Z$. Para un punto, las cartas que no lo contienen tienen intersección vacía con él.
+\end{proof}
+
 \subsection{Sobre un cuerpo}
 
-\begin{ejem}[Puntos de $\mathbb P_k^1$]
+\begin{prop}[Los puntos de $\mathbb A_k^1$]
+\label{prop:s08-puntos-recta-afin-campo}
+Sea $k$ un campo. Los puntos de $\mathbb A_k^1=\Spec k[t]$ son $(0)$ y los $(f)$ con $f$ mónico irreducible, uno por cada tal polinomio. \emph{[Vakil, \S4.4.6; \cref{prop:s01-recta-afin}.]}
+\begin{enumerate}[label=(\alph*)]
+\item $(0)$ es el punto genérico, no es cerrado y $\kappa((0))=k(t)$.
+\item Cada $(f)$ es cerrado, con $\kappa((f))=k[t]/(f)$ y grado $\deg f$.
+\item Los puntos de grado uno son los $(t-a)$, con $a\in k$.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+La \cref{prop:s08-polinomios-campo} lista los primos y sus cocientes. Como $k[t]$ es un dominio, la cerradura de $(0)$ es todo el espectro; no es máximo, pues $(0)\subsetneq(t)$. Los demás primos son máximos y sus cocientes ya son campos, de dimensión $\deg f$ sobre $k$. Un mónico de grado uno es precisamente $t-a$.
+\end{proof}
+
+\begin{prop}[Los puntos de $\mathbb P_k^1$]
+\label{prop:s08-puntos-proyectiva-cuerpo}
 \label{ejem:s08-puntos-proyectiva-cuerpo}
-Sea $k$ un campo. Por la \cref{prop:s08-proyectiva-como-conjunto},
+Sea $k$ un campo e $\infty=\psi_1((s))$. Por la \cref{prop:s08-proyectiva-como-conjunto},
 \[
-\mathbb P_k^1=\mathbb A_k^1\amalg\set{\infty},
-\qquad \infty=\psi_1((s)).
+\mathbb P_k^1=\mathbb A_k^1\amalg\set{\infty}.
 \]
-Los puntos de $\mathbb A_k^1=\Spec k[t]$ son el genérico $(0)$ y los puntos cerrados $(f)$, con $f\in k[t]$ mónico irreducible. Su cuerpo residual es $k[t]/(f)$ y tiene grado $\deg f$ sobre $k$. El punto $\infty$ es cerrado y tiene cuerpo residual $k$.
-\begin{itemize}
-\item Si $k=\mathbb C$, los puntos cerrados son $\mathbb C\cup\set{\infty}$, la esfera de Riemann como conjunto.
-\item Si $k=\mathbb R$, los puntos de grado uno son $\mathbb R\cup\set{\infty}$. Los de grado dos son $(t^2+bt+c)$ con $b^2<4c$, de cuerpo residual $\mathbb C$. Cada uno corresponde a un par $\set{z,\bar z}$ de complejos conjugados. Los puntos cerrados de $\mathbb P_{\mathbb R}^1$ son las órbitas de $\operatorname{Gal}(\mathbb C/\mathbb R)$ en $\mathbb C\cup\set{\infty}$.
-\end{itemize}
-\emph{[Vakil, \S4.4.6 y \S4.4.7.]}
-\end{ejem}
+Sus puntos son el genérico $(0)$, los puntos cerrados $(f)$ con $f\in k[t]$ mónico irreducible y el punto cerrado $\infty$. Se tiene $\kappa((0))=k(t)$, $\kappa((f))=k[t]/(f)$, de grado $\deg f$, y $\kappa(\infty)=k$, de grado uno. \emph{[Vakil, \S4.4.6 y \S4.4.7.]}
+\end{prop}
+\begin{proof}
+La lista procede de las \cref{prop:s08-proyectiva-como-conjunto,prop:s08-puntos-recta-afin-campo}. El genérico $(0)$ está en $D(t)$ y corresponde al genérico $(0)$ de la segunda carta; su cerradura contiene ambas cartas. No es cerrado, pues ya no lo es en $U_0$.
+
+Para $(f)\ne(t)$, la localización por $t$ da un ideal máximo de $k[t,t^{-1}]$. En la segunda carta corresponde a un irreducible no divisible por $s$: al sustituir $t=s^{-1}$ y limpiar denominadores se obtiene un polinomio de término constante no nulo. Así el punto es cerrado en ambas cartas. El punto $(t)$ no está en la segunda carta y $\infty=(s)$ no está en la primera. El \cref{lema:s08-cerrados-cartas} prueba su cerradura global. Los cuerpos residuales se calculan en las cartas afines.
+\end{proof}
+
+\begin{coro}[Los puntos cerrados de $\mathbb P_{\mathbb C}^1$ y de $\mathbb P_{\mathbb R}^1$]
+\label{coro:s08-puntos-complejos-reales}
+\begin{enumerate}[label=(\alph*)]
+\item Sobre $\mathbb C$, los puntos cerrados son los $(t-z)$, con $z\in\mathbb C$, e $\infty$, todos de grado uno. Como conjunto son $\mathbb C\cup\set{\infty}$, la esfera de Riemann.
+\item Sobre $\mathbb R$, son los $(t-a)$ con $a\in\mathbb R$ y $\infty$, de grado uno, y los $(t^2+bt+c)$ con $b^2<4c$, de grado dos y cuerpo residual $\mathbb C$. Asociar a cada polinomio sus raíces complejas, y a $\infty$ el conjunto $\set{\infty}$, da una biyección con las órbitas de $\operatorname{Gal}(\mathbb C/\mathbb R)=\set{\id,z\mapsto\bar z}$ en $\mathbb C\cup\set{\infty}$.
+\end{enumerate}
+\emph{[Vakil, \S4.4.7.]}
+\end{coro}
+\begin{proof}
+Por el teorema fundamental del álgebra, los irreducibles complejos son lineales y los reales son lineales o cuadráticos de discriminante negativo. En este último caso, evaluar en una raíz no real identifica el cociente con $\mathbb C$. Las raíces forman un par conjugado; las raíces reales y el infinito son órbitas de un solo elemento. Aplicamos la \cref{prop:s08-puntos-proyectiva-cuerpo}.
+\end{proof}
 
 % Presentación S08, diapositiva 21: órbita de la conjugación.
 \begin{center}
@@ -596,6 +728,16 @@ Los puntos de $\mathbb A_k^1=\Spec k[t]$ son el genérico $(0)$ y los puntos cer
 \end{center}
 \emph{Advertencia.} Un punto cerrado de grado dos es el par $\set{z,\bar z}$, no dos puntos. El polinomio $t^2+1$ da un solo punto de $\mathbb P_{\mathbb R}^1$, aunque $i$ y $-i$ son dos números.
 
+\begin{lema}[Factorización de $t^{q^n}-t$]
+\label{lema:s08-factorizacion-frobenius}
+Sea $q$ una potencia de un primo y $n\geq1$. En $\mathbb F_q[t]$, el polinomio $t^{q^n}-t$ es el producto de todos los mónicos irreducibles cuyo grado divide a $n$, cada uno una sola vez.
+\end{lema}
+\begin{proof}
+La derivada de $P=t^{q^n}-t$ es $-1$, por lo que no hay factores repetidos. Sea $f$ mónico irreducible de grado $d$, $K=\mathbb F_q[t]/(f)$ y $\alpha$ la clase de $t$. Por la \cref{prop:s08-polinomios-campo}, $K$ tiene $q^d$ elementos. El Frobenius $F(x)=x^q$ fija $\mathbb F_q$, y $F^d=\id_K$ por la \cref{prop:s08-cuerpos-finitos}.
+
+Si $d\mid n$, resulta $\alpha^{q^n}=\alpha$ y $f\mid P$. Recíprocamente, si $f\mid P$, entonces $F^n(\alpha)=\alpha$. Como $\alpha$ genera $K$ sobre $\mathbb F_q$, $F^n=\id_K$. La ciclicidad de $K^\times$ implica que $q^d-1$ divide a $q^n-1$. Escribamos $n=ad+r$, con $0\leq r<d$. Módulo $q^d-1$, tenemos $q^n-1\equiv q^r-1$; si $r>0$, este es un entero positivo menor que $q^d-1$, contradicción. Por tanto $r=0$, es decir, $d\mid n$.
+\end{proof}
+
 \begin{prop}[Puntos cerrados de $\mathbb P_{\mathbb F_q}^1$]
 \label{prop:s08-puntos-cerrados-campo-finito}
 Sea $q$ una potencia de un primo, y sea $M_d$ el número de puntos cerrados de $\mathbb P_{\mathbb F_q}^1$ de grado $d$, donde el grado de $x$ es $[\kappa(x):\mathbb F_q]$. Para todo $n\geq1$,
@@ -605,11 +747,11 @@ Sea $q$ una potencia de un primo, y sea $M_d$ el número de puntos cerrados de $
 En particular, $M_1=q+1$ y $M_2=(q^2-q)/2$.
 \end{prop}
 \begin{proof}
-Sea $N_d$ el número de polinomios mónicos irreducibles de grado $d$ en $\mathbb F_q[t]$. El polinomio $t^{q^n}-t$ es el producto de los mónicos irreducibles cuyos grados dividen a $n$, cada uno con multiplicidad uno. Comparando grados,
+Sea $N_d$ el número de polinomios mónicos irreducibles de grado $d$ en $\mathbb F_q[t]$. Por el \cref{lema:s08-factorizacion-frobenius}, comparar grados da
 \[
 \sum_{d\mid n}dN_d=q^n.
 \]
-Los puntos cerrados de grado $d$ de $\mathbb A_{\mathbb F_q}^1$ son esos $N_d$. El infinito añade un punto de grado uno, de modo que $M_1=N_1+1$ y $M_d=N_d$ para $d\geq2$. Así se obtiene la fórmula. Para $n=1$ da $M_1=q+1$, y para $n=2$ da $M_1+2M_2=q^2+1$, de donde resulta el valor de $M_2$.
+Los puntos cerrados de grado $d$ de $\mathbb A_{\mathbb F_q}^1$ son esos $N_d$, por la \cref{prop:s08-puntos-recta-afin-campo}. El infinito añade un punto de grado uno, de modo que $M_1=N_1+1$ y $M_d=N_d$ para $d\geq2$. Así se obtiene la fórmula. Para $n=1$ da $M_1=q+1$, y para $n=2$ da $M_1+2M_2=q^2+1$, de donde resulta el valor de $M_2$. \emph{[Lang, Algebra, cap.~V, \S5.]}
 \end{proof}
 
 \begin{obs}[Lectura geométrica]
@@ -617,22 +759,53 @@ Los puntos cerrados de grado $d$ de $\mathbb A_{\mathbb F_q}^1$ son esos $N_d$. 
 Un punto cerrado de grado $d$ es una órbita de Frobenius de $d$ puntos de $\mathbb P^1(\overline{\mathbb F}_q)$, como $\set{z,\bar z}$ es una órbita de conjugación sobre $\mathbb R$. La órbita cae en $\mathbb P^1(\mathbb F_{q^n})$ cuando $d\mid n$ y aporta $d$ puntos. Como este conjunto tiene $q^n+1$ puntos $[a:b]$, la suma cuenta las órbitas por su tamaño.
 \end{obs}
 
+\subsection{Las fibras de \texorpdfstring{$\mathbb P_A^1$}{P1A} sobre un anillo cualquiera}
+
+\begin{prop}[Fibras de $\mathbb P_A^1$]
+\label{prop:s08-fibras-proyectiva}
+Sean $A$ un anillo, $\mathfrak p\in\Spec A$, $\kappa=\kappa(\mathfrak p)$ y $\pi:\mathbb P_A^1\to\Spec A$ el morfismo estructural. Hay una biyección entre el conjunto $\pi^{-1}(\mathfrak p)$ y el conjunto de puntos de $\mathbb P_\kappa^1$, que lleva:
+\begin{itemize}
+\item el primo $\mathfrak pA[t]$ de $U_0$ al genérico $(0)$ de $\mathbb P_\kappa^1$;
+\item cada primo de $U_0$ sobre $\mathfrak p$ correspondiente a $(\bar f)\subseteq\kappa[t]$, con $\bar f$ mónico irreducible, a ese punto $(\bar f)$;
+\item el único punto $\infty_{\mathfrak p}$ de $\psi_1(V(s))$ sobre $\mathfrak p$ al punto $\infty$.
+\end{itemize}
+\end{prop}
+\begin{proof}
+En $U_0$, la fibra se identifica con $\Spec\kappa[t]$ por el \cref{lema:s08-fibra-recta-afin}. El núcleo de $A[t]\to\kappa[t]$ es $\mathfrak pA[t]$, de modo que este primo corresponde a $(0)$. Por la \cref{prop:s08-proyectiva-como-conjunto}, el complemento de $U_0$ es una copia de $\Spec A$ y aporta exactamente $\infty_{\mathfrak p}$. Este corresponde en $U_1$ a $(\mathfrak p,s)$. Las identificaciones de las dos cartas respetan $s=t^{-1}$, por lo que recuperan la lista de la \cref{prop:s08-puntos-proyectiva-cuerpo} sobre $\kappa$. Solo afirmamos aquí una biyección de conjuntos; la construcción de la fibra como esquema queda para más adelante.
+\end{proof}
+
 \subsection{Sobre \texorpdfstring{$\mathbb Z$}{Z}}
 
-\begin{ejem}[Los puntos de $\mathbb A_{\mathbb Z}^1$ y de $\mathbb P_{\mathbb Z}^1$]
+\begin{prop}[{Los primos de $\mathbb Z[t]$}]
+\label{prop:s08-primos-z-t}
+Los ideales primos de $\mathbb Z[t]$ son exactamente los siguientes:
+\begin{enumerate}[label=(\alph*)]
+\item $(0)$;
+\item $(g)$, con $g\in\mathbb Z[t]$ primitivo, irreducible y de grado positivo, único salvo signo;
+\item $(p)$, con $p$ un número primo;
+\item $(p,g)$, con $p$ primo y $g\in\mathbb Z[t]$ mónico cuya reducción $\bar g\in\mathbb F_p[t]$ es irreducible.
+\end{enumerate}
+Los dos primeros tipos contraen a $(0)$ en $\mathbb Z$ y los dos últimos a $(p)$. En el último, el ideal depende solo de $\bar g$, no del levantamiento mónico $g$. \emph{[Vakil, ejercicio 3.2.Q; Sesión 1.]}
+\end{prop}
+\begin{proof}
+Sea $\mathfrak q\subseteq\mathbb Z[t]$ primo. Su contracción a $\mathbb Z$ es $(0)$ o $(p)$.
+
+Si $\mathfrak q\cap\mathbb Z=(0)$, localizamos en $\mathbb Z\setminus\set{0}$. Por las \cref{prop:s08-primos-localizacion,prop:s08-polinomios-campo}, $\mathfrak q$ es la contracción de $(0)$ o de $(f)\subseteq\mathbb Q[t]$, con $f$ irreducible. En el primer caso es $(0)$. En el segundo, la \cref{prop:s08-gauss}(G1) permite sustituir $f$ por un primitivo irreducible $g\in\mathbb Z[t]$, único salvo signo. Por (G2),
+\[
+\mathfrak q=g\mathbb Q[t]\cap\mathbb Z[t]=g\mathbb Z[t].
+\]
+Estos ideales son primos y no contienen enteros no nulos.
+
+Si $\mathfrak q\cap\mathbb Z=(p)$, el primo contiene a $(p)$. La \cref{prop:s08-primos-cociente} lo identifica con un primo de $\mathbb F_p[t]$: es $(0)$ o $(\bar g)$, con $\bar g$ mónico irreducible. Al contraer obtenemos $(p)$ o $(p,g)$ para cualquier levantamiento mónico $g$. Dos levantamientos difieren por un elemento de $p\mathbb Z[t]$, de modo que dan el mismo ideal. La unicidad del generador mónico en $\mathbb F_p[t]$ y las correspondencias usadas prueban que no hay más identificaciones.
+\end{proof}
+
+\begin{samepage}
+\begin{prop}[Los puntos de $\mathbb P_{\mathbb Z}^1$]
+\label{prop:s08-puntos-sobre-z}
 \label{ejem:s08-puntos-sobre-z}
-Clasificamos los primos $\mathfrak q\subseteq\mathbb Z[t]$ según $\mathfrak q\cap\mathbb Z$.
-\begin{itemize}
-\item Si $\mathfrak q\cap\mathbb Z=(0)$, el primo corresponde a uno de $\mathbb Z[t]\otimes\mathbb Q=\mathbb Q[t]$. Es $(0)$, o $(f)$ con $f\in\mathbb Z[t]$ irreducible primitivo no constante, por el lema de Gauss.
-\item Si $\mathfrak q\cap\mathbb Z=(p)$ con $p$ primo, contiene a $p$ y corresponde a un primo de $\mathbb Z[t]/(p)=\mathbb F_p[t]$. Es $(p)$, o $(p,g)$ con $g\in\mathbb Z[t]$ mónico cuya reducción $\bar g\in\mathbb F_p[t]$ es irreducible.
-\end{itemize}
-A estos se suman los puntos de $\psi_1(V(s))\cong\Spec\mathbb Z$: son $(s)$ y los $(s,p)$ en $\mathbb Z[s]$. \emph{[Vakil, ejercicio 3.2.Q, para la fibra sobre $(p)$.]}
-\end{ejem}
-
-\emph{Advertencia.} El ideal $(p,g)$ depende solo de $\bar g$, no del levantamiento $g$.
-
-% Esqueleto y presentación S08, diapositiva 25: tabla de puntos y cuerpos.
+Los puntos de $\mathbb P_{\mathbb Z}^1$ son los primos de $U_0=\Spec\mathbb Z[t]$ de la \cref{prop:s08-primos-z-t} y los puntos de la sección del infinito $\psi_1(V(s))\cong\Spec\mathbb Z$: $(s)$ y los $(s,p)$, con $p$ primo. Sus cuerpos residuales y las imágenes por $\pi$ son:
 \begin{center}
+\normalfont
 \small
 \renewcommand{\arraystretch}{1.3}
 \begin{tabular}{lccc}
@@ -640,7 +813,7 @@ A estos se suman los puntos de $\psi_1(V(s))\cong\Spec\mathbb Z$: son $(s)$ y lo
 Punto & Ideal & Cuerpo residual & Sobre\\
 \hline
 genérico & $(0)$ & $\mathbb Q(t)$ & $(0)$\\
-cerrado en la fibra racional & $(f)$ & $\mathbb Q[t]/(f)$ & $(0)$\\
+cerrado en la fibra racional & $(g)$ & $\mathbb Q[t]/(g)$ & $(0)$\\
 genérico de la fibra en $p$ & $(p)$ & $\mathbb F_p(t)$ & $(p)$\\
 cerrado en la fibra en $p$ & $(p,g)$ & $\mathbb F_p[t]/(\bar g)$ & $(p)$\\
 infinito, fibra racional & $(s)$ & $\mathbb Q$ & $(0)$\\
@@ -649,6 +822,11 @@ infinito, fibra en $p$ & $(s,p)$ & $\mathbb F_p$ & $(p)$\\
 \end{tabular}
 \end{center}
 Las cuatro primeras filas son primos de $\mathbb Z[t]$ en $U_0$; las dos últimas son primos de $\mathbb Z[s]$ en $U_1$.
+\end{prop}
+\end{samepage}
+\begin{proof}
+La lista se obtiene de las \cref{prop:s08-primos-z-t,prop:s08-proyectiva-como-conjunto}. El cuerpo residual de un primo $\mathfrak q$ es $\Frac(B/\mathfrak q)$ en su carta $\Spec B$. Para $(g)$ se puede localizar primero en los enteros no nulos y obtener el campo $\mathbb Q[t]/(g)$. Para $(p)$ se obtiene $\mathbb F_p(t)$ y para $(p,g)$ el cociente $\mathbb F_p[t]/(\bar g)$, que ya es un campo. Los cocientes por $(s)$ y $(s,p)$ son $\mathbb Z$ y $\mathbb F_p$. Finalmente, el morfismo estructural contrae cada primo a $\mathbb Z$, lo que da la última columna.
+\end{proof}
 
 % Presentación S08, diapositiva 26: superficie aritmética y secciones.
 \begin{center}
@@ -673,38 +851,102 @@ Las cuatro primeras filas son primos de $\mathbb Z[t]$ en $U_0$; las dos última
 \end{center}
 La base $\Spec\mathbb Z$ es una curva y cada fibra es una recta proyectiva: el dibujo representa $\mathbb P_{\mathbb Z}^1$ como superficie aritmética. Las secciones $t=0$ y $t=2$ se cortan solo sobre $(2)$, en el punto $(2,t)$.
 
-\begin{obs}[Puntos cerrados de $\mathbb P_{\mathbb Z}^1$]
+\begin{prop}[Puntos cerrados de $\mathbb P_{\mathbb Z}^1$]
+\label{prop:s08-puntos-cerrados-sobre-z}
 \label{obs:s08-puntos-cerrados-sobre-z}
-Los puntos cerrados de $\mathbb P_{\mathbb Z}^1$ tienen cuerpo residual finito, pues un cuerpo que es una $\mathbb Z$-álgebra finitamente generada es finito. Los de cuerpo residual $\mathbb F_{p^d}$ son exactamente los puntos cerrados de grado $d$ de $\mathbb P_{\mathbb F_p}^1$. Para cada primo $p$ hay $p+1$ puntos cerrados con cuerpo residual $\mathbb F_p$ y $(p^2-p)/2$ con cuerpo residual $\mathbb F_{p^2}$. La cadena $(0)\subset(p)\subset(p,t)$ muestra que la dimensión de $\mathbb P_{\mathbb Z}^1$ es al menos dos; la dimensión se definirá en la Sesión 16.
+Un punto de $\mathbb P_{\mathbb Z}^1$ es cerrado si y solo si es de tipo $(p,g)$ o $(s,p)$, es decir, si cae sobre $(p)$ y es cerrado en la fibra $\mathbb P_{\mathbb F_p}^1$ de la \cref{prop:s08-fibras-proyectiva}. Su cuerpo residual es $\mathbb F_{p^d}$, donde $d$ es su grado en esa fibra. Para cada primo $p$ hay $p+1$ puntos cerrados con cuerpo residual $\mathbb F_p$ y $(p^2-p)/2$ con cuerpo residual $\mathbb F_{p^2}$.
+\end{prop}
+\begin{proof}
+Los ideales $(p,g)$ son máximos porque sus cocientes son los campos finitos $\mathbb F_p[t]/(\bar g)$. Si el punto está en ambas cartas, el cambio $s=t^{-1}$ identifica también su cuerpo residual con un cociente de $\mathbb F_p[s]$; este es un campo, pues la inversa de un elemento no nulo de un campo finito es un polinomio en él. Así es cerrado en ambas cartas. El punto $(s,p)$ solo está en $U_1$ y es máximo allí. Aplicamos el \cref{lema:s08-cerrados-cartas}.
+
+Los primos $(0)$ y $(p)$ no son máximos en $\mathbb Z[t]$. Tampoco lo es $(g)$: elijamos un primo $p$ que no divida al coeficiente principal de $g$. Entonces $\bar g$ es no constante y tiene un factor irreducible $\bar h\in\mathbb F_p[t]$. El ideal propio $(p,h)$ contiene estrictamente a $(g)$, pues $p\notin(g)$. Por último, $(s)$ no es máximo en $\mathbb Z[s]$. Esto excluye todos los demás puntos de la \cref{prop:s08-puntos-sobre-z}. Los grados y el conteo se deducen de las \cref{prop:s08-fibras-proyectiva,prop:s08-puntos-cerrados-campo-finito}.
+\end{proof}
+
+\begin{obs}[Dimensión]
+\label{obs:s08-dimension-proyectiva-z}
+La cadena de primos $(0)\subsetneq(p)\subsetneq(p,t)$ en $\mathbb Z[t]$ tiene longitud dos. Por tanto, la dimensión de Krull de $\mathbb Z[t]$ y la de $\mathbb P_{\mathbb Z}^1$, que contiene $\Spec\mathbb Z[t]$ como abierto, son al menos dos. Esto motiva la imagen de superficie; la dimensión se estudiará en la Sesión 16.
 \end{obs}
 
 \emph{Advertencia.} Un punto $(f)$ de la fibra racional es cerrado en $\mathbb P_{\mathbb Q}^1$, pero no en $\mathbb P_{\mathbb Z}^1$. Por ejemplo,
 \[
 \mathbb Z[t]/(2t-1)\cong\mathbb Z[1/2]
 \]
-no es un cuerpo. La cerradura de $(2t-1)$ es una curva horizontal que corta cada fibra, incluida la de $2$, donde pasa por el infinito.
+no es un cuerpo. La cerradura de $(2t-1)$ es una curva horizontal que corta cada fibra una vez. En $U_0$ es $V(2t-1)$ y sus puntos corresponden, por la \cref{prop:s08-primos-cociente}, a los primos de $\mathbb Z[1/2]$: son el propio $(2t-1)$ y los $(p,2t-1)$ con $p$ impar. En la fibra sobre $2$ no hay punto en esta carta, porque $(2,2t-1)=(1)$. En $U_1$, la ecuación es $s=2$, de modo que la cerradura llega al infinito $(s,2)$.
 
+\begin{samepage}
 \subsection{Sobre un anillo de valoración discreta}
 
-\begin{ejem}[$\mathbb P_A^1$ con $A$ un DVR]
-\label{ejem:s08-proyectiva-dvr}
-Sea $A$ un anillo de valoración discreta (DVR), es decir, un dominio de ideales principales local que no es un cuerpo. Sean $K$ su cuerpo de fracciones, $\mathfrak m=(\varpi)$ su ideal maximal y $\kappa=A/\mathfrak m$ su cuerpo residual. El generador $\varpi$ es un uniformizante. Por ejemplo, para $A=\mathbb Z_{(p)}$ se tiene $K=\mathbb Q$, $\kappa=\mathbb F_p$ y $\varpi=p$. Entonces $\Spec A=\set{(0),\mathfrak m}$ y $\pi:\mathbb P_A^1\to\Spec A$ tiene dos fibras:
-\begin{itemize}
-\item la fibra genérica sobre $(0)$ es $\mathbb P_K^1$ y es abierta;
-\item la fibra especial sobre $\mathfrak m$ es $\mathbb P_\kappa^1$ y es cerrada.
-\end{itemize}
-Se piensa $\Spec A$ como un disco pequeño: el punto cerrado es el centro, y el genérico representa el disco sin su centro. Como $(0)$ en $A[t]$ es el genérico de todo $\mathbb P_A^1$, la fibra genérica es densa.
-\end{ejem}
+\begin{defi}[Anillo de valoración discreta]
+\label{defi:s08-dvr}
+Un anillo de valoración discreta (DVR) es un dominio de ideales principales local que no es un cuerpo. Sean $K$ su cuerpo de fracciones, $\mathfrak m=(\varpi)$ su único ideal máximo y $\kappa=A/\mathfrak m$ su cuerpo residual. El generador $\varpi$ se llama uniformizante.
 
-\begin{defi}[Reducción]
+Ejemplos son $A=\mathbb Z_{(p)}=\set{a/b\in\mathbb Q\given p\nmid b}$, con $K=\mathbb Q$, $\mathfrak m=(p)$ y $\kappa=\mathbb F_p$, y $A=k[u]_{(u)}$, con $K=k(u)$, $\varpi=u$ y $\kappa=k$. En $\mathbb Z_{(p)}$, las no unidades son los $a/b$ con $p\mid a$, así que su único ideal máximo es $p\mathbb Z_{(p)}$. Es un dominio de ideales principales por ser una localización de $\mathbb Z$.
+\end{defi}
+\end{samepage}
+
+\begin{prop}[Estructura de un DVR]
+\label{prop:s08-estructura-dvr}
+Sea $A$ un DVR con uniformizante $\varpi$.
+\begin{enumerate}[label=(\alph*)]
+\item $\Spec A=\set{(0),\mathfrak m}$, $D(\varpi)=\set{(0)}$ y $\set{\mathfrak m}$ es cerrado.
+\item Cada $x\in K^\times$ se escribe de manera única como $x=u\varpi^n$, con $u\in A^\times$ y $n\in\mathbb Z$. Definimos $v(x)=n$ y $v(0)=\infty$.
+\end{enumerate}
+\emph{[Atiyah--Macdonald, cap.~9; Sesión 3.]}
+\end{prop}
+\begin{proof}
+Todo primo no nulo de un dominio de ideales principales es máximo, por la \cref{prop:s08-polinomios-campo}; como $A$ es local, debe ser $\mathfrak m$. Esto prueba (a). Además, un dominio de ideales principales tiene factorización única y todo irreducible de $A$ genera el único primo no nulo, por lo que es asociado a $\varpi$. Así, todo elemento no nulo de $A$ es una unidad por una potencia no negativa de $\varpi$. Escribiendo un elemento de $K^\times$ como cociente obtenemos (b). La unicidad de la factorización da la del exponente y, fijado este, la de la unidad.
+\end{proof}
+
+\begin{prop}[Las fibras de $\mathbb P_A^1$ sobre un DVR]
+\label{prop:s08-fibras-dvr}
+\label{ejem:s08-proyectiva-dvr}
+Sea $A$ un DVR y $\pi:\mathbb P_A^1\to\Spec A$ el morfismo estructural.
+\begin{enumerate}[label=(\alph*)]
+\item La fibra genérica $\pi^{-1}((0))$ es abierta y, como conjunto, es $\mathbb P_K^1$.
+\item La fibra especial $\pi^{-1}(\mathfrak m)$ es cerrada y, como conjunto, es $\mathbb P_\kappa^1$.
+\item El punto $(0)$ de $A[t]$ es el genérico de $\mathbb P_A^1$, y la fibra genérica es densa.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+La \cref{prop:s08-fibras-proyectiva} da las dos descripciones de puntos. La \cref{prop:s08-estructura-dvr}(a) y la continuidad de $\pi$ muestran que la primera fibra es abierta y la segunda cerrada. Como $A[t]$ es un dominio, $(0)$ es genérico en $U_0$; pertenece a $D(t)$ y se identifica con el genérico $(0)$ de $U_1$. Su cerradura contiene ambas cartas y es todo $\mathbb P_A^1$; como el punto pertenece a la fibra genérica, esta es densa.
+\end{proof}
+
+\begin{obs}[El disco]
+\label{obs:s08-disco-dvr}
+Se piensa $\Spec A$ como un disco pequeño. El punto cerrado $\mathfrak m$ es el centro, y el genérico $(0)$ representa al disco sin su centro. Así, $\mathbb P_A^1$ es una familia de rectas proyectivas sobre el disco: la fibra especial vive sobre el centro y la genérica sobre el resto.
+\end{obs}
+
+\begin{defi}[Puntos racionales y reducción]
 \label{defi:s08-reduccion}
-El punto $K$-racional $[a:b]$ de $\mathbb P_K^1$ se representa por un par no nulo $(a,b)\in K^2$ módulo $K^\times$. Tiene coordenada $t=b/a$ si $a\ne0$, y $s=a/b$ si $b\ne0$. Denotamos por $\mathbb P^1(K)$ el conjunto de estos puntos. Multiplicando por una potencia de $\varpi$, podemos suponer $a,b\in A$ y que no ambos pertenecen a $\mathfrak m$. La reducción de $[a:b]$ es $[\bar a:\bar b]\in\mathbb P^1(\kappa)$.
+Para un campo $F$, $\mathbb P^1(F)$ es el conjunto de clases $[a:b]$ de pares $(a,b)\in F^2\setminus\set{(0,0)}$ módulo $F^\times$. El punto asociado de $\mathbb P_F^1$ es
+\[
+x_{[a:b]}=
+\begin{cases}
+(t-b/a),&a\ne0,\\
+\infty,&a=0.
+\end{cases}
+\]
+Si $b\ne0$, también tiene coordenada $s=a/b$ en $U_1$. Por la \cref{prop:s08-puntos-proyectiva-cuerpo}, esta aplicación es una biyección sobre los puntos de grado uno.
+
+Sea ahora $A$ un DVR. Un representante $(a,b)$ de un punto de $\mathbb P^1(K)$ es normalizado si $a,b\in A$ y al menos uno es una unidad, es decir, si $\min(v(a),v(b))=0$. Su reducción es $[\bar a:\bar b]\in\mathbb P^1(\kappa)$, donde las barras indican reducción módulo $\mathfrak m$.
 \end{defi}
 
-\begin{obs}
+\begin{lema}[La reducción está bien definida]
+\label{lema:s08-reduccion-bien-definida}
 \label{obs:s08-reduccion-bien-definida}
-La reducción no depende del representante: dos representantes con coordenadas en $A$ no ambas en $\mathfrak m$ difieren por una unidad de $A$. Para $A=\mathbb Z_{(p)}$ es la reducción de un punto racional módulo $p$. Que todo punto $K$-racional se extienda a un punto con valores en $A$ es la parte de existencia del criterio valuativo de propiedad de la Sesión 15.
-\end{obs}
+Todo punto de $\mathbb P^1(K)$ tiene un representante normalizado, y dos representantes normalizados difieren por una unidad de $A$. En consecuencia, $[\bar a:\bar b]$ es un punto de $\mathbb P^1(\kappa)$ independiente del representante.
+\end{lema}
+\begin{proof}
+Sea $r=\min(v(a),v(b))$, que es finito porque las coordenadas no son ambas cero. Multiplicar por $\varpi^{-r}$ hace que ambas valoraciones sean no negativas y una sea cero. Por la \cref{prop:s08-estructura-dvr}(b), el nuevo par está normalizado.
+
+Si $(a',b')=\lambda(a,b)$ y ambos pares están normalizados, entonces
+\[
+0=\min(v(a'),v(b'))=v(\lambda)+\min(v(a),v(b))=v(\lambda).
+\]
+Así $\lambda\in A^\times$ y $\bar\lambda\in\kappa^\times$. Los pares reducidos son no nulos y difieren por $\bar\lambda$, por lo que representan el mismo punto.
+\end{proof}
+
+Para $A=\mathbb Z_{(p)}$, esta es la reducción de un punto racional módulo $p$. Que todo punto $K$-racional se extienda a un punto con valores en $A$ es la parte de existencia del criterio valuativo de propiedad de la Sesión 15.
 
 % S08b, diapositiva 33 y esqueleto, sección 5.3: extensión sobre el DVR.
 \begin{center}
@@ -715,6 +957,22 @@ La reducción no depende del representante: dos representantes con coordenadas e
 \end{tikzcd}
 \end{center}
 La flecha discontinua representa la extensión a $\Spec A$ del punto definido sobre $K$; su valor en el punto cerrado es la reducción.
+
+\begin{prop}[La cerradura corta la fibra especial en la reducción]
+\label{prop:s08-cerradura-reduccion}
+Sea $[a:b]\in\mathbb P^1(K)$ y $x=x_{[a:b]}$ el punto correspondiente de la fibra genérica de $\mathbb P_A^1$. La cerradura de $\set{x}$ corta la fibra especial en exactamente un punto: el que la \cref{prop:s08-fibras-proyectiva} identifica con $x_{[\bar a:\bar b]}\in\mathbb P_\kappa^1$, para un representante normalizado $(a,b)$.
+\end{prop}
+\begin{proof}
+Normalizamos las coordenadas mediante el \cref{lema:s08-reduccion-bien-definida}. Supongamos primero que $a$ es una unidad y pongamos $c=b/a\in A$. En $U_0$, el punto $x$ es el primo $(t-c)$ de $A[t]$: el cociente es $A$ y su contracción a $A$ es $(0)$. Su cerradura en $U_0$ es $V(t-c)\cong\Spec A$ y corta la fibra especial en el único primo
+\[
+\mathfrak mA[t]+(t-c),
+\]
+que corresponde al punto $t=\bar c=\bar b/\bar a$.
+
+No aparece otro punto en la segunda carta. Si $b=0$, entonces $x\notin U_1$ y la \cref{obs:s08-especializacion-local} muestra que su cerradura tampoco corta a $U_1$. Si $b\ne0$, entonces $x\in U_1$ y la ecuación $bs-a=0$ se cumple en $x$, luego también en su cerradura dentro de esa carta. Cuando $b\in\mathfrak m$, su reducción es $-\bar a=0$, imposible, así que no hay punto de la fibra especial en $U_1$. Si $b$ es unidad, la cerradura es $V(s-a/b)$; su punto especial $s=\bar a/\bar b$ es el ya encontrado en el traslape.
+
+Si $a$ no es unidad, $b$ sí lo es. El mismo argumento, intercambiando las cartas, da un único punto especial con $s=\bar a/\bar b$. En todos los casos es el punto $[\bar a:\bar b]$.
+\end{proof}
 
 % Presentación S08, diapositiva 30: especialización de un punto racional.
 \begin{center}
@@ -864,9 +1122,23 @@ de modo que $nm=1$ y $n=\pm1$. Tomemos $\nu_1=\id$ y el cambio de coordenada en 
 \[
 \varphi^\sharp\nu_2^\sharp(y')=c^{-1}cx^{\pm1}=x^{\pm1}.
 \]
-El \cref{lema:s08-funtorialidad-pegado} identifica el pegado con el de $y'=x$ o el de $y'=x^{-1}$. Son la recta con origen doble del \cref{ejem:s07-recta-origen-doble} y la recta proyectiva de la \cref{defi:s08-recta-proyectiva}. La constante se absorbe en el cambio de carta; el exponente distingue los casos.
+Además, $\nu_2^\sharp$ lleva $(y')^{\pm1}$ a $c^{\mp1}y^{\pm1}$, de modo que $\nu_2(X_{21})=X_{21}'$. La compatibilidad para el par inverso se obtiene invirtiendo la del par $(1,2)$. El \cref{lema:s08-funtorialidad-pegado} identifica el pegado con el de $y'=x$ o el de $y'=x^{-1}$. Son la recta con origen doble del \cref{ejem:s07-recta-origen-doble} y la recta proyectiva de la \cref{defi:s08-recta-proyectiva}. La constante se absorbe en el cambio de carta; el exponente distingue los casos. Que no son isomorfos se demuestra en la \cref{prop:s08-secciones-origen-doble}.
 \end{proof}
-Los dos esquemas no son isomorfos porque sus anillos de secciones globales, $k[x]$ y $k$, no lo son: $k$ es un campo y $k[x]$ no. \emph{[Vakil, ejercicio 4.4.B.]}
+
+\begin{prop}[Secciones globales de la recta con origen doble]
+\label{prop:s08-secciones-origen-doble}
+Sea $X$ la recta con origen doble sobre un campo $k$, con cartas $X_1=\Spec k[x]$ y $X_2=\Spec k[y']$ pegadas por $y'=x$ en los abiertos donde la coordenada es invertible. Entonces $\Gamma(X,\mathcal O_X)=k[x]$. En consecuencia, $X$ y $\mathbb P_k^1$ no son isomorfos, y $X$ no es afín. \emph{[Vakil, ejercicio 4.4.B.]}
+\end{prop}
+\begin{proof}
+Una sección es un par $(f(x),g(y'))$ que coincide en $k[x,x^{-1}]$ tras sustituir $y'=x$. Como $k[x]\hookrightarrow k[x,x^{-1}]$ es inyectivo, la condición equivale a $f=g$. Así, las secciones son los pares $(f,f)$ y su anillo es $k[x]$. Un isomorfismo con $\mathbb P_k^1$ induciría un isomorfismo entre $k[x]$ y $k$, por la \cref{prop:s08-secciones-proyectiva}; esto es imposible, pues $k$ es un campo y $k[x]$ no.
+
+Las restricciones $\Gamma(X,\mathcal O_X)\to\Gamma(X_i,\mathcal O_{X_i})$ son isomorfismos. Por la construcción de la \cref{defi:s08-morfismo-canonico}, $\eta_X:X\to\Spec k[x]$ restringe a la identidad en cada carta, identificando $y'$ con $x$. Envía los dos orígenes distintos al mismo punto $(x)$, de modo que no es inyectivo. La \cref{prop:s08-propiedades-morfismo-canonico}(e) implica que $X$ no es afín.
+\end{proof}
+
+\begin{obs}[Los dos pegados sobre un anillo]
+\label{obs:s08-dos-pegados-anillo}
+El mismo cálculo de secciones de la recta con origen doble vale sobre cualquier anillo $A$: $A[x]\hookrightarrow A[x,x^{-1}]$ sigue siendo inyectivo y el anillo de secciones es $A[x]$. Si $A\ne0$, para cualquier $\mathfrak p\in\Spec A$ los dos puntos $\mathfrak pA[x]+(x)$, uno en cada carta, son distintos y tienen la misma imagen por el morfismo canónico. Por tanto, la recta con origen doble tampoco es afín sobre $A$. Junto con el \cref{coro:s08-proyectiva-no-afin}, esto da dos pegados no afines de las mismas piezas. Sobre un campo los distingue la \cref{prop:s08-secciones-origen-doble}; para un anillo no nulo cualquiera los distinguirá la separación: $\mathbb P_A^1$ es separado y la recta con origen doble no lo es. Esta propiedad se estudiará en la Sesión 15.
+\end{obs}
 
 \section{Ejercicios}
 

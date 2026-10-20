@@ -6,7 +6,7 @@ Apuntes personales de **Pablo Jair Aranda Pérez** para el curso de Teoría de E
 
 ## Contenido y estado
 
-El documento incluye la introducción y las **sesiones 1–8**, con materiales incorporados hasta **S8b**. El programa completo contempla 24 sesiones; las que aún no están apuntadas no aparecen en el PDF.
+El documento incluye la introducción y las **sesiones 1–8**, con materiales incorporados hasta **S8c**. El programa completo contempla 24 sesiones; las que aún no están apuntadas no aparecen en el PDF.
 
 | Sesión | Tema |
 | --- | --- |

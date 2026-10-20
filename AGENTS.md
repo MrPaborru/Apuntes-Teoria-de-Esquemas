@@ -19,7 +19,7 @@ Estas pautas son la base del proyecto y se aplican a toda incorporación o corre
 
 Al incorporar S8b, el usuario extendió la pauta de integración cohesiva a las clases futuras que completen detalles de una misma sesión. Esta indicación prevalece sobre la antigua concatenación literal de partes. Conservar todos los contenidos matemáticos distintos, ejemplos, correcciones, ejercicios, pistas y diagramas; enunciar una sola vez los resultados repetidos y reunir sus demostraciones y desarrollos complementarios. Mantener las etiquetas existentes y las referencias automáticas al reorganizar.
 
-La sesión 7 conserva su exposición unificada de 7a, 7b y 7c y la demostración del Lema de Pegado en cinco pasos. En la sesión 8, la clase 8a se detuvo antes de comenzar la recta proyectiva (apartado 8.3), y 8b completó los detalles previos y llegó a probar la no afinidad de la recta proyectiva. Los materiales posteriores que ya estaban incorporados se conservan; las ampliaciones de 8b se integran en el argumento al que pertenecen.
+La sesión 7 conserva su exposición unificada de 7a, 7b y 7c y la demostración del Lema de Pegado en cinco pasos. En la sesión 8, la clase 8a se detuvo antes de comenzar la recta proyectiva (apartado 8.3), y 8b completó los detalles previos y llegó a probar la no afinidad de la recta proyectiva. La clase 8c precisa las correcciones anteriores y desarrolla los puntos y fibras de la recta proyectiva, la clasificación sobre Z, los DVR y la reducción, además de completar los otros pegados. Estos desarrollos se reúnen en sus apartados correspondientes, sin repetir los recordatorios. Los materiales posteriores que ya estaban incorporados se conservan.
 
 ## LaTeX y edición
 
