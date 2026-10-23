@@ -46,5 +46,6 @@ latexmk.out
 
 # Carpetas auxiliares locales de trabajo y copias de prompts del asistente
 /tmp/
+/tmp/pdfs/
 /docs/criterios/
 
