@@ -6,6 +6,8 @@ Para los tallos, en cambio, $\mathcal O_{X,x}=\varinjlim_{U\ni x}\mathcal O_X(U)
 
 La sesión anterior probó el \myref{teo:s07-lema-pegado}. Hoy lo usamos con dos piezas, caso en el que el cociclo se cumple automáticamente.
 
+Las referencias por apartados a \emph{The Rising Sea} en esta sesión siguen la versión de noviembre de 2017 empleada en los materiales de clase.
+
 \begin{defi}[Datos de pegado]
 \label{defi:s08-datos-pegado}
 Unos datos de pegado para una familia de esquemas $\set{X_i}_{i\in I}$ consisten, para cada par $(i,j)\in I\times I$, en un subesquema abierto $X_{ij}\subseteq X_i$, con $X_{ii}=X_i$, y un isomorfismo de esquemas $\varphi_{ij}:X_{ij}\to X_{ji}$ que cumplen:
@@ -375,6 +377,8 @@ define un isomorfismo de esquemas $\varphi_{01}:U_{01}\to U_{10}$. Por la \cref{
 Un punto $[x_0:x_1]$ con $x_0\ne0$ tiene coordenada $t=x_1/x_0$; cuando $x_1\ne0$, tiene coordenada $s=x_0/x_1$. En el traslape se cumple $s=t^{-1}$, la transición de la \cref{defi:s08-recta-proyectiva}. Si $A=k$ y $a\in k^\times$, los puntos $t=a$ y $s=a^{-1}$ de ambas cartas se identifican.
 \end{obs}
 
+En adelante identificamos las cartas con sus imágenes por $\psi_i$: así, $U_0\cap U_1$ se identifica con $D(t)$ en la primera carta y con $D(s)$ en la segunda.
+
 % Presentación S08, diapositiva 13: círculo y las dos proyecciones.
 \begin{center}
 \begin{minipage}{.47\textwidth}
@@ -571,7 +575,7 @@ Es el análogo de que las únicas funciones holomorfas en $\mathbb{CP}^1$ son co
 
 \begin{obs}[Qué buscamos]
 \label{obs:s08-objetivos-puntos}
-Describiremos los puntos de la recta proyectiva sobre un cuerpo, sobre $\mathbb Z$ y sobre un anillo de valoración discreta. Las cartas reducen el problema a clasificar primos de anillos de polinomios. Después estudiaremos la reducción de puntos racionales a una fibra especial, construiremos $\mathbb P_A^n$ y clasificaremos los pegados de dos rectas.
+Describiremos los puntos de la recta proyectiva sobre un cuerpo, sobre $\mathbb Z$ y sobre un anillo de valoración discreta. Las cartas reducen el problema a clasificar primos de anillos de polinomios. Sobre $\mathbb Z$ probaremos cuáles son máximos y cuántos generadores necesitan; el mapa de Mumford permitirá leer sus curvas, fibras y secciones. Después estudiaremos la reducción de puntos racionales a una fibra especial, construiremos $\mathbb P_A^n$ y clasificaremos los pegados de dos rectas.
 \end{obs}
 
 \subsection{Lo que se usa hoy}
@@ -579,7 +583,11 @@ Describiremos los puntos de la recta proyectiva sobre un cuerpo, sobre $\mathbb 
 \subsubsection{Definiciones y resultados previos}
 Recordemos las \cref{defi:s01-espectro-primo,defi:s02-s-definimos-v-s-p,defi:s02-f-abierto-distinguido-asociado-f}: los puntos de $\Spec A$ son sus ideales primos, los cerrados son $V(I)=\set{\mathfrak p\in\Spec A\given I\subseteq\mathfrak p}$ y los abiertos básicos son $D(f)=\set{\mathfrak p\given f\notin\mathfrak p}$. Por el \cref{coro:s05-gavilla-estructural}, $\mathcal O(D(f))=A_f$; además, $D(f)\cong\Spec A_f$ por el \cref{coro:s03-inclusion-inducida-identifica-f-d}.
 
+La identidad $V(I)\cap V(J)=V(I+J)$ expresa que contener $I,J$ equivale a contener $I+J$.
+
 Un punto $x$ es cerrado cuando $\set{x}$ es cerrado, y es genérico de un cerrado $Z$ cuando $\overline{\set{x}}=Z$. Por la \cref{prop:s02-todo-p-cerradura-punto-p}, $\overline{\set{\mathfrak p}}=V(\mathfrak p)$: los puntos cerrados del espectro son los ideales máximos y, si $A$ es un dominio, $(0)$ es su punto genérico. La \cref{defi:s02-decimos-q-especializacion-p-q} describe las especializaciones.
+
+Por ejemplo, $(0)\subseteq\mathbb Z$ es primo y no máximo: es el punto genérico de $\Spec\mathbb Z$ y su cuerpo residual es $\mathbb Q$.
 
 \begin{obs}[La especialización es local]
 \label{obs:s08-especializacion-local}
@@ -601,6 +609,8 @@ Una inmersión abierta identifica su fuente con un subesquema abierto de la meta
 \label{defi:s08-esquema-sobre-anillo-fibra}
 Un esquema sobre $A$ es un esquema $X$ con un morfismo $\pi:X\to\Spec A$, llamado morfismo estructural. Para $\mathbb A_A^1=\Spec A[t]$, la inclusión $A\to A[t]$ induce $\pi(\mathfrak q)=\mathfrak q\cap A$. La fibra sobre $y\in\Spec A$ es el conjunto $\pi^{-1}(y)$. Aquí solo se usa como conjunto de puntos; la fibra como esquema, $X\times_{\Spec A}\Spec\kappa(y)$, se construirá en las Sesiones 12 y 14.
 \end{defi}
+
+\emph{Vocabulario.} $\mathbb P^1$ es la recta proyectiva y $\mathbb P^2$ el plano proyectivo. En este contexto, afín o no afín califica a un esquema, no a un anillo. Para la propiedad de separación se dice \emph{esquema separado}; se estudiará en la Sesión 15.
 
 \begin{defi}[Grado de un punto]
 \label{defi:s08-grado-punto}
@@ -644,6 +654,7 @@ g\mathbb Q[t]\cap\mathbb Z[t]=g\mathbb Z[t].
 \begin{prop}[Hecho E, cuerpos finitos]
 \label{prop:s08-cuerpos-finitos}
 Sea $K$ un campo de característica $p>0$ y $q$ una potencia de $p$.
+Para cada potencia de primo $q$ existe un cuerpo con $q$ elementos, único salvo isomorfismo, denotado $\mathbb F_q$. Todo cuerpo finito de característica $p$ tiene $p^n$ elementos para algún $n\geq1$. Si $f\in\mathbb F_p[t]$ es irreducible de grado $d$, entonces $\mathbb F_p[t]/(f)\cong\mathbb F_{p^d}$. Además:
 \begin{enumerate}[label=(E\arabic*)]
 \item El Frobenius $x\mapsto x^q$ es un homomorfismo de anillos $K\to K$.
 \item Si $K$ tiene $q$ elementos, todo $x\in K$ cumple $x^q=x$.
@@ -728,6 +739,8 @@ Por el teorema fundamental del álgebra, los irreducibles complejos son lineales
 \end{center}
 \emph{Advertencia.} Un punto cerrado de grado dos es el par $\set{z,\bar z}$, no dos puntos. El polinomio $t^2+1$ da un solo punto de $\mathbb P_{\mathbb R}^1$, aunque $i$ y $-i$ son dos números.
 
+Los puntos de grado uno y dos de $\mathbb P_{\mathbb R}^1$ son todos cerrados. Su único punto no cerrado es el genérico; el infinito es $(s)$ en la segunda carta y no el primo $(0)$.
+
 \begin{lema}[Factorización de $t^{q^n}-t$]
 \label{lema:s08-factorizacion-frobenius}
 Sea $q$ una potencia de un primo y $n\geq1$. En $\mathbb F_q[t]$, el polinomio $t^{q^n}-t$ es el producto de todos los mónicos irreducibles cuyo grado divide a $n$, cada uno una sola vez.
@@ -756,7 +769,7 @@ Los puntos cerrados de grado $d$ de $\mathbb A_{\mathbb F_q}^1$ son esos $N_d$, 
 
 \begin{obs}[Lectura geométrica]
 \label{obs:s08-orbitas-frobenius}
-Un punto cerrado de grado $d$ es una órbita de Frobenius de $d$ puntos de $\mathbb P^1(\overline{\mathbb F}_q)$, como $\set{z,\bar z}$ es una órbita de conjugación sobre $\mathbb R$. La órbita cae en $\mathbb P^1(\mathbb F_{q^n})$ cuando $d\mid n$ y aporta $d$ puntos. Como este conjunto tiene $q^n+1$ puntos $[a:b]$, la suma cuenta las órbitas por su tamaño.
+Un punto cerrado de grado $d$ es una órbita de Frobenius de $d$ puntos de $\mathbb P^1(\overline{\mathbb F}_q)$, como $\set{z,\bar z}$ es una órbita de conjugación sobre $\mathbb R$. La órbita cae en $\mathbb P^1(\mathbb F_{q^n})$ si y solo si $d\mid n$, donde $\mathbb F_{q^n}$ es la extensión de grado $n$ de $\mathbb F_q$; en ese caso aporta $d$ puntos. Como este conjunto tiene $q^n+1$ puntos $[a:b]$, la suma cuenta las órbitas por su tamaño.
 \end{obs}
 
 \subsection{Las fibras de \texorpdfstring{$\mathbb P_A^1$}{P1A} sobre un anillo cualquiera}
@@ -776,6 +789,8 @@ En $U_0$, la fibra se identifica con $\Spec\kappa[t]$ por el \cref{lema:s08-fibr
 
 \subsection{Sobre \texorpdfstring{$\mathbb Z$}{Z}}
 
+\subsubsection{Los primos de \texorpdfstring{$\mathbb Z[t]$}{Z[t]}}
+
 \begin{prop}[{Los primos de $\mathbb Z[t]$}]
 \label{prop:s08-primos-z-t}
 Los ideales primos de $\mathbb Z[t]$ son exactamente los siguientes:
@@ -785,10 +800,19 @@ Los ideales primos de $\mathbb Z[t]$ son exactamente los siguientes:
 \item $(p)$, con $p$ un número primo;
 \item $(p,g)$, con $p$ primo y $g\in\mathbb Z[t]$ mónico cuya reducción $\bar g\in\mathbb F_p[t]$ es irreducible.
 \end{enumerate}
-Los dos primeros tipos contraen a $(0)$ en $\mathbb Z$ y los dos últimos a $(p)$. En el último, el ideal depende solo de $\bar g$, no del levantamiento mónico $g$. \emph{[Vakil, ejercicio 3.2.Q; Sesión 1.]}
+Los dos primeros tipos contraen a $(0)$ en $\mathbb Z$ y los dos últimos a $(p)$. En el último, el ideal depende solo de $\bar g$, no del levantamiento mónico $g$. Dos ideales de la lista coinciden solo si son el mismo $(0)$, si $(g)=(g')$ con $g'=\pm g$, si $(p)=(p')$ con $p=p'$, o si $(p,g)=(p',g')$ con $p=p'$ y $\bar g=\bar g'$. Además:
+\begin{enumerate}[label=(\alph*),start=5]
+\item Los de tipo (d) son máximos y
+\[
+\mathbb Z[t]/(p,g)\cong\mathbb F_p[t]/(\bar g)
+\]
+es un campo finito. Los de tipos (a), (b) y (c) no son máximos.
+\item Un primo de $\mathbb Z[t]$ es máximo si y solo si no es principal. Los de tipos (a), (b) y (c) se generan con un elemento; los máximos necesitan dos, y se generan por $p$ y $g$.
+\end{enumerate}
+\emph{[Vakil, ejercicio 3.2.Q y \S12.1.H; Lang, Algebra, cap.~IV, \S2.]}
 \end{prop}
 \begin{proof}
-Sea $\mathfrak q\subseteq\mathbb Z[t]$ primo. Su contracción a $\mathbb Z$ es $(0)$ o $(p)$.
+\emph{La lista.} Sea $\mathfrak q\subseteq\mathbb Z[t]$ primo. Su contracción a $\mathbb Z$ es $(0)$ o $(p)$.
 
 Si $\mathfrak q\cap\mathbb Z=(0)$, localizamos en $\mathbb Z\setminus\set{0}$. Por las \cref{prop:s08-primos-localizacion,prop:s08-polinomios-campo}, $\mathfrak q$ es la contracción de $(0)$ o de $(f)\subseteq\mathbb Q[t]$, con $f$ irreducible. En el primer caso es $(0)$. En el segundo, la \cref{prop:s08-gauss}(G1) permite sustituir $f$ por un primitivo irreducible $g\in\mathbb Z[t]$, único salvo signo. Por (G2),
 \[
@@ -797,7 +821,138 @@ Si $\mathfrak q\cap\mathbb Z=(0)$, localizamos en $\mathbb Z\setminus\set{0}$. P
 Estos ideales son primos y no contienen enteros no nulos.
 
 Si $\mathfrak q\cap\mathbb Z=(p)$, el primo contiene a $(p)$. La \cref{prop:s08-primos-cociente} lo identifica con un primo de $\mathbb F_p[t]$: es $(0)$ o $(\bar g)$, con $\bar g$ mónico irreducible. Al contraer obtenemos $(p)$ o $(p,g)$ para cualquier levantamiento mónico $g$. Dos levantamientos difieren por un elemento de $p\mathbb Z[t]$, de modo que dan el mismo ideal. La unicidad del generador mónico en $\mathbb F_p[t]$ y las correspondencias usadas prueban que no hay más identificaciones.
+
+\emph{La maximalidad.} El cociente por $(p,g)$ es el campo finito $\mathbb F_p[t]/(\bar g)$, así que ese ideal es máximo. Los primos $(0)$ y $(p)$ no lo son, como muestra la cadena $(0)\subsetneq(p)\subsetneq(p,t)$. Tampoco lo es $(g)$: elijamos un primo $p$ que no divida al coeficiente principal de $g$. Entonces $\bar g$ es no constante, por lo que $(g)\subsetneq(p,g)\subsetneq\mathbb Z[t]$. La primera inclusión es estricta porque $p\notin(g)$ y la segunda porque $\mathbb F_p[t]/(\bar g)\ne0$. Si se elige un factor mónico irreducible $\bar h$ de $\bar g$, se obtiene incluso un ideal máximo $(p,h)$ que contiene estrictamente a $(g)$.
+
+\emph{Dos generadores y no uno.} Los tres primeros tipos son principales. Si $(p,g)=(h)$, entonces $h$ divide al polinomio constante $p$, de modo que también es constante. Como $p$ es primo, $h=\pm1$ o $h=\pm p$. El primer caso daría todo el anillo; el segundo implicaría $g\in(p)$ y $\bar g=0$, contradicción. Por tanto $(p,g)$ no es principal y necesita los dos generadores anunciados.
 \end{proof}
+
+\begin{obs}[El paso que da la maximalidad]
+\label{obs:s08-paso-maximalidad}
+Si $\mathfrak q\cap\mathbb Z=(p)$ y $\mathfrak q\ne(p)$, entonces $\mathfrak q/(p)$ es un primo no nulo del dominio de ideales principales $\mathbb F_p[t]$. Por la \cref{prop:s08-polinomios-campo}, es máximo y tiene la forma $(\bar g)$ con $\bar g$ irreducible. Así $\mathbb F_p[t]/(\bar g)$ es un campo y $\mathfrak q=(p,g)$ es máximo. La irreducibilidad de $\bar g$ se deduce de la primalidad; no hay que suponerla de antemano.
+\end{obs}
+
+\emph{Advertencia.} El tipo (b) no exige que $g$ sea mónico; por ejemplo, $g=2t-1$.
+
+\begin{obs}[Ejemplos]
+\label{obs:s08-ejemplos-primos-z-t}
+Para reconocer el tipo de un ideal de $\mathbb Z[t]$, miramos su cociente:
+% S08d, diapositiva 8: tabla completa de ideales y cocientes.
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{lll}
+\hline
+Ideal & Qué es & Cociente\\
+\hline
+$(t^2+1)$ & primo de tipo (b), no máximo & $\mathbb Z[i]$\\
+$(2t-1)$ & primo de tipo (b), no máximo & $\mathbb Z[1/2]$\\
+$(2,t)$ & máximo de tipo (d) & $\mathbb F_2$\\
+$(3,t^2+1)$ & máximo de tipo (d) & $\mathbb F_9$\\
+$(2,t^2+1)$ & no primo & $\mathbb F_2[t]/((t+1)^2)$\\
+$(6,t)$ & no primo & $\mathbb Z/6\mathbb Z$\\
+\hline
+\end{tabular}
+\end{center}
+Los dos primeros cocientes son dominios y no cuerpos. Como $-1$ no es un cuadrado en $\mathbb F_3$, el cociente de la cuarta fila es el campo $\mathbb F_9$. En cambio, en $\mathbb F_2[t]/((t+1)^2)$ la clase de $t+1$ es un nilpotente no nulo; y en $\mathbb Z/6\mathbb Z$ hay divisores de cero.
+\end{obs}
+
+\subsubsection{El mapa de Mumford de \texorpdfstring{$\Spec\mathbb Z[t]$}{Spec Z[t]}}
+
+\begin{obs}[Cómo se lee el dibujo]
+\label{obs:s08-mapa-mumford}
+El plano $\mathbb A_{\mathbb Z}^1=\Spec\mathbb Z[t]$ se dibuja sobre $\Spec\mathbb Z$, con la proyección $\pi$ hacia abajo. Es el mapa clásico de Mumford, aquí en la versión de clase:
+\begin{enumerate}
+\item El punto genérico $(0)$ es el único cuya cerradura es todo el plano.
+\item El primo $(p)$ es el genérico de la vertical $V(p)=\Spec\mathbb F_p[t]=\mathbb A_{\mathbb F_p}^1$. La fibra sobre $(0)$ es $\mathbb A_{\mathbb Q}^1$; se dibuja ondulada porque contiene al genérico del plano, es densa y no es cerrada.
+\item El primo $(g)$ es el genérico de la curva horizontal $V(g)=\Spec(\mathbb Z[t]/(g))$, como $V(t)$, $V(t-2)$ o $V(t^2+1)$.
+\item Un máximo $(p,g)$ es el cruce de la vertical $V(p)$ y la curva $V(g)$:
+\[
+V(p)\cap V(g)=V(p,g)
+=\Spec\bigl(\mathbb F_p[t]/(\bar g)\bigr).
+\]
+Es un solo punto porque $\bar g$ es irreducible. El levantamiento mónico $g$ también es irreducible en $\mathbb Z[t]$: por Gauss, una factorización no trivial se puede tomar en factores mónicos, y al reducir módulo $p$ contradiría la irreducibilidad de $\bar g$.
+\item La cadena $(0)\subsetneq(p)\subsetneq(p,t)$ va del genérico a una vertical y después a un cruce. Muestra que esta superficie aritmética tiene dimensión al menos dos.
+\end{enumerate}
+\emph{[Mumford, The Red Book, dibujo de $\Spec\mathbb Z[x]$; Eisenbud--Harris, The Geometry of Schemes; Vakil, ejercicio 3.2.Q.]}
+\end{obs}
+
+% S08d, diapositiva 10: la vertical, la fibra racional ondulada y V(t^2+1).
+\begin{center}
+\begin{tikzpicture}[every node/.style={font=\small},x=1cm,y=.95cm]
+\draw[grisCIMAT,->] (-.5,0)--(10.5,0) node[right] {$\Spec\mathbb Z$};
+\draw[blue!60!black,thick] plot[domain=.4:3.65,samples=85] ({.055*sin(700*\x)},\x);
+\fill[grisCIMAT] (0,0) circle (2pt) node[below] {$(0)$};
+\node[above,blue!60!black] at (0,3.65) {$\mathbb A_{\mathbb Q}^1$};
+\foreach \x/\p in {2/2,4/3,6/5,8/7}{
+ \draw[green!45!black,thick] (\x,.4)--(\x,3.65);
+ \fill[grisCIMAT] (\x,0) circle (2pt) node[below] {$(\p)$};
+}
+\node[above,green!45!black] at (2,3.65) {$\mathbb A_{\mathbb F_2}^1$};
+\draw[rojoCIMAT,thick] (-.4,.85)--(9.9,.85) node[right] {$V(t)$};
+\draw[orange!75!black,thick] (-.4,2.75)
+ .. controls (.7,2.55) and (1.35,2.3) .. (2,2.3)
+ .. controls (2.8,2.55) and (3.2,2.55) .. (4,2.3)
+ .. controls (4.6,2.5) and (5.3,2.85) .. (6,2.85)
+ .. controls (6.7,2.85) and (7.3,2.5) .. (8,2.3)
+ --(9.9,2.75) node[right] {$V(t^2+1)$};
+\draw[orange!75!black,thick] (-.4,1.85)
+ .. controls (.7,2.05) and (1.35,2.3) .. (2,2.3)
+ .. controls (2.8,2.05) and (3.2,2.05) .. (4,2.3)
+ .. controls (4.6,2.1) and (5.3,1.75) .. (6,1.75)
+ .. controls (6.7,1.75) and (7.3,2.1) .. (8,2.3)
+ --(9.9,1.85);
+\foreach \x in {2,4,6,8}{\fill[rojoCIMAT] (\x,.85) circle (2.2pt);}
+\draw[orange!75!black,fill=white,thick] (1.95,2.25) rectangle (2.05,2.35);
+\node[below right] at (2,2.23) {$\scriptstyle(2,t+1)$};
+\fill[orange!75!black] (4,2.3) circle (4pt);
+\fill[orange!75!black] (8,2.3) circle (4pt);
+\fill[orange!75!black] (6,2.85) circle (2.5pt) node[above right] {$\scriptstyle(5,t+2)$};
+\fill[orange!75!black] (6,1.75) circle (2.5pt) node[below right] {$\scriptstyle(5,t-2)$};
+\node[above] at (8.9,.65) {$\cdots$};
+\draw[->,blue!60!black,thick] (-.95,2.7)--(-.95,.45) node[midway,left] {$\pi$};
+\end{tikzpicture}
+\end{center}
+
+\begin{prop}[Los puntos de $V(t^2+1)$]
+\label{prop:s08-puntos-curva-gaussiana}
+Un primo de $\mathbb Z[t]$ contiene a $t^2+1$ si y solo si es $(t^2+1)$, de tipo (b), o es $(p,g)$, de tipo (d), con $\bar g$ un divisor mónico irreducible de $t^2+1$ en $\mathbb F_p[t]$. En particular:
+\begin{center}
+\normalfont\small
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{clll}
+\hline
+Sobre & Factorización en $\mathbb F_p[t]$ & Puntos & Cuerpo residual\\
+\hline
+$(2)$ & $(t+1)^2$ & $(2,t+1)$ & $\mathbb F_2$\\
+$(3)$ & irreducible & $(3,t^2+1)$ & $\mathbb F_9$\\
+$(5)$ & $(t-2)(t+2)$ & $(5,t-2)$, $(5,t+2)$ & $\mathbb F_5$ en ambos\\
+$(7)$ & irreducible & $(7,t^2+1)$ & $\mathbb F_{49}$\\
+\hline
+\end{tabular}
+\end{center}
+\end{prop}
+\begin{proof}
+El polinomio $t^2+1$ es primitivo e irreducible sobre $\mathbb Q$, luego su ideal es primo. Por la \cref{prop:s08-primos-z-t}, un primo de tipo (b) que lo contiene debe ser el propio $(t^2+1)$; ninguno de tipo (c) lo contiene, porque el polinomio es mónico. En el tipo (d), la condición equivale a $t^2+1\in(\bar g)$ en $\mathbb F_p[t]$, es decir, a que $\bar g$ divida a $t^2+1$.
+
+En $\mathbb F_2[t]$ se tiene $t^2+1=(t+1)^2$. En $\mathbb F_5[t]$ sus raíces son $\pm2$. No hay raíces en $\mathbb F_3$ ni en $\mathbb F_7$: los cuadrados respectivos son $\set{0,1}$ y $\set{0,1,2,4}$. Un cuadrático sin raíces es irreducible; los cuerpos residuales y sus grados resultan de la \cref{prop:s08-cuerpos-finitos}.
+\end{proof}
+
+El cuadrado en la fibra sobre $2$ representa un único punto con multiplicidad dos, porque el cociente $\mathbb F_2[t]/((t+1)^2)$ conserva un nilpotente no nulo. Los puntos grandes sobre $3$ y $7$ son puntos únicos de grado dos; los dos puntos sobre $5$ tienen grado uno. El tamaño de las marcas distingue los grados, no una distancia geométrica.
+
+\begin{obs}[Descomposición de primos]
+\label{obs:s08-descomposicion-gaussiana}
+Como $\mathbb Z[t]/(t^2+1)\cong\mathbb Z[i]$, la curva $V(t^2+1)$ es $\Spec\mathbb Z[i]$. Sus puntos sobre $(p)$ son los primos de $\mathbb Z[i]$ que contienen a $p$. El primo $2$ se ramifica, $5$ se descompone y $3,7$ son inertes. En general, un primo impar $p$ se descompone si $p\equiv1\pmod4$ y es inerte si $p\equiv3\pmod4$. Esta lectura aritmética no se usa después.
+\end{obs}
+
+\begin{obs}[Lectura complementaria: qué representa el mapa]
+\label{obs:s08-lectura-lebruyn}
+Le Bruyn \cite[\S1, pp.~6--9]{lebruyn2013} explica cómo el dibujo afín se completa con una segunda carta para representar $\mathbb P_{\mathbb Z}^1$: se pegan $\Spec\mathbb Z[t]$ y $\Spec\mathbb Z[s]$ sobre el abierto de Laurent, con $s=t^{-1}$. Es la construcción de la \cref{defi:s08-recta-proyectiva}; añadir la sección del infinito completa cada fibra afín en una recta proyectiva.
+
+El dibujo registra inclusiones de primos y especializaciones, no la topología euclidiana del papel. Su dirección horizontal viene del morfismo estructural a $\Spec\mathbb Z$; las alturas elegidas para las marcas no proporcionan una identificación canónica entre puntos de fibras distintas. La fibra racional contiene al genérico de la superficie y es densa: la descomposición en fibras es una partición de conjuntos, no una unión disjunta de componentes topológicas.
+\end{obs}
+
+\subsubsection{Los puntos de \texorpdfstring{$\mathbb P_{\mathbb Z}^1$}{P1Z}}
 
 \begin{samepage}
 \begin{prop}[Los puntos de $\mathbb P_{\mathbb Z}^1$]
@@ -851,6 +1006,25 @@ La lista se obtiene de las \cref{prop:s08-primos-z-t,prop:s08-proyectiva-como-co
 \end{center}
 La base $\Spec\mathbb Z$ es una curva y cada fibra es una recta proyectiva: el dibujo representa $\mathbb P_{\mathbb Z}^1$ como superficie aritmética. Las secciones $t=0$ y $t=2$ se cortan solo sobre $(2)$, en el punto $(2,t)$.
 
+\begin{prop}[Las secciones $t=0$ y $t=2$]
+\label{prop:s08-secciones-cero-dos}
+En $U_0=\Spec\mathbb Z[t]$, sean $S_0=V(t)$ y $S_2=V(t-2)$. Cada una es isomorfa a $\Spec\mathbb Z$ por la restricción de $\pi$, y corta cada fibra en exactamente un punto. Su intersección es
+\[
+S_0\cap S_2=V(t,t-2)=V(2,t),
+\]
+un único punto, $(2,t)$, de cuerpo residual $\mathbb F_2$ y situado sobre $(2)$. Para cada primo impar $p$, las secciones pasan por puntos distintos, $(p,t)$ y $(p,t-2)$.
+\end{prop}
+\begin{proof}
+Evaluar $t$ en un entero $a$ induce $\mathbb Z[t]/(t-a)\cong\mathbb Z$. La restricción del morfismo estructural a $V(t-a)$ es la identidad bajo esta identificación, de modo que cada fibra corta la sección en un punto.
+
+Por la fórmula para intersecar cerrados,
+\[
+V(t)\cap V(t-2)=V(t,t-2),\qquad
+(t,t-2)=(2,t).
+\]
+El cociente $\mathbb Z[t]/(t,t-2)\cong\mathbb Z/2\mathbb Z$ es un campo: la intersección consta del punto $(2,t)$. Si $p$ es impar, $0\ne2$ en $\mathbb F_p$, de modo que $(p,t)\ne(p,t-2)$.
+\end{proof}
+
 \begin{prop}[Puntos cerrados de $\mathbb P_{\mathbb Z}^1$]
 \label{prop:s08-puntos-cerrados-sobre-z}
 \label{obs:s08-puntos-cerrados-sobre-z}
@@ -859,8 +1033,13 @@ Un punto de $\mathbb P_{\mathbb Z}^1$ es cerrado si y solo si es de tipo $(p,g)$
 \begin{proof}
 Los ideales $(p,g)$ son máximos porque sus cocientes son los campos finitos $\mathbb F_p[t]/(\bar g)$. Si el punto está en ambas cartas, el cambio $s=t^{-1}$ identifica también su cuerpo residual con un cociente de $\mathbb F_p[s]$; este es un campo, pues la inversa de un elemento no nulo de un campo finito es un polinomio en él. Así es cerrado en ambas cartas. El punto $(s,p)$ solo está en $U_1$ y es máximo allí. Aplicamos el \cref{lema:s08-cerrados-cartas}.
 
-Los primos $(0)$ y $(p)$ no son máximos en $\mathbb Z[t]$. Tampoco lo es $(g)$: elijamos un primo $p$ que no divida al coeficiente principal de $g$. Entonces $\bar g$ es no constante y tiene un factor irreducible $\bar h\in\mathbb F_p[t]$. El ideal propio $(p,h)$ contiene estrictamente a $(g)$, pues $p\notin(g)$. Por último, $(s)$ no es máximo en $\mathbb Z[s]$. Esto excluye todos los demás puntos de la \cref{prop:s08-puntos-sobre-z}. Los grados y el conteo se deducen de las \cref{prop:s08-fibras-proyectiva,prop:s08-puntos-cerrados-campo-finito}.
+La \cref{prop:s08-primos-z-t}(e) excluye los tipos $(0)$, $(g)$ y $(p)$, que no son máximos en $U_0$. Por último, $(s)$ no es máximo en $\mathbb Z[s]$. Esto excluye todos los demás puntos de la \cref{prop:s08-puntos-sobre-z}. Los grados y el conteo se deducen de las \cref{prop:s08-fibras-proyectiva,prop:s08-puntos-cerrados-campo-finito}.
 \end{proof}
+
+\begin{obs}[Un hecho general sobre cuerpos]
+\label{obs:s08-cuerpos-z-algebras-finitas}
+Todo cuerpo que es una $\mathbb Z$-álgebra finitamente generada es finito. Este hecho, enunciado en clase, también explica la finitud de los cuerpos residuales de los puntos cerrados de $\mathbb P_{\mathbb Z}^1$; aquí se ha comprobado directamente mediante la clasificación.
+\end{obs}
 
 \begin{obs}[Dimensión]
 \label{obs:s08-dimension-proyectiva-z}
@@ -874,7 +1053,7 @@ La cadena de primos $(0)\subsetneq(p)\subsetneq(p,t)$ en $\mathbb Z[t]$ tiene lo
 no es un cuerpo. La cerradura de $(2t-1)$ es una curva horizontal que corta cada fibra una vez. En $U_0$ es $V(2t-1)$ y sus puntos corresponden, por la \cref{prop:s08-primos-cociente}, a los primos de $\mathbb Z[1/2]$: son el propio $(2t-1)$ y los $(p,2t-1)$ con $p$ impar. En la fibra sobre $2$ no hay punto en esta carta, porque $(2,2t-1)=(1)$. En $U_1$, la ecuación es $s=2$, de modo que la cerradura llega al infinito $(s,2)$.
 
 \begin{samepage}
-\subsection{Sobre un anillo de valoración discreta}
+\subsection{Sobre un anillo de valoración discreta y la reducción}
 
 \begin{defi}[Anillo de valoración discreta]
 \label{defi:s08-dvr}
@@ -908,7 +1087,7 @@ Sea $A$ un DVR y $\pi:\mathbb P_A^1\to\Spec A$ el morfismo estructural.
 \end{enumerate}
 \end{prop}
 \begin{proof}
-La \cref{prop:s08-fibras-proyectiva} da las dos descripciones de puntos. La \cref{prop:s08-estructura-dvr}(a) y la continuidad de $\pi$ muestran que la primera fibra es abierta y la segunda cerrada. Como $A[t]$ es un dominio, $(0)$ es genérico en $U_0$; pertenece a $D(t)$ y se identifica con el genérico $(0)$ de $U_1$. Su cerradura contiene ambas cartas y es todo $\mathbb P_A^1$; como el punto pertenece a la fibra genérica, esta es densa.
+La \cref{prop:s08-fibras-proyectiva} da las dos descripciones de puntos. La \cref{prop:s08-estructura-dvr}(a) y la continuidad de $\pi$ muestran que la primera fibra es abierta y la segunda cerrada. Como $A[t]$ es un dominio, $(0)$ es genérico en $U_0$; pertenece a $D(t)$ y se identifica con el genérico $(0)$ de $U_1$. Su cerradura contiene ambas cartas: es todo $\mathbb P_A^1$. Por ello la fibra genérica es densa.
 \end{proof}
 
 \begin{obs}[El disco]
@@ -943,7 +1122,7 @@ Si $(a',b')=\lambda(a,b)$ y ambos pares están normalizados, entonces
 \[
 0=\min(v(a'),v(b'))=v(\lambda)+\min(v(a),v(b))=v(\lambda).
 \]
-Así $\lambda\in A^\times$ y $\bar\lambda\in\kappa^\times$. Los pares reducidos son no nulos y difieren por $\bar\lambda$, por lo que representan el mismo punto.
+Así $\lambda\in A^\times$; al reducir, ambos pares no nulos difieren por $\bar\lambda\in\kappa^\times$ y dan el mismo punto.
 \end{proof}
 
 Para $A=\mathbb Z_{(p)}$, esta es la reducción de un punto racional módulo $p$. Que todo punto $K$-racional se extienda a un punto con valores en $A$ es la parte de existencia del criterio valuativo de propiedad de la Sesión 15.
@@ -998,11 +1177,43 @@ La cerradura de un punto $K$-racional corta la fibra especial en su reducción. 
 \end{center}
 \emph{Advertencia.} Para $A=\mathbb Z_{(2)}$, el punto $1/2=[2:1]$ se reduce a $[0:1]=\infty$. Hay que usar un representante con una coordenada unidad: $[1:1/2]$ no sirve.
 
+\subsubsection{Lectura complementaria: el caso \texorpdfstring{$p$}{p}-ádico}
+
+\begin{ejem}[Fibras sobre los enteros $p$-ádicos]
+\label{ejem:s08-fibras-p-adicas}
+El artículo de Serratos \cite[\S\S2.1 y 3.1]{serratos2023} aplica el mismo método al anillo de enteros $p$-ádicos
+\[
+\mathbb Z_p=\varprojlim_n\mathbb Z/p^n\mathbb Z,\qquad
+\mathbb Q_p=\Frac(\mathbb Z_p).
+\]
+El anillo $\mathbb Z_p$ es un DVR con uniformizante $p$ y cuerpo residual $\mathbb F_p$. Por el \cref{lema:s08-fibra-recta-afin}, los puntos de $\Spec\mathbb Z_p[t]$ se reparten en una fibra genérica $\Spec\mathbb Q_p[t]$ y una especial $\Spec\mathbb F_p[t]$. La primera es el abierto $D(p)$ y la segunda el cerrado $V(p)$, pues
+\[
+\mathbb Z_p[t][1/p]=\mathbb Q_p[t],\qquad
+\mathbb Z_p[t]/p\mathbb Z_p[t]=\mathbb F_p[t].
+\]
+\par\noindent\begin{minipage}{\linewidth}
+Estos mapas conmutan con las proyecciones a la base:
+\begin{center}
+\begin{tikzcd}[column sep=large,row sep=large]
+\Spec\mathbb F_p[t]\arrow[r,hook]\arrow[d]
+ &\Spec\mathbb Z_p[t]\arrow[d,"\pi"]
+ &\Spec\mathbb Q_p[t]\arrow[l,hook,swap,"\text{abierto}"]\arrow[d]\\
+\Spec\mathbb F_p\arrow[r,hook]
+ &\Spec\mathbb Z_p
+ &\Spec\mathbb Q_p\arrow[l,hook]
+\end{tikzcd}
+\end{center}
+\end{minipage}\par
+La fibra genérica es densa porque contiene al primo $(0)$ del dominio $\mathbb Z_p[t]$. Por ello esta partición en dos fibras tampoco es una descomposición en dos componentes abiertas y cerradas.
+
+Para la recta proyectiva, la \cref{prop:s08-fibras-dvr} da las fibras $\mathbb P_{\mathbb Q_p}^1$ y $\mathbb P_{\mathbb F_p}^1$. Así, las construcciones de reducción de esta sección se aplican también a coordenadas $p$-ádicas. Hay que distinguir esta situación de $A=\mathbb Z_{(p)}$: ambos DVR tienen cuerpo residual $\mathbb F_p$, pero sus cuerpos de fracciones son $\mathbb Q_p$ y $\mathbb Q$, respectivamente; véase el \cref{ejem:s03-mismo-germen-teoria-numeros} y la advertencia que lo sigue.
+\end{ejem}
+
 \section{\texorpdfstring{$\mathbb P_A^n$}{PnA} por cartas}
 
 \begin{defi}[Las cartas de $\mathbb P_A^n$]
 \label{defi:s08-cartas-proyectiva-n}
-Sea $n\geq1$. Para $i=0,\ldots,n$, sea $A_i=A[x_{k/i}:k\ne i]$, el anillo de polinomios en las $n$ variables $x_{k/i}$, y $U_i=\Spec A_i$. Se pone $x_{i/i}=1$, $U_{ii}=U_i$ y $\varphi_{ii}=\id$. Para $j\ne i$, sea $U_{ij}=D(x_{j/i})\subseteq U_i$, con anillo de funciones $A_i[x_{j/i}^{-1}]$, y
+Sea $n\geq1$. Para $i=0,\ldots,n$, sea $A_i=A[x_{k/i}:k\ne i]$, el anillo de polinomios en las $n$ variables $x_{k/i}$, y $U_i=\Spec A_i\cong\mathbb A_A^n$. Son $n+1$ cartas, cada una con $n$ coordenadas afines; $x_{k/i}$ representa el cociente de coordenadas homogéneas $x_k/x_i$. Se pone $x_{i/i}=1$, $U_{ii}=U_i$ y $\varphi_{ii}=\id$. Para $j\ne i$, sea $U_{ij}=D(x_{j/i})\subseteq U_i$, con anillo de funciones $A_i[x_{j/i}^{-1}]$, y
 \[
 \varphi_{ij}^\sharp:A_j[x_{i/j}^{-1}]\longrightarrow A_i[x_{j/i}^{-1}],
 \qquad x_{k/j}\longmapsto\frac{x_{k/i}}{x_{j/i}}.
@@ -1141,6 +1352,19 @@ El mismo cálculo de secciones de la recta con origen doble vale sobre cualquier
 \end{obs}
 
 \section{Ejercicios}
+
+\begin{ejer}[Primos de $\mathbb Z\lbrack t\rbrack$]
+\label{ejer:s08-clasificar-ideales-z-t}
+Para cada ideal, indica su tipo y si es primo o máximo:
+\[
+(t^2-2),\qquad (5,t^2+2),\qquad (5,t^2+1),\qquad (4,t).
+\]
+\end{ejer}
+
+\begin{ejer}[Los máximos de $\mathbb Z\lbrack t\rbrack$]
+\label{ejer:s08-maximos-z-t}
+Muestra que todo ideal máximo de $\mathbb Z[t]$ tiene cuerpo residual finito, y que $\mathbb Z[t]$ no es un dominio de ideales principales.
+\end{ejer}
 
 \begin{ejer}[El espacio afín menos el origen]
 \label{ejer:s08-afin-menos-origen}

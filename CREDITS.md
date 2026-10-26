@@ -14,6 +14,8 @@ La bibliografía del documento incluye obras de Ravi Vakil, Qing Liu, Robin Hart
 
 Las referencias concretas aparecen en el PDF y en [Referencias.bib](Referencias.bib). Una referencia bibliográfica no atribuye a sus autores la redacción de estos apuntes.
 
+La sesión 8 incorpora dos lecturas complementarias proporcionadas por el profesor: *Absolute geometry and the Habiro topology*, de Lieven Le Bruyn (2013), para interpretar los dibujos de Mumford, y *On the prime spectrum of the p-adic integer polynomial ring with a depiction*, de Juan Serratos (2023), para comparar las fibras sobre los enteros p-ádicos. Las aportaciones seleccionadas están identificadas y citadas en el texto; las copias de lectura se conservan en [Recursos/Esqueletos](Recursos/Esqueletos).
+
 ## Plantilla y elementos gráficos
 
 La plantilla LaTeX fue adaptada de los apuntes del autor de Homotopía Estable. Los logotipos incluidos en [Portada](Portada) corresponden al CIMAT y forman parte de la presentación gráfica del curso.
