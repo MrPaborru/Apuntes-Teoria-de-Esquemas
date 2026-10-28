@@ -6,7 +6,7 @@ Apuntes personales de **Pablo Jair Aranda Pérez** para el curso de Teoría de E
 
 ## Contenido y estado
 
-El documento incluye la introducción y las **sesiones 1–8**, con materiales incorporados hasta **S8d**. El programa completo contempla 24 sesiones; las que aún no están apuntadas no aparecen en el PDF.
+El documento incluye la introducción y las **sesiones 1–9**, con materiales incorporados hasta **S9a**. El programa completo contempla 24 sesiones; las que aún no están apuntadas no aparecen en el PDF.
 
 | Sesión | Tema |
 | --- | --- |
@@ -19,6 +19,7 @@ El documento incluye la introducción y las **sesiones 1–8**, con materiales i
 | 6 | Esquemas afines y equivalencia contravariante |
 | 7 | Definición de esquema y pegado |
 | 8 | Ejemplos globales: plano menos el origen, morfismo canónico, espacios proyectivos y superficies aritméticas |
+| 9 | Valoración discreta, buena reducción y propiedades básicas de esquemas |
 
 Cada capítulo corresponde a una sesión. Las clases a, b, c, etc. de una misma sesión se integran en una exposición continua cuando completan argumentos anteriores. Los apuntes conservan los contenidos distintos de los esqueletos y los desarrollos, dibujos y diagramas de las presentaciones.
 
