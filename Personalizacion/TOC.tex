@@ -23,7 +23,7 @@
 % Capitulos
 \setlength{\cftchapnumwidth}{2.5em}
 \setlength{\cftbeforechapskip}{0.7em} % arriba
-\renewcommand{\cftchapafterpnum}{\vspace{0.5em}} % abajo
+\renewcommand{\cftchapafterpnum}{\chaptertocboxend\vspace{0.5em}} % abajo
 % Secciones
 \setlength{\cftsecnumwidth}{\cftchapnumwidth}   
 \setlength{\cftsecindent}{1.5em}
@@ -41,16 +41,28 @@
 
 \cftpagenumbersoff{chap}
 
-% Contorno del renglón
+% Contorno de la entrada: las dos marcas permiten títulos de varias líneas
+% conservando el margen, la tipografía y la altura original en una sola línea.
+\newcounter{chaptertocentry}
 \newcommand{\chaptertocbox}{%
     \makebox[0pt][l]{%
         \tikz[remember picture,overlay]{%
-            \draw[color=grisCIMAT, line width=1pt]
-                ([yshift=-0.27em]0,0)
-                rectangle
-                ++(\textwidth,1.22em);
+            \coordinate (toc-start-\chaptertocid) at (0,0);
         }%
     }%
+}
+\newcommand{\chaptertocboxend}{%
+    \begingroup\large
+    \tikz[remember picture,overlay]{%
+        \coordinate (toc-end-\chaptertocid) at (0,0);
+        \coordinate (toc-bottom-\chaptertocid) at
+            (toc-start-\chaptertocid |- toc-end-\chaptertocid);
+        \draw[color=grisCIMAT, line width=1pt]
+            ([yshift=0.95em]toc-start-\chaptertocid)
+            rectangle
+            ([xshift=\textwidth,yshift=-0.27em]toc-bottom-\chaptertocid);
+    }%
+    \endgroup
 }
 
 % Recuadro del número, de ancho automático
@@ -80,6 +92,8 @@
 \let\oldl@chapter\l@chapter
 \renewcommand{\l@chapter}[2]{%
     \begingroup
+    \stepcounter{chaptertocentry}%
+    \edef\chaptertocid{\arabic{chaptertocentry}}%
     \let\numberline\chaptertocnumberline
     \oldl@chapter{#1}{#2}%
     \endgroup

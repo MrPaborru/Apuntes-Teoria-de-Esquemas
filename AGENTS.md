@@ -21,7 +21,9 @@ Al incorporar S8b, el usuario extendió la pauta de integración cohesiva a las 
 
 La sesión 7 conserva su exposición unificada de 7a, 7b y 7c y la demostración del Lema de Pegado en cinco pasos. En la sesión 8, la clase 8a se detuvo antes de comenzar la recta proyectiva (apartado 8.3), y 8b completó los detalles previos y llegó a probar la no afinidad de la recta proyectiva. La clase 8c precisa las correcciones anteriores y desarrolla los puntos y fibras de la recta proyectiva, la clasificación sobre Z, los DVR y la reducción, además de completar los otros pegados. Estos desarrollos se reúnen en sus apartados correspondientes, sin repetir los recordatorios. Los materiales posteriores que ya estaban incorporados se conservan.
 
-La clase 8d completa la maximalidad y los dos generadores de los primos de Z[t], el mapa de Mumford, la curva V(t²+1), la intersección de secciones y dos ejercicios nuevos. Estos contenidos se integran en los apartados existentes. A petición del usuario se incorporan, como lecturas complementarias citadas, la interpretación de los dibujos de Le Bruyn y las fibras p-ádicas de Serratos. Añadir una parte de la sesión 8 conserva NumClases = 8.
+La clase 8d completa la maximalidad y los dos generadores de los primos de Z[t], el mapa de Mumford, la curva V(t²+1), la intersección de secciones y dos ejercicios nuevos. Estos contenidos se integran en los apartados existentes. A petición del usuario se incorporan, como lecturas complementarias citadas, la interpretación de los dibujos de Le Bruyn y las fibras p-ádicas de Serratos. Añadir una parte de una sesión existente no incrementa NumClases.
+
+La clase 9a inicia la sesión 9 y se añade después de S8, conservando sus ocho secciones y todos sus entornos. Sus bloques de antecedentes se mantienen en el lugar del esqueleto; se identifican como recordatorios y se enlazan con los resultados previos cuando corresponda. En S9 las referencias a Vakil siguen la versión del 8 de septiembre de 2024 indicada por el profesor.
 
 ## LaTeX y edición
 
@@ -29,7 +31,7 @@ La clase 8d completa la maximalidad y los dos generadores de los primos de Z[t],
 - Cada entorno numerado debe tener inmediatamente un `\\label{entorno:etiqueta-descriptiva}`, único y consistente. Las referencias posteriores usan `\\cref`, `\\myref` (incluye nombre) o `\\abvref`; no escribir tipo/número manualmente ni usar `\\ref` sin una razón específica.
 - Para conjuntos explícitos usar `\\set{...}` o `\\set*{...}`, con `\\given` cuando corresponda; no usar llaves y barras manuales para sustituir estos comandos.
 - Evitar finales de párrafo de apenas palabras cortas mediante ajustes mínimos de redacción. Las fórmulas inline no deben partirse entre líneas. Conservar los ajustes editoriales del proyecto.
-- `NumClases` cuenta únicamente las sesiones numeradas actualmente apuntadas: la introducción o sesión 0 NO cuenta. Con las sesiones 1 a 8 desarrolladas, su valor es 8. Actualizar al añadir una nueva sesión; añadir una parte a una sesión existente no incrementa el total. Las sesiones pendientes no aparecen en el documento.
+- `NumClases` cuenta únicamente las sesiones numeradas actualmente apuntadas: la introducción o sesión 0 NO cuenta. Con las sesiones 1 a 9 desarrolladas, su valor es 9. Actualizar al añadir una nueva sesión; añadir una parte a una sesión existente no incrementa el total. Las sesiones pendientes no aparecen en el documento.
 - Conservar los estilos aprobados de portada, TOC, Introducción, referencias y ejercicios; no cambiarlos para incorporar contenido.
 
 ## Revisión y entrega
