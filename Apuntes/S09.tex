@@ -1,4 +1,4 @@
-% S09a: estructura íntegra del esqueleto; desarrollos del Beamer dentro de ella.
+% Sesión 9: integración de S09a y S09b con sus desarrollos y etiquetas.
 \section{Dónde quedamos}
 
 \begin{obs}[Fe de erratas de la 8d]
@@ -23,9 +23,11 @@ La clase anterior calculó los primos de $\mathbb Z[t]$, dibujó el mapa de Mumf
 \begin{enumerate}
 \item \emph{Valoración discreta.} La valuación $v$ de un DVR y el disco con su centro.
 \item \emph{Reducción y buena reducción.} Reducir un punto de $\mathbb P^1_K$ y su ecuación; definir cuándo un esquema sobre $K$ tiene buena reducción, con $\Spec\mathbb Z[i]\to\Spec\mathbb Z$ como modelo guía.
+\item \emph{Primos sobre $(0)$ y sobre $\mathfrak m$.} Describir los primos de $A[x]/(f)$ mediante $K[x]/(f)$ y $\kappa[x]/(\bar f)$.
 \item \emph{$\mathbb P^n_A$.} Las cartas y los morfismos de pegado, sin repetir el desarrollo de $\mathbb P^1_A$.
 \item \emph{Propiedades básicas.} Reducido, irreducible, integral y noetheriano, con $\Spec k[\varepsilon]/(\varepsilon^2)$ y $\Spec k[x,y]/(xy)$. La fibra no reducida de $\Spec\mathbb Z[i]$ sobre $2$ motiva la primera.
 \end{enumerate}
+La definición de modelo queda aplazada con el alcance de la \cref{obs:s09-lo-que-se-aplaza}. La integralidad y la noetherianidad se reservan para la continuación de la sesión.
 \end{obs}
 
 \begin{obs}[Quedan de ejercicio]
@@ -367,7 +369,139 @@ $t=3/4=[4:3]$ & $\infty$ & $[1:0]$, $t=0$ & $t=2$ & $t=6$\\
 Sobre $A=\mathbb Z_{(p)}$, los puntos $[1:0]$ y $[1:p]$ están normalizados y se reducen al mismo $[1:0]\in\mathbb P^1(\mathbb F_p)$. Sus ecuaciones $-Y$ y $pX-Y$ se reducen ambas a $-Y$. Sus cerraduras $V(t)$ y $V(t-p)$ en $\mathbb P^1_{\mathbb Z}$ se cortan en $V(t,t-p)=V(t,p)$, el punto $(p,t)$. En un primo $q\ne p$, las reducciones son distintas porque la clase de $p$ en $\mathbb F_q$ no es nula. Para $p=2$ es la intersección de las secciones de la \cref{prop:s08-secciones-cero-dos}. \emph{[Liu, \S10.1.3, lema~1.32.]}
 \end{ejem}
 
+\section{Los primos sobre \texorpdfstring{$(0)$ y sobre $\mathfrak m$}{(0) y sobre m}}
+\label{sec:s09-primos-sobre-base}
+
+\begin{obs}[Lo que se aplaza]
+\label{obs:s09-lo-que-se-aplaza}
+La definición de modelo usa fibras, productos fibrados y morfismos propios y planos; se retomará cuando el curso disponga de esas nociones. Las fibras de un morfismo son de la Sesión 12, los productos fibrados de la 14 y los morfismos propios de la 15; la planitud y los morfismos étale quedan para un segundo curso. Los cálculos siguientes emplean solo primos, contracción, localización y cocientes. El \cref{sec:s09-modelos} conserva el anticipo sobre modelos y buena reducción, con este alcance.
+\end{obs}
+
+\emph{Qué buscamos.} Repartir los primos de $B$ entre los que contraen a $(0)$ y los que contraen a $\mathfrak m$. \emph{Idea.} El espectro de un DVR tiene dos puntos y cada primo de $B$ contrae a uno de ellos.
+
+\begin{prop}[Los primos sobre $(0)$ y sobre $\mathfrak m$]
+\label{prop:s09-primos-sobre-dvr}
+Sea $A$ un DVR con uniformizante $\varpi$, cuerpo de fracciones $K$ y $\varphi:A\to B$ un homomorfismo. Escribimos también $\varpi$ para $\varphi(\varpi)$. Para un primo $P$ de $B$:
+\begin{enumerate}[label=(\alph*)]
+\item $\varphi^{-1}(P)=(0)$ si y solo si $\varpi\notin P$, y $\varphi^{-1}(P)=\mathfrak m$ si y solo si $\varpi\in P$. Por tanto $\Spec B$ es la unión disjunta, como conjunto, del abierto $D(\varpi)$ y el cerrado $V(\varpi)$.
+\item Los espacios $D(\varpi)$ y $\Spec B[\varpi^{-1}]$ son homeomorfos. Este anillo es la localización de $B$ en las imágenes $\varphi(s)$ con $s\in A\setminus\set{0}$.
+\item $V(\varpi)\cong\Spec(B/\mathfrak mB)$ como espacios topológicos.
+\end{enumerate}
+\emph{[Cálculo elemental; \cref{prop:s09-estructura-dvr}, la correspondencia para localizaciones de la \cref{teo:s03-correspondencia-localizaciones} y la \cref{prop:s09-primos-cociente}.]}
+\end{prop}
+\begin{proof}
+La contracción $\varphi^{-1}(P)$ es un primo de $A$, luego es $(0)$ o $\mathfrak m=(\varpi)$; es el segundo exactamente cuando contiene a $\varpi$. Esto da (a). Todo $s\in A\setminus\set{0}$ es $u\varpi^n$ con $u$ unidad y $n\ge0$, por la \cref{prop:s09-estructura-dvr}. Como $\varphi(u)$ es unidad, invertir las imágenes de todos los $s\ne0$ equivale a invertir $\varpi$. La identificación del abierto básico da (b), incluso si la localización es el anillo cero. Finalmente $\mathfrak mB=\varpi B$, y la correspondencia de primos del cociente identifica $V(\varpi)$ con $\Spec(B/\mathfrak mB)$, con sus topologías.
+\end{proof}
+
+\emph{Qué buscamos.} Leer los primos de una ecuación sobre $A$ como los de la ecuación sobre $K$ y los de su reducción. \emph{Idea.} Invertir $\varpi$ y después comparar con el cociente por $\mathfrak m$.
+
+\begin{prop}[Una ecuación sobre un DVR]
+\label{prop:s09-ecuacion-dvr}
+Sean $A$ un DVR, $f\in A[x]$ y $B=A[x]/(f)$. Entonces
+\[
+B[\varpi^{-1}]\cong K[x]/(f),\qquad
+B/\mathfrak mB\cong\kappa[x]/(\bar f),
+\]
+donde $\bar f$ reduce coeficiente a coeficiente módulo $\mathfrak m$. Los primos de $B$ que contraen a $(0)$ corresponden a los de $K[x]/(f)$, y los que contraen a $\mathfrak m$ a los de $\kappa[x]/(\bar f)$. \emph{[Cálculo elemental; \cref{prop:s09-estructura-dvr}(e); Vakil, \S10.3.]}
+\end{prop}
+\begin{proof}
+La localización conmuta con el cociente y con el anillo de polinomios, por lo que
+\[
+(A[x]/(f))[\varpi^{-1}]
+\cong A[\varpi^{-1}][x]/(f)=K[x]/(f).
+\]
+Por otra parte, cocientar por $\mathfrak mB$ equivale a cocientar $A[x]$ por $(f)+\mathfrak mA[x]$. Al reducir los coeficientes queda $\kappa[x]/(\bar f)$. Las correspondencias de la \cref{prop:s09-primos-sobre-dvr} dan la descripción de los primos.
+\end{proof}
+
+\begin{ejem}[$x(x-1)$ y $x(x-p)$ sobre $\mathbb Z_{(p)}$]
+\label{ejem:s09-ecuaciones-dos-puntos}
+Sea $A=\mathbb Z_{(p)}$, con $K=\mathbb Q$ y $\kappa=\mathbb F_p$.
+\begin{center}
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{cllcc}
+\hline
+$f$ & $\mathbb Q[x]/(f)$ & $\mathbb F_p[x]/(\bar f)$ & \shortstack{Sobre\\$(0)$} & \shortstack{Sobre\\$(p)$}\\
+\hline
+$x(x-1)$ & $\mathbb Q\times\mathbb Q$ & $\mathbb F_p\times\mathbb F_p$ & dos & dos\\
+$x(x-p)$ & $\mathbb Q\times\mathbb Q$ & $\mathbb F_p[x]/(x^2)$ & dos & \shortstack{uno, anillo\\no reducido}\\
+\hline
+\end{tabular}
+\end{center}
+En $\mathbb Q[x]$, las parejas $(x),(x-1)$ y $(x),(x-p)$ son comaximales, pues $1=x-(x-1)$ y $1=p^{-1}(x-(x-p))$. La \cref{prop:s09-productos-chino} da $\mathbb Q[x]/(f)\cong\mathbb Q\times\mathbb Q$ en ambas filas. En $\mathbb F_p[x]$, los factores $x$ y $x-1$ siguen siendo comaximales porque $0\ne1$, y dan dos primos.
+
+En cambio, $x(x-p)$ se reduce a $x^2$. Su cociente es $\mathbb F_p[\varepsilon]/(\varepsilon^2)$, cuyo único primo es $(\varepsilon)$: todo primo contiene al nilpotente $\varepsilon$, y el cociente por este ideal es $\mathbb F_p$. La clase $\varepsilon\ne0$ cumple $\varepsilon^2=0$. Es el \cref{ejem:s09-misma-reduccion}: dos puntos distintos se reducen al mismo, y el anillo de la ecuación reducida conserva un nilpotente no nulo. \emph{[Cálculo elemental con la \cref{prop:s09-ecuacion-dvr}; Vakil, \S10.3.]}
+\end{ejem}
+
+\emph{Qué buscamos.} Clasificar los primos de $\mathbb Z[i]$ sobre cada primo de $\mathbb Z$. \emph{Idea.} Pasar al cociente $\mathbb Z[i]/(p)$.
+
+\begin{ejem}[{Los primos de $\mathbb Z[i]$ sobre cada primo de $\mathbb Z$}]
+\label{ejem:s09-enteros-gaussianos}
+Sea $B=\mathbb Z[t]/(t^2+1)$. Evaluar $t\mapsto i$ da $B\cong\mathbb Z[i]$: el mapa es sobreyectivo y el resto de dividir entre el mónico $t^2+1$ es $at+b$, que se anula en $i$ solo si $a=b=0$. Para un primo $P$ de $\mathbb Z[i]$, la contracción $P\cap\mathbb Z$ es $(0)$ o $(p)$ con $p$ primo.
+\begin{enumerate}[label=(\alph*)]
+\item Sobre $(0)$ solo está $(0)$.
+\item Los primos sobre $(p)$ son los que contienen a $p$ y corresponden a los primos del cociente
+\[
+\mathbb Z[i]/(p)\cong\mathbb F_p[t]/(t^2+1).
+\]
+\item Según $p$, los anillos son los de la tabla siguiente. En la primera y la última fila hay un primo; en la fila intermedia hay dos.
+\end{enumerate}
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{cll}
+\hline
+$p$ & Factorización de $t^2+1$ & $\mathbb Z[i]/(p)$\\
+\hline
+$2$ & $(t+1)^2$ & $\mathbb F_2[\varepsilon]/(\varepsilon^2)$, no reducido\\
+$p\equiv1\pmod4$ & $(t-i)(t+i)$, $i^2=-1$ en $\mathbb F_p$ & $\mathbb F_p\times\mathbb F_p$, dos puntos\\
+$p\equiv3\pmod4$ & irreducible & $\mathbb F_{p^2}$, un punto de grado $2$\\
+\hline
+\end{tabular}
+\end{center}
+\emph{[Cálculo elemental; Vakil, \S10.3, ej.~10.3.4 y 10.3.D.]}
+\end{ejem}
+\begin{proof}
+Si $0\ne z=a+bi\in P$, también $z\bar z=a^2+b^2$ pertenece a $P\cap\mathbb Z$ y es un entero no nulo. Por tanto la contracción solo puede ser $(0)$ cuando $P=(0)$; este ideal sí es primo porque $\mathbb Z[i]$ es dominio.
+
+Contener a $p$ equivale a que la contracción contenga al máximo $(p)$ de $\mathbb Z$, luego a que sea exactamente $(p)$. La \cref{prop:s09-primos-cociente} da la correspondencia de (b). Para $p=2$, poniendo $\varepsilon=t+1$ se obtiene el primer cociente. Si $p\equiv1\pmod4$, la \cref{prop:s09-menos-uno-cuadrado} da dos raíces distintas y el teorema chino da el producto. Si $p\equiv3\pmod4$, no hay raíces y el cuadrático es irreducible, así que el cociente es $\mathbb F_{p^2}$.
+\end{proof}
+
+% Beamer S09a, diapositiva 19: V(t^2+1) y la fibra doble.
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\begin{tikzpicture}[every node/.style={font=\small},x=.95cm]
+\draw[grisCIMAT,->] (-.6,0)--(10.2,0) node[right] {$\Spec\mathbb Z$};
+\draw[blue!60!black,thick] plot[domain=.3:2.8,samples=75] ({.045*sin(1000*\x)},\x);
+\fill[grisCIMAT] (0,0) circle (2pt) node[below] {$(0)$};
+\foreach \x/\p in {2/2,4/3,6/5,8/7}{
+ \draw[green!45!black] (\x,.3)--(\x,2.8);
+ \fill[grisCIMAT] (\x,0) circle (2pt) node[below] {$(\p)$};}
+\draw[orange!75!black,thick] (-.4,2.3)--(2,1.8)--(4,1.8)--(6,2.25)--(8,1.8)--(9.5,2.25) node[right] {$\Spec\mathbb Z[i]$};
+\draw[orange!75!black,thick] (-.4,1.3)--(2,1.8)--(4,1.8)--(6,1.35)--(8,1.8)--(9.5,1.35);
+\draw[orange!75!black,fill=white,thick] (1.94,1.74) rectangle (2.06,1.86);
+\fill[orange!75!black] (4,1.8) circle (4pt);
+\fill[orange!75!black] (8,1.8) circle (4pt);
+\fill[orange!75!black] (6,2.25) circle (2.4pt);
+\fill[orange!75!black] (6,1.35) circle (2.4pt);
+\node at (9.3,.3) {$\cdots$};
+\end{tikzpicture}
+\end{center}
+El cuadrado marca el único punto doble sobre $2$; los puntos grandes sobre $3$ y $7$ tienen grado $2$, y sobre $5$ hay dos de grado $1$.
+\end{minipage}\par
+
+\begin{obs}[Qué se lee de la tabla]
+\label{obs:s09-lectura-cociente-gaussiano}
+El primo $(0)$ es el único de $\mathbb Z[i]$ que está sobre $(0)$ y es el genérico de su espectro. Los puntos sobre $3$ y $7$ tienen cuerpo residual $\mathbb F_{p^2}$, y los dos sobre $5$ tienen cuerpo residual $\mathbb F_p$.
+
+Sobre $2$, la clase de $1+i$ no es nula: si lo fuera, $(1+i)/2=1/2+i/2$ estaría en $\mathbb Z[i]$. Sin embargo, $(1+i)^2=2i$ se anula módulo $2$. Así $\mathbb Z[i]/(2)$ no es reducido, aunque $\mathbb Z[i]$ es dominio. Este cociente motiva la \cref{defi:s09-esquema-reducido}.
+\end{obs}
+
 \section{Modelos y buena reducción}
+\label{sec:s09-modelos}
+Este apartado recoge el anticipo de modelos y buena reducción. Las nociones aplazadas se precisan en la \cref{obs:s09-lo-que-se-aplaza}; los cálculos de primos anteriores no dependen de ellas.
+
 \emph{Qué buscamos.} Definir la buena reducción de un esquema propio sobre $K$ y calcular ejemplos. \emph{Idea.} Una reducción es la fibra especial de un modelo; la buena reducción exige que algún modelo sea liso.
 
 \begin{defi}[Modelo y reducción]
@@ -437,52 +571,10 @@ Sea $F$ un cuerpo y sea $f=t^2+bt+c$ en $F[t]$. Sus dos raíces en una clausura 
 Si $r_1,r_2$ son las raíces, $b=-(r_1+r_2)$ y $c=r_1r_2$, luego $b^2-4c=(r_1-r_2)^2$ en cualquier característica. Este elemento es no nulo si y solo si las raíces son distintas. El discriminante de $\bar f$ es la reducción del discriminante de $f$, que es no nula si y solo si este no está en $\mathfrak m$, es decir, si es unidad.
 \end{proof}
 
-\emph{Qué buscamos.} Las fibras de $\Spec\mathbb Z[i]\to\Spec\mathbb Z$ y los primos donde es étale. \emph{Idea.} Su fibra es $\Spec\mathbb F_p[t]/(t^2+1)$; la derivada es $2t$ y $t$ es unidad.
+\emph{El modelo de los enteros gaussianos.} El anillo del \cref{ejem:s09-enteros-gaussianos} da el modelo de $\Spec\mathbb Q(i)$ de la \cref{prop:s09-modelos-dimension-cero}. La fibra genérica tiene anillo $\mathbb Q[t]/(t^2+1)=\mathbb Q(i)$. El discriminante es $-4$, unidad en $\mathbb Z_{(p)}$ si y solo si $p$ es impar. Por tanto el modelo es étale sobre $\mathbb Z_{(p)}$ para todo primo impar y $\Spec\mathbb Q(i)$ tiene buena reducción allí. Sobre $2$ el modelo no es étale. En los tres casos el anillo de la fibra tiene dimensión $2$ sobre el cuerpo de la base: dos puntos, un punto no reducido o una extensión de grado $2$. \emph{[Vakil, ej.~10.3.4, ej.~10.3.D, \S16.3.10 y \S21.7.1; Liu, \S4.3.2, lema~3.20.]}
 
-\begin{ejem}[{$\Spec\mathbb Z[i]$ sobre $\Spec\mathbb Z$}]
-\label{ejem:s09-enteros-gaussianos}
-Sea $B=\mathbb Z[t]/(t^2+1)$. Evaluar $t\mapsto i$ da $B\cong\mathbb Z[i]$: el mapa es sobreyectivo y el resto de dividir entre el mónico $t^2+1$ es $at+b$, que se anula en $i$ solo si $a=b=0$. Es el modelo de $\Spec\mathbb Q(i)$ de la \cref{prop:s09-modelos-dimension-cero}. Sus fibras se calculan en esta tabla:
-\begin{center}
-\small
-\renewcommand{\arraystretch}{1.25}
-\begin{tabular}{cll}
-\hline
-$p$ & Factorización de $t^2+1$ & Anillo de la fibra\\
-\hline
-$2$ & $(t+1)^2$ & $\mathbb F_2[\varepsilon]/(\varepsilon^2)$, no reducido\\
-$p\equiv1\pmod4$ & $(t-i)(t+i)$, $i^2=-1$ en $\mathbb F_p$ & $\mathbb F_p\times\mathbb F_p$, dos puntos\\
-$p\equiv3\pmod4$ & irreducible & $\mathbb F_{p^2}$, un punto de grado $2$\\
-\hline
-\end{tabular}
-\end{center}
-La fibra genérica tiene anillo $\mathbb Q[t]/(t^2+1)=\mathbb Q(i)$. El discriminante es $-4$, unidad en $\mathbb Z_{(p)}$ si y solo si $p$ es impar. Por tanto el modelo es étale sobre $\mathbb Z_{(p)}$ para todo primo impar y $\Spec\mathbb Q(i)$ tiene buena reducción allí. Sobre $2$ el modelo no es étale. En los tres casos el anillo de la fibra tiene dimensión $2$ sobre el cuerpo de la base: dos puntos, un punto no reducido o una extensión de grado $2$. \emph{[Vakil, ej.~10.3.4, ej.~10.3.D, \S16.3.10 y \S21.7.1; Liu, \S4.3.2, lema~3.20.]}
-\end{ejem}
-\begin{proof}
-La \cref{prop:s09-modelos-dimension-cero} calcula la fibra. Para $p=2$, poniendo $\varepsilon=t+1$ se obtiene el primer cociente. Si $p\equiv1\pmod4$, la \cref{prop:s09-menos-uno-cuadrado} da dos raíces distintas y el teorema chino da el producto. Si $p\equiv3\pmod4$, no hay raíces y el cuadrático es irreducible, así que el cociente es $\mathbb F_{p^2}$. En $B$, $t(-t)=1$, de modo que $f'=2t$ es invertible exactamente donde $2$ lo es; esto confirma la afirmación sobre étale y el cálculo del discriminante.
-\end{proof}
 
-% Beamer S09a, diapositiva 19: V(t^2+1) y la fibra doble.
-\par\noindent\begin{minipage}{\linewidth}
-\begin{center}
-\begin{tikzpicture}[every node/.style={font=\small},x=.95cm]
-\draw[grisCIMAT,->] (-.6,0)--(10.2,0) node[right] {$\Spec\mathbb Z$};
-\draw[blue!60!black,thick] plot[domain=.3:2.8,samples=75] ({.045*sin(1000*\x)},\x);
-\fill[grisCIMAT] (0,0) circle (2pt) node[below] {$(0)$};
-\foreach \x/\p in {2/2,4/3,6/5,8/7}{
- \draw[green!45!black] (\x,.3)--(\x,2.8);
- \fill[grisCIMAT] (\x,0) circle (2pt) node[below] {$(\p)$};}
-\draw[orange!75!black,thick] (-.4,2.3)--(2,1.8)--(4,1.8)--(6,2.25)--(8,1.8)--(9.5,2.25) node[right] {$\Spec\mathbb Z[i]$};
-\draw[orange!75!black,thick] (-.4,1.3)--(2,1.8)--(4,1.8)--(6,1.35)--(8,1.8)--(9.5,1.35);
-\draw[orange!75!black,fill=white,thick] (1.94,1.74) rectangle (2.06,1.86);
-\fill[orange!75!black] (4,1.8) circle (4pt);
-\fill[orange!75!black] (8,1.8) circle (4pt);
-\fill[orange!75!black] (6,2.25) circle (2.4pt);
-\fill[orange!75!black] (6,1.35) circle (2.4pt);
-\node at (9.3,.3) {$\cdots$};
-\end{tikzpicture}
-\end{center}
-El cuadrado marca el único punto doble sobre $2$; los puntos grandes sobre $3$ y $7$ tienen grado $2$, y sobre $5$ hay dos de grado $1$.
-\end{minipage}\par
+En $B$, $t(-t)=1$, de modo que $f'=2t$ es invertible exactamente donde $2$ lo es; esto confirma la afirmación sobre étale y el cálculo del discriminante.
 
 \begin{obs}[El mismo comportamiento sobre un cuerpo]
 \label{obs:s09-parabola-vakil}
@@ -644,7 +736,7 @@ Si $n$ es libre de cuadrados, el teorema chino da $\mathbb Z/n\mathbb Z\cong\pro
 
 \begin{obs}
 \label{obs:s09-estructura-reducida}
-Los esquemas no reducidos aparecen como fibras, por ejemplo $\Spec\mathbb Z[i]/(2)$ en el \cref{ejem:s09-enteros-gaussianos}. La estructura reducida $X_{\mathrm{red}}$ llega en la Sesión 10. \emph{[Liu, prop.~4.2(c).]}
+Los anillos no reducidos aparecen al reducir módulo un primo, por ejemplo $\mathbb Z[i]/(2)$ en el \cref{ejem:s09-enteros-gaussianos}. Su espectro es un esquema no reducido; también aparece como fibra. La estructura reducida $X_{\mathrm{red}}$ llega en la Sesión 10. \emph{[Liu, prop.~4.2(c).]}
 \end{obs}
 
 \subsection{Irreducible y componentes irreducibles}
@@ -743,6 +835,8 @@ Los esquemas $\mathbb A^n_k$, $\mathbb P^n_k$, $\Spec\mathbb Z$ y $\Spec\mathbb 
 \end{ejem}
 
 \subsection{Integral}
+La integralidad y la noetherianidad se retomarán en la continuación de esta sesión. Los apartados siguientes conservan su desarrollo del esqueleto general.
+
 \emph{Qué buscamos.} Reunir una sola pieza y ausencia de nilpotentes en una noción.
 
 \begin{defi}[Esquema integral]
@@ -1076,6 +1170,11 @@ Determina los primos $p$ para los que el morfismo
 es étale en los puntos de la fibra especial, para $n=2,3,5,6$.
 \end{ejer}
 
+\begin{ejer}[Los primos de $\mathbb Z\lbrack t\rbrack/(t^2-n)$ sobre cada primo]
+\label{ejer:s09-primos-cuadraticos-reduccion}
+Sea $n\in\set{2,3,5,6}$. Para cada primo $p\le11$, decide cuántos primos de $\mathbb Z[t]/(t^2-n)$ están sobre $(p)$, es decir, cuántos primos tiene $\mathbb F_p[t]/(t^2-n)$, y si ese anillo tiene un nilpotente no nulo. Concluye para qué primos $p$ hay un nilpotente no nulo. \emph{[Cálculo elemental, como en el \cref{ejem:s09-enteros-gaussianos}; Vakil, ej.~10.3.D.]}
+\end{ejer}
+
 \begin{ejer}[Tres puntos y sus reducciones]
 \label{ejer:s09-tres-puntos}
 Sea $n\ge1$ entero. Para cada primo $p$, determina cuáles de $t=0$, $t=n$ y $t=n^2$ en $\mathbb P^1(\mathbb Q)$ tienen la misma reducción módulo $p$. Describe el resultado para $n=6$.
@@ -1086,4 +1185,4 @@ Sea $n\ge1$ entero. Para cada primo $p$, determina cuáles de $t=0$, $t=n$ y $t=
 Con las fórmulas del \cref{ejem:s09-pegados-plano-proyectivo}, calcula $\varphi_{10}$ y $\varphi_{21}$ y comprueba que $\varphi_{10}\circ\varphi_{01}$ es la identidad de $D(u)\subseteq U_0$ y $\varphi_{21}\circ\varphi_{12}$ es la identidad de $D(v')\subseteq U_1$. Describe el complemento de $U_0$ en $\mathbb P^2_A$.
 \end{ejer}
 
-La Sesión 10 tratará subesquemas abiertos y cerrados, gavillas de ideales y estructura reducida. La Sesión 11: morfismos de esquemas, descripción local y esquemas sobre una base.
+La continuación de esta sesión completará reducido e irreducible y retomará integral y noetheriano; los ejercicios de estos últimos temas acompañarán esa continuación. La Sesión 10 tratará subesquemas abiertos y cerrados, gavillas de ideales y estructura reducida. La Sesión 11: morfismos de esquemas, descripción local y esquemas sobre una base.

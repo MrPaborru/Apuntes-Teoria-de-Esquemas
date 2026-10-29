@@ -25,6 +25,8 @@ La clase 8d completa la maximalidad y los dos generadores de los primos de Z[t],
 
 La clase 9a inicia la sesión 9 y se añade después de S8, conservando sus ocho secciones y todos sus entornos. Sus bloques de antecedentes se mantienen en el lugar del esqueleto; se identifican como recordatorios y se enlazan con los resultados previos cuando corresponda. En S9 las referencias a Vakil siguen la versión del 8 de septiembre de 2024 indicada por el profesor.
 
+La clase 9b se integra con esos antecedentes sin duplicar sus enunciados: añade el cálculo elemental de primos sobre (0) y sobre el máximo de un DVR, las ecuaciones x(x−1) y x(x−p), el argumento de la norma en Z[i] y un ejercicio nuevo. El ejemplo gaussiano y su dibujo se reúnen con esos cálculos; el desarrollo previo sobre modelos se conserva como anticipo expresamente aplazado. S9b reserva integral y noetheriano para la continuación de la sesión; se señala ese alcance conservando el contenido correcto ya incorporado. Las etiquetas y los ejercicios previos se mantienen. NumClases sigue en 9.
+
 ## LaTeX y edición
 
 - Español matemático compacto y claro; reproducir todos los diagramas y dibujos matemáticos de las presentaciones, así como las tablas de las fuentes. La fidelidad a los títulos del esqueleto prevalece sobre reducir la cantidad de secciones.
