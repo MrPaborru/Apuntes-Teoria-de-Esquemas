@@ -1,4 +1,4 @@
-% Sesión 9: integración de S09a y S09b con sus desarrollos y etiquetas.
+% Sesión 9: integración de S09a, S09b y S09c.
 \section{Dónde quedamos}
 
 \begin{obs}[Fe de erratas de la 8d]
@@ -27,7 +27,7 @@ La clase anterior calculó los primos de $\mathbb Z[t]$, dibujó el mapa de Mumf
 \item \emph{$\mathbb P^n_A$.} Las cartas y los morfismos de pegado, sin repetir el desarrollo de $\mathbb P^1_A$.
 \item \emph{Propiedades básicas.} Reducido, irreducible, integral y noetheriano, con $\Spec k[\varepsilon]/(\varepsilon^2)$ y $\Spec k[x,y]/(xy)$. La fibra no reducida de $\Spec\mathbb Z[i]$ sobre $2$ motiva la primera.
 \end{enumerate}
-La definición de modelo queda aplazada con el alcance de la \cref{obs:s09-lo-que-se-aplaza}. La integralidad y la noetherianidad se reservan para la continuación de la sesión.
+La definición de modelo queda aplazada con el alcance de la \cref{obs:s09-lo-que-se-aplaza}.
 \end{obs}
 
 \begin{obs}[Quedan de ejercicio]
@@ -36,9 +36,9 @@ En la Tarea 4 quedan que $(p,g)$ no es principal y que un primo de $\mathbb Z[t]
 \end{obs}
 
 \section{Lo que se usa hoy}
-Todo anillo es conmutativo y con unidad. En esta sesión las referencias a Vakil son a \emph{The Rising Sea}, versión del 8 de septiembre de 2024, y las de Liu a \emph{Algebraic Geometry and Arithmetic Curves}. Los resultados ya utilizados se recuerdan aquí como herramientas para los argumentos siguientes.
+Todo anillo es conmutativo y con unidad. Las referencias a Vakil son a \emph{The Rising Sea}: los materiales de valoración y reducción siguen el borrador del 8 de septiembre de 2024, y el de propiedades básicas indica el del 21 de octubre de 2025. Las referencias a Liu son a \emph{Algebraic Geometry and Arithmetic Curves}. Recordamos aquí las herramientas para los argumentos siguientes.
 
-\subsection{Para la valoración discreta y la reducción}
+\subsection{Espectro, puntos y pegado}
 
 \begin{defi}[Espectro, abiertos básicos y cerrados]
 \label{defi:s09-espectro}
@@ -79,6 +79,13 @@ Sea $p$ un primo impar. El elemento $-1$ es un cuadrado en $\mathbb F_p$ si y so
 Si $a^2=-1$, entonces $a$ tiene orden $4$ en $\mathbb F_p^\times$, pues $-1\ne1$. Por Lagrange, $4\mid(p-1)$. Recíprocamente, si $4\mid(p-1)$ y $g$ genera el grupo cíclico $\mathbb F_p^\times$, el elemento $a=g^{(p-1)/4}$ tiene orden $4$. Su cuadrado es el único elemento de orden $2$, que es $-1$. La ciclicidad se recordó en la \cref{prop:s08-cuerpos-finitos}.
 \end{proof}
 
+\begin{defi}[Datos de pegado y Lema de Pegado]
+\label{defi:s09-datos-pegado}
+Los datos de pegado para $\set{X_i}_{i\in I}$ son abiertos $X_{ij}\subseteq X_i$, con $X_{ii}=X_i$, e isomorfismos $\varphi_{ij}:X_{ij}\to X_{ji}$ tales que (P1) $\varphi_{ii}=\id$, (P2) $\varphi_{ji}=\varphi_{ij}^{-1}$ y (P3) $\varphi_{ij}(X_{ij}\cap X_{ik})=X_{ji}\cap X_{jk}$ y $\varphi_{ik}=\varphi_{jk}\circ\varphi_{ij}$ en $X_{ij}\cap X_{ik}$. El \myref{teo:s07-lema-pegado} produce $X$ e inmersiones abiertas $\psi_i:X_i\to X$ cuyas imágenes lo cubren, con $\psi_i(X_i)\cap\psi_j(X_j)=\psi_i(X_{ij})$ y $\psi_j\circ\varphi_{ij}=\psi_i$ en $X_{ij}$, únicos salvo un único isomorfismo compatible. \emph{[Vakil, \S4.4.4 y ej.~4.4.A; Hartshorne, II.2, ej.~2.12.]}
+\end{defi}
+
+\subsection{Para la valoración discreta y la reducción}
+
 \begin{defi}[La recta proyectiva $\mathbb P^1_A$ y sus puntos]
 \label{defi:s09-recta-proyectiva}
 La recta proyectiva se obtiene pegando $U_0=\Spec A[t]$ y $U_1=\Spec A[s]$ mediante $A[s,s^{-1}]\to A[t,t^{-1}]$, $s\mapsto t^{-1}$, sobre $D(s)$ y $D(t)$. Lleva el morfismo estructural $\pi:\mathbb P^1_A\to\Spec A$. Sobre un cuerpo $k$ sus puntos son $(0)$, los $(f)$ con $f$ mónico irreducible, e $\infty=(s)$; las fibras sobre $\mathfrak p$ tienen los puntos de $\mathbb P^1_{\kappa(\mathfrak p)}$. Para un cuerpo $F$, $\mathbb P^1(F)$ denota las clases $[a:b]$ de pares de $F^2\setminus\set{(0,0)}$ módulo $F^\times$. Se identifican con los puntos de grado $1$ por $[a:b]\mapsto(t-b/a)$ si $a\ne0$ y $[0:1]\mapsto\infty$. \emph{[Sesión 8; Vakil, \S4.4.6 y \S4.4.9.]}
@@ -87,11 +94,6 @@ La recta proyectiva se obtiene pegando $U_0=\Spec A[t]$ y $U_1=\Spec A[s]$ media
 \begin{defi}[Formas binarias y sus ceros]
 \label{defi:s09-formas-binarias}
 Una forma binaria de grado $d$ sobre un cuerpo $F$ es un polinomio homogéneo $f=\sum_{i=0}^d c_iX^{d-i}Y^i\in F[X,Y]$. Un cero en $\mathbb P^1(F)$ es una clase $[a:b]$ con $f(a,b)=0$; no depende del representante porque $f(\lambda a,\lambda b)=\lambda^df(a,b)$. \emph{[Liu, \S10.1.1, ej.~1.4.]}
-\end{defi}
-
-\begin{defi}[Datos de pegado y Lema de Pegado]
-\label{defi:s09-datos-pegado}
-Los datos de pegado para $\set{X_i}_{i\in I}$ son abiertos $X_{ij}\subseteq X_i$, con $X_{ii}=X_i$, e isomorfismos $\varphi_{ij}:X_{ij}\to X_{ji}$ tales que (P1) $\varphi_{ii}=\id$, (P2) $\varphi_{ji}=\varphi_{ij}^{-1}$ y (P3) $\varphi_{ij}(X_{ij}\cap X_{ik})=X_{ji}\cap X_{jk}$ y $\varphi_{ik}=\varphi_{jk}\circ\varphi_{ij}$ en $X_{ij}\cap X_{ik}$. El \myref{teo:s07-lema-pegado} produce $X$ e inmersiones abiertas $\psi_i:X_i\to X$ cuyas imágenes lo cubren, con $\psi_i(X_i)\cap\psi_j(X_j)=\psi_i(X_{ij})$ y $\psi_j\circ\varphi_{ij}=\psi_i$ en $X_{ij}$, únicos salvo un único isomorfismo compatible. \emph{[Vakil, \S4.4.4 y ej.~4.4.A; Hartshorne, II.2, ej.~2.12.]}
 \end{defi}
 
 \subsection{Para las propiedades básicas}
@@ -640,19 +642,23 @@ La carta $U_0\cong\mathbb A^n_A$ es abierta y su complemento es el hiperplano $x
 Liu afirma que $\mathbb P^n_{\mathbb Z}$ es liso sobre $\Spec\mathbb Z$; los morfismos lisos son estables por cambio de base, así que $\mathbb P^n_A$ es un modelo liso de $\mathbb P^n_K$ sobre todo DVR $A$. La construcción sistemática como $\Proj$ llega en la Sesión 21. \emph{[Liu, \S4.2, ej.~2.13 y \S4.3, ej.~3.37 y prop.~3.38.]}
 \end{obs}
 
+\section{Resultados de las sesiones 9a y 9b}
+
+Los DVR de la \cref{defi:s09-dvr} dan ejemplos de esquemas integrales y noetherianos. El \cref{ejem:s09-enteros-gaussianos} calcula los primos de $\mathbb Z[i]$ sobre cada primo de $\mathbb Z$ y da el ejemplo de un cociente no reducido sobre $2$. Las cartas de la \cref{defi:s09-cartas-proyectivas} y su pegado en la \cref{prop:s09-pegado-proyectivo} permiten estudiar las propiedades de $\mathbb P^n_A$ a partir de sus abiertos afines.
+
 \section{Propiedades básicas de esquemas}
 \subsection{Qué buscamos}
 
 \begin{obs}[Qué buscamos]
 \label{obs:s09-cuatro-propiedades}
-La fibra de la \cref{ejem:s09-enteros-gaussianos} sobre $2$ es $\mathbb F_2[\varepsilon]/(\varepsilon^2)$, con un nilpotente no nulo, aunque $\mathbb Z[i]$ es un dominio; motiva la primera propiedad. La fibra sobre $5$, con anillo $\mathbb F_5\times\mathbb F_5$, motiva la segunda. Las otras dos son las que pide el programa.
+Aunque $\mathbb Z[i]$ es un dominio, el anillo de la fibra sobre $2$ tiene un nilpotente no nulo. La fibra sobre $5$ consta de dos puntos. Ambos cálculos, en el \cref{ejem:s09-enteros-gaussianos}, motivan las dos primeras propiedades.
 \begin{enumerate}
 \item \emph{Reducido.} Ningún tallo tiene nilpotentes no nulos; falla en $\Spec k[\varepsilon]/(\varepsilon^2)$.
-\item \emph{Irreducible.} El espacio tiene una sola pieza; falla en $\Spec k[x,y]/(xy)$.
-\item \emph{Integral.} Reducido e irreducible; equivale a que los anillos de funciones sobre abiertos no vacíos sean dominios.
-\item \emph{Noetheriano.} Cubierto por finitos espectros de anillos noetherianos.
+\item \emph{Irreducible.} El espacio tiene una sola pieza. Los ejes de $\Spec k[x,y]/(xy)$ son dos componentes irreducibles.
+\item \emph{Integral.} Reducido e irreducible. Sus anillos de secciones sobre abiertos no vacíos son dominios y el esquema tiene un cuerpo de funciones.
+\item \emph{Noetheriano.} Admite un cubrimiento afín finito por espectros de anillos noetherianos y tiene finitas componentes irreducibles.
 \end{enumerate}
-Los dos ejemplos guía se clasificarán en la tabla del \cref{ejem:s09-tabla-propiedades}. \emph{[Vakil, \S5.1--5.3, ej.~3.2.A(a) y 3.7.I; Liu, \S2.3.4 y \S2.4.]}
+Aplicaremos los cuatro adjetivos a los ejemplos guía y a los cocientes de $\mathbb Z[i]$ por un primo en los \cref{ejem:s09-tabla-propiedades,ejem:s09-adjetivos-fibras}. \emph{[Vakil, \S5.1--5.3, ej.~3.2.A(a) y 3.7.I; Liu, \S2.3.4 y \S2.4.]}
 \end{obs}
 
 \subsection{Reducido}
@@ -686,7 +692,17 @@ Sea $X$ un esquema.
 En particular, todo abierto afín de un esquema reducido tiene anillo de secciones reducido. \emph{[Vakil, ej.~5.2.B; Liu, prop.~4.2(a)--(b).]}
 \end{prop}
 \begin{proof}
-Para (a), supongamos $\Spec A$ reducido y $a^n=0$. En cada $A_{\mathfrak p}$, el elemento $a/1$ es nilpotente y por tanto nulo. Hay $u\notin\mathfrak p$ con $ua=0$; así $\operatorname{Ann}(a)$ no está contenido en ningún primo. Por la \cref{prop:s09-maximos-minimales}(a), $\operatorname{Ann}(a)=A$, de donde $a=0$. La implicación contraria es el \cref{lema:s09-localizacion-reducida} aplicado a los tallos.
+Para (a), calculamos en los tallos $A_{\mathfrak p}$.
+\par\smallskip\noindent
+\begin{tabular}{@{}p{.56\linewidth}p{.40\linewidth}@{}}
+\textbf{Qué hacemos} & \textbf{Por qué se vale}\\[2pt]
+\hline
+$\Rightarrow$ Sea $a^n=0$. Si $\Spec A$ es reducido, $a/1=0$ en cada $A_{\mathfrak p}$, de modo que hay $u\notin\mathfrak p$ con $ua=0$. Así $\operatorname{Ann}(a)=A$ y $a=0$.
+& $a/1$ es nilpotente en el tallo reducido. Ningún primo contiene $\operatorname{Ann}(a)$, por lo que se aplica la \cref{prop:s09-maximos-minimales}(a).\\[4pt]
+$\Leftarrow$ Si $A$ es reducido, todos los $A_{\mathfrak p}$ son reducidos.
+& Es el \cref{lema:s09-localizacion-reducida} aplicado a los tallos.
+\end{tabular}
+\par\smallskip
 
 Para (b), si $X$ es reducido y $s^n=0$ en $\mathcal O(U)$, todos los gérmenes de $s$ son nulos. Cada punto tiene un entorno donde $s$ se anula y (G1) da $s=0$. Recíprocamente, si todos los anillos de secciones son reducidos y un germen $s_x$ cumple $s_x^n=0$, en algún entorno $V$ se tiene $(s|_V)^n=0$. Entonces $s|_V=0$ y $s_x=0$. Finalmente, en (c) cada tallo se calcula en una carta reducida por (a).
 \end{proof}
@@ -701,7 +717,7 @@ Sea $A=k[x]/(x^2)=k[\varepsilon]/(\varepsilon^2)$, con $\varepsilon$ la clase de
 Todo primo contiene a $\varepsilon$ porque contiene a $\varepsilon^2=0$, y $(\varepsilon)$ es máximo con cociente $k$. Así $\Spec A=\set{(\varepsilon)}$. La clase $\varepsilon$ es no nula, aunque su imagen en $A/(\varepsilon)=k$ es cero. Por la \cref{prop:s09-reducido-afines}, el esquema no es reducido.
 \end{proof}
 
-% Beamer S09a, diapositiva 24: un punto con una dirección infinitesimal.
+% Beamer S09a (24) y S09c (3): un punto con una dirección infinitesimal.
 \begin{center}
 \begin{tikzpicture}[every node/.style={font=\small}]
 \draw[grisCIMAT,dashed] (0,0) ellipse (.65 and .35);
@@ -736,7 +752,7 @@ Si $n$ es libre de cuadrados, el teorema chino da $\mathbb Z/n\mathbb Z\cong\pro
 
 \begin{obs}
 \label{obs:s09-estructura-reducida}
-Los anillos no reducidos aparecen al reducir módulo un primo, por ejemplo $\mathbb Z[i]/(2)$ en el \cref{ejem:s09-enteros-gaussianos}. Su espectro es un esquema no reducido; también aparece como fibra. La estructura reducida $X_{\mathrm{red}}$ llega en la Sesión 10. \emph{[Liu, prop.~4.2(c).]}
+Los anillos no reducidos aparecen al reducir módulo un primo. En el \cref{ejem:s09-enteros-gaussianos}, el cociente $\mathbb Z[i]/(2)$ da el espectro del \cref{ejem:s09-numeros-duales} con $k=\mathbb F_2$. La estructura reducida $X_{\mathrm{red}}$ queda de lectura y se retoma en la Sesión 10. \emph{[Liu, prop.~4.2(c).]}
 \end{obs}
 
 \subsection{Irreducible y componentes irreducibles}
@@ -798,7 +814,7 @@ Las componentes de $\Spec k[x,y]/(xy)$ son los ejes $V(x)$ y $V(y)$; se cortan e
 Los primos de $k[x,y]$ que contienen $xy$ contienen $x$ o $y$. Los primos minimales del cociente son $(\bar x)$ y $(\bar y)$, y las componentes son sus cerrados por la \cref{prop:s09-irreducibles-espectro}. Cada eje es una recta afín irreducible y conexa, y ambos contienen el origen; su unión es conexa. Son dos cerrados propios, así que no es irreducible. Finalmente $\mathbb Z/6\mathbb Z\cong\mathbb F_2\times\mathbb F_3$ da los dos puntos abiertos y cerrados del segundo ejemplo.
 \end{proof}
 
-% Beamer S09a, diapositiva 32: los ejes con su punto común.
+% Beamer S09a (32) y S09c (10): los ejes con su punto común.
 \begin{center}
 \begin{tikzpicture}[every node/.style={font=\small}]
 \draw[blue!65!black,thick] (-2,0)--(2,0) node[right] {$V(y)$};
@@ -835,8 +851,6 @@ Los esquemas $\mathbb A^n_k$, $\mathbb P^n_k$, $\Spec\mathbb Z$ y $\Spec\mathbb 
 \end{ejem}
 
 \subsection{Integral}
-La integralidad y la noetherianidad se retomarán en la continuación de esta sesión. Los apartados siguientes conservan su desarrollo del esqueleto general.
-
 \emph{Qué buscamos.} Reunir una sola pieza y ausencia de nilpotentes en una noción.
 
 \begin{defi}[Esquema integral]
@@ -844,20 +858,20 @@ La integralidad y la noetherianidad se retomarán en la continuación de esta se
 Un esquema $X$ es integral si $X\ne\varnothing$ y $\mathcal O_X(U)$ es un dominio para todo abierto no vacío $U$. \emph{[Vakil, \S5.2.4; Liu, prop.~4.17.]}
 \end{defi}
 
-% Beamer S09a, diapositiva 35: las dos obstrucciones y un integral.
+% Beamer S09a (35) y S09c (11): las dos obstrucciones y una curva integral.
 \begin{center}
 \begin{tikzpicture}[every node/.style={font=\small}]
 \draw[grisCIMAT,dashed] (0,0) ellipse (.5 and .25);
 \fill[orange!80!black] (0,0) circle (2.4pt);
 \draw[->,blue!65!black] (0,.05)--(0,1);
-\node at (0,-.6) {no reducido};
+\node[align=center] at (0,-.75) {$\Spec k[\varepsilon]/(\varepsilon^2)$\\no reducido};
 \draw[blue!65!black,thick] (2.6,0)--(4.4,0);
 \draw[green!45!black,thick] (3.5,-.7)--(3.5,.9);
 \fill[orange!80!black] (3.5,0) circle (2.4pt);
-\node at (3.5,-1) {no irreducible};
+\node[align=center] at (3.5,-1.2) {$\Spec k[x,y]/(xy)$\\no irreducible};
 \draw[orange!80!black,thick] (6,-.5) .. controls (6.5,.2) and (6.5,.8) .. (7,.4)
  .. controls (7.4,0) and (7.6,.5) .. (8,1);
-\node at (7,-.8) {integral};
+\node at (7,-.8) {una curva integral};
 \end{tikzpicture}
 \end{center}
 
@@ -874,11 +888,20 @@ Un esquema es integral si y solo si es reducido e irreducible. \emph{[Vakil, ej.
 \]
 Ambos factores son no nulos, y $(1,0)(0,1)=0$ contradice que el anillo de secciones del abierto no vacío $U_1\cup U_2$ sea dominio.
 
-\emph{Reducido e irreducible implica integral.} Sea $U$ abierto no vacío y $fg=0$ en $\mathcal O(U)$. El espacio $U$ es irreducible. Para $x\in U$, no pueden ser unidades ambos gérmenes $f_x,g_x$, porque su producto es $0$ en el anillo local no nulo $\mathcal O_{X,x}$. Por tanto $f_x\in\mathfrak m_x$ o $g_x\in\mathfrak m_x$.
-
-El conjunto $V_U(f)=\set{x\in U\given f_x\in\mathfrak m_x}$ es cerrado en $U$: si $f_x$ es unidad, su inversa se representa por una sección $h$ en un entorno, y la igualdad de gérmenes $f_xh_x=1$ vale en un entorno menor. Allí todos los gérmenes de $f$ son unidades. Como $U=V_U(f)\cup V_U(g)$, la irreducibilidad fuerza, por ejemplo, $U=V_U(f)$.
-
-En cada afín $W=\Spec B\subseteq U$, el elemento $f|_W$ está en todos los primos, por la \cref{prop:s09-tallos-valores-afin}; por ello pertenece a $\Nil(B)=0$, pues $B$ es reducido. Los afines cubren $U$ y (G1) da $f=0$. Además $\mathcal O(U)\ne0$ por (G3). Así es un dominio. Reducido se usó en el último paso, e irreducible en el anterior.
+\emph{Reducido e irreducible implica integral.} Sea $U\ne\varnothing$ abierto. Probamos que $\mathcal O(U)$ es un dominio.
+\par\smallskip\noindent
+\begin{tabular}{@{}p{.51\linewidth}p{.45\linewidth}@{}}
+\textbf{Qué hacemos} & \textbf{Por qué se vale}\\[2pt]
+\hline
+Sean $f,g\in\mathcal O(U)$ con $fg=0$. En cada $x\in U$ se tiene $f_xg_x=0$, de modo que $f_x\in\mathfrak m_x$ o $g_x\in\mathfrak m_x$.
+& Por (G3), $\mathcal O(U)\ne0$. Los gérmenes no pueden ser ambos unidades, pues $0$ no es una unidad del anillo local $\mathcal O_{X,x}\ne0$.\\[4pt]
+Los conjuntos $V_U(f)=\set{x\in U\given f_x\in\mathfrak m_x}$ y $V_U(g)$ son cerrados y cubren $U$. Podemos suponer que $U=V_U(f)$.
+& Si $f_x$ es unidad, su inversa se representa por una sección $h$ y $fh=1$ en un entorno de $x$. El abierto $U$ es irreducible por el \cref{lema:s09-topologia-irreducibles}(b).\\[4pt]
+En cada afín $W=\Spec B\subseteq U$, la sección $f|_W$ está en $\Nil(B)=0$. Los afines cubren $U$ y (G1) da $f=0$.
+& Por la \cref{prop:s09-tallos-valores-afin}, $f|_W$ está en todos los primos. El anillo $B$ es reducido por la \cref{prop:s09-reducido-afines}(b).
+\end{tabular}
+\par\smallskip
+La irreducibilidad fuerza que $f$ se anule en todo punto. Que $X$ sea reducido permite concluir que $f=0$.
 \end{proof}
 
 \emph{Qué buscamos.} Leer la integralidad de un afín en su anillo.
@@ -891,7 +914,7 @@ El esquema $\Spec A$ es integral si y solo si $A$ es un dominio. \emph{[Vakil, e
 Si es integral, $\Spec A$ es no vacío y $A=\mathcal O(\Spec A)$ es dominio. Si $A$ es dominio, $\Spec A$ es reducido por la \cref{prop:s09-reducido-afines} e irreducible por la \cref{prop:s09-irreducibles-espectro}. Aplicamos la \cref{prop:s09-integral-equivalencia}.
 \end{proof}
 
-\emph{Qué buscamos.} Definir el cuerpo de funciones y calcularlo en cualquier carta afín. \emph{Idea.} El genérico está en todo abierto no vacío, y en un afín integral es $(0)$.
+\emph{Qué buscamos.} Definir el cuerpo de funciones y calcularlo en cualquier carta afín. \emph{Idea.} El genérico está en todo abierto no vacío, y en un afín integral es $(0)$.\par\nopagebreak[4]
 
 \begin{prop}[El cuerpo de funciones]
 \label{prop:s09-cuerpo-funciones}
@@ -907,7 +930,7 @@ Sea $X$ integral y $\eta$ su punto genérico.
 \emph{[Vakil, ej.~5.2.I--5.2.J; Liu, prop.~4.18(a)--(b) y def.~4.19.]}
 \end{prop}
 \begin{proof}
-Por el \cref{coro:s09-afin-integral}, $A$ es dominio. La carta contiene a $\eta$, cuya cerradura en ella es toda la carta, por lo que su primo es $(0)$. Su tallo es $A_{(0)}=\Frac A$, independiente de la carta, y da (a)--(b).
+Por la \cref{prop:s09-puntos-genericos}, $\eta$ es único y está en todo abierto no vacío. Por el \cref{coro:s09-afin-integral}, $A$ es dominio. La cerradura de $\eta$ en la carta es toda la carta, de modo que corresponde a $(0)$. Su tallo es $A_{(0)}=\Frac A$, independiente de la carta. Esto da (a)--(b).
 
 Para (c), sea $s\in\mathcal O(U)$ nulo en $V$. En cada afín no vacío $W=\Spec B\subseteq U$, la intersección $V\cap W$ es abierta no vacía por irreducibilidad. Contiene un básico no vacío $D(h)$, donde $s|_W$ se anula. Como $B$ es dominio y $h\ne0$, el mapa $B\to B_h$ es inyectivo; así $s|_W=0$. Por (G1), $s=0$. Si el germen de $s$ en $\eta$ es nulo, se anula en algún entorno no vacío, y lo anterior prueba la inyectividad en $K(X)$.
 \end{proof}
@@ -993,9 +1016,19 @@ Para (b), si $\varphi_i:A\to A_{f_i}$ e $I\subseteq A$ es un ideal, afirmamos
 \[
 I=\bigcap_{i=1}^n\varphi_i^{-1}(IA_{f_i}).
 \]
-La inclusión directa es inmediata. Si $x$ está en la intersección, para cada $i$ tenemos $x/1=y_i/f_i^{m_i}$ con $y_i\in I$. Por la \cref{prop:s09-localizacion}, existe $r_i$ con $f_i^{r_i}(f_i^{m_i}x-y_i)=0$, luego $f_i^{r_i+m_i}x\in I$. Elegimos $N\ge1$ común. Por la \cref{prop:s09-cubrimientos-basicos}, existen $g_i$ con $1=\sum_i g_if_i^N$; así $x=\sum_i g_if_i^Nx\in I$.
-
-Una cadena $I_1\subseteq I_2\subseteq\cdots$ se estabiliza al extenderla a cada $A_{f_i}$, digamos desde $j_i$. Para $J=\max_i j_i$ y $j\ge J$, la fórmula anterior da $I_j=I_J$. Se usó que el número de términos es finito; no se supuso que $A\to A_{f_i}$ fuera inyectivo.
+\noindent
+\begin{tabular}{@{}p{.51\linewidth}p{.45\linewidth}@{}}
+\textbf{Qué hacemos} & \textbf{Por qué se vale}\\[2pt]
+\hline
+Todo $x\in I$ está en la intersección.
+& Su imagen en cada $A_{f_i}$ pertenece a $IA_{f_i}$.\\[4pt]
+Si $x$ está en la intersección, para cada $i$ existe $N_i$ con $f_i^{N_i}x\in I$. Tomamos un exponente común $N\ge1$. De $1=\sum_i g_if_i^N$ se sigue que $x=\sum_i g_if_i^Nx\in I$.
+& Escribimos $x/1=y_i/f_i^{m_i}$ con $y_i\in I$. Por la \cref{prop:s09-localizacion}, algún $f_i^{r_i}$ anula $f_i^{m_i}x-y_i$, así que sirve $N_i=r_i+m_i$. Las potencias generan $A$ por la \cref{prop:s09-cubrimientos-basicos}.\\[4pt]
+Una cadena ascendente de ideales $I_j$ se estabiliza en cada $A_{f_i}$ desde un índice $j_i$. La fórmula de intersección da $I_j=I_J$ para $j\ge J$, con $J=\max_i j_i$.
+& Cada $A_{f_i}$ es noetheriano y hay un número finito de localizaciones.
+\end{tabular}
+\par\smallskip
+La fórmula usa contracciones y vale aunque algún mapa $\varphi_i$ tenga núcleo no nulo.
 \end{proof}
 
 \emph{Qué buscamos.} Leer lo localmente noetheriano en cualquier abierto afín.
@@ -1021,7 +1054,7 @@ Si $X$ es noetheriano:
 En particular, un anillo noetheriano tiene finitos primos minimales. \emph{[Vakil, ej.~5.1.C, 5.3.B y prop.~3.6.15; Liu, prop.~4.5(c) y 4.9.]}
 \end{prop}
 \begin{proof}
-Si $A$ es noetheriano, una cadena descendente de cerrados en $\Spec A$ da una ascendente de sus ideales radicales, que se estaciona; por tanto el espacio es noetheriano. Una cadena de cerrados en $X$ se estaciona al restringirla a cada miembro de una cubierta afín noetheriana finita. Tomando el máximo de los índices de estabilización obtenemos (a).
+Si $A$ es noetheriano, una cadena descendente de cerrados $Z_j$ de $\Spec A$ da una cadena ascendente de ideales $I(Z_j)=\bigcap_{\mathfrak p\in Z_j}\mathfrak p$. Esta se estaciona, y $Z_j=V(I(Z_j))$ por la \cref{prop:s09-nilradical}. Una cadena de cerrados en $X$ se estaciona al restringirla a cada miembro de una cubierta afín noetheriana finita. Tomando el máximo de los índices de estabilización obtenemos (a).
 
 En un espacio noetheriano, todo cerrado es unión finita de cerrados irreducibles: de lo contrario elegimos un cerrado minimal que no lo sea. No puede ser irreducible; al escribirlo como unión de dos cerrados propios, la minimalidad da descomposiciones finitas de ambos, contradicción. Aplicado a $X$, sus componentes están entre los finitos irreducibles de una descomposición, y da (b).
 
@@ -1030,7 +1063,7 @@ Cada componente irreducible es conexa. Agrupamos las que pueden enlazarse median
 
 \begin{ejem}[Noetherianos y no noetherianos]
 \label{ejem:s09-noetherianos}
-Son noetherianos $\Spec A$ para un DVR $A$, pues es un dominio de ideales principales, y $\mathbb A^n_k$, $\mathbb P^n_k$, $\mathbb A^n_{\mathbb Z}$, $\mathbb P^n_{\mathbb Z}$ y $\Spec\mathbb Z[t]$, por el teorema de la base de Hilbert. Las $n+1$ cartas de $\mathbb P^n_A$ son afines de anillos de polinomios sobre $A$. Un esquema de tipo finito sobre un anillo noetheriano también es noetheriano.
+Son noetherianos $\Spec A$ para un DVR $A$, pues es un dominio de ideales principales, y $\Spec\mathbb Z[t]$, por el teorema de la base de Hilbert. Si $A$ es noetheriano, lo son $\mathbb A^n_A$ y $\mathbb P^n_A$: basta una carta en el primer caso y las $n+1$ cartas del segundo tienen anillos de polinomios sobre $A$. En particular, esto vale sobre $k$ y sobre $\mathbb Z$. Un esquema de tipo finito sobre un anillo noetheriano también es noetheriano.
 \begin{enumerate}[label=(\alph*)]
 \item $\Spec k[x_1,x_2,\ldots]$ no es noetheriano ni localmente noetheriano: su anillo no lo es, por la cadena estricta $(x_1)\subsetneq(x_1,x_2)\subsetneq\cdots$, y aplicamos el \cref{coro:s09-localmente-noetheriano} al afín entero.
 \item Si $I$ es infinito, $\coprod_{i\in I}\Spec k$ es localmente noetheriano pero no noetheriano. Sus puntos son abiertos que lo cubren sin subcubierta finita; cada punto es una componente irreducible.
@@ -1073,8 +1106,8 @@ El primer ejemplo se trató en el \cref{ejem:s09-numeros-duales}; su único punt
 Los productos de dos cuerpos tienen dos puntos, son reducidos y noetherianos. En $\mathbb Z/4\mathbb Z$, la clase de $2$ es un nilpotente no nulo y hay un único primo. Los ejemplos sobre $k$, sobre $\mathbb Z$ y sobre un DVR se deducen de los \cref{ejem:s09-reducidos,ejem:s09-integrales,ejem:s09-noetherianos}. El anillo con infinitas variables es dominio, pero no noetheriano; la unión disjunta infinita es reducida, tiene muchas componentes y es solo localmente noetheriana.
 \end{proof}
 
-\subsection{Fibras especiales leídas con los adjetivos}
-\emph{Qué buscamos.} Aplicar los cuatro adjetivos a las fibras ya calculadas.
+\subsection{Los cocientes de \texorpdfstring{$\mathbb Z[i]$}{Z[i]} por un primo, leídos con los adjetivos}
+\emph{Qué buscamos.} Aplicar los cuatro adjetivos a los espectros de los cocientes.
 
 \begin{ejem}[{$\mathbb Z[i]$ y sus cocientes por $p$}]
 \label{ejem:s09-adjetivos-fibras}
@@ -1082,13 +1115,14 @@ El anillo $\mathbb Z[t]/(t^2+1)\cong\mathbb Z[i]$ es dominio, de modo que su esp
 \begin{center}
 \small
 \renewcommand{\arraystretch}{1.25}
-\begin{tabular}{clccc}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{clcccc}
 \hline
-$p$ & $\mathbb Z[i]/(p)$ & Reducido & Irreducible & Noetheriano\\
+$p$ & $\mathbb Z[i]/(p)$ & Reducido & Irreducible & Integral & Noetheriano\\
 \hline
-$2$ & $\mathbb F_2[\varepsilon]/(\varepsilon^2)$ & no & sí & sí\\
-$3$ & $\mathbb F_9$, un cuerpo & sí & sí & sí\\
-$5$ & $\mathbb F_5\times\mathbb F_5$, dos puntos & sí & no & sí\\
+$2$ & $\mathbb F_2[\varepsilon]/(\varepsilon^2)$ & no & sí & no & sí\\
+$3$ & $\mathbb F_9$, un cuerpo & sí & sí & sí & sí\\
+$5$ & $\mathbb F_5\times\mathbb F_5$, dos puntos & sí & no & no & sí\\
 \hline
 \end{tabular}
 \end{center}
@@ -1099,7 +1133,7 @@ La primera fila es el \cref{ejem:s09-numeros-duales} con $k=\mathbb F_2$. Un coc
 
 \begin{prop}[La familia $xy=\varpi$]
 \label{prop:s09-familia-nodal}
-Sea $A$ un DVR con uniformizante $\varpi$ y $R=A[x,y]/(xy-\varpi)$. Entonces $R$ es dominio, $\Spec R$ es integral y noetheriano, y $R/\varpi R\cong\kappa[x,y]/(xy)$, cuyo espectro es reducido, conexo y no integral. \emph{[Liu, \S8.3, ej.~3.53 y \S4.1, lema~1.18; la prueba es un cálculo directo.]}
+Sea $A$ un DVR con uniformizante $\varpi$, cuerpo de fracciones $K$ y cuerpo residual $\kappa=A/(\varpi)$. Ponemos $R=A[x,y]/(xy-\varpi)$. Entonces $R$ es dominio, $\Spec R$ es integral y noetheriano, y $R/\varpi R\cong\kappa[x,y]/(xy)$, cuyo espectro es reducido, conexo y no integral. \emph{[Liu, \S8.3, ej.~3.53 y \S4.1, lema~1.18; la prueba es un cálculo directo.]}
 \end{prop}
 \begin{proof}
 Usando $xy=\varpi$, todo elemento de $R$ se escribe
@@ -1109,7 +1143,21 @@ c+\sum_{i\ge1}a_ix^i+\sum_{j\ge1}b_jy^j
 con sumas finitas y coeficientes en $A$. La sustitución $y=\varpi x^{-1}$ define $R\to K[x,x^{-1}]$ y lleva esta expresión a $c+\sum_i a_ix^i+\sum_j b_j\varpi^jx^{-j}$. Si es cero, la independencia de las potencias de Laurent da $c=a_i=b_j\varpi^j=0$; como $A$ es dominio, todos los $b_j$ son cero. El mapa es inyectivo y $R$ es dominio. Por Hilbert, $R$ es noetheriano, y el \cref{coro:s09-afin-integral} da integralidad. Reducir módulo $\varpi$ da $\kappa[x,y]/(xy)$, y los \cref{ejem:s09-dos-ejes,ejem:s09-tabla-propiedades} dan sus propiedades.
 \end{proof}
 
-\subsection{Ejercicios}
+\begin{samepage}
+\section{Ejercicios de reducido, irreducible, integral y noetheriano}
+
+\subsection*{Afirmaciones para completar en casa}
+
+El profesor señaló estas seis afirmaciones para completar en casa. Algunas forman parte de la tarea final del curso.
+\begin{itemize}
+\item La reducción se lee en las secciones de todo abierto, \cref{prop:s09-reducido-afines}(b).
+\item Un cubrimiento por afines reducidos da un esquema reducido, \cref{prop:s09-reducido-afines}(c).
+\item El criterio de irreducibilidad de $V(I)$ por el radical de $I$, \cref{prop:s09-irreducibles-espectro}(a).
+\item El criterio de irreducibilidad de $\Spec A$ por el nilradical y los primos minimales, \cref{prop:s09-irreducibles-espectro}(d).
+\item Todo esquema integral es reducido e irreducible, \cref{prop:s09-integral-equivalencia}.
+\item El dominio $A[x,y]/(xy-\varpi)$ y su cociente módulo $\varpi$, \cref{prop:s09-familia-nodal}.
+\end{itemize}
+\end{samepage}
 
 \begin{ejer}
 \label{ejer:s09-clasificar-anillos}
@@ -1146,7 +1194,7 @@ Sea $n\in\mathbb Z$. Demuestra que $\Spec\mathbb Z[t]/(t^2-n)$ es integral si y 
 
 \begin{ejer}
 \label{ejer:s09-adjetivos-raiz-dos}
-Describe con los cuatro adjetivos la fibra de $\Spec\mathbb Z[t]/(t^2-2)\to\Spec\mathbb Z$ sobre $2$, $3$ y $7$. \emph{Pista.} Factoriza $t^2-2$ módulo cada primo, como en el \cref{ejem:s09-enteros-gaussianos}. \emph{[Vakil, ej.~10.3.D.]}
+Para $p=2,3,7$, describe con los cuatro adjetivos el esquema $\Spec\mathbb F_p[t]/(t^2-2)$, que es la fibra de $\Spec\mathbb Z[t]/(t^2-2)\to\Spec\mathbb Z$ sobre $(p)$. \emph{Pista.} Factoriza $t^2-2$ módulo cada primo, como en el \cref{ejem:s09-enteros-gaussianos}. \emph{[Vakil, ej.~10.3.D.]}
 \end{ejer}
 
 \section{Ejercicios de valoración discreta, reducción y \texorpdfstring{$\mathbb P^n_A$}{PnA}}
@@ -1185,4 +1233,4 @@ Sea $n\ge1$ entero. Para cada primo $p$, determina cuáles de $t=0$, $t=n$ y $t=
 Con las fórmulas del \cref{ejem:s09-pegados-plano-proyectivo}, calcula $\varphi_{10}$ y $\varphi_{21}$ y comprueba que $\varphi_{10}\circ\varphi_{01}$ es la identidad de $D(u)\subseteq U_0$ y $\varphi_{21}\circ\varphi_{12}$ es la identidad de $D(v')\subseteq U_1$. Describe el complemento de $U_0$ en $\mathbb P^2_A$.
 \end{ejer}
 
-La continuación de esta sesión completará reducido e irreducible y retomará integral y noetheriano; los ejercicios de estos últimos temas acompañarán esa continuación. La Sesión 10 tratará subesquemas abiertos y cerrados, gavillas de ideales y estructura reducida. La Sesión 11: morfismos de esquemas, descripción local y esquemas sobre una base.
+La próxima clase tratará morfismos de esquemas y subesquemas. El profesor anunció la correspondencia $\operatorname{Hom}(X,\Spec A)\cong\operatorname{Hom}(A,\Gamma(X,\mathcal O_X))$.

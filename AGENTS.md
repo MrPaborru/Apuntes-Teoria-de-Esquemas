@@ -23,9 +23,11 @@ La sesión 7 conserva su exposición unificada de 7a, 7b y 7c y la demostración
 
 La clase 8d completa la maximalidad y los dos generadores de los primos de Z[t], el mapa de Mumford, la curva V(t²+1), la intersección de secciones y dos ejercicios nuevos. Estos contenidos se integran en los apartados existentes. A petición del usuario se incorporan, como lecturas complementarias citadas, la interpretación de los dibujos de Le Bruyn y las fibras p-ádicas de Serratos. Añadir una parte de una sesión existente no incrementa NumClases.
 
-La clase 9a inicia la sesión 9 y se añade después de S8, conservando sus ocho secciones y todos sus entornos. Sus bloques de antecedentes se mantienen en el lugar del esqueleto; se identifican como recordatorios y se enlazan con los resultados previos cuando corresponda. En S9 las referencias a Vakil siguen la versión del 8 de septiembre de 2024 indicada por el profesor.
+La clase 9a inicia la sesión 9 y se añade después de S8, conservando sus ocho secciones y todos sus entornos. Sus bloques de antecedentes se identifican como recordatorios y se enlazan con los resultados previos cuando corresponda. Los materiales de valoración y reducción indican el borrador de Vakil del 8 de septiembre de 2024; el esqueleto de S9c indica el del 21 de octubre de 2025.
 
 La clase 9b se integra con esos antecedentes sin duplicar sus enunciados: añade el cálculo elemental de primos sobre (0) y sobre el máximo de un DVR, las ecuaciones x(x−1) y x(x−p), el argumento de la norma en Z[i] y un ejercicio nuevo. El ejemplo gaussiano y su dibujo se reúnen con esos cálculos; el desarrollo previo sobre modelos se conserva como anticipo expresamente aplazado. S9b reserva integral y noetheriano para la continuación de la sesión; se señala ese alcance conservando el contenido correcto ya incorporado. Las etiquetas y los ejercicios previos se mantienen. NumClases sigue en 9.
+
+La clase 9c desarrolla las cuatro propiedades básicas. Sus recapitulaciones y sus seis afirmaciones para casa remiten a los enunciados ya presentes en la sesión. Los cuadros de demostración, los dibujos compartidos y la clasificación de los cocientes de Z[i] se integran en los apartados correspondientes. Los seis ejercicios de propiedades se conservan en la sección del esqueleto. NumClases sigue en 9.
 
 ## LaTeX y edición
 
