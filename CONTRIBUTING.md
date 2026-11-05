@@ -25,10 +25,20 @@ Para problemas al generar el PDF, utiliza la plantilla [Problema de compilación
 - Conserva la notación del curso y la estructura de los esqueletos para los contenidos distintos. Integra los detalles complementarios de una clase en el argumento al que pertenecen.
 - Mantén todos los resultados, advertencias, ejemplos y diagramas distintos. Reúne los recordatorios repetidos sin perder sus precisiones.
 - Conserva las etiquetas existentes. Todo entorno numerado nuevo lleva inmediatamente una etiqueta descriptiva, como `\label{prop:nombre}`.
-- Usa `\cref`, `\myref` o `\abvref` para las referencias internas.
+- Usa `\cref` para el tipo y el número del entorno, `\myref` para incluir también su título o `\abvref` para la referencia abreviada. Estos comandos generan los hipervínculos internos.
 - Para conjuntos explícitos usa `\set{...}` o `\set*{...}`, con `\given` cuando corresponda.
 - Mantén los estilos aprobados, evita que se partan las fórmulas en línea y cuida los finales de párrafo.
 - Conserva los ejercicios y las pistas de las fuentes. Solo incluye una solución en los apuntes cuando el profesor la haya desarrollado en clase; las soluciones de tareas tienen su propio repositorio.
 - No incluyas registros de compilación, auxiliares, archivos del editor ni imágenes temporales de revisión. Los materiales de clase y el PDF publicado sí forman parte del repositorio.
 
 Las instrucciones de mantenimiento completas están en [AGENTS.md](AGENTS.md).
+
+## Incorporar materiales de una sesión
+
+1. Lee completos el esqueleto y la presentación de cada parte, incluidas sus figuras y anotaciones, y compáralos con el texto existente.
+2. Reúne los desarrollos que completan un resultado en su apartado. Conserva los títulos y el orden de los contenidos distintos, los ejercicios y las pistas del profesor.
+3. Coteja todos los enunciados, pruebas, advertencias, fórmulas, tablas y dibujos. Los recordatorios pueden remitir a un resultado ya incorporado mediante su etiqueta.
+4. Actualiza el estado del README. Al crear un capítulo para una sesión nueva, actualiza `\NumClases` en `main.tex` con el número de sesiones numeradas apuntadas. Al añadir una parte, el contenido se integra en el capítulo correspondiente.
+5. Compila y revisa las páginas afectadas, el índice y las referencias. Incluye el PDF actualizado y los materiales incorporados en la propuesta de cambio.
+
+Las carpetas auxiliares de extracción o revisión deben quedar cubiertas por `.gitignore`. El commit debe explicar el cambio y las comprobaciones realizadas.

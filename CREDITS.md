@@ -12,7 +12,9 @@ Estos son apuntes personales del curso de Teoría de Esquemas de 2026. No consti
 
 La bibliografía del documento incluye obras de Ravi Vakil, Qing Liu, Robin Hartshorne, Michael Atiyah y Ian Macdonald, Ulrich Görtz y Torsten Wedhorn, Alexander Grothendieck y Jean Dieudonné, y el proyecto colectivo *The Stacks Project*.
 
-Las referencias concretas aparecen en el PDF y en [Referencias.bib](Referencias.bib). Una referencia bibliográfica no atribuye a sus autores la redacción de estos apuntes.
+Las referencias concretas aparecen junto a los resultados y en la bibliografía del PDF, definida en [main.tex](main.tex). [Referencias.bib](Referencias.bib) conserva un registro bibliográfico de consulta. Una referencia bibliográfica no atribuye a sus autores la redacción de estos apuntes.
+
+En la sesión 9 se indica el borrador de *The Rising Sea* al que remiten los materiales. Los de valoración y reducción usan el del 8 de septiembre de 2024, mientras que el esqueleto de S9c indica el del 21 de octubre de 2025. Las citas de resultados mantienen la numeración de la fuente correspondiente.
 
 La sesión 8 incorpora dos lecturas complementarias proporcionadas por el profesor: *Absolute geometry and the Habiro topology*, de Lieven Le Bruyn (2013), para interpretar los dibujos de Mumford, y *On the prime spectrum of the p-adic integer polynomial ring with a depiction*, de Juan Serratos (2023), para comparar las fibras sobre los enteros p-ádicos. Las aportaciones seleccionadas están identificadas y citadas en el texto; las copias de lectura se conservan en [Recursos/Esqueletos](Recursos/Esqueletos).
 
