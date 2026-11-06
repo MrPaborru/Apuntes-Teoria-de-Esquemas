@@ -29,6 +29,8 @@ La clase 9b se integra con esos antecedentes sin duplicar sus enunciados: añade
 
 La clase 9c desarrolla las cuatro propiedades básicas. Sus recapitulaciones y sus seis afirmaciones para casa remiten a los enunciados ya presentes en la sesión. Los cuadros de demostración, los dibujos compartidos y la clasificación de los cocientes de Z[i] se integran en los apartados correspondientes. Los seis ejercicios de propiedades se conservan en la sección del esqueleto. NumClases sigue en 9.
 
+El complemento de S8 y S9 desarrolla el pegado de espacios proyectivos. S8 conserva la prueba con monomios de Laurent y reúne los hechos sobre abiertos básicos, el morfismo estructural, las intersecciones de cartas, la no afinidad y la distinción entre morfismos y funciones en puntos. S9 detalla el plano proyectivo con sus dos diagramas y la prueba general por generadores. Las seis afirmaciones finales se conservan sin demostración en el entorno numerado `afirm`, con etiquetas y referencias automáticas. El complemento usa el borrador de Vakil del 21 de octubre de 2025. NumClases sigue en 9.
+
 ## LaTeX y edición
 
 - Español matemático compacto y claro; reproducir todos los diagramas y dibujos matemáticos de las presentaciones, así como las tablas de las fuentes. La fidelidad a los títulos del esqueleto prevalece sobre reducir la cantidad de secciones.

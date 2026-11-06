@@ -6,7 +6,7 @@ Para los tallos, en cambio, $\mathcal O_{X,x}=\varinjlim_{U\ni x}\mathcal O_X(U)
 
 La sesión anterior probó el \myref{teo:s07-lema-pegado}. Hoy lo usamos con dos piezas, caso en el que el cociclo se cumple automáticamente.
 
-Las referencias por apartados a \emph{The Rising Sea} en esta sesión siguen la versión de noviembre de 2017 empleada en los materiales de clase.
+Las referencias por apartados a \emph{The Rising Sea} en esta sesión siguen la versión de noviembre de 2017 empleada en los materiales de clase. El complemento sobre el espacio proyectivo por pegado de cartas afines usa el borrador del 21 de octubre de 2025.
 
 \begin{defi}[Datos de pegado]
 \label{defi:s08-datos-pegado}
@@ -1211,6 +1211,40 @@ Para la recta proyectiva, la \cref{prop:s08-fibras-dvr} da las fibras $\mathbb P
 
 \section{\texorpdfstring{$\mathbb P_A^n$}{PnA} por cartas}
 
+\subsection{Lo que se usa}
+
+Los datos de la \cref{defi:s08-datos-pegado} y el \myref{teo:s08-lema-pegado} permiten construir el esquema a partir de sus cartas. Como conjunto, el pegado es la unión disjunta de las cartas identificando cada $\mathfrak p\in U_{ij}$ con $\varphi_{ij}(\mathfrak p)\in U_{ji}$. Las condiciones (P1), (P2) y (P3) hacen de esta identificación una relación de equivalencia, como se probó en el \cref{sec:s07-paso-1}. La \cref{obs:s08-morfismos-desde-pegado} permite pegar también morfismos compatibles.
+
+\begin{prop}[Homomorfismos y abiertos básicos]
+\label{prop:s08-homomorfismos-abiertos-basicos}
+Sean $B,B',C$ anillos.
+\begin{enumerate}[label=(\alph*)]
+\item Un homomorfismo $\alpha:C\to B$ induce $\Spec\alpha:\Spec B\to\Spec C$, dado por $\mathfrak q\mapsto\alpha^{-1}(\mathfrak q)$, y
+\[
+(\Spec\alpha)^{-1}(D(f))=D(\alpha(f)).
+\]
+Todo morfismo $\varphi:\Spec B\to\Spec C$ proviene de un único homomorfismo $\varphi^\sharp:C\to B$ y $(\psi\circ\varphi)^\sharp=\varphi^\sharp\circ\psi^\sharp$.
+\item El abierto $D(f)\subseteq\Spec B$ es $\Spec B_f$, con $B_f=B[f^{-1}]$. Un homomorfismo $\beta:B\to B'$ se extiende a $B_f$ si y solo si $\beta(f)$ es unidad en $B'$. La extensión es única.
+\item $D(fg)=D(f)\cap D(g)$, y $fg$ es unidad si y solo si $f$ y $g$ lo son.
+\item Dos homomorfismos de $A$-álgebras que salen de $A[y_1,\ldots,y_m][g^{-1}]$ y coinciden en las variables $y_1,\ldots,y_m$ son iguales.
+\item Si $\alpha:C\to B$ y $f\in C$, la restricción
+\[
+D(\alpha(f))\longrightarrow D(f)
+\]
+de $\Spec\alpha$ es $\Spec$ de la extensión $\alpha_f:C_f\to B_{\alpha(f)}$.
+\end{enumerate}
+\emph{[Sesiones 3 y 6; Atiyah--Macdonald, prop.~3.1; complemento de las Sesiones 8 y 9.]}
+\end{prop}
+\begin{proof}
+Para (a), $f\notin\alpha^{-1}(\mathfrak q)$ equivale a $\alpha(f)\notin\mathfrak q$; lo demás es la equivalencia entre anillos y esquemas afines. La parte (b) es la propiedad universal de la localización. Para (c), un primo no contiene a $fg$ si y solo si no contiene a ninguno de sus factores. Si $fgh=1$, entonces $gh$ es inverso de $f$ y $fh$ lo es de $g$.
+
+En (d), los homomorfismos coinciden en el anillo de polinomios, generado por $A$ y las variables. La unicidad de (b) da la igualdad en la localización. Para (e), (a) da la preimagen del abierto básico. La restricción es un morfismo entre $\Spec B_{\alpha(f)}$ y $\Spec C_f$, por lo que proviene de un único homomorfismo compatible con $\alpha$ y con las localizaciones. Por (b), este es $\alpha_f$.
+\end{proof}
+
+El \cref{sec:s09-plano-cuentas} escribe primero todas las cuentas para el plano proyectivo. Aquí conservamos la construcción general y su demostración con monomios de Laurent.
+
+\subsection{El espacio proyectivo \texorpdfstring{$\mathbb P^n_A$}{PnA}}
+
 \begin{defi}[Las cartas de $\mathbb P_A^n$]
 \label{defi:s08-cartas-proyectiva-n}
 Sea $n\geq1$. Para $i=0,\ldots,n$, sea $A_i=A[x_{k/i}:k\ne i]$, el anillo de polinomios en las $n$ variables $x_{k/i}$, y $U_i=\Spec A_i\cong\mathbb A_A^n$. Son $n+1$ cartas, cada una con $n$ coordenadas afines; $x_{k/i}$ representa el cociente de coordenadas homogéneas $x_k/x_i$. Se pone $x_{i/i}=1$, $U_{ii}=U_i$ y $\varphi_{ii}=\id$. Para $j\ne i$, sea $U_{ij}=D(x_{j/i})\subseteq U_i$, con anillo de funciones $A_i[x_{j/i}^{-1}]$, y
@@ -1270,9 +1304,79 @@ R_{ijk}=\bigoplus_{\substack{\sum_\ell m_\ell=0\\m_\ell\geq0\text{ si }\ell\noti
 al invertir $x_{j/i}$ y $x_{k/i}$. En la carta $j$, los abiertos $U_{ji}\cap U_{jk}$ tienen el mismo anillo: bajo $\varphi_{ij}^\sharp$, invertir $x_{k/j}$ equivale a invertir $x_{k/i}/x_{j/i}$, y $x_{j/i}$ ya es unidad. Por tanto la transición lleva exactamente el primer abierto triple al segundo. Las tres transiciones inducen la identidad de $R_{ijk}$; su composición coincide con la transición directa. Esto prueba ambas partes de (P3).
 \end{proof}
 
+\begin{defi}[El espacio proyectivo]
+\label{defi:s08-espacio-proyectivo}
+El espacio proyectivo $\mathbb P^n_A$ es el esquema del \myref{teo:s08-lema-pegado} aplicado a los datos de la \cref{prop:s08-cociclo-proyectiva-n}. Escribimos $W_i=\psi_i(U_i)$ para las imágenes de sus cartas. Los morfismos
+\[
+\pi_i=\Spec(A\longrightarrow A_i):U_i\longrightarrow\Spec A
+\]
+cumplen $\pi_j\circ\varphi_{ij}=\pi_i$ en $U_{ij}$ porque cada $\varphi_{ij}^\sharp$ fija $A$. Se pegan, por la \cref{obs:s08-morfismos-desde-pegado}, en el morfismo estructural $\pi:\mathbb P^n_A\to\Spec A$.
+\end{defi}
+
+\begin{obs}[Cuántos datos hay]
+\label{obs:s08-cantidad-datos-proyectivos}
+Cada pareja no ordenada de cartas da dos isomorfismos inversos y cada terna de cartas distintas da una condición de cociclo. Para $n=2$ son tres cartas, seis abiertos, tres pegados y una terna.
+\begin{center}
+\begin{tabular}{lc}
+\hline
+Dato & Número\\
+\hline
+Cartas $U_i$ & $n+1$\\
+Abiertos $U_{ij}$, $i\ne j$ & $n(n+1)$\\
+Isomorfismos $\varphi_{ij}$, $i\ne j$ & $n(n+1)$\\
+Parejas no ordenadas de cartas & $\binom{n+1}{2}$\\
+Ternas no ordenadas de cartas distintas & $\binom{n+1}{3}$\\
+\hline
+\end{tabular}
+\end{center}
+\end{obs}
+
+\begin{prop}[Las intersecciones de cartas]
+\label{prop:s08-intersecciones-cartas-proyectivas}
+Sea $I\subseteq\set{0,\ldots,n}$ con $r\ge1$ elementos e $i\in I$. Entonces
+\[
+\bigcap_{j\in I}W_j
+=\psi_i\left(D\left(\prod_{j\in I\setminus\set{i}}x_{j/i}\right)\right).
+\]
+Es un abierto afín con anillo $A_i[x_{j/i}^{-1}:j\in I\setminus\set{i}]$, de polinomios en $n-r+1$ variables y de Laurent en otras $r-1$. La intersección de todas las cartas tiene anillo
+\[
+A[x_{1/0}^{\pm1},\ldots,x_{n/0}^{\pm1}].
+\]
+El mapa $x_{k/0}\mapsto x_kx_0^{-1}$ lo identifica con el anillo $L_0$ de la prueba de la \cref{prop:s08-cociclo-proyectiva-n}.
+\end{prop}
+\begin{proof}
+Por el \myref{teo:s08-lema-pegado}, $W_i\cap W_j=\psi_i(U_{ij})$. La inyectividad de $\psi_i$ da
+\[
+\bigcap_{j\in I}W_j
+=\psi_i\left(\bigcap_{j\in I\setminus\set{i}}U_{ij}\right).
+\]
+La \cref{prop:s08-homomorfismos-abiertos-basicos}(c) identifica la intersección de abiertos básicos con el abierto del producto. Se invierten $r-1$ de las $n$ variables; las restantes son $n-r+1$. Para $r=1$, el producto vacío es $1$ y se recupera la carta completa.
+\end{proof}
+
 \begin{obs}
 \label{obs:s08-hiperplano-infinito}
 Geométricamente, $U_i$ es el abierto donde $x_i\ne0$. La carta $U_0$ es isomorfa a $\mathbb A_A^n$. Su complemento es el cerrado donde se anula $x_0$, descrito en $U_i$ por $V(x_{0/i})$. Es una copia de $\mathbb P_A^{n-1}$, el hiperplano al infinito de la Sesión 10. Para $n=1$ se recupera la \cref{defi:s08-recta-proyectiva}, con $t=x_{1/0}$ y $s=x_{0/1}$. La construcción formal mediante $\operatorname{Proj}$ llegará en la Sesión 21.
+\end{obs}
+
+\begin{obs}[$\mathbb P^n_A$ no es afín]
+\label{obs:s08-proyectiva-n-no-afin}
+El \cref{ejer:s08-proyectiva-n} calcula $\Gamma(\mathbb P^n_A,\mathcal O)=A$ intersecando los anillos de dos cartas dentro de $L_0$. El homomorfismo $\phi:A\to\Gamma(\mathbb P^n_A,\mathcal O)$ inducido por $\pi$ es, por tanto, un isomorfismo. La \cref{prop:s08-propiedades-morfismo-canonico} da
+\[
+\pi=\Spec(\phi)\circ\eta_{\mathbb P^n_A}.
+\]
+Si $\mathbb P^n_A$ fuera afín, $\eta_{\mathbb P^n_A}$ y $\pi$ serían isomorfismos. Pero, si $n\ge1$ y $A\ne0$, para un primo $\mathfrak p$ de $A$ los ideales
+\[
+\mathfrak pA_0+(x_{1/0}),\qquad
+\mathfrak pA_0+(x_{1/0}-1)
+\]
+son primos distintos de $A_0$. Sus cocientes son $(A/\mathfrak p)[x_{2/0},\ldots,x_{n/0}]$, y un ideal que contenga a $x_{1/0}$ y a $x_{1/0}-1$ contiene a $1$. Ambos contraen a $\mathfrak p$ en $A$, por lo que dan puntos distintos de $W_0$ con la misma imagen por $\pi$. Esto prueba la no afinidad.
+\end{obs}
+
+\begin{obs}[Las cuentas se hacen en los anillos]
+\label{obs:s08-cuentas-en-anillos}
+Las condiciones (P2) y (P3) son igualdades de morfismos de esquemas y se comprueban en los homomorfismos. En $\Spec k[\varepsilon]/(\varepsilon^2)$, la identidad y el morfismo inducido por $\varepsilon\mapsto0$ coinciden en el único punto y son distintos como morfismos. La función $\varepsilon$ vale cero en ese punto y es no nula, como se verá en el \cref{ejem:s09-numeros-duales}.
+
+También $T\mapsto T$ y $T\mapsto T^p$ en $\mathbb F_p[T]$ inducen la identidad en el espacio topológico $\mathbb A^1_{\mathbb F_p}$. En efecto, $f(T^p)=f(T)^p$ para todo $f\in\mathbb F_p[T]$, y un primo contiene a $f^p$ si y solo si contiene a $f$. Los homomorfismos, y por tanto los morfismos de esquemas, son distintos.
 \end{obs}
 
 \section{Los pegados de dos rectas a lo largo de \texorpdfstring{$D(x)$}{D(x)}}

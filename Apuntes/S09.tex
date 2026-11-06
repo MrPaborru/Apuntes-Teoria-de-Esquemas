@@ -591,19 +591,12 @@ La familia $y^2=x^3+x^2+tx$ tiene miembros generales lisos y en $t=0$ da la curv
 \section{\texorpdfstring{$\mathbb P^n_A$}{PnA} y sus datos de pegado}
 \emph{Qué buscamos.} Construir $\mathbb P^n_A$ mediante sus funciones de pegado. \emph{Idea.} Pegar $n+1$ copias de $\mathbb A^n_A$ con cocientes de coordenadas homogéneas.
 
-\begin{defi}[Las cartas de $\mathbb P^n_A$]
-\label{defi:s09-cartas-proyectivas}
-Para cada índice $i=0,\ldots,n$, ponemos
-\[
-A_i=A[x_{k/i}:k\ne i],\qquad U_i=\Spec A_i\cong\mathbb A^n_A.
-\]
-Cada anillo tiene $n$ variables, y $x_{k/i}$ representa $x_k/x_i$. Ponemos $x_{i/i}=1$, $U_{ii}=U_i$ y $\varphi_{ii}=\id$. Si $j\ne i$, sea $U_{ij}=D(x_{j/i})\subseteq U_i$, y definamos $\varphi_{ij}:U_{ij}\to U_{ji}$ por
-\[
-\varphi_{ij}^\sharp:A_j[x_{i/j}^{-1}]\longrightarrow A_i[x_{j/i}^{-1}],
-\qquad x_{k/j}\longmapsto\frac{x_{k/i}}{x_{j/i}}\quad(k\ne j).
-\]
-En particular, $x_{i/j}\mapsto x_{j/i}^{-1}$. \emph{[Vakil, \S4.4.9--4.4.10; \cref{defi:s08-cartas-proyectiva-n}.]}
-\end{defi}
+El complemento de las Sesiones 8 y 9 desarrolla primero el plano proyectivo y después los índices generales. Usaremos los hechos sobre homomorfismos y abiertos básicos de la \cref{prop:s08-homomorfismos-abiertos-basicos}.
+
+\subsection{El plano proyectivo \texorpdfstring{$\mathbb P^2_A$}{P2A} con todas las cuentas}
+\label{sec:s09-plano-cuentas}
+
+\subsubsection{Las cartas y los abiertos de pegado}
 
 \begin{ejem}[$\mathbb P^2_A$]
 \label{ejem:s09-pegados-plano-proyectivo}
@@ -615,7 +608,58 @@ U_1&=\Spec A[u',v'], &(u',v')&=(x_0/x_1,x_2/x_1),\\
 U_2&=\Spec A[u'',v''], &(u'',v'')&=(x_0/x_2,x_1/x_2).
 \end{aligned}
 \]
-Los pegados son
+Escribimos $A_i$ para el anillo de $U_i$ y usamos también las variables $x_{k/i}=x_k/x_i$, con $x_{i/i}=1$.
+\begin{center}
+\begin{tabular}{cll}
+\hline
+Carta & Coordenadas & Representante\\
+\hline
+$U_0$ & $u=x_{1/0}$, $v=x_{2/0}$ & $[1:x_{1/0}:x_{2/0}]$\\
+$U_1$ & $u'=x_{0/1}$, $v'=x_{2/1}$ & $[x_{0/1}:1:x_{2/1}]$\\
+$U_2$ & $u''=x_{0/2}$, $v''=x_{1/2}$ & $[x_{0/2}:x_{1/2}:1]$\\
+\hline
+\end{tabular}
+\end{center}
+Para coordenadas en un cuerpo, la carta $U_i$ corresponde a $x_i\ne0$ y el representante se obtiene al dividir entre $x_i$. Sobre un anillo, dividir exige que la coordenada sea invertible. Por eso
+\[
+U_{ij}=D(x_{j/i})\subseteq U_i,\qquad
+\mathcal O(U_{ij})=A_i[x_{j/i}^{-1}].
+\]
+\begin{center}
+\begin{tabular}{cll}
+\hline
+Pareja & En la primera carta & En la segunda carta\\
+\hline
+$(0,1)$ & $U_{01}=D(x_{1/0})$ & $U_{10}=D(x_{0/1})$\\
+$(0,2)$ & $U_{02}=D(x_{2/0})$ & $U_{20}=D(x_{0/2})$\\
+$(1,2)$ & $U_{12}=D(x_{2/1})$ & $U_{21}=D(x_{1/2})$\\
+\hline
+\end{tabular}
+\end{center}
+En $U_{01}$ solo se invierte $x_{1/0}$ y $x_{2/0}$ puede anularse. Por ejemplo, $[1:1:0]$ tiene $x_{2/0}=0$ y está en ese abierto; véase el \cref{ejem:s09-puntos-cartas-proyectivas}.
+\end{ejem}
+
+\subsubsection{Los isomorfismos de pegado}
+
+La regla de las fracciones es
+\[
+x_{k/j}=\frac{x_{k/i}}{x_{j/i}}.
+\]
+Expresa las coordenadas de la carta $j$ en las de la carta $i$. Para $k=i$ da $x_{i/j}=x_{j/i}^{-1}$. Por la \cref{prop:s08-homomorfismos-abiertos-basicos}(a), los homomorfismos van del anillo de $U_{ji}$ al de $U_{ij}$.
+\[
+\begin{aligned}
+\varphi_{01}^\sharp:A_1[x_{0/1}^{-1}]&\longrightarrow A_0[x_{1/0}^{-1}],
+&x_{0/1}&\longmapsto x_{1/0}^{-1},
+&x_{2/1}&\longmapsto x_{2/0}/x_{1/0},\\
+\varphi_{02}^\sharp:A_2[x_{0/2}^{-1}]&\longrightarrow A_0[x_{2/0}^{-1}],
+&x_{0/2}&\longmapsto x_{2/0}^{-1},
+&x_{1/2}&\longmapsto x_{1/0}/x_{2/0},\\
+\varphi_{12}^\sharp:A_2[x_{1/2}^{-1}]&\longrightarrow A_1[x_{2/1}^{-1}],
+&x_{0/2}&\longmapsto x_{0/1}/x_{2/1},
+&x_{1/2}&\longmapsto x_{2/1}^{-1}.
+\end{aligned}
+\]
+Todos fijan $A$, y los $\varphi_{ji}^\sharp$ se obtienen intercambiando $i$ y $j$. En las coordenadas auxiliares del \cref{ejem:s09-pegados-plano-proyectivo}, las fórmulas de los pegados son
 \[
 \begin{aligned}
 \varphi_{01}:D(u)&\longrightarrow D(u'), &(u,v)&\longmapsto(1/u,v/u),\\
@@ -623,17 +667,224 @@ Los pegados son
 \varphi_{12}:D(v')&\longrightarrow D(v''), &(u',v')&\longmapsto(u'/v',1/v').
 \end{aligned}
 \]
-Para $n=1$ se recupera $\mathbb P^1_A$ con $t=x_{1/0}$ y $s=x_{0/1}$. En el traslape triple del plano, el cociclo es la identidad de funciones racionales
+Para $n=1$ se recupera $\mathbb P^1_A$ con $t=x_{1/0}$ y $s=x_{0/1}$.
+
+\emph{Qué buscamos.} Ver que la regla de las fracciones da un isomorfismo $U_{01}\cong U_{10}$.
+
+\begin{prop}[El primer pegado]
+\label{prop:s09-primer-pegado-plano}
+El homomorfismo $\varphi_{01}^\sharp$ está bien definido y es un isomorfismo con inverso $\varphi_{10}^\sharp$. Por tanto, $\varphi_{01}:U_{01}\to U_{10}$ es un isomorfismo de esquemas con inverso $\varphi_{10}$.
+\end{prop}
+\begin{proof}
+La regla en las variables define un homomorfismo de $A$-álgebras $A_1\to A_0[x_{1/0}^{-1}]$. Lleva $x_{0/1}$ a la unidad $x_{1/0}^{-1}$ y se extiende a $A_1[x_{0/1}^{-1}]$, con $x_{0/1}^{-1}\mapsto x_{1/0}$, por la \cref{prop:s08-homomorfismos-abiertos-basicos}(b). Análogamente,
+\[
+\varphi_{10}^\sharp(x_{1/0})=x_{0/1}^{-1},
+\qquad
+\varphi_{10}^\sharp(x_{2/0})=x_{2/1}/x_{0/1}.
+\]
+La composición $\varphi_{01}^\sharp\circ\varphi_{10}^\sharp$ manda
+\[
+\begin{aligned}
+x_{1/0}&\longmapsto x_{0/1}^{-1}\longmapsto x_{1/0},\\
+x_{2/0}&\longmapsto x_{2/1}/x_{0/1}
+\longmapsto\frac{x_{2/0}/x_{1/0}}{x_{1/0}^{-1}}=x_{2/0}.
+\end{aligned}
+\]
+Es la identidad por la \cref{prop:s08-homomorfismos-abiertos-basicos}(d). Intercambiando $0$ y $1$ se obtiene la identidad en el otro orden. Por (a) de esa proposición, los morfismos son inversos. Las parejas $(0,2)$ y $(1,2)$ se obtienen al renombrar los índices, pues siguen la misma regla de las fracciones.
+\end{proof}
+
+\subsubsection{La intersección triple y el cociclo}
+
+Las intersecciones triples en cada carta son
+\[
+\begin{aligned}
+U_{01}\cap U_{02}&=D(x_{1/0}x_{2/0}),\\
+U_{10}\cap U_{12}&=D(x_{0/1}x_{2/1}),\\
+U_{20}\cap U_{21}&=D(x_{0/2}x_{1/2}).
+\end{aligned}
+\]
+Sus anillos son $A[x_{1/0}^{\pm1},x_{2/0}^{\pm1}]$, $A[x_{0/1}^{\pm1},x_{2/1}^{\pm1}]$ y $A[x_{0/2}^{\pm1},x_{1/2}^{\pm1}]$.
+
+\begin{prop}[El cociclo de $\mathbb P^2_A$]
+\label{prop:s09-cociclo-plano}
+\begin{enumerate}[label=(\alph*)]
+\item $\varphi_{01}(U_{01}\cap U_{02})=U_{10}\cap U_{12}$.
+\item $\varphi_{02}=\varphi_{12}\circ\varphi_{01}$ en $U_{01}\cap U_{02}$.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+Por la \cref{prop:s08-homomorfismos-abiertos-basicos}(a), la preimagen por $\varphi_{01}$ de $U_{10}\cap D(x_{2/1})$ es el abierto de $U_{01}$ donde no se anula $x_{2/0}/x_{1/0}$. Como $x_{1/0}$ es unidad allí, ese abierto es $U_{01}\cap D(x_{2/0})=U_{01}\cap U_{02}$. La biyectividad de $\varphi_{01}$ da (a).
+
+Por (a), la composición de (b) está definida en la intersección triple. Las restricciones de los homomorfismos se extienden a los anillos de Laurent por la \cref{prop:s08-homomorfismos-abiertos-basicos}(e). El homomorfismo de la composición es $\varphi_{01}^\sharp\circ\varphi_{12}^\sharp$, y manda
+\[
+\begin{aligned}
+x_{0/2}&\longmapsto x_{0/1}/x_{2/1}
+\longmapsto\frac{x_{1/0}^{-1}}{x_{2/0}/x_{1/0}}=x_{2/0}^{-1},\\
+x_{1/2}&\longmapsto x_{2/1}^{-1}\longmapsto x_{1/0}/x_{2/0}.
+\end{aligned}
+\]
+Coincide con $\varphi_{02}^\sharp$ en las variables y fija $A$, luego ambos son iguales por la \cref{prop:s08-homomorfismos-abiertos-basicos}(d). En las coordenadas auxiliares, la cuenta es
 \[
 \varphi_{12}(\varphi_{01}(u,v))
 =\varphi_{12}(1/u,v/u)=(1/v,u/v)=\varphi_{02}(u,v).
 \]
+Las ternas con índices repetidos se reducen a (P1) y (P2). Las demás ordenaciones se obtienen componiendo con inversos, por ejemplo $\varphi_{21}\circ\varphi_{02}=\varphi_{21}\circ\varphi_{12}\circ\varphi_{01}=\varphi_{01}$. La igualdad de abiertos se obtiene renombrando los índices. La \cref{prop:s09-pegado-proyectivo} verifica todas las ternas a la vez.
+\end{proof}
+
+% Complemento S8 y S9, página 5: cartas y triángulo del traslape triple.
+\par\noindent\begin{minipage}{\linewidth}
+\begin{center}
+\begin{minipage}{.47\linewidth}
+\centering
+\begin{tikzpicture}[scale=1.1,every node/.style={font=\small}]
+\fill[blue!12] (-.8,.55) circle (1.25);
+\fill[orange!12] (.8,.55) circle (1.25);
+\fill[green!12] (0,-.85) circle (1.25);
+\draw[blue!65!black] (-.8,.55) circle (1.25);
+\draw[orange!80!black] (.8,.55) circle (1.25);
+\draw[green!45!black] (0,-.85) circle (1.25);
+\node at (-1.25,.9) {$W_0$};
+\node at (1.25,.9) {$W_1$};
+\node at (0,-1.55) {$W_2$};
+\node at (0,.95) {$01$};
+\node at (-.75,-.4) {$02$};
+\node at (.75,-.4) {$12$};
+\node at (0,-.05) {$012$};
+\end{tikzpicture}
+\end{minipage}\hfill
+\begin{minipage}{.50\linewidth}
+\centering
+\begin{tikzcd}[column sep=small,row sep=large]
+D(x_{1/0}x_{2/0})\arrow[r,"\varphi_{01}"]\arrow[dr,swap,"\varphi_{02}"]
+&D(x_{0/1}x_{2/1})\arrow[d,"\varphi_{12}"]\\
+&D(x_{0/2}x_{1/2})
+\end{tikzcd}
+\end{minipage}
+\end{center}
+Las cartas tienen imágenes $W_i=\psi_i(U_i)$. La región $01$ representa $(W_0\cap W_1)\setminus W_2$, y análogamente $02$ y $12$. La región $012$ representa $W_0\cap W_1\cap W_2=\psi_0(D(x_{1/0}x_{2/0}))$. El triángulo conmuta por la \cref{prop:s09-cociclo-plano}.
+\end{minipage}\par
+
+\subsubsection{El esquema que se obtiene}
+
+\begin{defi}[El plano proyectivo]
+\label{defi:s09-plano-proyectivo}
+El plano proyectivo $\mathbb P^2_A$ es el esquema que da el \myref{teo:s08-lema-pegado} con los datos anteriores. Escribimos $W_i=\psi_i(U_i)$.
+\end{defi}
+
+Por el lema, $W_0\cap W_1=\psi_0(D(x_{1/0}))=\psi_1(D(x_{0/1}))$. La inyectividad de $\psi_0$ da
+\[
+W_0\cap W_1\cap W_2
+=\psi_0(D(x_{1/0})\cap D(x_{2/0}))
+=\psi_0(D(x_{1/0}x_{2/0})).
+\]
+Un punto tiene representantes en una, dos o tres cartas. Las funciones también se pegan. Una sección de $\mathcal O_{\mathbb P^2_A}$ sobre un abierto $W$ es una familia
+\[
+s_i\in\mathcal O_{U_i}(\psi_i^{-1}(W))
+\]
+que satisface, para todo $i,j$,
+\[
+s_i|_{\psi_i^{-1}(W)\cap U_{ij}}
+=\varphi_{ij}^\sharp\left(s_j|_{\psi_j^{-1}(W)\cap U_{ji}}\right).
+\]
+El homomorfismo $\varphi_{ij}^\sharp$ lleva funciones de $U_{ji}$ a funciones de $U_{ij}$. Por ejemplo, $x_{2/0}$ en $U_0$ y $x_{2/1}/x_{0/1}$ en $U_1$ dan la misma sección sobre $W_0\cap W_1$, pues
+\[
+\varphi_{01}^\sharp(x_{2/1}/x_{0/1})
+=\frac{x_{2/0}/x_{1/0}}{x_{1/0}^{-1}}=x_{2/0}.
+\]
+Ambas expresan $x_2/x_0$.
+
+\subsubsection{Puntos con coordenadas}
+
+Sea $A=k$ un cuerpo. Si $a=(a_0,a_1,a_2)\in k^3$ y $a_i\ne0$, el ideal
+\[
+\mathfrak m_{a,i}=(x_{\ell/i}-a_\ell/a_i:\ell\ne i)\subseteq A_i
+\]
+es máximo, con cuerpo residual $k$. Su punto se lee como $[a_0:a_1:a_2]$. La \cref{afirm:s09-coordenadas-homogeneas} deja por justificar que $\psi_i(\mathfrak m_{a,i})$ es independiente de la carta y del múltiplo común por $\lambda\in k^\times$, y que se obtienen así todos los puntos racionales, de grado $1$.
+
+\begin{ejem}[Puntos en una, dos y tres cartas]
+\label{ejem:s09-puntos-cartas-proyectivas}
+Sea $A=k$ un cuerpo.
+\begin{enumerate}[label=(\alph*)]
+\item $[1:0:0]$ está solo en $W_0$, con $(x_{1/0},x_{2/0})=(0,0)$. Los orígenes de las tres cartas son $[1:0:0]$, $[0:1:0]$ y $[0:0:1]$. Cada uno queda fuera de los dos abiertos de pegado de su carta.
+\item $[1:1:0]$ está en $W_0\cap W_1$ y fuera de $W_2$. Sus coordenadas son $(1,0)$ tanto en $U_0$ como en $U_1$. Está en $D(x_{1/0})$ y fuera de $D(x_{1/0}x_{2/0})$. Las cartas se pegan a lo largo del primer abierto; el segundo es la región compartida por las tres.
+\item $[0:1:1]$ está en $W_1\cap W_2$ y fuera de $W_0$, con coordenadas $(0,1)$ en ambas cartas. Las transiciones son $x_{0/2}=x_{0/1}/x_{2/1}$ y $x_{1/2}=x_{2/1}^{-1}$.
+\item Sobre $\mathbb Q$, el punto $[2:3:5]$ pertenece a las tres cartas, con
+\[
+(x_{1/0},x_{2/0})=(3/2,5/2),\quad
+(x_{0/1},x_{2/1})=(2/3,5/3),\quad
+(x_{0/2},x_{1/2})=(2/5,3/5).
+\]
+Por ejemplo, $x_{2/1}=(5/2)/(3/2)=5/3$ y $x_{0/2}=(2/3)/(5/3)=2/5$.
+\end{enumerate}
 \end{ejem}
 
-\begin{prop}[$\mathbb P^n_A$]
+\begin{obs}[La recta al infinito]
+\label{obs:s09-recta-infinito}
+El complemento de $W_0$ en $\mathbb P^2_A$ es cerrado y está contenido en $W_1\cup W_2$. En $U_1$ es $V(x_{0/1})$ y en $U_2$ es $V(x_{0/2})$. En $U_{10}$ el ideal $(x_{0/1})$ es todo el anillo, y lo mismo ocurre con $(x_{0/2})$ en $U_{20}$, de acuerdo con que el cerrado está fuera de $W_0$.
+
+Por la \cref{prop:s09-primos-cociente}, los puntos de estos cerrados son los primos de
+\[
+A_1/(x_{0/1})\cong A[x_{2/1}],
+\qquad
+A_2/(x_{0/2})\cong A[x_{1/2}].
+\]
+En el traslape $U_{12}$, la igualdad $\varphi_{12}^\sharp(x_{0/2})=x_{0/1}/x_{2/1}$ lleva el ideal $(x_{0/2})$ al ideal $(x_{0/1})$, pues $x_{2/1}$ es unidad. En los cocientes induce
+\[
+A[x_{1/2}^{\pm1}]\longrightarrow A[x_{2/1}^{\pm1}],
+\qquad x_{1/2}\longmapsto x_{2/1}^{-1}.
+\]
+Son los datos de la recta proyectiva de la \cref{defi:s08-recta-proyectiva}. Cuando se definan los subesquemas cerrados, este cerrado será una copia de $\mathbb P^1_A$, la recta al infinito. Si $A=k$ es un cuerpo, el complemento de $W_0\cup W_1$ es el punto $[0:0:1]$, origen de $U_2$, porque $V(x_{0/2},x_{1/2})$ tiene un solo primo.
+\end{obs}
+
+\subsection{El espacio proyectivo \texorpdfstring{$\mathbb P^n_A$}{PnA}}
+
+\begin{defi}[Las cartas de $\mathbb P^n_A$]
+\label{defi:s09-cartas-proyectivas}
+Sea $n\ge1$. Para cada índice $i=0,\ldots,n$, ponemos
+\[
+A_i=A[x_{k/i}:k\ne i],\qquad U_i=\Spec A_i\cong\mathbb A^n_A.
+\]
+Cada anillo tiene $n$ variables, y $x_{k/i}$ representa $x_k/x_i$. Ponemos $x_{i/i}=1$, $U_{ii}=U_i$ y $\varphi_{ii}=\id$. Si $j\ne i$, sea $U_{ij}=D(x_{j/i})\subseteq U_i$, y definamos $\varphi_{ij}:U_{ij}\to U_{ji}$ por
+\[
+\varphi_{ij}^\sharp:A_j[x_{i/j}^{-1}]\longrightarrow A_i[x_{j/i}^{-1}],
+\qquad x_{k/j}\longmapsto\frac{x_{k/i}}{x_{j/i}}\quad(k\ne j).
+\]
+En particular, $x_{i/j}\mapsto x_{j/i}^{-1}$. \emph{[Vakil, \S4.4.9--4.4.10; \cref{defi:s08-cartas-proyectiva-n}.]}
+\end{defi}
+
+Para $n=2$ son las cartas del \cref{sec:s09-plano-cuentas}. Para $n=1$, con $t=x_{1/0}$ y $s=x_{0/1}$, se recupera la recta proyectiva. La convención $x_{i/i}=1$ hace que la regla de las fracciones valga también cuando el numerador es $1$.
+
+\begin{prop}[Los datos de pegado de $\mathbb P^n_A$]
 \label{prop:s09-pegado-proyectivo}
-Los $U_i,U_{ij},\varphi_{ij}$ de la \cref{defi:s09-cartas-proyectivas} son datos de pegado, incluida $\varphi_{ij}(U_{ij}\cap U_{ik})=U_{ji}\cap U_{jk}$. Su pegado es $\mathbb P^n_A$. La prueba con el anillo $L_0$ de monomios de grado cero está en la \cref{prop:s08-cociclo-proyectiva-n}. El \cref{ejem:s09-pegados-plano-proyectivo} verifica el cociclo para $n=2$, y los inversos se piden en el \cref{ejer:s09-pegados-inversos}. \emph{[Vakil, \S4.4.9--4.4.10 y ej.~4.4.D.]}
+Los $U_i,U_{ij},\varphi_{ij}$ de la \cref{defi:s09-cartas-proyectivas} son datos de pegado, incluida $\varphi_{ij}(U_{ij}\cap U_{ik})=U_{ji}\cap U_{jk}$. Su pegado es $\mathbb P^n_A$. La prueba con el anillo $L_0$ de monomios de grado cero está en la \cref{prop:s08-cociclo-proyectiva-n}. La \cref{prop:s09-cociclo-plano} verifica el cociclo para $n=2$, y los inversos se piden en el \cref{ejer:s09-pegados-inversos}. \emph{[Vakil, \S4.4.9--4.4.10 y ej.~4.4.D.]}
 \end{prop}
+\begin{proof}
+El complemento da una segunda prueba por cuentas en los generadores.
+
+\emph{Paso 1. Los homomorfismos están bien definidos.} La regla de las fracciones define un homomorfismo de $A$-álgebras $A_j\to A_i[x_{j/i}^{-1}]$. Como envía $x_{i/j}$ a la unidad $x_{j/i}^{-1}$, se extiende a $A_j[x_{i/j}^{-1}]$, con $x_{i/j}^{-1}\mapsto x_{j/i}$, por la \cref{prop:s08-homomorfismos-abiertos-basicos}(b).
+
+\emph{Paso 2. Las condiciones (P1) y (P2).} La primera es la definición. Si $i\ne j$, la composición $\varphi_{ij}^\sharp\circ\varphi_{ji}^\sharp$ manda, para todo $k\ne i$,
+\[
+x_{k/i}\longmapsto\frac{x_{k/j}}{x_{i/j}}
+\longmapsto\frac{x_{k/i}/x_{j/i}}{x_{j/i}^{-1}}
+=x_{k/i}.
+\]
+Se usa $x_{j/j}=1$ cuando $k=j$. La \cref{prop:s08-homomorfismos-abiertos-basicos}(d) da la identidad de $A_i[x_{j/i}^{-1}]$. Intercambiando $i$ y $j$ se obtiene la identidad en el otro orden. Por tanto $\varphi_{ij}$ es un isomorfismo y $\varphi_{ji}=\varphi_{ij}^{-1}$.
+
+\emph{Paso 3. La igualdad de abiertos de (P3).} Para $i,j,k$ distintos, $U_{ij}\cap U_{ik}=D(x_{j/i}x_{k/i})$. La preimagen por $\varphi_{ij}$ de $U_{ji}\cap D(x_{k/j})$ es el abierto de $U_{ij}$ donde no se anula $x_{k/i}/x_{j/i}$. Como $x_{j/i}$ es unidad, ese abierto es $U_{ij}\cap D(x_{k/i})=U_{ij}\cap U_{ik}$. La biyectividad de $\varphi_{ij}$ da la igualdad de abiertos requerida.
+
+\emph{Paso 4. El cociclo.} Por el paso anterior, $\varphi_{jk}\circ\varphi_{ij}$ está definida en $U_{ij}\cap U_{ik}$, cuyo anillo es $A_i[x_{j/i}^{-1},x_{k/i}^{-1}]$. Por la \cref{prop:s08-homomorfismos-abiertos-basicos}(e), su homomorfismo es $\varphi_{ij}^\sharp\circ\varphi_{jk}^\sharp$, extendido a las localizaciones. En los generadores da
+\[
+x_{\ell/k}\longmapsto\frac{x_{\ell/j}}{x_{k/j}}
+\longmapsto
+\frac{x_{\ell/i}/x_{j/i}}{x_{k/i}/x_{j/i}}
+=\frac{x_{\ell/i}}{x_{k/i}}
+=\varphi_{ik}^\sharp(x_{\ell/k}).
+\]
+Los denominadores son unidades en el anillo de la intersección triple. Los homomorfismos coinciden por la \cref{prop:s08-homomorfismos-abiertos-basicos}(d), así que $\varphi_{jk}\circ\varphi_{ij}=\varphi_{ik}$. Si se repiten índices, (P3) se reduce a (P1) y (P2).
+\end{proof}
+
+La \cref{defi:s08-espacio-proyectivo} explicita el morfismo estructural obtenido al pegar las proyecciones de las cartas. La \cref{obs:s08-cantidad-datos-proyectivos} cuenta los datos y la \cref{prop:s08-intersecciones-cartas-proyectivas} calcula las intersecciones de cualquier número de cartas.
 
 \begin{obs}
 \label{obs:s09-proyectivo-modelo-liso}
@@ -1106,6 +1357,61 @@ El primer ejemplo se trató en el \cref{ejem:s09-numeros-duales}; su único punt
 Los productos de dos cuerpos tienen dos puntos, son reducidos y noetherianos. En $\mathbb Z/4\mathbb Z$, la clase de $2$ es un nilpotente no nulo y hay un único primo. Los ejemplos sobre $k$, sobre $\mathbb Z$ y sobre un DVR se deducen de los \cref{ejem:s09-reducidos,ejem:s09-integrales,ejem:s09-noetherianos}. El anillo con infinitas variables es dominio, pero no noetheriano; la unión disjunta infinita es reducida, tiene muchas componentes y es solo localmente noetheriana.
 \end{proof}
 
+\subsection{Los adjetivos de la 9c en \texorpdfstring{$\mathbb P^n_A$}{PnA}}
+
+Las afirmaciones del complemento extienden los ejemplos anteriores a un anillo cualquiera y se conservan para completar. Usamos las cartas $A_i$ y sus imágenes $W_i$ de la \cref{defi:s08-espacio-proyectivo}. La primera prepara las dos siguientes y la última justifica las coordenadas homogéneas.
+
+\begin{afirm}
+\label{afirm:s09-nilradical-polinomios}
+Sean $N=\Nil(A)$ y $m\ge1$. Un polinomio de $A[y_1,\ldots,y_m]$ es nilpotente si y solo si todos sus coeficientes son nilpotentes. Es decir,
+\[
+\begin{gathered}
+\Nil(A[y_1,\ldots,y_m])=N[y_1,\ldots,y_m],
+\\
+A[y_1,\ldots,y_m]/\Nil(A[y_1,\ldots,y_m])
+\cong(A/N)[y_1,\ldots,y_m].
+\end{gathered}
+\]
+\emph{[Atiyah--Macdonald, ejercicios 1.2(ii) y 1.3.]}
+\end{afirm}
+
+\begin{afirm}
+\label{afirm:s09-proyectivo-reducido}
+El esquema $\mathbb P^n_A$ es reducido si y solo si $A$ es reducido. \emph{[\Cref{prop:s09-reducido-afines} y \cref{ejem:s09-reducidos}(b) para un dominio.]}
+\end{afirm}
+
+\begin{afirm}
+\label{afirm:s09-proyectivo-irreducible}
+El esquema $\mathbb P^n_A$ es irreducible si y solo si $\Spec A$ es irreducible, es decir, si y solo si $\Nil(A)$ es primo. \emph{[\Cref{prop:s09-irreducibles-espectro}(d), \cref{lema:s09-topologia-irreducibles}, \cref{lema:s09-pegado-irreducibles} para un dominio y \cref{ejem:s09-irreducibles-conocidos} para un cuerpo.]}
+\end{afirm}
+
+\begin{afirm}
+\label{afirm:s09-proyectivo-integral}
+El esquema $\mathbb P^n_A$ es integral si y solo si $A$ es un dominio. En ese caso su cuerpo de funciones es
+\[
+K(\mathbb P^n_A)=\Frac(A)(x_{1/0},\ldots,x_{n/0}).
+\]
+\emph{[\Cref{prop:s09-integral-equivalencia,prop:s09-cuerpo-funciones} y \cref{ejem:s09-integrales} para un cuerpo.]}
+\end{afirm}
+
+\begin{afirm}
+\label{afirm:s09-proyectivo-noetheriano}
+El esquema $\mathbb P^n_A$ es noetheriano si y solo si $A$ es noetheriano. \emph{[\Cref{defi:s09-esquema-noetheriano,coro:s09-localmente-noetheriano,ejem:s09-noetherianos}.]}
+\end{afirm}
+
+\begin{afirm}
+\label{afirm:s09-coordenadas-homogeneas}
+Sea $k$ un cuerpo y $A=k$. Para $a=(a_0,\ldots,a_n)\in k^{n+1}$ con $a_i\ne0$, ponemos
+\[
+\mathfrak m_{a,i}=(x_{\ell/i}-a_\ell/a_i:\ell\ne i)\subseteq A_i.
+\]
+\begin{enumerate}[label=(\alph*)]
+\item Si $a_i\ne0$ y $a_j\ne0$, entonces $\mathfrak m_{a,i}\in U_{ij}$ y $\varphi_{ij}(\mathfrak m_{a,i})=\mathfrak m_{a,j}$.
+\item La regla $[a_0:\cdots:a_n]\mapsto\psi_i(\mathfrak m_{a,i})$, con $a_i\ne0$, es una biyección entre las $(n+1)$-adas no nulas de $k^{n+1}$ módulo multiplicación por $\lambda\in k^\times$ y los puntos racionales de $\mathbb P^n_k$.
+\end{enumerate}
+\emph{[Vakil, ejercicio 4.4.F, para $k$ algebraicamente cerrado; \cref{prop:s08-puntos-proyectiva-cuerpo} para $n=1$.]}
+\end{afirm}
+
 \subsection{Los cocientes de \texorpdfstring{$\mathbb Z[i]$}{Z[i]} por un primo, leídos con los adjetivos}
 \emph{Qué buscamos.} Aplicar los cuatro adjetivos a los espectros de los cocientes.
 
@@ -1159,6 +1465,7 @@ El profesor señaló estas seis afirmaciones para completar en casa. Algunas for
 \end{itemize}
 \end{samepage}
 
+\begin{samepage}
 \begin{ejer}
 \label{ejer:s09-clasificar-anillos}
 Decide si $\Spec A$ es reducido, irreducible, integral y noetheriano para cada anillo, con $k$ un cuerpo:
@@ -1171,6 +1478,7 @@ Decide si $\Spec A$ es reducido, irreducible, integral y noetheriano para cada a
 \end{enumerate}
 \emph{[Liu, ej.~4.1; Vakil, ej.~3.7.H.]}
 \end{ejer}
+\end{samepage}
 
 \begin{ejer}
 \label{ejer:s09-componentes-plano-recta}
