@@ -76,7 +76,6 @@
 \providecommand\given{}% Aseguramos que \given exista
 \newcommand\SetSymbol[1][]{% Símbolo "|" con soporte par múltiple línea
     \nonscript\:#1\vert
-    \allowbreak
     \nonscript\:
     \mathopen{}
 }
@@ -340,10 +339,12 @@
 }
 
 % Referencias inteligentes "\cref (\nameref)"
+\makeatletter
 \newcommand{\myref}[1]{%
     \cref{#1}%
     \begingroup
-    \edef\temp{\getrefbykeydefault{#1}{name}{}}%
+    % Conservar los comandos robustos que pueda contener el título.
+    \protected@edef\temp{\getrefbykeydefault{#1}{name}{}}%
     \ifx\temp\empty
         % No hacer nada si \temp está vacío
     \else
@@ -351,6 +352,7 @@
     \fi
     \endgroup
 }
+\makeatother
 
 % Comando para referencias abreviadas
 \newcommand{\abvref}[1]{%

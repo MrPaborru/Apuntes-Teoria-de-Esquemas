@@ -27,9 +27,9 @@ Recordemos que un ideal $\mathfrak p$ es primo si es propio y $fg\in\mathfrak p$
 
 \begin{lema}[Preimagen de un primo]
 \label{lema:s01-preimagen-primo}
-Si $\varphi:A\to B$ es un morfismo de anillos y $\mathfrak q\in\Spec B$, entonces $\varphi^{-1}(\mathfrak q)\in\Spec A$. Por tanto, $\varphi$ induce un mapa
+Si $\varphi\colon A\to B$ es un morfismo de anillos y $\mathfrak q\in\Spec B$, entonces $\varphi^{-1}(\mathfrak q)\in\Spec A$. Por tanto, $\varphi$ induce un mapa
 \[
-\Spec\varphi:\Spec B\longrightarrow\Spec A,\qquad \mathfrak q\longmapsto\varphi^{-1}(\mathfrak q).
+\Spec\varphi\colon \Spec B\longrightarrow\Spec A,\qquad \mathfrak q\longmapsto\varphi^{-1}(\mathfrak q).
 \]
 \end{lema}
 \begin{proof}
@@ -97,19 +97,19 @@ El conjunto contiene $(0)$. La unión de una cadena de elementos de $\Sigma$ vue
 
 \begin{ejem}[Cuerpos]
 \label{ejem:s01-cuerpos}
-Si $k$ es un cuerpo, $\Spec k=\{(0)\}$: un punto con cuerpo residual $k$. Así, $\Spec\mathbb C$ y $\Spec\mathbb F_2$ son el mismo espacio de un punto, aunque sus anillos de funciones sean distintos.
+Si $k$ es un cuerpo, $\Spec k=\set{(0)}$: un punto con cuerpo residual $k$. Así, $\Spec\mathbb C$ y $\Spec\mathbb F_2$ son el mismo espacio de un punto, aunque sus anillos de funciones sean distintos.
 \end{ejem}
 
 \begin{ejem}[El punto gordo]
 \label{ejem:s01-punto-gordo}
-Sea $A=k[\varepsilon]/(\varepsilon^2)$. Todo primo contiene a $\varepsilon$, pues $\varepsilon^2=0$, y $(\varepsilon)$ es maximal con cociente $k$. Por tanto $\Spec A=\{(\varepsilon)\}$. El punto tiene una sola posición, pero el anillo conserva el infinitesimal $\varepsilon$, que codifica información de primer orden y tangencia.
+Sea $A=k[\varepsilon]/(\varepsilon^2)$. Todo primo contiene a $\varepsilon$, pues $\varepsilon^2=0$, y $(\varepsilon)$ es maximal con cociente $k$. Por tanto $\Spec A=\set{(\varepsilon)}$. El punto tiene una sola posición, pero el anillo conserva el infinitesimal $\varepsilon$, que codifica información de primer orden y tangencia.
 \end{ejem}
 
 \begin{ejem}[El espectro de $\mathbb Z$]
 \label{ejem:s01-espectro-z}
 Los primos de $\mathbb Z$ son $(0)$ y $(p)$ para cada primo entero $p$. Entonces
 \[
-\Spec\mathbb Z=\{(0),(2),(3),(5),(7),\ldots\},\qquad
+\Spec\mathbb Z=\set{(0),(2),(3),(5),(7),\ldots},\qquad
 \kappa((0))=\mathbb Q,\quad \kappa((p))=\mathbb F_p.
 \]
 Se piensa como una curva con un punto genérico $(0)$ y puntos cerrados $(p)$.
@@ -119,7 +119,7 @@ Se piensa como una curva con un punto genérico $(0)$ y puntos cerrados $(p)$.
 \label{prop:s01-recta-afin}
 Si $k$ es un cuerpo,
 \[
-\Spec k[x]=\{(0)\}\cup\set*{(f) \given f\in k[x]\text{ irreducible mónico}}.
+\Spec k[x]=\set{(0)}\cup\set*{(f) \given f\in k[x]\text{ irreducible mónico}}.
 \]
 Si $k$ es algebraicamente cerrado, los puntos cerrados son $(x-a)$, $a\in k$.
 \end{prop}
@@ -129,7 +129,7 @@ El anillo $k[x]$ es un dominio de ideales principales. Todo primo no nulo es max
 
 \begin{ejem}[La recta afín aritmética: $\mathbb Q$ y $\mathbb R$]
 \label{ejem:s01-recta-afin-aritmetica-q-r}
-Sobre cuerpos no algebraicamente cerrados aparecen puntos cerrados aritméticos. En $\Spec\mathbb Q[x]$, el punto $(x^2-2)$ tiene cuerpo residual $\mathbb Q(\sqrt2)$ y representa la pareja de raíces conjugadas $\{\sqrt2,-\sqrt2\}$. En $\Spec\mathbb R[x]$, el punto $(x^2+1)$ tiene cuerpo residual $\mathbb C$; representa una ecuación sin soluciones reales.
+Sobre cuerpos no algebraicamente cerrados aparecen puntos cerrados aritméticos. En $\Spec\mathbb Q[x]$, el punto $(x^2-2)$ tiene cuerpo residual $\mathbb Q(\sqrt2)$ y representa la pareja de raíces conjugadas $\set{\sqrt2,-\sqrt2}$. En $\Spec\mathbb R[x]$, el punto $(x^2+1)$ tiene cuerpo residual $\mathbb C$; representa una ecuación sin soluciones reales.
 \end{ejem}
 
 \begin{teo}[El plano afín]
@@ -175,7 +175,7 @@ Describe explícitamente, indicando puntos y cuerpos residuales, los espectros d
 \end{ejer}
 \begin{ejer}
 \label{ejer:s01-i-cociente-demuestra-i-inyectivo}
-Sea $\varphi:A\twoheadrightarrow A/I$ el cociente. Demuestra que $\Spec(A/I)\to\Spec A$ es inyectivo con imagen $V(I)$.
+Sea $\varphi\colon A\twoheadrightarrow A/I$ el cociente. Demuestra que $\Spec(A/I)\to\Spec A$ es inyectivo con imagen $V(I)$.
 \end{ejer}
 \begin{ejer}
 \label{ejer:s01-n-nilradical-red-n-usando}
@@ -230,7 +230,7 @@ La prueba funciona porque los idempotentes $(1,0)$ y $(0,1)$ pertenecen al anill
 
 \begin{teo}[La anti-equivalencia, sin restricciones]
 \label{teo:s01-anti-equivalencia-sin-restricciones}
-El funtor $\Spec:\mathbf{Ring}^{\mathrm{op}}\to\AffSch$ es una equivalencia. Por tanto, para cualquier familia finita o infinita $\{A_i\}_{i\in I}$, $\Spec(\prod_i A_i)$ es el coproducto de los $\Spec A_i$ en $\AffSch$.
+El funtor $\Spec\colon \mathbf{Ring}^{\mathrm{op}}\to\AffSch$ es una equivalencia. Por tanto, para cualquier familia finita o infinita $\set{A_i}_{i\in I}$, $\Spec(\prod_i A_i)$ es el coproducto de los $\Spec A_i$ en $\AffSch$.
 \end{teo}
 
 \begin{nota}[Advertencia]
@@ -241,7 +241,7 @@ La unión disjunta $\coprod_i\Spec A_i$ es el coproducto en $\Sch$. Con infinito
 \label{prop:s01-comparacion-explicita}
 Sea $e_i\in\prod_jA_j$ el idempotente coordenado y $J=(e_i:i\in I)$. El morfismo canónico
 \[
-\Phi:\coprod_i\Spec A_i\longrightarrow\Spec\Bigl(\prod_i A_i\Bigr)
+\Phi\colon \coprod_i\Spec A_i\longrightarrow\Spec\Bigl(\prod_i A_i\Bigr)
 \]
 es una inmersión abierta con imagen $\bigcup_iD(e_i)=\Spec(\prod_iA_i)\setminus V(J)$. Es un isomorfismo si y solo si $J=(1)$, si y solo si solo hay finitos $A_i\ne0$.
 \end{prop}

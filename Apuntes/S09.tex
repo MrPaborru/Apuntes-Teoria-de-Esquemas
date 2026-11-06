@@ -81,14 +81,14 @@ Si $a^2=-1$, entonces $a$ tiene orden $4$ en $\mathbb F_p^\times$, pues $-1\ne1$
 
 \begin{defi}[Datos de pegado y Lema de Pegado]
 \label{defi:s09-datos-pegado}
-Los datos de pegado para $\set{X_i}_{i\in I}$ son abiertos $X_{ij}\subseteq X_i$, con $X_{ii}=X_i$, e isomorfismos $\varphi_{ij}:X_{ij}\to X_{ji}$ tales que (P1) $\varphi_{ii}=\id$, (P2) $\varphi_{ji}=\varphi_{ij}^{-1}$ y (P3) $\varphi_{ij}(X_{ij}\cap X_{ik})=X_{ji}\cap X_{jk}$ y $\varphi_{ik}=\varphi_{jk}\circ\varphi_{ij}$ en $X_{ij}\cap X_{ik}$. El \myref{teo:s07-lema-pegado} produce $X$ e inmersiones abiertas $\psi_i:X_i\to X$ cuyas imágenes lo cubren, con $\psi_i(X_i)\cap\psi_j(X_j)=\psi_i(X_{ij})$ y $\psi_j\circ\varphi_{ij}=\psi_i$ en $X_{ij}$, únicos salvo un único isomorfismo compatible. \emph{[Vakil, \S4.4.4 y ej.~4.4.A; Hartshorne, II.2, ej.~2.12.]}
+Los datos de pegado para $\set{X_i}_{i\in I}$ son abiertos $X_{ij}\subseteq X_i$, con $X_{ii}=X_i$, e isomorfismos $\varphi_{ij}\colon X_{ij}\to X_{ji}$ tales que (P1) $\varphi_{ii}=\id$, (P2) $\varphi_{ji}=\varphi_{ij}^{-1}$ y (P3) $\varphi_{ij}(X_{ij}\cap X_{ik})=X_{ji}\cap X_{jk}$ y $\varphi_{ik}=\varphi_{jk}\circ\varphi_{ij}$ en $X_{ij}\cap X_{ik}$. El \myref{teo:s07-lema-pegado} produce $X$ e inmersiones abiertas $\psi_i\colon X_i\to X$ cuyas imágenes lo cubren, con $\psi_i(X_i)\cap\psi_j(X_j)=\psi_i(X_{ij})$ y $\psi_j\circ\varphi_{ij}=\psi_i$ en $X_{ij}$, únicos salvo un único isomorfismo compatible. \emph{[Vakil, \S4.4.4 y ej.~4.4.A; Hartshorne, II.2, ej.~2.12.]}
 \end{defi}
 
 \subsection{Para la valoración discreta y la reducción}
 
 \begin{defi}[La recta proyectiva $\mathbb P^1_A$ y sus puntos]
 \label{defi:s09-recta-proyectiva}
-La recta proyectiva se obtiene pegando $U_0=\Spec A[t]$ y $U_1=\Spec A[s]$ mediante $A[s,s^{-1}]\to A[t,t^{-1}]$, $s\mapsto t^{-1}$, sobre $D(s)$ y $D(t)$. Lleva el morfismo estructural $\pi:\mathbb P^1_A\to\Spec A$. Sobre un cuerpo $k$ sus puntos son $(0)$, los $(f)$ con $f$ mónico irreducible, e $\infty=(s)$; las fibras sobre $\mathfrak p$ tienen los puntos de $\mathbb P^1_{\kappa(\mathfrak p)}$. Para un cuerpo $F$, $\mathbb P^1(F)$ denota las clases $[a:b]$ de pares de $F^2\setminus\set{(0,0)}$ módulo $F^\times$. Se identifican con los puntos de grado $1$ por $[a:b]\mapsto(t-b/a)$ si $a\ne0$ y $[0:1]\mapsto\infty$. \emph{[Sesión 8; Vakil, \S4.4.6 y \S4.4.9.]}
+La recta proyectiva se obtiene pegando $U_0=\Spec A[t]$ y $U_1=\Spec A[s]$ mediante $A[s,s^{-1}]\to A[t,t^{-1}]$, $s\mapsto t^{-1}$, sobre $D(s)$ y $D(t)$. Lleva el morfismo estructural $\pi\colon \mathbb P^1_A\to\Spec A$. Sobre un cuerpo $k$ sus puntos son $(0)$, los $(f)$ con $f$ mónico irreducible, e $\infty=(s)$; las fibras sobre $\mathfrak p$ tienen los puntos de $\mathbb P^1_{\kappa(\mathfrak p)}$. Para un cuerpo $F$, $\mathbb P^1(F)$ denota las clases $[a:b]$ de pares de $F^2\setminus\set{(0,0)}$ módulo $F^\times$. Se identifican con los puntos de grado $1$ por $[a:b]\mapsto(t-b/a)$ si $a\ne0$ y $[0:1]\mapsto\infty$. \emph{[Sesión 8; Vakil, \S4.4.6 y \S4.4.9.]}
 \end{defi}
 
 \begin{defi}[Formas binarias y sus ceros]
@@ -218,7 +218,7 @@ Un anillo de valoración discreta (DVR) es un dominio de ideales principales loc
 
 \begin{obs}[La definición de Vakil]
 \label{obs:s09-dvr-vakil}
-Vakil llama valuación discreta de un cuerpo $K$ a un homomorfismo sobreyectivo $v:K^\times\to\mathbb Z$ con $v(x+y)\ge\min(v(x),v(y))$ si $x+y\ne0$. Su anillo de valuación $\set{0}\cup\set{x\in K^\times\given v(x)\ge0}$ es un DVR en su terminología.
+Vakil llama valuación discreta de un cuerpo $K$ a un homomorfismo sobreyectivo $v\colon K^\times\to\mathbb Z$ con $v(x+y)\ge\min(v(x),v(y))$ si $x+y\ne0$. Su anillo de valuación $\set{0}\cup\set{x\in K^\times\given v(x)\ge0}$ es un DVR en su terminología.
 
 Un dominio de ideales principales local que no es un cuerpo es noetheriano, local, de dimensión $1$ y con máximo principal. Por los resultados citados, estos son precisamente los DVR de Vakil; la \cref{prop:s09-estructura-dvr} construirá la valuación con nuestra definición. \emph{[Vakil, \S13.5.5, teo.~13.5.6 y ej.~13.5.A, 13.5.D y 13.5.E.]}
 \end{obs}
@@ -243,7 +243,7 @@ Sea $A$ un DVR con uniformizante $\varpi$ y cuerpo de fracciones $K$.
 \begin{enumerate}[label=(\alph*)]
 \item $\varpi\ne0$, $\Spec A=\set{(0),\mathfrak m}$, $D(\varpi)=\set{(0)}$ y $\mathfrak m$ es cerrado.
 \item Cada $x\in K^\times$ se escribe de manera única $x=u\varpi^n$ con $u\in A^\times$ y $n\in\mathbb Z$. Ponemos $v(x)=n$ y $v(0)=\infty$, con $n<\infty$, $\min(\infty,n)=n$ y $n+\infty=\infty$. Si $x\in A\setminus\set{0}$, entonces $n\ge0$.
-\item $v:K^\times\to\mathbb Z$ es un homomorfismo sobreyectivo y $v(x+y)\ge\min(v(x),v(y))$, con igualdad si $v(x)\ne v(y)$.
+\item $v\colon K^\times\to\mathbb Z$ es un homomorfismo sobreyectivo y $v(x+y)\ge\min(v(x),v(y))$, con igualdad si $v(x)\ne v(y)$.
 \item $A=\set{x\in K\given v(x)\ge0}$, $\mathfrak m=\set{x\in K\given v(x)\ge1}$ y $A^\times=\set{x\in K\given v(x)=0}$.
 \item $K=A[\varpi^{-1}]=A_{\varpi}$, y $D(\varpi)\cong\Spec K$.
 \end{enumerate}
@@ -282,7 +282,7 @@ El centro $\mathfrak m$ es cerrado, con cuerpo residual $\kappa$. El disco sin e
 
 \begin{prop}[Fibras de $\mathbb P^1_A$ sobre un anillo de valoración discreta]
 \label{prop:s09-fibras-dvr}
-Sea $A$ un DVR y $\pi:\mathbb P^1_A\to\Spec A$. La fibra genérica $\pi^{-1}((0))$ es abierta y tiene los puntos de $\mathbb P^1_K$; la especial $\pi^{-1}(\mathfrak m)$ es cerrada y tiene los de $\mathbb P^1_{\kappa}$. El primo $(0)$ de $A[t]$ es el punto genérico de $\mathbb P^1_A$. La prueba está en la \cref{prop:s08-fibras-dvr}.
+Sea $A$ un DVR y $\pi\colon \mathbb P^1_A\to\Spec A$. La fibra genérica $\pi^{-1}((0))$ es abierta y tiene los puntos de $\mathbb P^1_K$; la especial $\pi^{-1}(\mathfrak m)$ es cerrada y tiene los de $\mathbb P^1_{\kappa}$. El primo $(0)$ de $A[t]$ es el punto genérico de $\mathbb P^1_A$. La prueba está en la \cref{prop:s08-fibras-dvr}.
 \end{prop}
 
 \section{Reducción de puntos y de ecuaciones}
@@ -383,7 +383,7 @@ La definición de modelo usa fibras, productos fibrados y morfismos propios y pl
 
 \begin{prop}[Los primos sobre $(0)$ y sobre $\mathfrak m$]
 \label{prop:s09-primos-sobre-dvr}
-Sea $A$ un DVR con uniformizante $\varpi$, cuerpo de fracciones $K$ y $\varphi:A\to B$ un homomorfismo. Escribimos también $\varpi$ para $\varphi(\varpi)$. Para un primo $P$ de $B$:
+Sea $A$ un DVR con uniformizante $\varpi$, cuerpo de fracciones $K$ y $\varphi\colon A\to B$ un homomorfismo. Escribimos también $\varpi$ para $\varphi(\varpi)$. Para un primo $P$ de $B$:
 \begin{enumerate}[label=(\alph*)]
 \item $\varphi^{-1}(P)=(0)$ si y solo si $\varpi\notin P$, y $\varphi^{-1}(P)=\mathfrak m$ si y solo si $\varpi\in P$. Por tanto $\Spec B$ es la unión disjunta, como conjunto, del abierto $D(\varpi)$ y el cerrado $V(\varpi)$.
 \item Los espacios $D(\varpi)$ y $\Spec B[\varpi^{-1}]$ son homeomorfos. Este anillo es la localización de $B$ en las imágenes $\varphi(s)$ con $s\in A\setminus\set{0}$.
@@ -648,13 +648,13 @@ x_{k/j}=\frac{x_{k/i}}{x_{j/i}}.
 Expresa las coordenadas de la carta $j$ en las de la carta $i$. Para $k=i$ da $x_{i/j}=x_{j/i}^{-1}$. Por la \cref{prop:s08-homomorfismos-abiertos-basicos}(a), los homomorfismos van del anillo de $U_{ji}$ al de $U_{ij}$.
 \[
 \begin{aligned}
-\varphi_{01}^\sharp:A_1[x_{0/1}^{-1}]&\longrightarrow A_0[x_{1/0}^{-1}],
+\varphi_{01}^\sharp\colon A_1[x_{0/1}^{-1}]&\longrightarrow A_0[x_{1/0}^{-1}],
 &x_{0/1}&\longmapsto x_{1/0}^{-1},
 &x_{2/1}&\longmapsto x_{2/0}/x_{1/0},\\
-\varphi_{02}^\sharp:A_2[x_{0/2}^{-1}]&\longrightarrow A_0[x_{2/0}^{-1}],
+\varphi_{02}^\sharp\colon A_2[x_{0/2}^{-1}]&\longrightarrow A_0[x_{2/0}^{-1}],
 &x_{0/2}&\longmapsto x_{2/0}^{-1},
 &x_{1/2}&\longmapsto x_{1/0}/x_{2/0},\\
-\varphi_{12}^\sharp:A_2[x_{1/2}^{-1}]&\longrightarrow A_1[x_{2/1}^{-1}],
+\varphi_{12}^\sharp\colon A_2[x_{1/2}^{-1}]&\longrightarrow A_1[x_{2/1}^{-1}],
 &x_{0/2}&\longmapsto x_{0/1}/x_{2/1},
 &x_{1/2}&\longmapsto x_{2/1}^{-1}.
 \end{aligned}
@@ -662,9 +662,9 @@ Expresa las coordenadas de la carta $j$ en las de la carta $i$. Para $k=i$ da $x
 Todos fijan $A$, y los $\varphi_{ji}^\sharp$ se obtienen intercambiando $i$ y $j$. En las coordenadas auxiliares del \cref{ejem:s09-pegados-plano-proyectivo}, las fórmulas de los pegados son
 \[
 \begin{aligned}
-\varphi_{01}:D(u)&\longrightarrow D(u'), &(u,v)&\longmapsto(1/u,v/u),\\
-\varphi_{02}:D(v)&\longrightarrow D(u''), &(u,v)&\longmapsto(1/v,u/v),\\
-\varphi_{12}:D(v')&\longrightarrow D(v''), &(u',v')&\longmapsto(u'/v',1/v').
+\varphi_{01}\colon D(u)&\longrightarrow D(u'), &(u,v)&\longmapsto(1/u,v/u),\\
+\varphi_{02}\colon D(v)&\longrightarrow D(u''), &(u,v)&\longmapsto(1/v,u/v),\\
+\varphi_{12}\colon D(v')&\longrightarrow D(v''), &(u',v')&\longmapsto(u'/v',1/v').
 \end{aligned}
 \]
 Para $n=1$ se recupera $\mathbb P^1_A$ con $t=x_{1/0}$ y $s=x_{0/1}$.
@@ -673,7 +673,7 @@ Para $n=1$ se recupera $\mathbb P^1_A$ con $t=x_{1/0}$ y $s=x_{0/1}$.
 
 \begin{prop}[El primer pegado]
 \label{prop:s09-primer-pegado-plano}
-El homomorfismo $\varphi_{01}^\sharp$ está bien definido y es un isomorfismo con inverso $\varphi_{10}^\sharp$. Por tanto, $\varphi_{01}:U_{01}\to U_{10}$ es un isomorfismo de esquemas con inverso $\varphi_{10}$.
+El homomorfismo $\varphi_{01}^\sharp$ está bien definido y es un isomorfismo con inverso $\varphi_{10}^\sharp$. Por tanto, $\varphi_{01}\colon U_{01}\to U_{10}$ es un isomorfismo de esquemas con inverso $\varphi_{10}$.
 \end{prop}
 \begin{proof}
 La regla en las variables define un homomorfismo de $A$-álgebras $A_1\to A_0[x_{1/0}^{-1}]$. Lleva $x_{0/1}$ a la unidad $x_{1/0}^{-1}$ y se extiende a $A_1[x_{0/1}^{-1}]$, con $x_{0/1}^{-1}\mapsto x_{1/0}$, por la \cref{prop:s08-homomorfismos-abiertos-basicos}(b). Análogamente,
@@ -844,9 +844,9 @@ Sea $n\ge1$. Para cada índice $i=0,\ldots,n$, ponemos
 \[
 A_i=A[x_{k/i}:k\ne i],\qquad U_i=\Spec A_i\cong\mathbb A^n_A.
 \]
-Cada anillo tiene $n$ variables, y $x_{k/i}$ representa $x_k/x_i$. Ponemos $x_{i/i}=1$, $U_{ii}=U_i$ y $\varphi_{ii}=\id$. Si $j\ne i$, sea $U_{ij}=D(x_{j/i})\subseteq U_i$, y definamos $\varphi_{ij}:U_{ij}\to U_{ji}$ por
+Cada anillo tiene $n$ variables, y $x_{k/i}$ representa $x_k/x_i$. Ponemos $x_{i/i}=1$, $U_{ii}=U_i$ y $\varphi_{ii}=\id$. Si $j\ne i$, sea $U_{ij}=D(x_{j/i})\subseteq U_i$, y definamos $\varphi_{ij}\colon U_{ij}\to U_{ji}$ por
 \[
-\varphi_{ij}^\sharp:A_j[x_{i/j}^{-1}]\longrightarrow A_i[x_{j/i}^{-1}],
+\varphi_{ij}^\sharp\colon A_j[x_{i/j}^{-1}]\longrightarrow A_i[x_{j/i}^{-1}],
 \qquad x_{k/j}\longmapsto\frac{x_{k/i}}{x_{j/i}}\quad(k\ne j).
 \]
 En particular, $x_{i/j}\mapsto x_{j/i}^{-1}$. \emph{[Vakil, \S4.4.9--4.4.10; \cref{defi:s08-cartas-proyectiva-n}.]}
@@ -1263,7 +1263,7 @@ Sea $\Spec A\subseteq X$ y $\set{\Spec A_i}$ una cubierta con $P$. Por el \cref{
 \begin{proof}
 Para (a), todo ideal de $A_f$ es el extendido de su contracción a $A$. Esta contracción es finitamente generada y sus generadores generan también el ideal localizado.
 
-Para (b), si $\varphi_i:A\to A_{f_i}$ e $I\subseteq A$ es un ideal, afirmamos
+Para (b), si $\varphi_i\colon A\to A_{f_i}$ e $I\subseteq A$ es un ideal, afirmamos
 \[
 I=\bigcap_{i=1}^n\varphi_i^{-1}(IA_{f_i}).
 \]
@@ -1541,4 +1541,4 @@ Sea $n\ge1$ entero. Para cada primo $p$, determina cuáles de $t=0$, $t=n$ y $t=
 Con las fórmulas del \cref{ejem:s09-pegados-plano-proyectivo}, calcula $\varphi_{10}$ y $\varphi_{21}$ y comprueba que $\varphi_{10}\circ\varphi_{01}$ es la identidad de $D(u)\subseteq U_0$ y $\varphi_{21}\circ\varphi_{12}$ es la identidad de $D(v')\subseteq U_1$. Describe el complemento de $U_0$ en $\mathbb P^2_A$.
 \end{ejer}
 
-La próxima clase tratará morfismos de esquemas y subesquemas. El profesor anunció la correspondencia $\operatorname{Hom}(X,\Spec A)\cong\operatorname{Hom}(A,\Gamma(X,\mathcal O_X))$.
+La próxima clase tratará morfismos de esquemas y subesquemas. El profesor anunció la correspondencia $\Hom(X,\Spec A)\cong\Hom(A,\Gamma(X,\mathcal O_X))$.

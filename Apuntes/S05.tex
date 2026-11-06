@@ -2,9 +2,10 @@
 
 En la Sesión 4 quedaron dos piezas sueltas. De la Sesión 3 sabemos qué anillo debe aparecer localmente en $\mathfrak p$, a saber $A_{\mathfrak p}$, y se anticipó que las secciones sobre $D(f)$ serían $A_f$, sin probarlo. Pero una gavilla está definida en todos los abiertos de $\Spec A$, no solo en los básicos; aunque $D(f)\cap D(g)=D(fg)$ sigue siendo básico, una unión arbitraria de básicos no suele serlo.
 
-El problema de hoy es general: dada información compatible solo en una base de la topología, ¿cuándo y cómo se extiende a una gavilla en todos los abiertos? Resolverlo en general en las secciones 2 y 3 permite después verificar dos condiciones algebraicas para la familia $\{A_f\}_{f\in A}$.
+El problema de hoy es general: dada información compatible solo en una base de la topología, ¿cuándo y cómo se extiende a una gavilla en todos los abiertos? Resolverlo en los \cref{sec:s05-gavillas-base,sec:s05-extension} permite después verificar dos condiciones algebraicas para la familia $\set{A_f}_{f\in A}$.
 
 \section{Gavillas sobre una base}
+\label{sec:s05-gavillas-base}
 
 \begin{defi}[Pregavilla y gavilla sobre una base]
 \label{defi:s05-pregavilla-gavilla-sobre-base}
@@ -12,6 +13,7 @@ Sea $\mathcal B$ una base de la topología de $X$. Una pregavilla sobre $\mathca
 \end{defi}
 
 \section{El teorema de extensión}
+\label{sec:s05-extension}
 
 \begin{teo}[Toda gavilla sobre una base se extiende, de manera única]
 \label{teo:s05-toda-gavilla-sobre-base-extiende}
@@ -47,7 +49,7 @@ La asignación candidata se define así.
 Para cada $f\in A$, sea
 \[
 S_f=\set*{g\in A \given D(f)\subseteq D(g)},\qquad
-\mathcal O_{\Spec A}(D(f)):=S_f^{-1}A.
+\mathcal O_{\Spec A}(D(f))\coloneqq S_f^{-1}A.
 \]
 Si $D(f')\subseteq D(f)$, entonces $S_f\subseteq S_{f'}$, lo que induce el mapa de restricción de localización $S_f^{-1}A\to S_{f'}^{-1}A$; estos mapas son transitivos.
 \end{defi}
@@ -62,7 +64,7 @@ El mapa natural $A_f\to S_f^{-1}A=\mathcal O_{\Spec A}(D(f))$ es un isomorfismo.
 Como $D(f)\subseteq D(f)$, se tiene $f\in S_f$, así que la propiedad universal da $A_f\to S_f^{-1}A$. Por otra parte, si $g\in S_f$, entonces $D(f)\subseteq D(g)$, lo que equivale a $f\in\sqrt{(g)}$. Existe $n$ con $f^n=ag$; como $f$ es invertible en $A_f$, también lo es $g$. Por la propiedad universal hay un mapa inverso $S_f^{-1}A\to A_f$. Ambos compuestos son la identidad porque los mapas están determinados por su restricción desde $A$ y por el envío de los elementos invertidos a sus inversos.
 \end{proof}
 
-\section{\texorpdfstring{El corazón técnico: identidad y pegado para $\{A_f\}$}{El corazón técnico: identidad y pegado para Af}}
+\section{\texorpdfstring{El corazón técnico: identidad y pegado para $\set{A_f}$}{El corazón técnico: identidad y pegado para Af}}
 
 \begin{lema}[Cuasicompacidad de los básicos]
 \label{lema:s05-cuasicompacidad-basicos}
@@ -72,7 +74,7 @@ Todo abierto distinguido $D(f)$ es cuasicompacto.
 Supongamos $D(f)\subseteq\bigcup_iD(f_i)$. Entonces ningún primo de $A_f$ contiene todos los $f_i/1$, por lo que el ideal que generan en $A_f$ es la unidad. Una combinación de $1$ usa finitos términos y, al limpiar denominadores, produce un cubrimiento finito de $D(f)$ por algunos $D(f_i)$.
 \end{proof}
 
-\begin{teo}[$\{A_f\}$ es gavilla sobre la base $\{D(f)\}$]
+\begin{teo}[$\set{A_f}$ es gavilla sobre la base $\set{D(f)}$]
 \label{teo:s05-f-gavilla-sobre-base-d}
 La asignación $D(f)\mapsto A_f$ es una gavilla sobre la base de abiertos distinguidos.
 \end{teo}
@@ -106,7 +108,7 @@ Esto cierra, con toda formalidad, el círculo abierto desde la Sesión 3: los $A
 
 \section{Adelanto: gavillas de módulos}
 
-Para un $A$-módulo $M$, el mismo argumento da $D(f)\mapsto M_f:=S_f^{-1}M$. Las verificaciones de identidad y pegado se deducen del \cref{teo:s05-f-gavilla-sobre-base-d}, reemplazando $A$ por $M$. El \cref{teo:s05-toda-gavilla-sobre-base-extiende} extiende esta gavilla a $\widetilde M$ sobre $\Spec A$, con $\widetilde M(D(f))=M_f$. Como $M_f$ es módulo sobre $A_f=\mathcal O_{\Spec A}(D(f))$ y las restricciones son compatibles, $\widetilde M$ es una gavilla de $\mathcal O_{\Spec A}$-módulos: el prototipo cuasicoherente.
+Para un $A$-módulo $M$, el mismo argumento da $D(f)\mapsto M_f\coloneqq S_f^{-1}M$. Las verificaciones de identidad y pegado se deducen del \cref{teo:s05-f-gavilla-sobre-base-d}, reemplazando $A$ por $M$. El \cref{teo:s05-toda-gavilla-sobre-base-extiende} extiende esta gavilla a $\widetilde M$ sobre $\Spec A$, con $\widetilde M(D(f))=M_f$. Como $M_f$ es módulo sobre $A_f=\mathcal O_{\Spec A}(D(f))$ y las restricciones son compatibles, $\widetilde M$ es una gavilla de $\mathcal O_{\Spec A}$-módulos: el prototipo cuasicoherente.
 
 \section{Ejercicios}
 
@@ -132,5 +134,5 @@ e identifica los mapas.
 \end{ejer}
 \begin{ejer}[Sembrador: se cosecha al estudiar gavillas cuasicoherentes]
 \label{ejer:s05-sembrador-cosecha-estudiar-gavillas-cuasicoherentes}
-Si $\varphi:M\to N$ es un morfismo de $A$-módulos, verifica que la asignación $M\mapsto\widetilde M$ es exacta: una sucesión corta exacta de módulos induce una sucesión corta exacta de gavillas.
+Si $\varphi\colon M\to N$ es un morfismo de $A$-módulos, verifica que la asignación $M\mapsto\widetilde M$ es exacta: una sucesión corta exacta de módulos induce una sucesión corta exacta de gavillas.
 \end{ejer}

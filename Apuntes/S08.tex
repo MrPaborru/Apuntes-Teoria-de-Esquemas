@@ -10,7 +10,7 @@ Las referencias por apartados a \emph{The Rising Sea} en esta sesión siguen la 
 
 \begin{defi}[Datos de pegado]
 \label{defi:s08-datos-pegado}
-Unos datos de pegado para una familia de esquemas $\set{X_i}_{i\in I}$ consisten, para cada par $(i,j)\in I\times I$, en un subesquema abierto $X_{ij}\subseteq X_i$, con $X_{ii}=X_i$, y un isomorfismo de esquemas $\varphi_{ij}:X_{ij}\to X_{ji}$ que cumplen:
+Unos datos de pegado para una familia de esquemas $\set{X_i}_{i\in I}$ consisten, para cada par $(i,j)\in I\times I$, en un subesquema abierto $X_{ij}\subseteq X_i$, con $X_{ii}=X_i$, y un isomorfismo de esquemas $\varphi_{ij}\colon X_{ij}\to X_{ji}$ que cumplen:
 \begin{enumerate}[label=(P\arabic*), leftmargin=2.1em]
 \item $\varphi_{ii}=\id_{X_i}$ para todo $i$;
 \item $\varphi_{ji}=\varphi_{ij}^{-1}$ para todo $i,j$;
@@ -18,23 +18,23 @@ Unos datos de pegado para una familia de esquemas $\set{X_i}_{i\in I}$ consisten
 \end{enumerate}
 \end{defi}
 
-Con dos piezas, $I=\set{1,2}$, basta dar abiertos $X_{12}\subseteq X_1$, $X_{21}\subseteq X_2$ y un isomorfismo $\varphi_{12}:X_{12}\to X_{21}$. Se pone $\varphi_{11}=\varphi_{22}=\id$ y $\varphi_{21}=\varphi_{12}^{-1}$: (P1) y (P2) valen por construcción y (P3) se sigue de ellas. \emph{[Hartshorne, II.2, ejercicio 2.12; \cref{obs:s07-dos-piezas-no-cociclo-verificar}.]}
+Con dos piezas, $I=\set{1,2}$, basta dar abiertos $X_{12}\subseteq X_1$, $X_{21}\subseteq X_2$ y un isomorfismo $\varphi_{12}\colon X_{12}\to X_{21}$. Se pone $\varphi_{11}=\varphi_{22}=\id$ y $\varphi_{21}=\varphi_{12}^{-1}$: (P1) y (P2) valen por construcción y (P3) se sigue de ellas. \emph{[Hartshorne, II.2, ejercicio 2.12; \cref{obs:s07-dos-piezas-no-cociclo-verificar}.]}
 
 \begin{teo}[Lema de Pegado]
 \label{teo:s08-lema-pegado}
-Dados datos de pegado para $\set{X_i}_{i\in I}$, existe un esquema $X$ con inmersiones abiertas $\psi_i:X_i\to X$ tales que:
+Dados datos de pegado para $\set{X_i}_{i\in I}$, existe un esquema $X$ con inmersiones abiertas $\psi_i\colon X_i\to X$ tales que:
 \begin{enumerate}[label=(\alph*)]
 \item $X=\bigcup_{i\in I}\psi_i(X_i)$;
 \item $\psi_i(X_i)\cap\psi_j(X_j)=\psi_i(X_{ij})$ para todo $i,j$;
 \item $\psi_j\circ\varphi_{ij}=\psi_i$ en $X_{ij}$ para todo $i,j$.
 \end{enumerate}
-Si $(X',\psi_i')$ es otro esquema con inmersiones abiertas que cumplen estas propiedades, existe un único isomorfismo $h:X\to X'$ con $h\circ\psi_i=\psi_i'$ para todo $i$.
+Si $(X',\psi_i')$ es otro esquema con inmersiones abiertas que cumplen estas propiedades, existe un único isomorfismo $h\colon X\to X'$ con $h\circ\psi_i=\psi_i'$ para todo $i$.
 \end{teo}
 La demostración está en el \cref{teo:s07-lema-pegado}. \emph{[Hartshorne, II.2, ejercicio 2.12; EGA I, \S2.3.]}
 
 \begin{obs}[Morfismos desde un pegado]
 \label{obs:s08-morfismos-desde-pegado}
-Dar un morfismo $f:X\to Y$ equivale a dar morfismos $f_i:X_i\to Y$ tales que $f_i|_{X_{ij}}=f_j\circ\varphi_{ij}$ para todo $i,j$, por la \cref{prop:s07-pegado-coigualador}. Hoy usaremos esta propiedad con $Y=\Spec A$.
+Dar un morfismo $f\colon X\to Y$ equivale a dar morfismos $f_i\colon X_i\to Y$ tales que $f_i|_{X_{ij}}=f_j\circ\varphi_{ij}$ para todo $i,j$, por la \cref{prop:s07-pegado-coigualador}. Hoy usaremos esta propiedad con $Y=\Spec A$.
 \end{obs}
 
 % Presentación S08, diapositiva 6: coigualador y morfismos desde el pegado.
@@ -115,7 +115,7 @@ Los polos de $p/x^a$ están en la recta $x=0$, y los de $q/y^b$ en la recta $y=0
 
 \begin{defi}[El morfismo canónico $\eta_X$]
 \label{defi:s08-morfismo-canonico}
-Sea $X$ un esquema y $R=\Gamma(X,\mathcal O_X)$. El morfismo canónico $\eta_X:X\to\Spec R$ se define de la siguiente manera. Para $x\in X$, denotamos por $\mathfrak m_x$ el ideal maximal de $\mathcal O_{X,x}$ y por $\kappa(x)=\mathcal O_{X,x}/\mathfrak m_x$ su cuerpo residual.
+Sea $X$ un esquema y $R=\Gamma(X,\mathcal O_X)$. El morfismo canónico $\eta_X\colon X\to\Spec R$ se define de la siguiente manera. Para $x\in X$, denotamos por $\mathfrak m_x$ el ideal maximal de $\mathcal O_{X,x}$ y por $\kappa(x)=\mathcal O_{X,x}/\mathfrak m_x$ su cuerpo residual.
 \begin{enumerate}[label=(\roman*)]
 \item En puntos,
 \[
@@ -126,12 +126,12 @@ Es un primo porque $\kappa(x)$ es un campo.
 \item En abiertos, para $f\in R$,
 \[
 \eta_X^{-1}(D(f))=X_f
-:=\set*{x\in X\given f_x\notin\mathfrak m_x},
+\coloneqq \set*{x\in X\given f_x\notin\mathfrak m_x},
 \]
 el abierto donde $f$ no se anula.
 \item En gavillas, sobre cada básico,
 \[
-\eta_f^\sharp:\mathcal O_{\Spec R}(D(f))=R_f
+\eta_f^\sharp\colon \mathcal O_{\Spec R}(D(f))=R_f
 \longrightarrow\mathcal O_X(X_f),
 \qquad
 \frac{a}{f^n}\longmapsto\frac{a|_{X_f}}{(f|_{X_f})^n}.
@@ -142,12 +142,12 @@ El conjunto $X_f$ es abierto porque un germen invertible tiene una inversa en al
 
 \begin{ejer}[Verificación del morfismo canónico]
 \label{ejer:s08-verificacion-morfismo-canonico}
-Sea $X$ un esquema y $R=\Gamma(X,\mathcal O_X)$. Muestra que $\eta_X:X\to\Spec R$ es un morfismo de esquemas verificando:
+Sea $X$ un esquema y $R=\Gamma(X,\mathcal O_X)$. Muestra que $\eta_X\colon X\to\Spec R$ es un morfismo de esquemas verificando:
 \begin{enumerate}[label=(\roman*)]
 \item $\eta_X(x)$ es un ideal primo de $R$.
 \item $\eta_X$ es continuo, pues $\eta_X^{-1}(D(f))=X_f$ es abierto.
 \item $\eta_X^\sharp$ está bien definido: $f|_{X_f}$ es invertible en $\mathcal O_X(X_f)$ y los homomorfismos $R_f\to\mathcal O_X(X_f)$ son compatibles con las restricciones.
-\item En tallos, $(\eta_X)_x^\sharp:R_{\eta_X(x)}\to\mathcal O_{X,x}$ es un homomorfismo local.
+\item En tallos, $(\eta_X)_x^\sharp\colon R_{\eta_X(x)}\to\mathcal O_{X,x}$ es un homomorfismo local.
 \end{enumerate}
 \end{ejer}
 % S08b, diapositivas 3--5: esta verificación se desarrolla en clase.
@@ -160,7 +160,7 @@ Sea $X$ un esquema y $R=\Gamma(X,\mathcal O_X)$. Muestra que $\eta_X:X\to\Spec R
 \begin{minipage}{.45\textwidth}
 \centering
 \begin{tikzcd}[column sep=large]
-R\arrow[r,"\mathrm{res}"]\arrow[d,swap,"\mathrm{loc}"]
+R\arrow[r,"\res"]\arrow[d,swap,"\mathrm{loc}"]
  &\mathcal O_X(X_f)\\
 R_f\arrow[ur,dashed,swap,"\eta_f^\sharp"]&
 \end{tikzcd}
@@ -169,7 +169,7 @@ R_f\arrow[ur,dashed,swap,"\eta_f^\sharp"]&
 \centering
 \begin{tikzcd}[column sep=large]
 R_f\arrow[r,"\eta_f^\sharp"]\arrow[d]
- &\mathcal O_X(X_f)\arrow[d,"\mathrm{res}"]\\
+ &\mathcal O_X(X_f)\arrow[d,"\res"]\\
 R_g\arrow[r,swap,"\eta_g^\sharp"]&\mathcal O_X(X_g)
 \end{tikzcd}
 \end{minipage}
@@ -188,7 +188,7 @@ R_{\mathfrak p}\arrow[ur,dashed,swap,"(\eta_X)_x^\sharp"]&&
 \end{center}
 El mapa inducido es
 \[
-(\eta_X)_x^\sharp:R_{\mathfrak p}\longrightarrow\mathcal O_{X,x},
+(\eta_X)_x^\sharp\colon R_{\mathfrak p}\longrightarrow\mathcal O_{X,x},
 \qquad \frac{a}{s}\longmapsto\frac{a_x}{s_x}.
 \]
 Como $s_x$ es unidad, la imagen de $a/s$ está en $\mathfrak m_x$ si y solo si $a_x\in\mathfrak m_x$, es decir, si y solo si $a\in\mathfrak p$. La preimagen de $\mathfrak m_x$ es $\mathfrak pR_{\mathfrak p}$: el homomorfismo es local. Así $\eta_X$ es un morfismo de espacios localmente anillados y, entre esquemas, un morfismo de esquemas.
@@ -196,7 +196,7 @@ Como $s_x$ es unidad, la imagen de $a/s$ está en $\mathfrak m_x$ si y solo si $
 
 En una carta afín $V\cong\Spec B$, el morfismo es $\Spec(\rho_V)$ para la restricción
 \[
-\rho_V:R\longrightarrow\Gamma(V,\mathcal O_X)\cong B.
+\rho_V\colon R\longrightarrow\Gamma(V,\mathcal O_X)\cong B.
 \]
 En puntos manda $\mathfrak q$ a $\rho_V^{-1}(\mathfrak q)$ y en básicos induce las localizaciones de $\rho_V$, como en el \cref{teo:s06-todo-morfismo-anillos-b-induce}. Esta descripción muestra también que la construcción es independiente de la cubierta.
 
@@ -205,15 +205,15 @@ En puntos manda $\mathfrak q$ a $\rho_V^{-1}(\mathfrak q)$ y en básicos induce 
 Sea $X$ un esquema y $R=\Gamma(X,\mathcal O_X)$.
 \begin{enumerate}[label=(\alph*)]
 \item $\eta_X$ es un morfismo de espacios localmente anillados que en secciones globales es la identidad de $R$.
-\item Para todo anillo $B$ y todo $\varphi:B\to R$ hay un único $g:X\to\Spec B$ que induce $\varphi$ en secciones globales, a saber $g=\Spec(\varphi)\circ\eta_X$. Es decir,
+\item Para todo anillo $B$ y todo $\varphi\colon B\to R$ hay un único $g\colon X\to\Spec B$ que induce $\varphi$ en secciones globales, a saber $g=\Spec(\varphi)\circ\eta_X$. Es decir,
 \[
 \Hom(X,\Spec B)\cong\Hom_{\mathbf{Ring}}(B,\Gamma(X,\mathcal O_X)).
 \]
-\item Si $h:X\to Y$ es un morfismo, entonces
+\item Si $h\colon X\to Y$ es un morfismo, entonces
 \[
 \eta_Y\circ h=\Spec(\Gamma(h))\circ\eta_X.
 \]
-\item Si $\psi:X\to Y$ es un isomorfismo, $\eta_X$ es un isomorfismo si y solo si $\eta_Y$ lo es.
+\item Si $\psi\colon X\to Y$ es un isomorfismo, $\eta_X$ es un isomorfismo si y solo si $\eta_Y$ lo es.
 \item $X$ es afín si y solo si $\eta_X$ es un isomorfismo.
 \end{enumerate}
 \emph{[Hartshorne, II, ejercicio 2.4; EGA I, 1.6.3.]}
@@ -221,7 +221,7 @@ Sea $X$ un esquema y $R=\Gamma(X,\mathcal O_X)$.
 \begin{proof}
 \emph{La identidad en secciones globales.} La verificación está en el \cref{ejer:s08-verificacion-morfismo-canonico}. Con $f=1$, se tiene $X_1=X$ y el mapa $R\to\mathcal O_X(X)$ es la identidad; esto prueba (a).
 
-\emph{Naturalidad y propiedad universal.} Para (c), sea $h:X\to Y$, con $h(x)=y$. Como el homomorfismo $h_x^\sharp:\mathcal O_{Y,y}\to\mathcal O_{X,x}$ es local, para $a\in\Gamma(Y,\mathcal O_Y)$,
+\emph{Naturalidad y propiedad universal.} Para (c), sea $h\colon X\to Y$, con $h(x)=y$. Como el homomorfismo $h_x^\sharp\colon \mathcal O_{Y,y}\to\mathcal O_{X,x}$ es local, para $a\in\Gamma(Y,\mathcal O_Y)$,
 \[
 \Gamma(h)(a)\in\eta_X(x)
 \iff h_x^\sharp(a_y)\in\mathfrak m_x
@@ -256,7 +256,7 @@ Aquí hemos identificado $\Gamma(\Spec B,\mathcal O)$ con $B$. En efecto, para $
 \]
 y en gavillas $B_f\to B_f$ es la identidad. Por tanto $\eta_{\Spec B}=\id$.
 
-Dado $\varphi:B\to R$, el compuesto $g=\Spec(\varphi)\circ\eta_X$ induce $\varphi$, por (a). Recíprocamente, la naturalidad aplicada a cualquier $g:X\to\Spec B$ da $g=\Spec(\Gamma(g))\circ\eta_X$. Por tanto el homomorfismo en secciones globales determina $g$, lo que prueba (b).
+Dado $\varphi\colon B\to R$, el compuesto $g=\Spec(\varphi)\circ\eta_X$ induce $\varphi$, por (a). Recíprocamente, la naturalidad aplicada a cualquier $g\colon X\to\Spec B$ da $g=\Spec(\Gamma(g))\circ\eta_X$. Por tanto el homomorfismo en secciones globales determina $g$, lo que prueba (b).
 % S08b, diapositiva 7: factorización universal y correspondencia de Hom.
 \begin{center}
 \begin{minipage}{.47\textwidth}
@@ -278,7 +278,7 @@ X\arrow[r,"\eta_X"]\arrow[dr,swap,"g"]
 \end{center}
 Todo morfismo de $X$ a un esquema afín se factoriza de manera única por $\eta_X$. Es la unidad de la adjunción entre $\Gamma$ y $\Spec$: la correspondencia anterior envía $g$ a $\Gamma(g)$ y $\varphi$ a $\Spec(\varphi)\circ\eta_X$.
 
-\emph{Isomorfismos y afinidad.} Si $\psi:X\to Y$ es un isomorfismo, también lo son $\Gamma(\psi)$ y $\Spec(\Gamma(\psi))$. El cuadrado de naturalidad tiene flechas verticales invertibles:
+\emph{Isomorfismos y afinidad.} Si $\psi\colon X\to Y$ es un isomorfismo, también lo son $\Gamma(\psi)$ y $\Spec(\Gamma(\psi))$. El cuadrado de naturalidad tiene flechas verticales invertibles:
 % S08b, diapositiva 9: transporte del morfismo canónico por un isomorfismo.
 \begin{center}
 \begin{tikzcd}[column sep=large]
@@ -294,7 +294,7 @@ Por ello
 \]
 y $\eta_X$ es un isomorfismo si y solo si lo es $\eta_Y$, que es (d). En puntos, si $Y=\Spec B$ y $\psi(x)=\mathfrak p$, para $a=\Gamma(\psi)(b)$ se tiene $a_x=\psi_x^\sharp(b/1)$. Este isomorfismo local lleva $b/1$ al maximal si y solo si $b\in\mathfrak p$. Así $\eta_X(x)$ es el ideal transportado $\Gamma(\psi)(\mathfrak p)$.
 
-Si $X$ es afín, elige $\psi:X\xrightarrow{\sim}\Spec B$. Como $\eta_{\Spec B}=\id$, (d) muestra que $\eta_X$ es un isomorfismo. A la inversa, si $\eta_X$ es un isomorfismo, identifica $X$ con el esquema afín $\Spec\Gamma(X,\mathcal O_X)$.
+Si $X$ es afín, elige $\psi\colon X\xrightarrow{\sim}\Spec B$. Como $\eta_{\Spec B}=\id$, (d) muestra que $\eta_X$ es un isomorfismo. A la inversa, si $\eta_X$ es un isomorfismo, identifica $X$ con el esquema afín $\Spec\Gamma(X,\mathcal O_X)$.
 
 La presentación da también el argumento mediante Yoneda. Para todo esquema $Z$, conmuta el triángulo
 % S08b, diapositiva 10: argumento de adjunción y Yoneda.
@@ -313,7 +313,7 @@ La flecha vertical es biyectiva por (b). Si $X$ es afín, la diagonal también l
 
 \begin{obs}[El caso afín: identidad e inclusión]
 \label{obs:s08-canonico-identidad-inclusion}
-Para $X=\Spec A$, el morfismo canónico es la identidad bajo $\Gamma(X,\mathcal O_X)=A$. Si $U\subseteq\Spec A$ es abierto, con inclusión $j$ y restricción $\rho:A\to\Gamma(U,\mathcal O_U)$, la naturalidad da
+Para $X=\Spec A$, el morfismo canónico es la identidad bajo $\Gamma(X,\mathcal O_X)=A$. Si $U\subseteq\Spec A$ es abierto, con inclusión $j$ y restricción $\rho\colon A\to\Gamma(U,\mathcal O_U)$, la naturalidad da
 \[
 j=\Spec(\rho)\circ\eta_U.
 \]
@@ -339,7 +339,7 @@ El germen de $a|_U$ en $\mathfrak p$ es el de $a$. Si $\rho$ es un isomorfismo, 
 El abierto $U=\mathbb A_k^2\setminus\set{(x,y)}$ no es afín.
 \end{coro}
 \begin{proof}
-Por la \cref{prop:s08-secciones-plano-menos-origen}, la restricción $\rho:k[x,y]\to\Gamma(U,\mathcal O_U)$ es un isomorfismo. La \cref{obs:s08-canonico-identidad-inclusion} da el cuadrado
+Por la \cref{prop:s08-secciones-plano-menos-origen}, la restricción $\rho\colon k[x,y]\to\Gamma(U,\mathcal O_U)$ es un isomorfismo. La \cref{obs:s08-canonico-identidad-inclusion} da el cuadrado
 % S08b, diapositiva 12: el canónico del plano perforado y la inclusión.
 \begin{center}
 \begin{tikzcd}[column sep=large,row sep=large]
@@ -369,7 +369,7 @@ Sea $A$ un anillo. Sean $U_0=\Spec A[t]$ y $U_1=\Spec A[s]$, dos copias de la re
 \[
 A[s,s^{-1}]\longrightarrow A[t,t^{-1}],\qquad s\longmapsto t^{-1},
 \]
-define un isomorfismo de esquemas $\varphi_{01}:U_{01}\to U_{10}$. Por la \cref{defi:s08-datos-pegado}, son datos de pegado. La recta proyectiva $\mathbb P_A^1$ es el esquema del \cref{teo:s08-lema-pegado}, con inmersiones abiertas $\psi_0:U_0\to\mathbb P_A^1$ y $\psi_1:U_1\to\mathbb P_A^1$. \emph{[Vakil, \S4.4.6 y \S4.4.10; Hartshorne, II.2, ejercicio 2.12.]}
+define un isomorfismo de esquemas $\varphi_{01}\colon U_{01}\to U_{10}$. Por la \cref{defi:s08-datos-pegado}, son datos de pegado. La recta proyectiva $\mathbb P_A^1$ es el esquema del \cref{teo:s08-lema-pegado}, con inmersiones abiertas $\psi_0\colon U_0\to\mathbb P_A^1$ y $\psi_1\colon U_1\to\mathbb P_A^1$. \emph{[Vakil, \S4.4.6 y \S4.4.10; Hartshorne, II.2, ejercicio 2.12.]}
 \end{defi}
 
 \begin{obs}[Coordenadas]
@@ -413,11 +413,11 @@ La carta $t$ proyecta desde $s=0$ sobre la recta tangente en $t=0$. La carta $s$
 
 \begin{obs}[El morfismo estructural]
 \label{obs:s08-morfismo-estructural}
-Los morfismos $U_0\to\Spec A$ y $U_1\to\Spec A$ inducidos por $A\to A[t]$ y $A\to A[s]$ coinciden en el traslape, pues $s\mapsto t^{-1}$ es un homomorfismo de $A$-álgebras. La \cref{obs:s08-morfismos-desde-pegado} da $\pi:\mathbb P_A^1\to\Spec A$; sus fibras se estudian en el \cref{sec:s08-puntos}.
+Los morfismos $U_0\to\Spec A$ y $U_1\to\Spec A$ inducidos por $A\to A[t]$ y $A\to A[s]$ coinciden en el traslape, pues $s\mapsto t^{-1}$ es un homomorfismo de $A$-álgebras. La \cref{obs:s08-morfismos-desde-pegado} da $\pi\colon \mathbb P_A^1\to\Spec A$; sus fibras se estudian en el \cref{sec:s08-puntos}.
 \end{obs}
 
 % S08b, diapositiva 15: propiedad universal del pegado y triángulo de anillos.
-Sean $\iota_0:U_{01}\hookrightarrow U_0$ y $\iota_1:U_{10}\hookrightarrow U_1$. La condición para pegar $f_0:U_0\to Y$ y $f_1:U_1\to Y$ es $f_0\circ\iota_0=f_1\circ\iota_1\circ\varphi_{01}$. La \cref{obs:s08-morfismos-desde-pegado} da entonces un único $f:\mathbb P_A^1\to Y$:
+Sean $\iota_0\colon U_{01}\hookrightarrow U_0$ y $\iota_1\colon U_{10}\hookrightarrow U_1$. La condición para pegar $f_0\colon U_0\to Y$ y $f_1\colon U_1\to Y$ es $f_0\circ\iota_0=f_1\circ\iota_1\circ\varphi_{01}$. La \cref{obs:s08-morfismos-desde-pegado} da entonces un único $f\colon \mathbb P_A^1\to Y$:
 \begin{center}
 \begin{minipage}{.59\textwidth}
 \centering
@@ -513,7 +513,7 @@ El anillo de Laurent es libre como $A$-módulo con base $\set{t^n}_{n\in\mathbb 
 Si $A\ne0$, la recta proyectiva $\mathbb P_A^1$ no es afín.
 \end{coro}
 \begin{proof}
-Sea $R=\Gamma(\mathbb P_A^1,\mathcal O)$ y $\varphi:A\to R$ el isomorfismo de la \cref{prop:s08-secciones-proyectiva}. Por la \cref{prop:s08-propiedades-morfismo-canonico}(b), aplicada a $g=\pi$, se tiene
+Sea $R=\Gamma(\mathbb P_A^1,\mathcal O)$ y $\varphi\colon A\to R$ el isomorfismo de la \cref{prop:s08-secciones-proyectiva}. Por la \cref{prop:s08-propiedades-morfismo-canonico}(b), aplicada a $g=\pi$, se tiene
 \[
 \pi=\Spec(\varphi)\circ\eta_{\mathbb P_A^1}.
 \]
@@ -598,7 +598,7 @@ Por la \cref{obs:s03-cuerpo-residual}, el cuerpo residual de $\mathfrak p$ es
 \[
 \kappa(\mathfrak p)=A_{\mathfrak p}/\mathfrak pA_{\mathfrak p}=\Frac(A/\mathfrak p).
 \]
-En un esquema, $\kappa(x)=\mathcal O_{X,x}/\mathfrak m_x$, y una carta afín conserva este cuerpo. Un homomorfismo $\varphi:A\to B$ induce $\Spec\varphi$, dado por $\mathfrak q\mapsto\varphi^{-1}(\mathfrak q)$; véanse el \cref{lema:s01-preimagen-primo} y el \cref{ejer:s02-b-morfismo-anillos-demuestra-1}. Además,
+En un esquema, $\kappa(x)=\mathcal O_{X,x}/\mathfrak m_x$, y una carta afín conserva este cuerpo. Un homomorfismo $\varphi\colon A\to B$ induce $\Spec\varphi$, dado por $\mathfrak q\mapsto\varphi^{-1}(\mathfrak q)$; véanse el \cref{lema:s01-preimagen-primo} y el \cref{ejer:s02-b-morfismo-anillos-demuestra-1}. Además,
 \[
 (\Spec\varphi)^{-1}(D(f))=D(\varphi(f)).
 \]
@@ -607,7 +607,7 @@ Una inmersión abierta identifica su fuente con un subesquema abierto de la meta
 
 \begin{defi}[Esquema sobre $A$, morfismo estructural y fibra]
 \label{defi:s08-esquema-sobre-anillo-fibra}
-Un esquema sobre $A$ es un esquema $X$ con un morfismo $\pi:X\to\Spec A$, llamado morfismo estructural. Para $\mathbb A_A^1=\Spec A[t]$, la inclusión $A\to A[t]$ induce $\pi(\mathfrak q)=\mathfrak q\cap A$. La fibra sobre $y\in\Spec A$ es el conjunto $\pi^{-1}(y)$. Aquí solo se usa como conjunto de puntos; la fibra como esquema, $X\times_{\Spec A}\Spec\kappa(y)$, se construirá en las Sesiones 12 y 14.
+Un esquema sobre $A$ es un esquema $X$ con un morfismo $\pi\colon X\to\Spec A$, llamado morfismo estructural. Para $\mathbb A_A^1=\Spec A[t]$, la inclusión $A\to A[t]$ induce $\pi(\mathfrak q)=\mathfrak q\cap A$. La fibra sobre $y\in\Spec A$ es el conjunto $\pi^{-1}(y)$. Aquí solo se usa como conjunto de puntos; la fibra como esquema, $X\times_{\Spec A}\Spec\kappa(y)$, se construirá en las Sesiones 12 y 14.
 \end{defi}
 
 \emph{Vocabulario.} $\mathbb P^1$ es la recta proyectiva y $\mathbb P^2$ el plano proyectivo. En este contexto, afín o no afín califica a un esquema, no a un anillo. Para la propiedad de separación se dice \emph{esquema separado}; se estudiará en la Sesión 15.
@@ -717,7 +717,7 @@ Para $(f)\ne(t)$, la localización por $t$ da un ideal máximo de $k[t,t^{-1}]$.
 \label{coro:s08-puntos-complejos-reales}
 \begin{enumerate}[label=(\alph*)]
 \item Sobre $\mathbb C$, los puntos cerrados son los $(t-z)$, con $z\in\mathbb C$, e $\infty$, todos de grado uno. Como conjunto son $\mathbb C\cup\set{\infty}$, la esfera de Riemann.
-\item Sobre $\mathbb R$, son los $(t-a)$ con $a\in\mathbb R$ y $\infty$, de grado uno, y los $(t^2+bt+c)$ con $b^2<4c$, de grado dos y cuerpo residual $\mathbb C$. Asociar a cada polinomio sus raíces complejas, y a $\infty$ el conjunto $\set{\infty}$, da una biyección con las órbitas de $\operatorname{Gal}(\mathbb C/\mathbb R)=\set{\id,z\mapsto\bar z}$ en $\mathbb C\cup\set{\infty}$.
+\item Sobre $\mathbb R$, son los $(t-a)$ con $a\in\mathbb R$ y $\infty$, de grado uno, y los $(t^2+bt+c)$ con $b^2<4c$, de grado dos y cuerpo residual $\mathbb C$. Asociar a cada polinomio sus raíces complejas, y a $\infty$ el conjunto $\set{\infty}$, da una biyección con las órbitas de $\gal(\mathbb C/\mathbb R)=\set{\id,z\mapsto\bar z}$ en $\mathbb C\cup\set{\infty}$.
 \end{enumerate}
 \emph{[Vakil, \S4.4.7.]}
 \end{coro}
@@ -734,7 +734,7 @@ Por el teorema fundamental del álgebra, los irreducibles complejos son lineales
 \fill[rojoCIMAT] (-.8,1.1) circle (2.5pt) node[left] {$z$};
 \fill[rojoCIMAT] (-.8,-1.1) circle (2.5pt) node[left] {$\bar z$};
 \draw[->,blue!60!black,dashed,thick] (-.8,1.05) to[bend left=25] (-.8,-1.05);
-\node[right,blue!60!black] at (.25,.7) {$\operatorname{Gal}(\mathbb C/\mathbb R)$};
+\node[right,blue!60!black] at (.25,.7) {$\gal(\mathbb C/\mathbb R)$};
 \end{tikzpicture}
 \end{center}
 \emph{Advertencia.} Un punto cerrado de grado dos es el par $\set{z,\bar z}$, no dos puntos. El polinomio $t^2+1$ da un solo punto de $\mathbb P_{\mathbb R}^1$, aunque $i$ y $-i$ son dos números.
@@ -776,7 +776,7 @@ Un punto cerrado de grado $d$ es una órbita de Frobenius de $d$ puntos de $\mat
 
 \begin{prop}[Fibras de $\mathbb P_A^1$]
 \label{prop:s08-fibras-proyectiva}
-Sean $A$ un anillo, $\mathfrak p\in\Spec A$, $\kappa=\kappa(\mathfrak p)$ y $\pi:\mathbb P_A^1\to\Spec A$ el morfismo estructural. Hay una biyección entre el conjunto $\pi^{-1}(\mathfrak p)$ y el conjunto de puntos de $\mathbb P_\kappa^1$, que lleva:
+Sean $A$ un anillo, $\mathfrak p\in\Spec A$, $\kappa=\kappa(\mathfrak p)$ y $\pi\colon \mathbb P_A^1\to\Spec A$ el morfismo estructural. Hay una biyección entre el conjunto $\pi^{-1}(\mathfrak p)$ y el conjunto de puntos de $\mathbb P_\kappa^1$, que lleva:
 \begin{itemize}
 \item el primo $\mathfrak pA[t]$ de $U_0$ al genérico $(0)$ de $\mathbb P_\kappa^1$;
 \item cada primo de $U_0$ sobre $\mathfrak p$ correspondiente a $(\bar f)\subseteq\kappa[t]$, con $\bar f$ mónico irreducible, a ese punto $(\bar f)$;
@@ -1079,7 +1079,7 @@ Todo primo no nulo de un dominio de ideales principales es máximo, por la \cref
 \begin{prop}[Las fibras de $\mathbb P_A^1$ sobre un DVR]
 \label{prop:s08-fibras-dvr}
 \label{ejem:s08-proyectiva-dvr}
-Sea $A$ un DVR y $\pi:\mathbb P_A^1\to\Spec A$ el morfismo estructural.
+Sea $A$ un DVR y $\pi\colon \mathbb P_A^1\to\Spec A$ el morfismo estructural.
 \begin{enumerate}[label=(\alph*)]
 \item La fibra genérica $\pi^{-1}((0))$ es abierta y, como conjunto, es $\mathbb P_K^1$.
 \item La fibra especial $\pi^{-1}(\mathfrak m)$ es cerrada y, como conjunto, es $\mathbb P_\kappa^1$.
@@ -1219,19 +1219,19 @@ Los datos de la \cref{defi:s08-datos-pegado} y el \myref{teo:s08-lema-pegado} pe
 \label{prop:s08-homomorfismos-abiertos-basicos}
 Sean $B,B',C$ anillos.
 \begin{enumerate}[label=(\alph*)]
-\item Un homomorfismo $\alpha:C\to B$ induce $\Spec\alpha:\Spec B\to\Spec C$, dado por $\mathfrak q\mapsto\alpha^{-1}(\mathfrak q)$, y
+\item Un homomorfismo $\alpha\colon C\to B$ induce $\Spec\alpha\colon \Spec B\to\Spec C$, dado por $\mathfrak q\mapsto\alpha^{-1}(\mathfrak q)$, y
 \[
 (\Spec\alpha)^{-1}(D(f))=D(\alpha(f)).
 \]
-Todo morfismo $\varphi:\Spec B\to\Spec C$ proviene de un único homomorfismo $\varphi^\sharp:C\to B$ y $(\psi\circ\varphi)^\sharp=\varphi^\sharp\circ\psi^\sharp$.
-\item El abierto $D(f)\subseteq\Spec B$ es $\Spec B_f$, con $B_f=B[f^{-1}]$. Un homomorfismo $\beta:B\to B'$ se extiende a $B_f$ si y solo si $\beta(f)$ es unidad en $B'$. La extensión es única.
+Todo morfismo $\varphi\colon \Spec B\to\Spec C$ proviene de un único homomorfismo $\varphi^\sharp\colon C\to B$ y $(\psi\circ\varphi)^\sharp=\varphi^\sharp\circ\psi^\sharp$.
+\item El abierto $D(f)\subseteq\Spec B$ es $\Spec B_f$, con $B_f=B[f^{-1}]$. Un homomorfismo $\beta\colon B\to B'$ se extiende a $B_f$ si y solo si $\beta(f)$ es unidad en $B'$. La extensión es única.
 \item $D(fg)=D(f)\cap D(g)$, y $fg$ es unidad si y solo si $f$ y $g$ lo son.
 \item Dos homomorfismos de $A$-álgebras que salen de $A[y_1,\ldots,y_m][g^{-1}]$ y coinciden en las variables $y_1,\ldots,y_m$ son iguales.
-\item Si $\alpha:C\to B$ y $f\in C$, la restricción
+\item Si $\alpha\colon C\to B$ y $f\in C$, la restricción
 \[
 D(\alpha(f))\longrightarrow D(f)
 \]
-de $\Spec\alpha$ es $\Spec$ de la extensión $\alpha_f:C_f\to B_{\alpha(f)}$.
+de $\Spec\alpha$ es $\Spec$ de la extensión $\alpha_f\colon C_f\to B_{\alpha(f)}$.
 \end{enumerate}
 \emph{[Sesiones 3 y 6; Atiyah--Macdonald, prop.~3.1; complemento de las Sesiones 8 y 9.]}
 \end{prop}
@@ -1249,7 +1249,7 @@ El \cref{sec:s09-plano-cuentas} escribe primero todas las cuentas para el plano 
 \label{defi:s08-cartas-proyectiva-n}
 Sea $n\geq1$. Para $i=0,\ldots,n$, sea $A_i=A[x_{k/i}:k\ne i]$, el anillo de polinomios en las $n$ variables $x_{k/i}$, y $U_i=\Spec A_i\cong\mathbb A_A^n$. Son $n+1$ cartas, cada una con $n$ coordenadas afines; $x_{k/i}$ representa el cociente de coordenadas homogéneas $x_k/x_i$. Se pone $x_{i/i}=1$, $U_{ii}=U_i$ y $\varphi_{ii}=\id$. Para $j\ne i$, sea $U_{ij}=D(x_{j/i})\subseteq U_i$, con anillo de funciones $A_i[x_{j/i}^{-1}]$, y
 \[
-\varphi_{ij}^\sharp:A_j[x_{i/j}^{-1}]\longrightarrow A_i[x_{j/i}^{-1}],
+\varphi_{ij}^\sharp\colon A_j[x_{i/j}^{-1}]\longrightarrow A_i[x_{j/i}^{-1}],
 \qquad x_{k/j}\longmapsto\frac{x_{k/i}}{x_{j/i}}.
 \]
 Es un isomorfismo: envía $x_{i/j}$ a $x_{j/i}^{-1}$, con inversa $x_{k/i}\mapsto x_{k/j}/x_{i/j}$. \emph{[Vakil, \S4.4.9 y \S4.4.10.]}
@@ -1284,7 +1284,7 @@ L_0=\bigoplus_{\substack{m\in\mathbb Z^{n+1}\\ \sum_\ell m_\ell=0}}Ax^m,
 \]
 El submódulo $L_0$ es un subanillo. Para cada $i$, definimos
 \[
-\iota_i:A_i\hookrightarrow L_0,\qquad x_{k/i}\longmapsto x_kx_i^{-1}.
+\iota_i\colon A_i\hookrightarrow L_0,\qquad x_{k/i}\longmapsto x_kx_i^{-1}.
 \]
 Es inyectivo porque monomios distintos se envían a monomios distintos. La imagen de $A_i[x_{j/i}^{-1}]$ es
 \[
@@ -1308,9 +1308,9 @@ al invertir $x_{j/i}$ y $x_{k/i}$. En la carta $j$, los abiertos $U_{ji}\cap U_{
 \label{defi:s08-espacio-proyectivo}
 El espacio proyectivo $\mathbb P^n_A$ es el esquema del \myref{teo:s08-lema-pegado} aplicado a los datos de la \cref{prop:s08-cociclo-proyectiva-n}. Escribimos $W_i=\psi_i(U_i)$ para las imágenes de sus cartas. Los morfismos
 \[
-\pi_i=\Spec(A\longrightarrow A_i):U_i\longrightarrow\Spec A
+\pi_i=\Spec(A\longrightarrow A_i)\colon U_i\longrightarrow\Spec A
 \]
-cumplen $\pi_j\circ\varphi_{ij}=\pi_i$ en $U_{ij}$ porque cada $\varphi_{ij}^\sharp$ fija $A$. Se pegan, por la \cref{obs:s08-morfismos-desde-pegado}, en el morfismo estructural $\pi:\mathbb P^n_A\to\Spec A$.
+cumplen $\pi_j\circ\varphi_{ij}=\pi_i$ en $U_{ij}$ porque cada $\varphi_{ij}^\sharp$ fija $A$. Se pegan, por la \cref{obs:s08-morfismos-desde-pegado}, en el morfismo estructural $\pi\colon \mathbb P^n_A\to\Spec A$.
 \end{defi}
 
 \begin{obs}[Cuántos datos hay]
@@ -1355,12 +1355,12 @@ La \cref{prop:s08-homomorfismos-abiertos-basicos}(c) identifica la intersección
 
 \begin{obs}
 \label{obs:s08-hiperplano-infinito}
-Geométricamente, $U_i$ es el abierto donde $x_i\ne0$. La carta $U_0$ es isomorfa a $\mathbb A_A^n$. Su complemento es el cerrado donde se anula $x_0$, descrito en $U_i$ por $V(x_{0/i})$. Es una copia de $\mathbb P_A^{n-1}$, el hiperplano al infinito de la Sesión 10. Para $n=1$ se recupera la \cref{defi:s08-recta-proyectiva}, con $t=x_{1/0}$ y $s=x_{0/1}$. La construcción formal mediante $\operatorname{Proj}$ llegará en la Sesión 21.
+Geométricamente, $U_i$ es el abierto donde $x_i\ne0$. La carta $U_0$ es isomorfa a $\mathbb A_A^n$. Su complemento es el cerrado donde se anula $x_0$, descrito en $U_i$ por $V(x_{0/i})$. Es una copia de $\mathbb P_A^{n-1}$, el hiperplano al infinito de la Sesión 10. Para $n=1$ se recupera la \cref{defi:s08-recta-proyectiva}, con $t=x_{1/0}$ y $s=x_{0/1}$. La construcción formal mediante $\Proj$ llegará en la Sesión 21.
 \end{obs}
 
 \begin{obs}[$\mathbb P^n_A$ no es afín]
 \label{obs:s08-proyectiva-n-no-afin}
-El \cref{ejer:s08-proyectiva-n} calcula $\Gamma(\mathbb P^n_A,\mathcal O)=A$ intersecando los anillos de dos cartas dentro de $L_0$. El homomorfismo $\phi:A\to\Gamma(\mathbb P^n_A,\mathcal O)$ inducido por $\pi$ es, por tanto, un isomorfismo. La \cref{prop:s08-propiedades-morfismo-canonico} da
+El \cref{ejer:s08-proyectiva-n} calcula $\Gamma(\mathbb P^n_A,\mathcal O)=A$ intersecando los anillos de dos cartas dentro de $L_0$. El homomorfismo $\phi\colon A\to\Gamma(\mathbb P^n_A,\mathcal O)$ inducido por $\pi$ es, por tanto, un isomorfismo. La \cref{prop:s08-propiedades-morfismo-canonico} da
 \[
 \pi=\Spec(\phi)\circ\eta_{\mathbb P^n_A}.
 \]
@@ -1384,7 +1384,7 @@ También $T\mapsto T$ y $T\mapsto T^p$ en $\mathbb F_p[T]$ inducen la identidad 
 
 \begin{lema}[Funtorialidad del pegado]
 \label{lema:s08-funtorialidad-pegado}
-Sean $(X_i,X_{ij},\varphi_{ij})$ y $(X_i',X_{ij}',\varphi_{ij}')$ datos de pegado con los mismos índices, y pegados $(X,\psi_i)$ y $(X',\psi_i')$. Sean $\nu_i:X_i\to X_i'$ isomorfismos tales que $\nu_i(X_{ij})=X_{ij}'$ y $\nu_j\circ\varphi_{ij}=\varphi_{ij}'\circ\nu_i$ en $X_{ij}$. Existe un único isomorfismo $h:X\to X'$ con $h\circ\psi_i=\psi_i'\circ\nu_i$.
+Sean $(X_i,X_{ij},\varphi_{ij})$ y $(X_i',X_{ij}',\varphi_{ij}')$ datos de pegado con los mismos índices, y pegados $(X,\psi_i)$ y $(X',\psi_i')$. Sean $\nu_i\colon X_i\to X_i'$ isomorfismos tales que $\nu_i(X_{ij})=X_{ij}'$ y $\nu_j\circ\varphi_{ij}=\varphi_{ij}'\circ\nu_i$ en $X_{ij}$. Existe un único isomorfismo $h\colon X\to X'$ con $h\circ\psi_i=\psi_i'\circ\nu_i$.
 \end{lema}
 
 % Presentación S08, diapositiva 34: los dos cuadrados de funtorialidad.
@@ -1409,23 +1409,23 @@ X_{ij}'\arrow[r,swap,"\varphi_{ij}'"]&X_{ji}'
 \end{minipage}
 \end{center}
 \begin{proof}
-Los morfismos $\psi_i'\circ\nu_i:X_i\to X'$ son compatibles, pues
+Los morfismos $\psi_i'\circ\nu_i\colon X_i\to X'$ son compatibles, pues
 \[
 \psi_j'\circ\nu_j\circ\varphi_{ij}
 =\psi_j'\circ\varphi_{ij}'\circ\nu_i
 =\psi_i'\circ\nu_i.
 \]
-La \cref{obs:s08-morfismos-desde-pegado} da un único $h:X\to X'$ con la propiedad requerida. Los $\nu_i^{-1}$ satisfacen las mismas condiciones en sentido inverso y producen $h':X'\to X$. Sus composiciones restringen a la identidad en cada carta; como las cartas cubren, $h'h=\id_X$ y $hh'=\id_{X'}$.
+La \cref{obs:s08-morfismos-desde-pegado} da un único $h\colon X\to X'$ con la propiedad requerida. Los $\nu_i^{-1}$ satisfacen las mismas condiciones en sentido inverso y producen $h'\colon X'\to X$. Sus composiciones restringen a la identidad en cada carta; como las cartas cubren, $h'h=\id_X$ y $hh'=\id_{X'}$.
 \end{proof}
 
 \begin{prop}[Pegados de dos rectas]
 \label{prop:s08-pegados-dos-rectas}
-Sea $k$ un campo, $X_1=\Spec k[x]$, $X_2=\Spec k[y]$, $X_{12}=D(x)$ y $X_{21}=D(y)$. Para un isomorfismo de $k$-esquemas $\varphi:X_{12}\to X_{21}$, el pegado es isomorfo a la recta con origen doble si $\varphi^\sharp(y)=cx$, o a $\mathbb P_k^1$ si $\varphi^\sharp(y)=cx^{-1}$, con $c\in k^\times$. No hay otros casos, y los dos esquemas no son isomorfos.
+Sea $k$ un campo, $X_1=\Spec k[x]$, $X_2=\Spec k[y]$, $X_{12}=D(x)$ y $X_{21}=D(y)$. Para un isomorfismo de $k$-esquemas $\varphi\colon X_{12}\to X_{21}$, el pegado es isomorfo a la recta con origen doble si $\varphi^\sharp(y)=cx$, o a $\mathbb P_k^1$ si $\varphi^\sharp(y)=cx^{-1}$, con $c\in k^\times$. No hay otros casos, y los dos esquemas no son isomorfos.
 \end{prop}
 \begin{proof}
 El isomorfismo de $k$-álgebras
 \[
-\varphi^\sharp:k[y,y^{-1}]\xrightarrow{\sim}k[x,x^{-1}]
+\varphi^\sharp\colon k[y,y^{-1}]\xrightarrow{\sim}k[x,x^{-1}]
 \]
 envía $y$ a una unidad. Las unidades de $k[x,x^{-1}]$ son los monomios $cx^n$, con $c\in k^\times$ y $n\in\mathbb Z$. En un producto de polinomios de Laurent sobre un campo, los exponentes mínimo y máximo se suman. Si el producto es uno, cada factor tiene un solo exponente.
 
@@ -1447,7 +1447,7 @@ Sea $X$ la recta con origen doble sobre un campo $k$, con cartas $X_1=\Spec k[x]
 \begin{proof}
 Una sección es un par $(f(x),g(y'))$ que coincide en $k[x,x^{-1}]$ tras sustituir $y'=x$. Como $k[x]\hookrightarrow k[x,x^{-1}]$ es inyectivo, la condición equivale a $f=g$. Así, las secciones son los pares $(f,f)$ y su anillo es $k[x]$. Un isomorfismo con $\mathbb P_k^1$ induciría un isomorfismo entre $k[x]$ y $k$, por la \cref{prop:s08-secciones-proyectiva}; esto es imposible, pues $k$ es un campo y $k[x]$ no.
 
-Las restricciones $\Gamma(X,\mathcal O_X)\to\Gamma(X_i,\mathcal O_{X_i})$ son isomorfismos. Por la construcción de la \cref{defi:s08-morfismo-canonico}, $\eta_X:X\to\Spec k[x]$ restringe a la identidad en cada carta, identificando $y'$ con $x$. Envía los dos orígenes distintos al mismo punto $(x)$, de modo que no es inyectivo. La \cref{prop:s08-propiedades-morfismo-canonico}(e) implica que $X$ no es afín.
+Las restricciones $\Gamma(X,\mathcal O_X)\to\Gamma(X_i,\mathcal O_{X_i})$ son isomorfismos. Por la construcción de la \cref{defi:s08-morfismo-canonico}, $\eta_X\colon X\to\Spec k[x]$ restringe a la identidad en cada carta, identificando $y'$ con $x$. Envía los dos orígenes distintos al mismo punto $(x)$, de modo que no es inyectivo. La \cref{prop:s08-propiedades-morfismo-canonico}(e) implica que $X$ no es afín.
 \end{proof}
 
 \begin{obs}[Los dos pegados sobre un anillo]
@@ -1482,7 +1482,7 @@ Sea $k$ un campo y $V=\mathbb A_k^1\setminus\set{0}=D(x)$. Calcula $\Gamma(V,\ma
 
 \begin{ejer}[El automorfismo que intercambia las cartas]
 \label{ejer:s08-intercambio-cartas}
-Muestra que $t\leftrightarrow s$ define un automorfismo de $\mathbb P_A^1$ que intercambia $\psi_0(U_0)$ y $\psi_1(U_1)$. Pista: usa el \cref{lema:s08-funtorialidad-pegado} con $\nu_0:U_0\to U_1$, $\nu_1:U_1\to U_0$ y, como segundos datos de pegado, los mismos con los índices $0$ y $1$ intercambiados.
+Muestra que $t\leftrightarrow s$ define un automorfismo de $\mathbb P_A^1$ que intercambia $\psi_0(U_0)$ y $\psi_1(U_1)$. Pista: usa el \cref{lema:s08-funtorialidad-pegado} con $\nu_0\colon U_0\to U_1$, $\nu_1\colon U_1\to U_0$ y, como segundos datos de pegado, los mismos con los índices $0$ y $1$ intercambiados.
 \end{ejer}
 
 \begin{ejer}[Puntos de $\mathbb P_{\mathbb F_2}^1$ y $\mathbb P_{\mathbb F_3}^1$]

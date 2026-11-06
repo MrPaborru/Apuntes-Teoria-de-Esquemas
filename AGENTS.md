@@ -34,8 +34,9 @@ El complemento de S8 y S9 desarrolla el pegado de espacios proyectivos. S8 conse
 ## LaTeX y edición
 
 - Español matemático compacto y claro; reproducir todos los diagramas y dibujos matemáticos de las presentaciones, así como las tablas de las fuentes. La fidelidad a los títulos del esqueleto prevalece sobre reducir la cantidad de secciones.
-- Cada entorno numerado debe tener inmediatamente un `\\label{entorno:etiqueta-descriptiva}`, único y consistente. Las referencias posteriores usan `\\cref`, `\\myref` (incluye nombre) o `\\abvref`; no escribir tipo/número manualmente ni usar `\\ref` sin una razón específica.
-- Para conjuntos explícitos usar `\\set{...}` o `\\set*{...}`, con `\\given` cuando corresponda; no usar llaves y barras manuales para sustituir estos comandos.
+- Cada entorno numerado debe tener inmediatamente un `\label{entorno:etiqueta-descriptiva}`, único y consistente. Las referencias posteriores usan `\cref`, `\myref` (incluye nombre) o `\abvref`; no escribir tipo/número manualmente ni usar `\ref` sin una razón específica.
+- Para conjuntos explícitos usar `\set{...}` o `\set*{...}`, con `\given` cuando corresponda; no usar llaves y barras manuales para sustituir estos comandos.
+- En la declaración de aplicaciones usar `\colon`, como en `f\colon X\to Y`. Para igualdades definicionales usar `\coloneqq`. Reutilizar los operadores declarados en la plantilla, como `\Hom`, `\aut`, `\gal`, `\Proj` y `\res`. Los dos puntos de coordenadas homogéneas y grados de extensiones conservan su función matemática.
 - Evitar finales de párrafo de apenas palabras cortas mediante ajustes mínimos de redacción. Las fórmulas inline no deben partirse entre líneas. Conservar los ajustes editoriales del proyecto.
 - `NumClases` cuenta únicamente las sesiones numeradas actualmente apuntadas: la introducción o sesión 0 NO cuenta. Con las sesiones 1 a 9 desarrolladas, su valor es 9. Actualizar al añadir una nueva sesión; añadir una parte a una sesión existente no incrementa el total. Las sesiones pendientes no aparecen en el documento.
 - Conservar los estilos aprobados de portada, TOC, Introducción, referencias y ejercicios; no cambiarlos para incorporar contenido.
