@@ -157,6 +157,9 @@
 \declaretheorem[name = Proposición, sibling = teo]{prop}
 \crefname{prop}{proposición}{proposiciones}
 
+\declaretheorem[name = Afirmación, sibling = teo]{afirm}
+\crefname{afirm}{afirmación}{afirmaciones}
+
 \declaretheorem[name = Lema, sibling = teo]{lema}
 \crefname{lema}{lema}{lemas}
 
@@ -190,6 +193,7 @@
 % hipervínculos apuntan a la primera de ellas.
 \renewcommand{\theHteo}{\arabic{chapter}.\arabic{section}.\arabic{teo}}
 \renewcommand{\theHprop}{\arabic{chapter}.\arabic{section}.\arabic{teo}}
+\renewcommand{\theHafirm}{\arabic{chapter}.\arabic{section}.\arabic{teo}}
 \renewcommand{\theHlema}{\arabic{chapter}.\arabic{section}.\arabic{teo}}
 \renewcommand{\theHcoro}{\arabic{chapter}.\arabic{section}.\arabic{teo}}
 \renewcommand{\theHdefi}{\arabic{chapter}.\arabic{section}.\arabic{teo}}
@@ -354,6 +358,7 @@
     \crefname{teo}{teo.}{teos.}%
     \crefname{lema}{lema}{lemas}%
     \crefname{prop}{prop.}{props.}%
+    \crefname{afirm}{af.}{afs.}%
     \crefname{coro}{coro.}{coros.}%
     \crefname{section}{sec.}{secs.}%
     \crefname{eje}{ej.}{ejs.}%
