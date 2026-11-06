@@ -21,7 +21,7 @@ Se tiene $V(S)=V((S))$, donde $(S)$ es el ideal generado; basta por ello conside
 
 \begin{prop}
 \label{prop:s02-ideales-i-j-cualquier-familia}
-Para ideales $I,J\subseteq A$ y cualquier familia $\{I_\alpha\}$,
+Para ideales $I,J\subseteq A$ y cualquier familia $\set{I_\alpha}$,
 \begin{enumerate}
 \item $\displaystyle\bigcap_\alpha V(I_\alpha)=V\left(\sum_\alpha I_\alpha\right)$;
 \item $V(I)\cup V(J)=V(I\cap J)=V(IJ)$.
@@ -42,7 +42,7 @@ Por ejemplo, todo ideal de $\mathbb Z$ es principal y, para $n\ne0$, $V(n)=\set*
 
 \begin{prop}
 \label{prop:s02-todo-p-cerradura-punto-p}
-Para todo $\mathfrak p\in\Spec A$, la cerradura del punto es $\overline{\{\mathfrak p\}}=V(\mathfrak p)$. En particular, $\mathfrak p$ es cerrado si y solo si es maximal.
+Para todo $\mathfrak p\in\Spec A$, la cerradura del punto es $\overline{\set{\mathfrak p}}=V(\mathfrak p)$. En particular, $\mathfrak p$ es cerrado si y solo si es maximal.
 \end{prop}
 \begin{proof}
 Los cerrados que contienen a $\mathfrak p$ tienen la forma $V(I)$ con $I\subseteq\mathfrak p$. Por contravariancia, todos contienen a $V(\mathfrak p)$, que es entonces el cerrado mínimo que contiene al punto.
@@ -50,12 +50,12 @@ Los cerrados que contienen a $\mathfrak p$ tienen la forma $V(I)$ con $I\subsete
 
 \begin{defi}
 \label{defi:s02-decimos-q-especializacion-p-q}
-Decimos que $\mathfrak q$ es una especialización de $\mathfrak p$ si $\mathfrak q\in\overline{\{\mathfrak p\}}$, equivalentemente, si $\mathfrak p\subseteq\mathfrak q$. En este caso $\mathfrak p$ generiza a $\mathfrak q$ y es el punto genérico de $V(\mathfrak p)$.
+Decimos que $\mathfrak q$ es una especialización de $\mathfrak p$ si $\mathfrak q\in\overline{\set{\mathfrak p}}$, equivalentemente, si $\mathfrak p\subseteq\mathfrak q$. En este caso $\mathfrak p$ generiza a $\mathfrak q$ y es el punto genérico de $V(\mathfrak p)$.
 \end{defi}
 
 \begin{ejem}
 \label{ejem:s02-z-0-p-todo-primo}
-En $\Spec\mathbb Z$, $(0)\rightsquigarrow(p)$ para todo primo $p$ y $\overline{\{(0)\}}=\Spec\mathbb Z$. En $\Spec k[x,y]$, con $k$ algebraicamente cerrado, $(0)\rightsquigarrow(y-x^2)\rightsquigarrow(x-1,y-1)$; la inclusión de ideales registra la incidencia del plano, la parábola y el punto clásico.
+En $\Spec\mathbb Z$, $(0)\rightsquigarrow(p)$ para todo primo $p$ y $\overline{\set{(0)}}=\Spec\mathbb Z$. En $\Spec k[x,y]$, con $k$ algebraicamente cerrado, $(0)\rightsquigarrow(y-x^2)\rightsquigarrow(x-1,y-1)$; la inclusión de ideales registra la incidencia del plano, la parábola y el punto clásico.
 \end{ejem}
 
 \begin{obs}
@@ -117,7 +117,7 @@ Una unión disjunta infinita de espacios no vacíos no es cuasicompacta, pero el
 
 \begin{ejer}[Sembrador: se cosecha en la Sesión 6]
 \label{ejer:s02-sembrador-cosecha-sesion-6}
-Sea $\{A_i\}_{i\in\mathbb N}$ una familia de anillos no nulos y $e_i\in\prod_jA_j$ el idempotente coordenado. Comprueba que $(\prod_jA_j)[1/e_i]\cong A_i$, que los $D(e_i)$ son disjuntos y que $\coprod_i\Spec A_i$ se inyecta en $\Spec(\prod_iA_i)$. Describe $J=(e_i:i\in\mathbb N)$ en términos de soportes, demuestra $J\ne(1)$ y explica en qué punto se usa que la familia sea infinita; compáralo con el caso finito.
+Sea $\set{A_i}_{i\in\mathbb N}$ una familia de anillos no nulos y $e_i\in\prod_jA_j$ el idempotente coordenado. Comprueba que $(\prod_jA_j)[1/e_i]\cong A_i$, que los $D(e_i)$ son disjuntos y que $\coprod_i\Spec A_i$ se inyecta en $\Spec(\prod_iA_i)$. Describe $J=(e_i:i\in\mathbb N)$ en términos de soportes, demuestra $J\ne(1)$ y explica en qué punto se usa que la familia sea infinita; compáralo con el caso finito.
 \end{ejer}
 
 \section{Ejercicios}
@@ -136,7 +136,7 @@ Demuestra que $D(f)\subseteq D(g)$ si y solo si $f\in\sqrt{(g)}$.
 \end{ejer}
 \begin{ejer}
 \label{ejer:s02-b-morfismo-anillos-demuestra-1}
-Sea $\varphi:A\to B$ un morfismo de anillos. Demuestra que
+Sea $\varphi\colon A\to B$ un morfismo de anillos. Demuestra que
 \[
 (\Spec\varphi)^{-1}(V(I))=V(\varphi(I)B),
 \]

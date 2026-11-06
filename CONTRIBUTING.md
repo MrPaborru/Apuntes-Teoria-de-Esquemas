@@ -27,6 +27,7 @@ Para problemas al generar el PDF, utiliza la plantilla [Problema de compilación
 - Conserva las etiquetas existentes. Todo entorno numerado nuevo lleva inmediatamente una etiqueta descriptiva, como `\label{prop:nombre}`.
 - Usa `\cref` para el tipo y el número del entorno, `\myref` para incluir también su título o `\abvref` para la referencia abreviada. Estos comandos generan los hipervínculos internos.
 - Para conjuntos explícitos usa `\set{...}` o `\set*{...}`, con `\given` cuando corresponda.
+- Escribe las aplicaciones con `\colon`, por ejemplo `f\colon X\to Y`, y las igualdades definicionales con `\coloneqq`. Reutiliza los operadores de la plantilla, como `\Hom`, `\aut`, `\gal`, `\Proj` y `\res`.
 - Mantén los estilos aprobados, evita que se partan las fórmulas en línea y cuida los finales de párrafo.
 - Conserva los ejercicios y las pistas de las fuentes. Solo incluye una solución en los apuntes cuando el profesor la haya desarrollado en clase; las soluciones de tareas tienen su propio repositorio.
 - No incluyas registros de compilación, auxiliares, archivos del editor ni imágenes temporales de revisión. Los materiales de clase y el PDF publicado sí forman parte del repositorio.

@@ -11,12 +11,12 @@ Un subconjunto $S\subseteq A$ es multiplicativo si $1\in S$ y es cerrado bajo pr
 \frac{a_1}{s_1}=\frac{a_2}{s_2}\quad\Longleftrightarrow\quad
 \exists t\in S\text{ tal que }t(s_2a_1-s_1a_2)=0,
 \]
-con suma y producto como para fracciones ordinarias. El morfismo canónico es $\varphi:A\to S^{-1}A$, $a\mapsto a/1$.
+con suma y producto como para fracciones ordinarias. El morfismo canónico es $\varphi\colon A\to S^{-1}A$, $a\mapsto a/1$.
 \end{defi}
 
 \begin{ejem}[Los dos sabores]
 \label{ejem:s03-dos-sabores}
-Las elecciones principales son $S=\{1,f,f^2,\ldots\}$, que da $A_f$, y $S=A\setminus\mathfrak p$, que da $A_{\mathfrak p}$. Si $A$ es dominio y $S=A\setminus\{0\}$, se obtiene $\Frac(A)$. Hay que distinguir $A_{\mathfrak p}$, que invierte lo que no pertenece a $\mathfrak p$, de $A_f$, que invierte las potencias de $f$.
+Las elecciones principales son $S=\set{1,f,f^2,\ldots}$, que da $A_f$, y $S=A\setminus\mathfrak p$, que da $A_{\mathfrak p}$. Si $A$ es dominio y $S=A\setminus\set{0}$, se obtiene $\Frac(A)$. Hay que distinguir $A_{\mathfrak p}$, que invierte lo que no pertenece a $\mathfrak p$, de $A_f$, que invierte las potencias de $f$.
 \end{ejem}
 
 \begin{obs}[El caso no conmutativo]
@@ -26,7 +26,7 @@ La construcción usa que $A$ es conmutativo. En un anillo no conmutativo, para c
 
 \begin{prop}[Propiedad universal de la localización]
 \label{prop:s03-propiedad-universal-localizacion}
-El morfismo $\varphi:A\to S^{-1}A$ es inicial entre los morfismos desde $A$ que envían todos los elementos de $S$ a unidades. Es decir, si $\psi:A\to B$ y cada $\psi(s)$ es unidad, existe un único morfismo $\widetilde\psi:S^{-1}A\to B$ tal que $\widetilde\psi\circ\varphi=\psi$.
+El morfismo $\varphi\colon A\to S^{-1}A$ es inicial entre los morfismos desde $A$ que envían todos los elementos de $S$ a unidades. Es decir, si $\psi\colon A\to B$ y cada $\psi(s)$ es unidad, existe un único morfismo $\widetilde\psi\colon S^{-1}A\to B$ tal que $\widetilde\psi\circ\varphi=\psi$.
 \end{prop}
 \begin{proof}
 La única posibilidad es $\widetilde\psi(a/s)=\psi(a)\psi(s)^{-1}$. Si $a/s=a'/s'$, hay $t\in S$ con $t(s'a-sa')=0$; al aplicar $\psi$ y multiplicar por las unidades correspondientes se verifica que las dos imágenes coinciden. La misma fórmula muestra que $\widetilde\psi$ respeta suma, producto y unidad. La unicidad se sigue de que todo $a/s$ es el producto de $a/1$ por $(s/1)^{-1}$.
