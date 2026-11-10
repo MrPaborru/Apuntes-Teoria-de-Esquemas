@@ -130,7 +130,39 @@ El anillo $k[x]$ es un dominio de ideales principales. Todo primo no nulo es max
 \begin{ejem}[La recta afín aritmética: $\mathbb Q$ y $\mathbb R$]
 \label{ejem:s01-recta-afin-aritmetica-q-r}
 Sobre cuerpos no algebraicamente cerrados aparecen puntos cerrados aritméticos. En $\Spec\mathbb Q[x]$, el punto $(x^2-2)$ tiene cuerpo residual $\mathbb Q(\sqrt2)$ y representa la pareja de raíces conjugadas $\set{\sqrt2,-\sqrt2}$. En $\Spec\mathbb R[x]$, el punto $(x^2+1)$ tiene cuerpo residual $\mathbb C$; representa una ecuación sin soluciones reales.
+Para comparar las tres rectas, la \cref{fig:s01-rectas-afines} separa el primo genérico $(0)$ de los puntos cerrados. Sobre $\mathbb C$, todos los irreducibles mónicos son lineales. Sobre $\mathbb R$, también aparecen los cuadráticos mónicos $x^2+bx+c$ con $b^2-4c<0$, cada uno asociado a un par de raíces conjugadas. Sobre $\mathbb Q$, se agrupan los irreducibles mónicos por grado: en grado uno están los $x-a$ con $a\in\mathbb Q$, y también hay puntos de grados $2,3,\ldots$.
 \end{ejem}
+
+% Pizarra anotada de S01, p. 28.
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm,every node/.style={font=\small}]
+\node at (1.5,2.3) {$\Spec\mathbb C[x]$};
+\node at (5.9,2.3) {$\Spec\mathbb R[x]$};
+\node at (10.2,2.3) {$\Spec\mathbb Q[x]$};
+\foreach \x in {1.5,5.9,10.2}{
+  \fill[orange!80!black] (\x,1.75) circle (2pt) node[right] {$(0)$};
+}
+\draw[->,grisCIMAT] (0,0)--(2.9,0);
+\draw[->,grisCIMAT] (.7,-.6)--(.7,1.3);
+\fill[blue!65!black] (1.8,.65) circle (2pt) node[right] {$(x-a)$};
+\node[below] at (1.7,-.15) {$a\in\mathbb C$};
+
+\draw[->,grisCIMAT] (4.35,0)--(7.4,0) node[below] {$\mathbb R$};
+\draw[grisCIMAT] (5.1,-.8)--(5.1,1.1);
+\fill[blue!65!black] (5.65,0) circle (2pt) node[above left] {$a$};
+\draw[dashed,orange!80!black] (6.35,-.65)--(6.35,.65);
+\fill[orange!80!black] (6.35,.65) circle (2pt) node[right] {$z$};
+\fill[orange!80!black] (6.35,-.65) circle (2pt) node[right] {$\bar z$};
+
+\node[align=left,anchor=west] at (9,.28) {grado $1$: $(x-a)$, $a\in\mathbb Q$\\
+grado $2$: $(f)$ con $\deg f=2$\\
+grado $3$: $(f)$ con $\deg f=3$\\
+$\vdots$};
+\end{tikzpicture}
+\caption{Rectas afines sobre $\mathbb C$, $\mathbb R$ y $\mathbb Q$. El par $\set{z,\bar z}$ representa un punto de $\Spec\mathbb R[x]$.}
+\label{fig:s01-rectas-afines}
+\end{figure}
 
 \begin{teo}[El plano afín]
 \label{teo:s01-plano-afin}
@@ -163,6 +195,26 @@ Para $\mathfrak p,\mathfrak q\in\Spec A$, decimos que $\mathfrak q$ es una espec
 
 Un punto cerrado corresponde a un ideal maximal. El primo $\mathfrak p$ es el punto genérico del cerrado $V(\mathfrak p)$. La contención de ideales se invierte geométricamente: ideales más grandes corresponden a cerrados más pequeños. En $\Spec\mathbb Z$, $(0)\rightsquigarrow(p)$ para todo primo entero $p$.
 
+% S01, esqueleto p. 8.
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.17}
+\begin{tabular}{@{}l p{.60\linewidth}@{}}
+\textbf{Álgebra} ($A$) & \textbf{Geometría} ($\Spec A$) \\
+\hline
+Ideal primo $\mathfrak p$ & Punto. \\
+Ideal maximal & Punto cerrado. \\
+$f\in A$ & Función sobre el espacio. \\
+$f\in\mathfrak p$ & La función $f$ se anula en el punto. \\
+$A/\mathfrak p$, $\kappa(\mathfrak p)$ & Anillo de valores de las funciones en el punto y su cuerpo de fracciones. \\
+$f$ nilpotente & Función invisible para los valores puntuales. \\
+$\mathfrak p\subseteq\mathfrak q$ & $\mathfrak q$ está en la cerradura de $\mathfrak p$. \\
+Morfismo $A\to B$ & Mapa $\Spec B\to\Spec A$ en dirección opuesta.
+\end{tabular}
+\caption{Diccionario entre el álgebra de un anillo y la geometría de su espectro.}
+\label{tab:s01-diccionario-algebra-geometria}
+\end{table}
+
 \section{Ejercicios}
 
 \begin{ejer}
@@ -191,6 +243,10 @@ Sobre un cuerpo $k$ no necesariamente algebraicamente cerrado, ¿qué enunciado 
 \end{ejer}
 
 \section{Los dígitos son coeficientes de Taylor}
+
+En $k[x]$, al desarrollar $f$ alrededor de $a\in k$, el primer coeficiente es $a_0=f(a)$. Como $f-f(a)$ es divisible por $x-a$, el siguiente coeficiente es el valor en $a$ de $(f-f(a))/(x-a)$. Se repite el procedimiento para los demás coeficientes.
+
+En $\mathbb Z$, para extraer los dígitos de $n$ en base $p$, se elige $a_0\in\set{0,\ldots,p-1}$ tal que $n\equiv a_0\pmod p$. Al dividir $n-a_0$ por $p$ se obtiene un entero cuyo residuo módulo $p$ da $a_1$. Repetir la operación produce los demás dígitos. Evaluar en $a$ y reducir módulo $p$ leen el término constante.
 
 \begin{obs}[El punto gordo, releído]
 \label{obs:s01-punto-gordo-releido}
@@ -246,7 +302,7 @@ Sea $e_i\in\prod_jA_j$ el idempotente coordenado y $J=(e_i:i\in I)$. El morfismo
 es una inmersión abierta con imagen $\bigcup_iD(e_i)=\Spec(\prod_iA_i)\setminus V(J)$. Es un isomorfismo si y solo si $J=(1)$, si y solo si solo hay finitos $A_i\ne0$.
 \end{prop}
 \begin{proof}
-Al localizar en $e_i$ se anulan todas las coordenadas salvo la $i$-ésima, así que $(\prod_jA_j)_{e_i}\cong A_i$ y $\Spec A_i$ se identifica con $D(e_i)$. Los idempotentes distintos son ortogonales, de modo que estos abiertos son disjuntos. La imagen es por tanto su unión, igual al complemento de $V(J)$. En un producto finito la suma de los idempotentes coordenados es $1$; en el producto infinito el ideal que generan consta de elementos de soporte finito y no contiene la unidad constante.
+Al localizar en $e_i$ se anulan todas las coordenadas salvo la $i$-ésima, así que $(\prod_jA_j)_{e_i}\cong A_i$ y $\Spec A_i$ se identifica con $D(e_i)$. Los idempotentes distintos son ortogonales, de modo que estos abiertos son disjuntos. La imagen es por tanto su unión, igual al complemento de $V(J)$. El ideal generado por los idempotentes coordenados consta de elementos de soporte finito. Contiene a la unidad si y solo si esta tiene soporte finito, es decir, si solo hay finitos factores no nulos.
 \end{proof}
 
 \begin{obs}[Por qué la finitud]
@@ -258,6 +314,19 @@ La finitud expresa exactamente la igualdad $\sum_i e_i=1$: los idempotentes part
 \label{obs:s01-ejercicio-expuesto-clase-dos-factores}
 El \cref{ejer:s01-espectro-producto-anillos} trata el caso de dos factores, donde $e_1+e_2=1$ y el morfismo sí es un isomorfismo; la \cref{prop:s01-comparacion-explicita} precisa el caso de familias arbitrarias.
 \end{obs}
+
+\begin{ejem}[Ultrafiltros y puntos del producto infinito]
+\label{ejem:s01-ultrafiltros-producto-infinito}
+Tomemos $R=\prod_{i\in\mathbb N}\mathbb F_2$, el anillo de funciones $\mathbb N\to\mathbb F_2$. El ideal $J$ de funciones de soporte finito es propio. Para cada $i$, el idempotente coordenado $e_i$ pertenece a $J$ y queda fuera del maximal $\mathfrak m_i=\set{a\in R\given a_i=0}$. Por Zorn existe un maximal que contiene a $J$ y, por tanto, es distinto de todos los $\mathfrak m_i$.
+
+Cada elemento de $R$ es idempotente, de modo que todo cociente por un primo es un dominio booleano y solo tiene los elementos $0$ y $1$. Para cada $E\subseteq\mathbb N$, denotemos por $e_E$ su función característica. Un primo $\mathfrak m$ determina el ultrafiltro
+\[
+\mathcal U_{\mathfrak m}=\set*{E\subseteq\mathbb N\given e_E\notin\mathfrak m}.
+\]
+Las identidades $e_{E\cap F}=e_Ee_F$ y $e_{\mathbb N\setminus E}=1-e_E$ dan las condiciones de ultrafiltro. Recíprocamente, un ultrafiltro determina el morfismo a $\mathbb F_2$ que envía $e_E$ a $1$ si $E$ pertenece al ultrafiltro y a $0$ en caso contrario. Su núcleo es el primo correspondiente.
+
+Los $\mathfrak m_i$ corresponden a los ultrafiltros principales, formados por los conjuntos que contienen a $i$. Los puntos de $V(J)$ corresponden a los no principales, que no contienen conjuntos finitos. Al dar a los ultrafiltros la topología de básicos $\set*{\mathcal U\given E\in\mathcal U}$, estos básicos corresponden a $D(e_E)$. Así se obtiene $\Spec R\cong\beta\mathbb N$. El mapa $\Phi$ de la \cref{prop:s01-comparacion-explicita} es la inclusión $\mathbb N\hookrightarrow\beta\mathbb N$.
+\end{ejem}
 
 \section{Los dos puntos de \texorpdfstring{$\Spec \mathbb{C}[x]/(x^2-1)$}{Spec C[x]/(x2 - 1)}}
 

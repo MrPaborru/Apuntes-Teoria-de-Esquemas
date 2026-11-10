@@ -63,6 +63,67 @@ En $\Spec\mathbb Z$, $(0)\rightsquigarrow(p)$ para todo primo $p$ y $\overline{\
 Los primos no maximales registran subvariedades irreducibles mediante sus puntos genéricos; precisaremos este hecho en la Sesión 9.
 \end{obs}
 
+En la \cref{fig:s02-piramide-coliflor} se toma $A=k[x,y,z]$, con $k$ algebraicamente cerrado. La cadena de la izquierda tiene tres inclusiones estrictas. Sus cerraduras son el espacio, un plano, una recta y un punto, de dimensiones $3,2,1,0$. Las puntas de la derecha representan los maximales $(x-a,y-b,z-c)$, uno por cada $(a,b,c)\in k^3$. Las ramas esquemáticas pueden omitir primos intermedios.
+
+% S02-diagrama-piramide-coliflor.pdf, p. 1.
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[every node/.style={font=\small}]
+\node[font=\small\bfseries] at (2.55,5.15) {La pirámide};
+\node[font=\small\bfseries] at (10,5.15) {Muchas puntas};
+\draw[grisCIMAT!40] (6.1,-.35)--(6.1,4.95);
+\begin{scope}[xshift=.22cm]
+  \fill[orange!18] (0,0) rectangle (.66,.66);
+  \fill[orange!18] (0,.66)--(.23,.89)--(.89,.89)--(.66,.66)--cycle;
+  \fill[orange!18] (.66,0)--(.89,.23)--(.89,.89)--(.66,.66)--cycle;
+  \fill[orange!35] (.66,1.25)--(.89,1.48)--(.89,2.14)--(.66,1.91)--cycle;
+  \foreach \y in {0,1.25,2.5,3.75}{
+    \begin{scope}[shift={(0,\y)}]
+      \draw[grisCIMAT] (0,0) rectangle (.66,.66);
+      \draw[grisCIMAT] (0,.66)--(.23,.89)--(.89,.89)--(.89,.23)--(.66,0)
+        (.66,.66)--(.89,.89);
+      \draw[grisCIMAT!50,densely dashed] (0,0)--(.23,.23)--(.89,.23) (.23,.23)--(.23,.89);
+    \end{scope}
+  }
+  \draw[orange!80!black,very thick] (.66,2.5)--(.66,3.16);
+  \fill[orange!80!black] (.66,3.75) circle (2.5pt);
+  \foreach \y in {.94,2.19,3.44}{\draw[->,orange!80!black] (.41,\y)--++(0,.23);}
+\end{scope}
+\node[anchor=west,align=left] at (1.45,.45) {$(0)$\\todo $\mathbb A_k^3$};
+\node[anchor=west,align=left] at (1.45,1.7) {$(y-1)$\\plano $y=1$};
+\node[anchor=west,align=left] at (1.45,2.95) {$(x,y-1)$\\recta $x=0$, $y=1$};
+\node[anchor=west,align=left] at (1.45,4.2) {$(x,y-1,z-c)$\\punto $(0,1,c)$};
+\foreach \y/\d in {.45/3,1.7/2,2.95/1,4.2/0}{
+  \node[anchor=west,text=grisCIMAT] at (4.6,\y) {dim. \d};
+}
+
+\coordinate (generic) at (9.65,.23);
+\coordinate (plane) at (9.95,1.7);
+\coordinate (line) at (10.3,2.95);
+\coordinate (closed) at (10.82,4.3);
+\draw[->,orange!80!black,thick] (generic)--(plane);
+\draw[->,orange!80!black,thick] (plane)--(line);
+\draw[->,orange!80!black,thick] (line)--(closed);
+\draw[->,orange!80!black,thick] (line) to[out=24,in=-110] (12.15,3.82);
+\foreach \x in {7.55,8.2,8.85,12.95,13.6}{
+  \draw[->,grisCIMAT!72,densely dashed] (generic) to[out=96,in=-94] (\x,4.3);
+  \fill[grisCIMAT] (\x,4.3) circle (1.65pt);
+}
+\foreach \point in {generic,plane,line,closed}{
+  \fill[orange!80!black] (\point) circle (2pt);
+}
+\fill[orange!80!black] (12.15,3.82) circle (2pt);
+\node[below] at (generic) {$(0)$, punto genérico};
+\node[left,fill=white,inner sep=1pt] at ([xshift=-3pt]plane) {$(y-1)$};
+\node[right] at (line) {$(x,y-1)$};
+\node[above] at (closed) {$(x,y-1,z)$};
+\node[above] at (7.75,4.3) {$(x-1,y,z)$};
+\node[right,fill=white,inner sep=1pt] at (11.95,3.45) {$(x,y-1,z-1)$};
+\end{tikzpicture}
+\caption{Especialización en $\Spec k[x,y,z]$. Las flechas van del genérico hacia los puntos cerrados.}
+\label{fig:s02-piramide-coliflor}
+\end{figure}
+
 \section{Los abiertos distinguidos}
 
 \begin{defi}

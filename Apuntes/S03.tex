@@ -80,7 +80,9 @@ Por ejemplo,
 \[
 \Spec\mathbb Z[1/6]=D(6)=D(2)\cap D(3).
 \]
-Este espacio contiene $(0)$ y los $(p)$ con $p\ne2,3$; se eliminan $(2)$ y $(3)$. En general, $\Spec A_f$ elimina los primos que contienen $f$. El mapa inducido por $A\to S^{-1}A$ es inyectivo.
+Este espacio contiene $(0)$ y los $(p)$ con $p\ne2,3$; se eliminan $(2)$ y $(3)$. En general, $\Spec A_f$ elimina los primos que contienen $f$. El \cref{teo:s03-correspondencia-localizaciones} muestra que $\Spec(S^{-1}A)\to\Spec A$ es inyectivo. Como es continuo, es un monomorfismo en la categoría de espacios topológicos.
+
+En la dirección opuesta, $A\to S^{-1}A$ es un epimorfismo de anillos por la \cref{obs:s03-epimorfismo-no-necesariamente-monomorfismo}, aunque puede no ser sobreyectivo, como $\mathbb Z\to\mathbb Q$. La \cref{coro:s06-equivalencia} explicará el paso de epimorfismos de anillos a monomorfismos de esquemas afines. Queda anunciado el criterio general para un morfismo $A\to B$. El morfismo $\Spec B\to\Spec A$ es un monomorfismo de esquemas si y solo si la multiplicación $B\otimes_A B\to B$ es un isomorfismo.
 \end{obs}
 
 \section{Anillos locales}
@@ -108,16 +110,16 @@ A_{\mathfrak p}/\mathfrak pA_{\mathfrak p}\cong\Frac(A/\mathfrak p)=\kappa(\math
 
 \begin{ejem}[Un germen de curva suave]
 \label{ejem:s03-germen-curva-suave}
-Sea $A=k[x]$ y $\mathfrak p=(x)$. Los primos de $A_{\mathfrak p}$ son $(0)\subset(x)A_{\mathfrak p}$: el germen local de la recta en el origen tiene dimensión uno.
+Sea $A=k[x]$ y $\mathfrak p=(x)$. Por el \cref{coro:s03-s-p-p-identifica-q}, los primos de $A_{\mathfrak p}$ son $(0)\subset(x)A_{\mathfrak p}$. Es una cadena de especialización de longitud uno, como un solo eslabón de la \cref{fig:s02-piramide-coliflor}. El germen local tiene dimensión uno y conserva el origen y el genérico de la recta. Es un anillo de valuación discreta en el sentido de la \cref{defi:s08-dvr}.
 \end{ejem}
 
 \begin{ejem}[El mismo germen en teoría de números]
 \label{ejem:s03-mismo-germen-teoria-numeros}
-Para $A=\mathbb Z$ y $\mathfrak p=(p)$, los primos de $\mathbb Z_{(p)}$ son $(0)\subset(p)\mathbb Z_{(p)}$. Es el análogo aritmético del \cref{ejem:s03-germen-curva-suave}.
+El anillo $\mathbb Z_{(p)}$ consta de las fracciones con denominador primo con $p$. La misma correspondencia del \cref{coro:s03-s-p-p-identifica-q} deja solo $(0)\subset p\mathbb Z_{(p)}$, una cadena de longitud uno como en el \cref{ejem:s03-germen-curva-suave}. También es un anillo de valuación discreta, ahora con parámetro $p$ en lugar de $x$.
 \end{ejem}
 
 \begin{nota}[Advertencia: no confundir con los $p$-ádicos]
-$\mathbb Z_{(p)}$ es una localización, mientras que $\mathbb Z_p$ es la completación $p$-ádica. Se relacionan mediante una inclusión densa, pero no son el mismo anillo. Del mismo modo, $\mathbb Q=\mathbb Z_{(0)}$ no es $\mathbb Q_p$.
+$\mathbb Z_{(p)}$ es una localización, mientras que $\mathbb Z_p$ es la completación $p$-ádica. La inclusión $\mathbb Z_{(p)}\subseteq\mathbb Z_p$ es densa para la topología $p$-ádica. Ambos anillos tienen cuerpo residual $\mathbb F_p$ y un espectro con un genérico y un punto cerrado. El primero es numerable y el segundo es no numerable. Sus cuerpos de fracciones son $\mathbb Q=\mathbb Z_{(0)}$ y $\mathbb Q_p$, respectivamente.
 \end{nota}
 
 \section{Hacia las funciones regulares}
