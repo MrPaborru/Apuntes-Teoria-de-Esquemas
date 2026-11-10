@@ -33,33 +33,33 @@ Al cocientar por $\mathfrak pA_{\mathfrak p}$ se obtiene la localización de $A/
 
 \section{El ejemplo universal: funciones suaves}
 
-El ejemplo guía son las funciones suaves: a cada abierto $U\subseteq X$ se asigna $\mathcal O(U)$, el conjunto de funciones suaves $U\to\mathbb R$, con restricciones por inclusión. Las secciones compatibles se pegan de forma única.
+El ejemplo guía son las funciones suaves: a cada abierto $U\subseteq X$ se asigna $\mathcal O(U)$, el conjunto de funciones suaves $U\to\mathbb R$, con restricciones por inclusión. Las secciones compatibles se pegan de forma única. \emph{[Vakil, \S2.1.]}
 
 \begin{obs}
 \label{obs:s04-argumento-no-usa-funciones-sean}
-El argumento vale también para funciones continuas, holomorfas o reales. Todas estas familias comparten una estructura que formalizaremos enseguida.
+El argumento vale para funciones continuas, funciones reales arbitrarias y funciones holomorfas cuando $X$ es una superficie de Riemann. Todas comparten la estructura de restricción y pegado que formalizaremos enseguida.
 \end{obs}
 
 \begin{ejem}[El germen de una función suave y su tallo]
 \label{ejem:s04-germen-funcion-suave-tallo}
-Fijemos $p\in X$. Dos funciones suaves definidas cerca de $p$ representan el mismo germen si coinciden en alguna vecindad de $p$. El tallo $\mathcal O_p$ consta de pares $(f,U)$, con $p\in U$, módulo esa relación. Es un anillo local: la evaluación $[f]\mapsto f(p)$ tiene como núcleo el único ideal maximal de los gérmenes que se anulan en $p$.
+Fijemos $p\in X$. Dos funciones suaves definidas cerca de $p$ representan el mismo germen si coinciden en alguna vecindad de $p$. El tallo $\mathcal O_p$ consta de pares $(f,U)$, con $p\in U$, módulo esa relación. Es un anillo local: la evaluación $[f]\mapsto f(p)$ tiene como núcleo el único ideal maximal de los gérmenes que se anulan en $p$. El nombre germen viene del francés \emph{germe}, el brote de una semilla. \emph{[Vakil, \S2.1.1 y ej.~2.1.A.]}
 \end{ejem}
 
 \section{Pregavillas}
 
 \begin{defi}[Pregavilla]
 \label{defi:s04-pregavilla}
-Una pregavilla de conjuntos $\mathcal F$ en $X$ asigna un conjunto $\mathcal F(U)$ a cada abierto $U\subseteq X$ y, a cada inclusión $U\subseteq V$, un mapa de restricción $\res_{V,U}\colon \mathcal F(V)\to\mathcal F(U)$. Se requiere que $\res_{U,U}=\id$ y que las restricciones sean compatibles con composición.
+Una pregavilla de conjuntos $\mathcal F$ en $X$ asigna un conjunto $\mathcal F(U)$ a cada abierto $U\subseteq X$ y, a cada inclusión $U\subseteq V$, un mapa de restricción $\res_{V,U}\colon \mathcal F(V)\to\mathcal F(U)$. Se requiere que $\res_{U,U}=\id$ y que las restricciones sean compatibles con composición. \emph{[Vakil, def.~2.2.2.]}
 \end{defi}
 
 \begin{obs}[Descripción categórica]
 \label{obs:s04-descripcion-categorica}
-Una pregavilla equivale a un funtor contravariante de la categoría de abiertos de $X$ a la categoría de conjuntos.
+Una pregavilla equivale a un funtor contravariante de la categoría de abiertos de $X$ a la categoría de conjuntos. \emph{[Vakil, ej.~2.2.A.]}
 \end{obs}
 
 \begin{ejem}[Pregavilla constante]
 \label{ejem:s04-pregavilla-constante}
-Para un conjunto $S$, la asignación $\mathcal F(U)=S$ con todas las restricciones iguales a la identidad es una pregavilla.
+Para un conjunto $S$, la asignación $\mathcal F(U)=S$ con todas las restricciones iguales a la identidad es una pregavilla. \emph{[Vakil, \S2.2.10.]}
 \end{ejem}
 
 \section{Gavillas: los dos axiomas}
@@ -71,6 +71,7 @@ Una pregavilla $\mathcal F$ es una gavilla si para todo abierto $U$ y todo cubri
 \item \emph{Identidad:} si $s,t\in\mathcal F(U)$ restringen a la misma sección en cada $U_i$, entonces $s=t$.
 \item \emph{Pegado:} si $s_i\in\mathcal F(U_i)$ y $s_i|_{U_i\cap U_j}=s_j|_{U_i\cap U_j}$ para todos $i,j$, existe una sección $s\in\mathcal F(U)$ que restringe a $s_i$ en cada $U_i$.
 \end{enumerate}
+\emph{[Vakil, def.~2.2.6.]}
 \end{defi}
 
 \begin{obs}
@@ -80,17 +81,17 @@ Identidad dice que hay a lo más una manera de pegar y pegado que hay al menos u
 
 \begin{ejem}[Las funciones suaves forman una gavilla]
 \label{ejem:s04-funciones-suaves-forman-gavilla}
-Las funciones suaves (y también las continuas u holomorfas) forman una gavilla: identidad y pegado se verifican localmente y permiten recuperar las secciones globales.
+Las funciones suaves (y también las continuas u holomorfas) forman una gavilla: identidad y pegado se verifican localmente y permiten recuperar las secciones globales. \emph{[Vakil, ej.~2.2.D.]}
 \end{ejem}
 
 \begin{ejem}[La gavilla constante]
 \label{ejem:s04-gavilla-constante}
-La gavilla constante asociada a un conjunto discreto $S$ asigna las funciones localmente constantes con valores en $S$. En general difiere de la pregavilla constante, que no satisface pegado.
+La gavilla constante asociada a un conjunto discreto $S$ asigna las funciones localmente constantes con valores en $S$. En general difiere de la pregavilla constante, que no satisface pegado. \emph{[Vakil, ej.~2.2.E.]}
 \end{ejem}
 
 \begin{ejem}[La gavilla rascacielos]
 \label{ejem:s04-gavilla-rascacielos}
-Fijados $p\in X$ y un conjunto $S$, se define $i_{p,*}S(U)=S$ si $p\in U$ y $i_{p,*}S(U)=\set{*}$ si $p\notin U$.
+Fijados $p\in X$ y un conjunto $S$, se define $i_{p,*}S(U)=S$ si $p\in U$ y $i_{p,*}S(U)=\set{*}$ si $p\notin U$. \emph{[Vakil, \S2.2.9.]}
 \end{ejem}
 
 \section{Tallos y gérmenes, en general}
@@ -101,21 +102,21 @@ Si $\mathcal F$ es una pregavilla y $p\in X$, el tallo es
 \[
 \mathcal F_p=\set*{(s,U) \given p\in U,\ s\in\mathcal F(U)}/\sim,
 \]
-donde $(s,U)\sim(t,V)$ si existe un abierto $W$ con $p\in W\subseteq U\cap V$ tal que $s|_W=t|_W$. La clase de $(s,U)$ es el germen de $s$ en $p$.
+donde $(s,U)\sim(t,V)$ si existe un abierto $W$ con $p\in W\subseteq U\cap V$ tal que $s|_W=t|_W$. La clase de $(s,U)$ es el germen de $s$ en $p$. \emph{[Vakil, \S2.2.4.]}
 \end{defi}
 
 \begin{obs}[La definición como colímite]
 \label{obs:s04-definicion-colimite}
-Equivalentemente, $\mathcal F_p=\colim_{U\ni p}\mathcal F(U)$ sobre las vecindades ordenadas por restricción. La categoría es filtrada porque la intersección de dos vecindades vuelve a ser una vecindad.
+Equivalentemente, $\mathcal F_p=\colim_{U\ni p}\mathcal F(U)$ sobre las vecindades ordenadas por restricción. La categoría es filtrada porque la intersección de dos vecindades vuelve a ser una vecindad. \emph{[Vakil, \S2.2.5.]}
 \end{obs}
 
 \begin{nota}[Advertencia]
-Para una gavilla general no hay necesariamente una evaluación a un conjunto fijo: en su definición no aparecen valores puntuales.
+La definición de gavilla da secciones y restricciones, de las que se obtienen los gérmenes. El mapa que evalúa en $\mathbb R$ en el ejemplo de las funciones suaves es un dato adicional.
 \end{nota}
 
 \begin{obs}[Evaluación para el tallo de la gavilla estructural]
 \label{obs:s04-evaluacion-tallo-gavilla-estructural}
-En $\Spec A$ habrá un mapa $A_{\mathfrak p}\to\kappa(\mathfrak p)$; el cuerpo de valores depende del punto. Si $a/s=a'/s'$ en $A_{\mathfrak p}$, existe $u\notin\mathfrak p$ con $u(s'a-sa')=0$; al pasar a $A/\mathfrak p$ se puede cancelar $u$, así que la evaluación está bien definida.
+Para la gavilla estructural, evaluar un germen en $\mathfrak p$ será tomar su clase mediante $A_{\mathfrak p}\to\kappa(\mathfrak p)$. Las funciones suaves se evalúan siempre en $\mathbb R$. En $\Spec A$, el cuerpo de valores $\kappa(\mathfrak p)$ depende del punto. Si $a/s=a'/s'$ en $A_{\mathfrak p}$, existe $u\notin\mathfrak p$ con $u(s'a-sa')=0$; al pasar a $A/\mathfrak p$ se puede cancelar $u$, así que la evaluación está bien definida.
 \end{obs}
 
 \section{Secciones determinadas por sus gérmenes}
@@ -126,6 +127,7 @@ En toda gavilla, una sección sobre $U$ queda determinada por sus gérmenes. En 
 \[
 \mathcal F(U)\longrightarrow\prod_{p\in U}\mathcal F_p,\qquad s\longmapsto(s_p)_{p\in U}.
 \]
+\emph{[Vakil, ej.~2.4.A.]}
 \end{teo}
 \begin{proof}
 Si $s,t\in\mathcal F(U)$ tienen el mismo germen en cada punto, para cada $p$ hay una vecindad $W_p\subseteq U$ donde coinciden. Las $W_p$ cubren $U$, así que el axioma de identidad implica $s=t$. Solo se usa identidad, por lo que vale también para pregavillas separadas.
@@ -133,21 +135,21 @@ Si $s,t\in\mathcal F(U)$ tienen el mismo germen en cada punto, para cada $p$ hay
 
 \begin{obs}[El recíproco y el nombre “gavilla”]
 \label{obs:s04-reciproco-nombre-gavilla}
-La existencia de una sección que pegue gérmenes localmente compatibles requiere el axioma de pegado. Las secciones son tallos atados de manera compatible; de ahí viene el nombre.
+La existencia de una sección que pegue gérmenes localmente compatibles requiere el axioma de pegado. El argumento queda para el ejercicio~2.4.B de Vakil, con la definición~2.4.2. El nombre agrícola alude a un manojo de espigas: cada tallo aporta un germen y la sección los reúne de manera compatible. \emph{[Vakil, obs.~2.4.3.]}
 \end{obs}
 
 \section{Morfismos de (pre)gavillas}
 
 \begin{defi}[Morfismo de pregavillas]
 \label{defi:s04-morfismo-pregavillas}
-Un morfismo $\varphi\colon \mathcal F\to\mathcal G$ de pregavillas en $X$ consiste en mapas $\varphi(U)\colon \mathcal F(U)\to\mathcal G(U)$ para cada abierto $U$. Si $U\subseteq V$, el siguiente cuadrado debe conmutar
+Un morfismo $\varphi\colon\mathcal F\to\mathcal G$ de pregavillas en $X$ asigna a cada abierto $U$ un mapa $\varphi(U)\colon\mathcal F(U)\to\mathcal G(U)$. Para cada inclusión de abiertos $U\subseteq V$, estos mapas y las restricciones forman un cuadrado conmutativo
 \[
 \begin{tikzcd}
 \mathcal F(V) \arrow[r,"\varphi(V)"] \arrow[d,"\res"'] & \mathcal G(V) \arrow[d,"\res"] \\
 \mathcal F(U) \arrow[r,"\varphi(U)"'] & \mathcal G(U).
 \end{tikzcd}
 \]
-Entre gavillas se usa la misma definición, así que las gavillas en $X$ forman una subcategoría plena de las pregavillas en $X$.
+Entre gavillas se usa la misma definición, así que las gavillas en $X$ forman una subcategoría plena de las pregavillas en $X$. \emph{[Vakil, \S2.3.1.]}
 \end{defi}
 
 \begin{ejem}
@@ -157,7 +159,7 @@ La inclusión de funciones suaves en funciones continuas es un morfismo de gavil
 
 \begin{prop}[Un morfismo induce mapas de tallos]
 \label{prop:s04-morfismo-induce-mapas-tallos}
-Todo morfismo $\varphi\colon \mathcal F\to\mathcal G$ induce para cada $p\in X$ un mapa $\varphi_p\colon \mathcal F_p\to\mathcal G_p$, $[s,U]\mapsto[\varphi(U)(s),U]$.
+Todo morfismo $\varphi\colon \mathcal F\to\mathcal G$ induce para cada $p\in X$ un mapa $\varphi_p\colon \mathcal F_p\to\mathcal G_p$, $[s,U]\mapsto[\varphi(U)(s),U]$. \emph{[Vakil, ej.~2.3.A.]}
 \end{prop}
 \begin{proof}
 La compatibilidad con las restricciones asegura que la imagen no depende del representante del germen.
@@ -171,6 +173,7 @@ Un espacio anillado es un par $(X,\mathcal O_X)$ donde $X$ es un espacio topoló
 \[
 (rs)|_U=r|_U\,s|_U.
 \]
+\emph{[Vakil, \S2.2.13.]}
 \end{defi}
 
 \begin{obs}
@@ -187,29 +190,29 @@ La meta siguiente es construir $\mathcal O_{\Spec A}$ a partir de $A_f$ en los a
 \begin{ejer}
 \label{ejer:s04-ejemplo-funciones-suaves-demuestra-ideal}
 Completa el \cref{ejem:s04-germen-funcion-suave-tallo} demostrando que el ideal $\mathfrak m_p$ de los gérmenes que se anulan en $p$ es el único ideal maximal del tallo $\mathcal O_p$.
-\emph{Sugerencia.} Muestra que todo germen fuera de $\mathfrak m_p$ es invertible.
+\emph{Sugerencia.} Muestra que todo germen fuera de $\mathfrak m_p$ es invertible. \emph{[Vakil, ej.~2.1.A.]}
 \end{ejer}
 \begin{ejer}
 \label{ejer:s04-x-variedad-diferenciable-p-x}
-Si $X$ es una variedad diferenciable y $p\in X$, ¿qué es $\mathfrak m_p/\mathfrak m_p^2$ en términos del cálculo diferencial usual? El ejercicio requiere algo de geometría diferencial.
+Si $X$ es una variedad diferenciable y $p\in X$, ¿qué es $\mathfrak m_p/\mathfrak m_p^2$ en términos del cálculo diferencial usual? El ejercicio requiere algo de geometría diferencial. \emph{[Vakil, ej.~2.1.B.]}
 \end{ejer}
 \begin{ejer}
 \label{ejer:s04-muestra-funciones-acotadas-r-funciones}
-Muestra que las funciones acotadas en $\mathbb R$, y las funciones holomorfas en $\mathbb C$ que admiten una raíz cuadrada holomorfa local, forman pregavillas pero no gavillas.
+Muestra que las funciones acotadas en $\mathbb R$, y las funciones holomorfas en $\mathbb C$ que admiten una raíz cuadrada holomorfa local, forman pregavillas pero no gavillas. \emph{[Vakil, ej.~2.2.B.]}
 \end{ejer}
 \begin{ejer}
 \label{ejer:s04-mapas-continuos-u-espacio-topologico}
-Los mapas continuos $U\to Y$, para $Y$ un espacio topológico fijo, forman una gavilla de conjuntos en $X$. Si $Y$ es un grupo topológico, forman también una gavilla de grupos.
+Los mapas continuos $U\to Y$, para $Y$ un espacio topológico fijo, forman una gavilla de conjuntos en $X$. Si $Y$ es un grupo topológico, forman también una gavilla de grupos. \emph{[Vakil, ej.~2.2.F y 2.2.G.]}
 \end{ejer}
 \begin{ejer}
 \label{ejer:s04-nucleo-morfismo-pregavillas-definido-abierto}
-El núcleo de un morfismo de pregavillas, definido abierto por abierto, es una pregavilla. Demuestra que si las dos pregavillas son gavillas, el núcleo también es una gavilla.
+El núcleo de un morfismo de pregavillas, definido abierto por abierto, es una pregavilla. Demuestra que si las dos pregavillas son gavillas, el núcleo también es una gavilla. \emph{[Vakil, ej.~2.3.E y 2.3.I.]}
 \end{ejer}
 \begin{ejer}[Sembrador: se cosecha en la Sesión 5]
 \label{ejer:s04-sean-x-c-o-x}
 Sean $X=\mathbb C$, $\mathcal O_X$ la gavilla de funciones holomorfas y $\mathcal O_X^*$ la gavilla de funciones holomorfas que no se anulan. El mapa $\exp\colon \mathcal O_X\to\mathcal O_X^*$, $f\mapsto e^{2\pi if}$, es sobreyectivo en cada tallo, pero no en cada abierto. Encuentra un abierto $U$ y una sección de $\mathcal O_X^*(U)$ que no esté en la imagen de $\mathcal O_X(U)$.
 
-El ejemplo distingue la sobreyectividad en tallos de la sobreyectividad en todos los abiertos. Para la inyectividad, las dos condiciones coinciden. El \cref{ejer:s05-cosechando-sembrador-sesion-4} retoma el ejemplo.
+El ejemplo distingue la sobreyectividad en tallos de la sobreyectividad en todos los abiertos. Para la inyectividad, las dos condiciones coinciden. El \cref{ejer:s05-cosechando-sembrador-sesion-4} retoma el ejemplo. \emph{[Vakil, ej.~2.4.O; cf.~2.3.J.]}
 \end{ejer}
 \begin{ejer}[Para pensar; no se demuestra en clase]
 \label{ejer:s04-pensar-no-demuestra-clase}

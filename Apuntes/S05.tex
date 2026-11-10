@@ -2,7 +2,7 @@
 
 En la Sesión 4 quedaron dos piezas sueltas. De la Sesión 3 sabemos qué anillo debe aparecer localmente en $\mathfrak p$, a saber $A_{\mathfrak p}$, y se anticipó que las secciones sobre $D(f)$ serían $A_f$, sin probarlo. Pero una gavilla está definida en todos los abiertos de $\Spec A$, no solo en los básicos; aunque $D(f)\cap D(g)=D(fg)$ sigue siendo básico, una unión arbitraria de básicos no suele serlo.
 
-El problema de hoy es general: dada información compatible solo en una base de la topología, ¿cuándo y cómo se extiende a una gavilla en todos los abiertos? Resolverlo en los \cref{sec:s05-gavillas-base,sec:s05-extension} permite después verificar dos condiciones algebraicas para la familia $\set{A_f}_{f\in A}$.
+El problema de hoy es general: dada información compatible solo en una base de la topología, ¿cuándo y cómo se extiende a una gavilla en todos los abiertos? Resolverlo en los \cref{sec:s05-gavillas-base,sec:s05-extension} permite después verificar dos condiciones algebraicas para la familia $\set{A_f}_{f\in A}$. \emph{[Vakil, \S2.5.]}
 
 \section{Gavillas sobre una base}
 \label{sec:s05-gavillas-base}
@@ -36,7 +36,7 @@ El \cref{teo:s05-toda-gavilla-sobre-base-extiende} vale palabra por palabra para
 
 \begin{ejer}[Morfismos de gavillas sobre una base]
 \label{ejer:s05-morfismos-gavillas-sobre-base}
-Un morfismo de gavillas en $X$ queda determinado por su restricción a una base. Además, todo morfismo entre gavillas sobre la base se extiende de manera única a un morfismo entre sus extensiones.
+Un morfismo de gavillas en $X$ queda determinado por su restricción a una base. Además, todo morfismo entre gavillas sobre la base se extiende de manera única a un morfismo entre sus extensiones. \emph{[Vakil, ej.~2.5.C.]}
 \end{ejer}
 
 \section{De vuelta a Spec A: los básicos son base}
@@ -45,7 +45,7 @@ Los abiertos distinguidos $D(f)$ forman una base de $\Spec A$, pues
 \[
 \Spec A\setminus V(I)=\bigcup_{f\in I}D(f).
 \]
-La asignación candidata se define así.
+Así se reduce la construcción a una base. \emph{[Vakil, ej.~3.5.A.]}
 \begin{defi}[La asignación candidata en los básicos]
 \label{defi:s05-asignacion-candidata-basicos}
 Para cada $f\in A$, sea
@@ -60,7 +60,7 @@ Si $D(f')\subseteq D(f)$, entonces $S_f\subseteq S_{f'}$, lo que induce el mapa 
 
 \begin{teo}
 \label{teo:s05-mapa-natural-f-s-f}
-El mapa natural $A_f\to S_f^{-1}A=\mathcal O_{\Spec A}(D(f))$ es un isomorfismo.
+El mapa natural $A_f\to S_f^{-1}A=\mathcal O_{\Spec A}(D(f))$ es un isomorfismo. \emph{[Vakil, def.~4.1.1 y ej.~4.1.A.]}
 \end{teo}
 \begin{proof}
 Como $D(f)\subseteq D(f)$, se tiene $f\in S_f$, así que la propiedad universal da $A_f\to S_f^{-1}A$. Por otra parte, si $g\in S_f$, entonces $D(f)\subseteq D(g)$, lo que equivale a $f\in\sqrt{(g)}$. Existe $n$ con $f^n=ag$; como $f$ es invertible en $A_f$, también lo es $g$. Por la propiedad universal hay un mapa inverso $S_f^{-1}A\to A_f$. Ambos compuestos son la identidad porque los mapas están determinados por su restricción desde $A$ y por el envío de los elementos invertidos a sus inversos.
@@ -112,7 +112,7 @@ Esto cierra, con toda formalidad, el círculo abierto desde la Sesión 3: los $A
 
 \section{Adelanto: gavillas de módulos}
 
-Para un $A$-módulo $M$, el mismo argumento da $D(f)\mapsto M_f\coloneqq S_f^{-1}M$. Las verificaciones de identidad y pegado se deducen del \cref{teo:s05-f-gavilla-sobre-base-d}, reemplazando $A$ por $M$. El \cref{teo:s05-toda-gavilla-sobre-base-extiende} extiende esta gavilla a $\widetilde M$ sobre $\Spec A$, con $\widetilde M(D(f))=M_f$. Como $M_f$ es módulo sobre $A_f=\mathcal O_{\Spec A}(D(f))$ y las restricciones son compatibles, $\widetilde M$ es una gavilla de $\mathcal O_{\Spec A}$-módulos: el prototipo cuasicoherente.
+Para un $A$-módulo $M$, el mismo argumento da $D(f)\mapsto M_f\coloneqq S_f^{-1}M$. Las verificaciones de identidad y pegado se deducen del \cref{teo:s05-f-gavilla-sobre-base-d}, reemplazando $A$ por $M$. El \cref{teo:s05-toda-gavilla-sobre-base-extiende} extiende esta gavilla a $\widetilde M$ sobre $\Spec A$, con $\widetilde M(D(f))=M_f$. Como $M_f$ es módulo sobre $A_f=\mathcal O_{\Spec A}(D(f))$ y las restricciones son compatibles, $\widetilde M$ es una gavilla de $\mathcal O_{\Spec A}$-módulos: el prototipo cuasicoherente. \emph{[Vakil, ej./def.~4.1.D.]}
 
 \section{Ejercicios}
 
@@ -120,15 +120,15 @@ Para un $A$-módulo $M$, el mismo argumento da $D(f)\mapsto M_f\coloneqq S_f^{-1
 \label{ejer:s05-cosechando-sembrador-sesion-4}
 Retoma el exponencial del \cref{ejer:s04-sean-x-c-o-x}. Usa la base de abiertos contráctiles y el logaritmo holomorfo para probar que $\exp$ es sobreyectiva en cada básico de esa base.
 
-Justifica que la sobreyectividad en cada elemento de una base dada implica que el morfismo de gavillas es un epimorfismo. Usa el mismo ejemplo para ver que el recíproco falla para una base fijada, recordando que los abiertos contráctiles forman solo una de las bases posibles.
+Justifica que la sobreyectividad en cada elemento de una base dada implica que el morfismo de gavillas es un epimorfismo. Usa el mismo ejemplo para ver que el recíproco falla para una base fijada, recordando que los abiertos contráctiles forman solo una de las bases posibles. \emph{[Vakil, ej.~2.5.E.]}
 \end{ejer}
 \begin{ejer}
 \label{ejer:s05-adapta-demostracion-b1-teorema-6}
-Sea $D(f)=\bigcup_i D(f_i)$ un recubrimiento por abiertos básicos. Adapta la demostración de (B1) del \cref{teo:s05-f-gavilla-sobre-base-d}, hecha para $f=1$, al caso de un $D(f)$ arbitrario.
+Sea $D(f)=\bigcup_i D(f_i)$ un recubrimiento por abiertos básicos. Adapta la demostración de (B1) del \cref{teo:s05-f-gavilla-sobre-base-d}, hecha para $f=1$, al caso de un $D(f)$ arbitrario. \emph{[Vakil, ej.~4.1.B.]}
 \end{ejer}
 \begin{ejer}
 \label{ejer:s05-adapta-demostracion-b2-teorema-6}
-Para el mismo recubrimiento del \cref{ejer:s05-adapta-demostracion-b1-teorema-6}, adapta la demostración de (B2) del \cref{teo:s05-f-gavilla-sobre-base-d} a un $D(f)$ arbitrario.
+Para el mismo recubrimiento del \cref{ejer:s05-adapta-demostracion-b1-teorema-6}, adapta la demostración de (B2) del \cref{teo:s05-f-gavilla-sobre-base-d} a un $D(f)$ arbitrario. \emph{[Vakil, ej.~4.1.C.]}
 \end{ejer}
 \begin{ejer}
 \label{ejer:s05-escribe-b1-b2-teorema-6}
@@ -136,7 +136,7 @@ Escribe (B1) y (B2) del \cref{teo:s05-f-gavilla-sobre-base-d} como la exactitud 
 \[
 0\longrightarrow A\longrightarrow\prod_{i=1}^n A_{f_i}\longrightarrow\prod_{i<j}A_{f_if_j},
 \]
-e identifica los mapas.
+e identifica los mapas. \emph{[cf.~Vakil, (4.1.3.1).]}
 \end{ejer}
 \begin{ejer}[Sembrador: se cosecha al estudiar gavillas cuasicoherentes]
 \label{ejer:s05-sembrador-cosecha-estudiar-gavillas-cuasicoherentes}

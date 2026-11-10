@@ -21,7 +21,7 @@ En la situación descrita en el \cref{lema:s07-restriccion-abierto}, $(U,\mathca
 
 \begin{defi}[Esquema]
 \label{defi:s07-esquema}
-Un esquema es un espacio localmente anillado $(X,\mathcal O_X)$ donde cada $x$ tiene un abierto $U\ni x$ isomorfo a $\Spec A$ como espacio localmente anillado. El anillo conmutativo $A$ puede depender de $x$. Los morfismos son los de espacios localmente anillados.
+Un esquema es un espacio localmente anillado $(X,\mathcal O_X)$ donde cada $x$ tiene un abierto $U\ni x$ isomorfo a $\Spec A$ como espacio localmente anillado. El anillo conmutativo $A$ puede depender de $x$. Los morfismos son los de espacios localmente anillados. \emph{[Vakil, capítulo sobre esquemas generales; Hartshorne, II.2.]}
 \end{defi}
 
 \begin{obs}
@@ -40,7 +40,7 @@ La construcción es relativa a $A$. El homomorfismo de constantes $A\to A[x_1,\l
 
 \begin{prop}[$D(f)$ es un abierto afín]
 \label{prop:s07-d-f-abierto-afin}
-Para $f\in A$, el abierto $D(f)\subseteq\Spec A$, con la gavilla estructural restringida, es isomorfo como espacio localmente anillado a $\Spec A_f$.
+Para $f\in A$, el abierto $D(f)\subseteq\Spec A$, con la gavilla estructural restringida, es isomorfo como espacio localmente anillado a $\Spec A_f$. \emph{[Vakil, ejercicio sobre $D(f)$ como esquema afín; Liu, \S2.3.]}
 \end{prop}
 \begin{proof}
 El \cref{coro:s03-inclusion-inducida-identifica-f-d} da el homeomorfismo $\Spec A_f\cong D(f)$. En la base común formada por los abiertos $D(fg)$, la gavilla restringida de $\Spec A$ tiene secciones $A_{fg}$, mientras que la gavilla de $\Spec A_f$ tiene secciones $(A_f)_{\bar g}$. Ambos anillos son la $A$-álgebra universal en la que $f$ y $g$ son unidades, de modo que son canónicamente isomorfos. La unicidad del \cref{teo:s05-toda-gavilla-sobre-base-extiende} da el isomorfismo de gavillas y, por consiguiente, de espacios localmente anillados.
@@ -387,4 +387,5 @@ Sean $\psi\colon Y\to X$ continua y $\mathcal F$ una gavilla en $Y$. Verifica qu
 \label{ejer:s07-restriccion-morfismo-abierto}
 Sea $f\colon X\to Y$ un morfismo de esquemas y $V\subseteq Y$ abierto. Verifica que $f^{-1}(V)$ es abierto y que la restricción induce un morfismo de esquemas $f|_{f^{-1}(V)}\colon f^{-1}(V)\to V$.
 Usa la \cref{prop:s07-todo-abierto-esquema-esquema} para que $f^{-1}(V)$ y $V$ sean esquemas, y el \cref{lema:s07-restriccion-abierto} para sus estructuras locales. \emph{[Cf. Vakil, ejercicio de restricción de morfismos.]}
+\emph{[cf.~Vakil, ejercicio sobre restricción de morfismos.]}
 \end{ejer}

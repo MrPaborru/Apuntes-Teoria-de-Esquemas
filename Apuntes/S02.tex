@@ -11,7 +11,7 @@ Para $S\subseteq A$, definimos
 \[
 V(S)=\set*{\mathfrak p\in\Spec A \given S\subseteq\mathfrak p}.
 \]
-Como un primo contiene a $S$ si y solo si contiene al ideal que $S$ genera, $V(S)=V((S))$; escribiremos $V(I)$ para ideales $I$.
+Como un primo contiene a $S$ si y solo si contiene al ideal que $S$ genera, $V(S)=V((S))$; escribiremos $V(I)$ para ideales $I$. \emph{[Vakil, \S3.4; Liu, \S2.1.]}
 \end{defi}
 
 \begin{obs}
@@ -26,6 +26,7 @@ Para ideales $I,J\subseteq A$ y cualquier familia $\set{I_\alpha}$,
 \item $\displaystyle\bigcap_\alpha V(I_\alpha)=V\left(\sum_\alpha I_\alpha\right)$;
 \item $V(I)\cup V(J)=V(I\cap J)=V(IJ)$.
 \end{enumerate}
+\emph{[Vakil, \S3.4; Liu, \S2.1.]}
 \end{prop}
 \begin{proof}
 La primera igualdad vale porque un primo contiene la suma si y solo si contiene cada $I_\alpha$. Para la segunda, $IJ\subseteq I\cap J$ da una de las inclusiones. Si $\mathfrak p\supseteq IJ$ pero $I\not\subseteq\mathfrak p$, tomamos $f\in I\setminus\mathfrak p$. Para todo $g\in J$, $fg\in\mathfrak p$; la primalidad implica $g\in\mathfrak p$. Así, $J\subseteq\mathfrak p$ y $\mathfrak p\in V(J)$.
@@ -42,7 +43,7 @@ Por ejemplo, todo ideal de $\mathbb Z$ es principal y, para $n\ne0$, $V(n)=\set*
 
 \begin{prop}
 \label{prop:s02-todo-p-cerradura-punto-p}
-Para todo $\mathfrak p\in\Spec A$, la cerradura del punto es $\overline{\set{\mathfrak p}}=V(\mathfrak p)$. En particular, $\mathfrak p$ es cerrado si y solo si es maximal.
+Para todo $\mathfrak p\in\Spec A$, la cerradura del punto es $\overline{\set{\mathfrak p}}=V(\mathfrak p)$. En particular, $\mathfrak p$ es cerrado si y solo si es maximal. \emph{[Vakil, \S3.6; Liu, \S2.1.]}
 \end{prop}
 \begin{proof}
 Los cerrados que contienen a $\mathfrak p$ tienen la forma $V(I)$ con $I\subseteq\mathfrak p$. Por contravariancia, todos contienen a $V(\mathfrak p)$, que es entonces el cerrado mínimo que contiene al punto.
@@ -50,7 +51,7 @@ Los cerrados que contienen a $\mathfrak p$ tienen la forma $V(I)$ con $I\subsete
 
 \begin{defi}
 \label{defi:s02-decimos-q-especializacion-p-q}
-Decimos que $\mathfrak q$ es una especialización de $\mathfrak p$ si $\mathfrak q\in\overline{\set{\mathfrak p}}$, equivalentemente, si $\mathfrak p\subseteq\mathfrak q$. En este caso $\mathfrak p$ generiza a $\mathfrak q$ y es el punto genérico de $V(\mathfrak p)$.
+Decimos que $\mathfrak q$ es una especialización de $\mathfrak p$ si $\mathfrak q\in\overline{\set{\mathfrak p}}$, equivalentemente, si $\mathfrak p\subseteq\mathfrak q$. En este caso $\mathfrak p$ generiza a $\mathfrak q$ y es el punto genérico de $V(\mathfrak p)$. \emph{[Vakil, \S3.6.]}
 \end{defi}
 
 \begin{ejem}
@@ -132,6 +133,7 @@ Para $f\in A$, el abierto distinguido asociado a $f$ es
 \[
 D(f)=\Spec A\setminus V(f)=\set*{\mathfrak p \given f\notin\mathfrak p}.
 \]
+\emph{[Vakil, \S3.5; Liu, \S2.1.]}
 \end{defi}
 
 \begin{prop}
@@ -142,6 +144,7 @@ Se cumplen las siguientes propiedades:
 \item los $D(f)$ forman una base de la topología de Zariski;
 \item $D(f)=\varnothing$ si y solo si $f$ es nilpotente, y $D(f)=\Spec A$ si y solo si $f$ es unidad.
 \end{enumerate}
+\emph{[Vakil, \S3.5.]}
 \end{prop}
 \begin{proof}
 La primera igualdad se desprende de la primalidad: $fg\notin\mathfrak p$ equivale a que $f,g\notin\mathfrak p$. Para la segunda, si $U=\Spec A\setminus V(I)$ es abierto, entonces $U=\bigcup_{f\in I}D(f)$. Para la tercera, $D(f)=\varnothing$ equivale a que $f$ pertenezca a todos los primos; por el \cref{teo:s01-caracterizacion-nilradical}, esto equivale a que $f$ sea nilpotente. Además, $D(f)=\Spec A$ significa que $f$ no está en ningún primo, en particular en ningún maximal; esto equivale a que $f$ sea unidad.
@@ -156,7 +159,7 @@ Si $f$ no es nilpotente, la demostración del \cref{teo:s01-caracterizacion-nilr
 
 \begin{prop}
 \label{prop:s02-espacio-cuasicompacto-toda-cubierta-abierta}
-El espacio $\Spec A$ es cuasicompacto: toda cubierta abierta admite una subcubierta finita.
+El espacio $\Spec A$ es cuasicompacto: toda cubierta abierta admite una subcubierta finita. \emph{[Vakil, \S3.6; Liu, \S2.1.]}
 \end{prop}
 \begin{proof}
 Basta refinar la cubierta a abiertos básicos: supongamos $\Spec A=\bigcup_\alpha D(f_\alpha)$. Ningún primo contiene todos los $f_\alpha$, así que el ideal que generan es $A$; de otro modo, estaría contenido en un maximal. Por ello, una combinación finita basta para escribir $1$:
@@ -178,7 +181,7 @@ Una unión disjunta infinita de espacios no vacíos no es cuasicompacta, pero el
 
 \begin{ejer}[Sembrador: se cosecha en la Sesión 6]
 \label{ejer:s02-sembrador-cosecha-sesion-6}
-Sea $\set{A_i}_{i\in\mathbb N}$ una familia de anillos no nulos y $e_i\in\prod_jA_j$ el idempotente coordenado. Comprueba que $(\prod_jA_j)[1/e_i]\cong A_i$, que los $D(e_i)$ son disjuntos y que $\coprod_i\Spec A_i$ se inyecta en $\Spec(\prod_iA_i)$. Describe $J=(e_i:i\in\mathbb N)$ en términos de soportes, demuestra $J\ne(1)$ y explica en qué punto se usa que la familia sea infinita; compáralo con el caso finito.
+Sea $\set{A_i}_{i\in\mathbb N}$ una familia de anillos no nulos y $e_i\in\prod_jA_j$ el idempotente coordenado. Comprueba que $(\prod_jA_j)[1/e_i]\cong A_i$, que los $D(e_i)$ son disjuntos y que $\coprod_i\Spec A_i$ se inyecta en $\Spec(\prod_iA_i)$. Describe $J=(e_i:i\in\mathbb N)$ en términos de soportes y demuestra que $J\ne(1)$. Deduce que la inyección no es sobreyectiva. Explica dónde se usa que la familia sea infinita y calcula la suma de los idempotentes coordenados en el caso finito. \emph{[cf.~Vakil, \S3.6.6.]}
 \end{ejer}
 
 \section{Ejercicios}

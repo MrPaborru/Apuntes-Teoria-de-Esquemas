@@ -58,7 +58,7 @@ El documento incluye ejercicios propuestos. Las soluciones de las tareas se reú
 
 ## Compilación local
 
-Se necesitan **pdfLaTeX**, **latexmk** y **Perl**, además de los paquetes utilizados en [`main.tex`](main.tex). Una instalación de TeX Live o MiKTeX debe incluir las fuentes `newtx`, TikZ, `tikz-cd`, `tikz-nfold`, `tcolorbox`, `cleveref` y los demás paquetes del preámbulo.
+Se necesitan **pdfLaTeX**, **latexmk** y **Perl**, además de los paquetes utilizados en [`main.tex`](main.tex). Una instalación de TeX Live o MiKTeX debe incluir las fuentes `newtx`, TikZ, `tikz-cd`, `tikz-nfold`, `float`, `tcolorbox`, `cleveref` y los demás paquetes del preámbulo.
 
 Desde la raíz del repositorio:
 

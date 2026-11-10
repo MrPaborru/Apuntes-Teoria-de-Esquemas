@@ -5,7 +5,7 @@ La geometría algebraica clásica estudia conjuntos de soluciones de ecuaciones 
 
 \begin{teo}[Nullstellensatz de Hilbert (enunciado)]
 \label{teo:s01-nullstellensatz-hilbert-enunciado}
-Cada punto $a=(a_1,\ldots,a_n)$ determina el ideal maximal $\mathfrak m_a=(x_1-a_1,\ldots,x_n-a_n)$. Así, $V(I)$ está en biyección con los maximales de $k[x_1,\ldots,x_n]/I$. Además, $f$ se anula en $V(I)$ si y solo si $f^m\in I$ para algún $m\ge1$.
+Sea $k$ un cuerpo algebraicamente cerrado e $I$ un ideal de $k[x_1,\ldots,x_n]$. La asignación $a\mapsto\mathfrak m_a=(x_1-a_1,\ldots,x_n-a_n)$ identifica $V(I)$ con los maximales de $k[x_1,\ldots,x_n]/I$. Además, $f$ se anula en $V(I)$ si y solo si $f^m\in I$ para algún $m\ge1$. \emph{[Vakil, \S3.2; Atiyah--Macdonald, cap.~7.]}
 \end{teo}
 
 Esta correspondencia es el punto de partida, pero tiene cuatro límites: sobre un cuerpo no algebraicamente cerrado, ecuaciones sin soluciones visibles esconden geometría (por ejemplo, $x^2+1=0$ sobre $\mathbb R$); los anillos aritméticos como $\mathbb Z$ no son cuerpos; el conjunto de puntos pierde multiplicidades e información infinitesimal; y una subvariedad irreducible —como una curva dentro de una superficie— tampoco queda representada por un punto.
@@ -20,7 +20,7 @@ Sea $A$ un anillo conmutativo con unidad. Su espectro primo es
 \[
 \Spec A=\set*{\mathfrak p\subseteq A \given \mathfrak p\text{ es un ideal primo}}.
 \]
-Escribiremos $\mathfrak p$ cuando pensemos algebraicamente y $x\in\Spec A$ cuando pensemos geométricamente; en este último caso $\mathfrak p_x$ denota el primo correspondiente.
+Escribiremos $\mathfrak p$ cuando pensemos algebraicamente y $x\in\Spec A$ cuando pensemos geométricamente; en este último caso $\mathfrak p_x$ denota el primo correspondiente. \emph{[Vakil, \S3.2; Liu, \S2.1.]}
 \end{defi}
 
 Recordemos que un ideal $\mathfrak p$ es primo si es propio y $fg\in\mathfrak p$ implica $f\in\mathfrak p$ o $g\in\mathfrak p$; equivalentemente, $A/\mathfrak p$ es un dominio entero.
@@ -31,6 +31,7 @@ Si $\varphi\colon A\to B$ es un morfismo de anillos y $\mathfrak q\in\Spec B$, e
 \[
 \Spec\varphi\colon \Spec B\longrightarrow\Spec A,\qquad \mathfrak q\longmapsto\varphi^{-1}(\mathfrak q).
 \]
+\emph{[Vakil, \S3.2; Liu, \S2.1.]}
 \end{lema}
 \begin{proof}
 El compuesto $A\xrightarrow{\varphi}B\to B/\mathfrak q$ tiene núcleo $\varphi^{-1}(\mathfrak q)$, así que induce una inyección $A/\varphi^{-1}(\mathfrak q)\hookrightarrow B/\mathfrak q$. Como un subanillo de un dominio es un dominio, el cociente de la izquierda es un dominio. Además, $\varphi^{-1}(\mathfrak q)$ es propio: si contuviera a $1$, entonces $1=\varphi(1)\in\mathfrak q$, contradicción. Luego es primo.
@@ -43,7 +44,7 @@ Con maximales la construcción no funciona: la inclusión $\mathbb Z\hookrightar
 
 \begin{teo}[El espectro es vacío]
 \label{teo:s01-espectro-vacio}
-Se tiene $\Spec A=\varnothing$ si y solo si $A=0$.
+Se tiene $\Spec A=\varnothing$ si y solo si $A=0$. \emph{[cf.~Atiyah--Macdonald, teo.~1.3.]}
 \end{teo}
 \begin{proof}
 Si $A=0$, el ideal $(0)=A$ no es propio, así que no hay ideales primos. Supongamos ahora $A\ne0$. Considérese el conjunto $\Sigma$ de ideales propios de $A$, ordenado por inclusión. Es no vacío pues contiene a $(0)$. La unión de una cadena de ideales propios sigue siendo un ideal propio: si contuviera a $1$, alguno de los ideales de la cadena ya contendría a $1$. Por el lema de Zorn, $\Sigma$ tiene un elemento maximal, que es un ideal maximal de $A$ y, en particular, primo.
@@ -59,7 +60,7 @@ Para $\mathfrak p\in\Spec A$, definimos el cuerpo residual
 \[
 \kappa(\mathfrak p)=\Frac(A/\mathfrak p).
 \]
-Si $f\in A$, su valor $f(\mathfrak p)\in\kappa(\mathfrak p)$ es su imagen bajo $A\to A/\mathfrak p\hookrightarrow\kappa(\mathfrak p)$.
+Si $f\in A$, su valor $f(\mathfrak p)\in\kappa(\mathfrak p)$ es su imagen bajo $A\to A/\mathfrak p\hookrightarrow\kappa(\mathfrak p)$. \emph{[Vakil, \S3.2.]}
 \end{defi}
 
 \begin{prop}
@@ -84,6 +85,7 @@ Para $f\in A$ son equivalentes: (i) $f(\mathfrak p)=0$ para todo $\mathfrak p\in
 \[
 \Nil(A)=\set*{f\in A \given f^n=0\text{ para algún }n\ge1}=\bigcap_{\mathfrak p\in\Spec A}\mathfrak p.
 \]
+\emph{[Atiyah--Macdonald, prop.~1.8; Vakil, \S3.2.]}
 \end{teo}
 \begin{proof}
 Si $f^n=0$, entonces $f^n\in\mathfrak p$ para todo primo $\mathfrak p$, y la primalidad implica $f\in\mathfrak p$. Para la otra dirección probamos la contrapositiva. Supongamos que $f$ no es nilpotente y consideremos
@@ -121,7 +123,7 @@ Si $k$ es un cuerpo,
 \[
 \Spec k[x]=\set{(0)}\cup\set*{(f) \given f\in k[x]\text{ irreducible mónico}}.
 \]
-Si $k$ es algebraicamente cerrado, los puntos cerrados son $(x-a)$, $a\in k$.
+Si $k$ es algebraicamente cerrado, los puntos cerrados son $(x-a)$, $a\in k$. \emph{[Vakil, \S3.2; Liu, \S2.1.]}
 \end{prop}
 \begin{proof}
 El anillo $k[x]$ es un dominio de ideales principales. Todo primo no nulo es maximal y está generado por un polinomio irreducible; normalizando el generador, lo tomamos mónico. Si $k$ es algebraicamente cerrado, los irreducibles mónicos son precisamente los $x-a$.
@@ -134,7 +136,7 @@ Para comparar las tres rectas, la \cref{fig:s01-rectas-afines} separa el primo g
 \end{ejem}
 
 % Pizarra anotada de S01, p. 28.
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \begin{tikzpicture}[x=1cm,y=1cm,every node/.style={font=\small}]
 \node at (1.5,2.3) {$\Spec\mathbb C[x]$};
@@ -166,7 +168,7 @@ $\vdots$};
 
 \begin{teo}[El plano afín]
 \label{teo:s01-plano-afin}
-Sea $k$ algebraicamente cerrado. Los ideales primos de $k[x,y]$ son exactamente $(0)$, los ideales $(f)$ con $f$ irreducible, y los maximales $(x-a,y-b)$ con $(a,b)\in k^2$.
+Sea $k$ algebraicamente cerrado. Los ideales primos de $k[x,y]$ son exactamente $(0)$, los ideales $(f)$ con $f$ irreducible, y los maximales $(x-a,y-b)$ con $(a,b)\in k^2$. \emph{[Vakil, \S3.2; cf.~Liu, cap.~2.]}
 \end{teo}
 \begin{proof}
 Los ideales $(0)$, $(f)$ para $f$ irreducible y $(x-a,y-b)$ son primos: los dos primeros porque $k[x,y]$ es un dominio de factorización única, y el cociente por $(x-a,y-b)$ es $k$. Falta mostrar que no hay otros. Sea $\mathfrak p$ un primo no nulo que no sea principal generado por un irreducible. Elijamos un elemento no nulo de $\mathfrak p$ y un factor irreducible $f$ suyo. Por primalidad $f\in\mathfrak p$. Como $\mathfrak p\ne(f)$, existe $g\in\mathfrak p\setminus(f)$; así $f$ y $g$ no tienen factor irreducible común.
@@ -190,7 +192,7 @@ En la siguiente sesión se verá que estos conjuntos son los cerrados de la topo
 
 \begin{defi}[Especialización]
 \label{defi:s01-especializacion}
-Para $\mathfrak p,\mathfrak q\in\Spec A$, decimos que $\mathfrak q$ es una especialización de $\mathfrak p$, y escribimos $\mathfrak p\rightsquigarrow\mathfrak q$, si $\mathfrak p\subseteq\mathfrak q$. En este caso $\mathfrak p$ generiza a $\mathfrak q$.
+Para $\mathfrak p,\mathfrak q\in\Spec A$, decimos que $\mathfrak q$ es una especialización de $\mathfrak p$, y escribimos $\mathfrak p\rightsquigarrow\mathfrak q$, si $\mathfrak p\subseteq\mathfrak q$. En este caso $\mathfrak p$ generiza a $\mathfrak q$. \emph{[Vakil, \S3.6; Liu, \S2.1.]}
 \end{defi}
 
 Un punto cerrado corresponde a un ideal maximal. El primo $\mathfrak p$ es el punto genérico del cerrado $V(\mathfrak p)$. La contención de ideales se invierte geométricamente: ideales más grandes corresponden a cerrados más pequeños. En $\Spec\mathbb Z$, $(0)\rightsquigarrow(p)$ para todo primo entero $p$.
@@ -286,7 +288,7 @@ La prueba funciona porque los idempotentes $(1,0)$ y $(0,1)$ pertenecen al anill
 
 \begin{teo}[La anti-equivalencia, sin restricciones]
 \label{teo:s01-anti-equivalencia-sin-restricciones}
-El funtor $\Spec\colon \mathbf{Ring}^{\mathrm{op}}\to\AffSch$ es una equivalencia. Por tanto, para cualquier familia finita o infinita $\set{A_i}_{i\in I}$, $\Spec(\prod_i A_i)$ es el coproducto de los $\Spec A_i$ en $\AffSch$.
+El funtor $\Spec\colon \mathbf{Ring}^{\mathrm{op}}\to\AffSch$ es una equivalencia. Por tanto, para cualquier familia finita o infinita $\set{A_i}_{i\in I}$, $\Spec(\prod_i A_i)$ es el coproducto de los $\Spec A_i$ en $\AffSch$. \emph{[Vakil, \S6.3; Atiyah--Macdonald, cap.~1.]}
 \end{teo}
 
 \begin{nota}[Advertencia]
