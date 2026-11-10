@@ -2,9 +2,9 @@
 
 Arrancamos la Sesión 6. La meta es cerrar la pregunta que quedó abierta: ¿todo morfismo de espacios localmente anillados entre dos espectros proviene de un único morfismo de anillos? Dado $\varphi\colon A\to B$, ya conocemos $\Spec\varphi\colon \Spec B\to\Spec A$. En cada básico $D(f_0)\subseteq\Spec A$, la propiedad universal de la localización da un mapa compatible $A_{f_0}\to B_{\varphi(f_0)}$. Como estos mapas son compatibles con las restricciones, se extienden a un morfismo de gavillas $\mathcal O_{\Spec A}\to (\Spec\varphi)_*\mathcal O_{\Spec B}$ por el \cref{teo:s05-toda-gavilla-sobre-base-extiende}.
 
-\begin{ejer}
+\begin{ejer}[Puente a la Sesión 6]
 \label{ejer:s06-b-f-cada-f-0}
-Sea $\varphi\colon A\to B$ y $f=\Spec\varphi$. Para cada $f_0\in A$, verifica que $f^{-1}(D(f_0))=D(\varphi(f_0))$ y que existe un único morfismo $A_{f_0}\to B_{\varphi(f_0)}$ que extiende $\varphi$ a través de las localizaciones.
+Sea $\varphi\colon A\to B$ y $f=\Spec\varphi$. Para cada $f_0\in A$, verifica que $f^{-1}(D(f_0))=D(\varphi(f_0))$. Usa la propiedad universal de $A_{f_0}$ para obtener el único morfismo $\varphi_{f_0}\colon A_{f_0}\to B_{\varphi(f_0)}$ que extiende $\varphi$ a través de las localizaciones.
 \end{ejer}
 
 Dos preguntas organizan la sesión. Primero, ¿el par $(f,f^\sharp)$ respeta la estructura local de los tallos, de modo que es un morfismo entre espacios localmente anillados? Los \cref{sec:s06-morfismos-anillados,sec:s06-spec-funtor} responden esta pregunta. Segundo, ¿todo morfismo de espacios localmente anillados $\Spec B\to\Spec A$ proviene, de esta manera, de un único $\varphi\colon A\to B$? El \cref{sec:s06-plena-fidelidad} lo demuestra. La respuesta afirmativa significa que ningún morfismo se pierde ni aparece al pasar entre anillos y esquemas afines; esa es la equivalencia contravariante del \cref{sec:s06-equivalencia}.
@@ -65,11 +65,11 @@ En las gavillas, sobre cada abierto básico la unicidad de la propiedad universa
 
 \begin{teo}[Plena fidelidad de $\Spec$]
 \label{teo:s06-plena-fidelidad}
-Para cualesquiera anillos $A,B$, la asignación
+Para cualesquiera anillos $A,B$, se tiene la biyección
 \[
 \Hom_{\mathbf{Ring}}(A,B)\xrightarrow{\sim}
 \Hom_{\LocAn}(\Spec B,\Spec A),\qquad
-\varphi\longmapsto(\Spec\varphi,\varphi^\sharp)
+\varphi\longmapsto(\Spec\varphi,\varphi^\sharp).
 \]
 \end{teo}
 \begin{proof}
@@ -78,7 +78,14 @@ La construcción anterior da la aplicación. Para probar que es biyectiva, sea $
 \varphi=f^\sharp_{\Spec A}\colon A=\mathcal O_{\Spec A}(\Spec A)\longrightarrow
 B=\mathcal O_{\Spec B}(\Spec B).
 \]
-Esto prueba la unicidad del candidato. Veamos que $f=\Spec\varphi$. Para $\mathfrak q\in\Spec B$, sea $\mathfrak p=f(\mathfrak q)$. El cuadrado de secciones globales y gérmenes conmuta. Para $a\in A$, la localidad de $f^\sharp_{\mathfrak q}$ da
+Esto prueba la unicidad del candidato. Para recuperar $f$, fijemos $\mathfrak q\in\Spec B$ y pongamos $\mathfrak p=f(\mathfrak q)$. El cuadrado conmuta porque $f^\sharp$ es un morfismo de gavillas.
+\[
+\begin{tikzcd}[column sep=huge, row sep=large]
+A \arrow[r,"\varphi"] \arrow[d,"\text{germen en }\mathfrak p"'] & B \arrow[d,"\text{germen en }\mathfrak q"] \\
+A_{\mathfrak p} \arrow[r,"f^\sharp_{\mathfrak q}"'] & B_{\mathfrak q}
+\end{tikzcd}
+\]
+Para $a\in A$, la localidad de $f^\sharp_{\mathfrak q}$ da
 \[
 a\in\varphi^{-1}(\mathfrak q)
 \iff \varphi(a)/1\in\mathfrak qB_{\mathfrak q}
@@ -88,7 +95,7 @@ a\in\varphi^{-1}(\mathfrak q)
 \]
 Así $f(\mathfrak q)=\varphi^{-1}(\mathfrak q)$ para todo $\mathfrak q$.
 
-Finalmente, sobre cada básico $D(f_0)$ el mapa $f^\sharp$ es una extensión $A_{f_0}\to B_{\varphi(f_0)}$ del mapa $\varphi$ y envía $f_0$ a una unidad. Por la propiedad universal de $A_{f_0}$, coincide con el mapa construido a partir de $\varphi$. Los básicos cubren $\Spec A$, así que los morfismos de gavillas coinciden globalmente. Esto prueba existencia y unicidad.
+Finalmente, sobre cada básico $D(f_0)$ el mapa $f^\sharp$ es una extensión $A_{f_0}\to B_{\varphi(f_0)}$ del mapa $\varphi$ y envía $f_0$ a una unidad. Por la propiedad universal de $A_{f_0}$, coincide con el mapa construido a partir de $\varphi$. Como los básicos forman una base, los morfismos de gavillas coinciden globalmente. Esto prueba existencia y unicidad.
 \end{proof}
 
 \section{La equivalencia contravariante}
@@ -115,9 +122,9 @@ La imagen esencial del \cref{coro:s06-equivalencia} es, por definición, la cate
 
 \begin{ejer}[Automorfismos]
 \label{ejer:s06-automorfismos}
-Deduce que $\aut(\Spec A)\cong\aut(A)^{\mathrm{op}}$ como grupos. Explica por qué aparece el grupo opuesto.
+Deduce del \cref{coro:s06-equivalencia} que $\aut(\Spec A)\cong\aut(A)^{\mathrm{op}}$ como grupos. A la izquierda se toman automorfismos de espacios localmente anillados y a la derecha, de anillos. Explica por qué aparece el grupo opuesto.
 \end{ejer}
 \begin{ejer}[Un caso pequeño]
 \label{ejer:s06-caso-pequeno}
-Describe $\Spec k$ como espacio localmente anillado cuando $k$ es cuerpo. Usa la plena fidelidad para describir el conjunto de morfismos de espacios localmente anillados $\Spec k\to\Spec A$.
+Describe $\Spec k$ como espacio localmente anillado cuando $k$ es un cuerpo, especificando la gavilla sobre su único punto. Usa el \cref{teo:s06-plena-fidelidad} para describir, sin cálculos adicionales, el conjunto de morfismos de espacios localmente anillados $\Spec k\to\Spec A$ para cualquier anillo $A$.
 \end{ejer}

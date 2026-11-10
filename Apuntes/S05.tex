@@ -9,7 +9,9 @@ El problema de hoy es general: dada información compatible solo en una base de 
 
 \begin{defi}[Pregavilla y gavilla sobre una base]
 \label{defi:s05-pregavilla-gavilla-sobre-base}
-Sea $\mathcal B$ una base de la topología de $X$. Una pregavilla sobre $\mathcal B$ asigna secciones a los elementos de $\mathcal B$ y mapas de restricción compatibles. Es una gavilla sobre la base si, siempre que $B=\bigcup_\alpha B_\alpha$ con todos los conjuntos en $\mathcal B$, satisface identidad y pegado. Si $B_\alpha\cap B_\beta$ no es básico, basta verificar compatibilidad en los elementos básicos contenidos en esa intersección.
+Sea $\mathcal B$ una base de la topología de $X$. Una pregavilla $\mathcal F$ sobre $\mathcal B$ asigna a cada básico $B$ un conjunto $\mathcal F(B)$ y a cada inclusión de básicos $B'\subseteq B$ un mapa $\res_{B,B'}\colon\mathcal F(B)\to\mathcal F(B')$. Estos mapas satisfacen $\res_{B,B}=\id$ y $\res_{B',B''}\circ\res_{B,B'}=\res_{B,B''}$ para $B''\subseteq B'\subseteq B$.
+
+Es una gavilla sobre la base si se cumplen dos condiciones para cada básico $B$ cubierto por básicos $B_\alpha$. La identidad (B1) dice que dos secciones sobre $B$ son iguales si coinciden al restringirlas a cada $B_\alpha$. El pegado (B2) dice que secciones $s_\alpha\in\mathcal F(B_\alpha)$ provienen de una sección sobre $B$ si $s_\alpha$ y $s_\beta$ coinciden al restringirlas a cada básico contenido en $B_\alpha\cap B_\beta$.
 \end{defi}
 
 \section{El teorema de extensión}
@@ -79,11 +81,13 @@ Supongamos $D(f)\subseteq\bigcup_iD(f_i)$. Entonces ningún primo de $A_f$ conti
 La asignación $D(f)\mapsto A_f$ es una gavilla sobre la base de abiertos distinguidos.
 \end{teo}
 \begin{proof}
-Por cuasicompacidad basta verificar identidad y pegado para un cubrimiento finito $D(f)=\bigcup_{i=1}^nD(f_i)$. Al reemplazar $A$ por $A_f$ podemos suponer $f=1$. Entonces $(f_1,\ldots,f_n)=A$, así que hay una identidad $1=\sum_i c_if_i$.
+Por cuasicompacidad basta verificar identidad y pegado para un cubrimiento finito $D(f)=\bigcup_{i=1}^nD(f_i)$. En efecto, una sección obtenida en un subcubrimiento finito coincide con la sección dada en cada básico restante por identidad en sus intersecciones con el subcubrimiento. Trabajando en $A_f$ podemos suponer $f=1$. Entonces $(f_1,\ldots,f_n)=A$ y $1=\sum_i c_if_i$ para ciertos $c_i\in A$.
 
-Para identidad, sea $s\in A$ cuya imagen se anula en cada $A_{f_i}$. Para cada $i$ existe $m_i$ con $f_i^{m_i}s=0$. Aumentando a un exponente común $m$, se tiene $f_i^ms=0$ para todo $i$. Las potencias $f_i^m$ generan el ideal unidad: basta elevar una expresión de $1$ como combinación de los $f_i$ a una potencia suficientemente grande y agrupar cada monomio, que contiene alguna potencia $f_i^m$. Así $1=\sum_i d_if_i^m$ y $s=\sum_i d_i(f_i^ms)=0$.
+Para la identidad (B1), sea $s\in A$ cuya imagen se anula en cada $A_{f_i}$. Para cada $i$ existe $m_i$ con $f_i^{m_i}s=0$. Aumentando a un exponente común $m$, se tiene $f_i^ms=0$ para todo $i$. Las potencias $f_i^m$ generan el ideal unidad: basta elevar una expresión de $1$ como combinación de los $f_i$ a una potencia suficientemente grande y agrupar cada monomio, que contiene alguna potencia $f_i^m$. Así obtenemos $1=\sum_i d_if_i^m$ y concluimos que $s=\sum_i d_i(f_i^ms)=0$.
 
-Para pegado, sean $s_i=a_i/f_i^k\in A_{f_i}$ secciones compatibles, usando un exponente común $k$. La compatibilidad en $A_{f_if_j}$ equivale a $a_if_j^k=a_jf_i^k$ en $A$. Como las $f_j^k$ generan la unidad, elijamos $e_j$ con $1=\sum_je_jf_j^k$ y pongamos $s=\sum_je_ja_j\in A$. Para cada $i$,
+Para el pegado (B2), sean $s_i=a_i/f_i^k\in A_{f_i}$ secciones compatibles, con un exponente común $k$. La igualdad en $A_{f_if_j}$ implica que alguna potencia de $f_if_j$ anula $a_if_j^k-a_jf_i^k$. Como hay un número finito de pares, un mismo exponente $m$ sirve para todos. Al pasar a los representantes $f_i^ma_i/f_i^{k+m}$, la igualdad cruzada ya vale en $A$. Volvemos a escribir esos representantes como $a_i/f_i^k$.
+
+Las potencias $f_j^k$ generan la unidad por el argumento de (B1). Elijamos $e_j$ con $1=\sum_je_jf_j^k$ y pongamos $s=\sum_je_ja_j\in A$. Para cada $i$,
 \[
 f_i^ks=\sum_je_ja_jf_i^k
 =a_i\sum_je_jf_j^k=a_i,
@@ -114,15 +118,17 @@ Para un $A$-módulo $M$, el mismo argumento da $D(f)\mapsto M_f\coloneqq S_f^{-1
 
 \begin{ejer}[Cosechando el sembrador de la Sesión 4]
 \label{ejer:s05-cosechando-sembrador-sesion-4}
-Retomamos $X=\mathbb C$, $\mathcal O_X$ las funciones holomorfas y $\mathcal O_X^*$ las que no se anulan, con $\exp(f)=e^{2\pi i f}$. Usa la base de abiertos contráctiles y el logaritmo holomorfo para probar que $\exp$ es sobreyectiva en cada básico. Concluye que la sobreyectividad en una base no caracteriza a los epimorfismos de gavillas; contrasta con el resultado de la Sesión 4.
+Retoma el exponencial del \cref{ejer:s04-sean-x-c-o-x}. Usa la base de abiertos contráctiles y el logaritmo holomorfo para probar que $\exp$ es sobreyectiva en cada básico de esa base.
+
+Justifica que la sobreyectividad en cada elemento de una base dada implica que el morfismo de gavillas es un epimorfismo. Usa el mismo ejemplo para ver que el recíproco falla para una base fijada, recordando que los abiertos contráctiles forman solo una de las bases posibles.
 \end{ejer}
 \begin{ejer}
 \label{ejer:s05-adapta-demostracion-b1-teorema-6}
-Adapta la demostración de (B1) en el \cref{teo:s05-f-gavilla-sobre-base-d} al caso de un $D(f)$ arbitrario cubierto por básicos $D(f_i)$ con $f_i\in S_f$.
+Sea $D(f)=\bigcup_i D(f_i)$ un recubrimiento por abiertos básicos. Adapta la demostración de (B1) del \cref{teo:s05-f-gavilla-sobre-base-d}, hecha para $f=1$, al caso de un $D(f)$ arbitrario.
 \end{ejer}
 \begin{ejer}
 \label{ejer:s05-adapta-demostracion-b2-teorema-6}
-Adapta la demostración de (B2) en el \cref{teo:s05-f-gavilla-sobre-base-d} al caso de un $D(f)$ arbitrario cubierto por básicos $D(f_i)$ con $f_i\in S_f$.
+Para el mismo recubrimiento del \cref{ejer:s05-adapta-demostracion-b1-teorema-6}, adapta la demostración de (B2) del \cref{teo:s05-f-gavilla-sobre-base-d} a un $D(f)$ arbitrario.
 \end{ejer}
 \begin{ejer}
 \label{ejer:s05-escribe-b1-b2-teorema-6}

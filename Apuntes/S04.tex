@@ -140,7 +140,14 @@ La existencia de una sección que pegue gérmenes localmente compatibles requier
 
 \begin{defi}[Morfismo de pregavillas]
 \label{defi:s04-morfismo-pregavillas}
-Un morfismo $\varphi\colon \mathcal F\to\mathcal G$ en $X$ es una familia de mapas $\varphi(U)\colon \mathcal F(U)\to\mathcal G(U)$ compatible con las restricciones.
+Un morfismo $\varphi\colon \mathcal F\to\mathcal G$ de pregavillas en $X$ consiste en mapas $\varphi(U)\colon \mathcal F(U)\to\mathcal G(U)$ para cada abierto $U$. Si $U\subseteq V$, el siguiente cuadrado debe conmutar
+\[
+\begin{tikzcd}
+\mathcal F(V) \arrow[r,"\varphi(V)"] \arrow[d,"\res"'] & \mathcal G(V) \arrow[d,"\res"] \\
+\mathcal F(U) \arrow[r,"\varphi(U)"'] & \mathcal G(U).
+\end{tikzcd}
+\]
+Entre gavillas se usa la misma definición, así que las gavillas en $X$ forman una subcategoría plena de las pregavillas en $X$.
 \end{defi}
 
 \begin{ejem}
@@ -160,7 +167,10 @@ La compatibilidad con las restricciones asegura que la imagen no depende del rep
 
 \begin{defi}[Espacio anillado]
 \label{defi:s04-espacio-anillado}
-Un espacio anillado es un par $(X,\mathcal O_X)$ donde $\mathcal O_X$ es una gavilla de anillos, llamada gavilla estructural. Una gavilla $\mathcal F$ es un $\mathcal O_X$-módulo si cada $\mathcal F(U)$ es un $\mathcal O_X(U)$-módulo y las restricciones respetan la acción.
+Un espacio anillado es un par $(X,\mathcal O_X)$ donde $X$ es un espacio topológico y $\mathcal O_X$ es una gavilla de anillos en $X$, llamada gavilla estructural. Una gavilla $\mathcal F$ es un $\mathcal O_X$-módulo si cada $\mathcal F(U)$ es un $\mathcal O_X(U)$-módulo y las restricciones respetan la acción. Si $U\subseteq V$, $r\in\mathcal O_X(V)$ y $s\in\mathcal F(V)$, esto significa que
+\[
+(rs)|_U=r|_U\,s|_U.
+\]
 \end{defi}
 
 \begin{obs}
@@ -171,20 +181,17 @@ Esta es la estructura necesaria para construir $\mathcal O_{\Spec A}$ a partir d
 \section{Hacia la gavilla estructural}
 
 La meta siguiente es construir $\mathcal O_{\Spec A}$ a partir de $A_f$ en los abiertos básicos $D(f)$, y verificar que dichos datos se pegan en una gavilla.
-\[
-A_{\mathfrak p}/\mathfrak pA_{\mathfrak p}\cong\Frac(A/\mathfrak p)=\kappa(\mathfrak p).
-\]
-La igualdad identifica el cuerpo residual del anillo local con el cuerpo residual ya asociado al punto en la Sesión 1.
 
 \section{Ejercicios}
 
 \begin{ejer}
 \label{ejer:s04-ejemplo-funciones-suaves-demuestra-ideal}
-En el \cref{ejem:s04-funciones-suaves-forman-gavilla}, demuestra que el ideal de gérmenes que se anulan en $p$ es el único ideal maximal del tallo $\mathcal O_p$.
+Completa el \cref{ejem:s04-germen-funcion-suave-tallo} demostrando que el ideal $\mathfrak m_p$ de los gérmenes que se anulan en $p$ es el único ideal maximal del tallo $\mathcal O_p$.
+\emph{Sugerencia.} Muestra que todo germen fuera de $\mathfrak m_p$ es invertible.
 \end{ejer}
 \begin{ejer}
 \label{ejer:s04-x-variedad-diferenciable-p-x}
-Si $X$ es una variedad diferenciable y $p\in X$, identifica $\mathfrak m_p/\mathfrak m_p^2$ con el espacio cotangente $T_p^*X$.
+Si $X$ es una variedad diferenciable y $p\in X$, ¿qué es $\mathfrak m_p/\mathfrak m_p^2$ en términos del cálculo diferencial usual? El ejercicio requiere algo de geometría diferencial.
 \end{ejer}
 \begin{ejer}
 \label{ejer:s04-muestra-funciones-acotadas-r-funciones}
@@ -198,9 +205,11 @@ Los mapas continuos $U\to Y$, para $Y$ un espacio topológico fijo, forman una g
 \label{ejer:s04-nucleo-morfismo-pregavillas-definido-abierto}
 El núcleo de un morfismo de pregavillas, definido abierto por abierto, es una pregavilla. Demuestra que si las dos pregavillas son gavillas, el núcleo también es una gavilla.
 \end{ejer}
-\begin{ejer}
+\begin{ejer}[Sembrador: se cosecha en la Sesión 5]
 \label{ejer:s04-sean-x-c-o-x}
 Sean $X=\mathbb C$, $\mathcal O_X$ la gavilla de funciones holomorfas y $\mathcal O_X^*$ la gavilla de funciones holomorfas que no se anulan. El mapa $\exp\colon \mathcal O_X\to\mathcal O_X^*$, $f\mapsto e^{2\pi if}$, es sobreyectivo en cada tallo, pero no en cada abierto. Encuentra un abierto $U$ y una sección de $\mathcal O_X^*(U)$ que no esté en la imagen de $\mathcal O_X(U)$.
+
+El ejemplo distingue la sobreyectividad en tallos de la sobreyectividad en todos los abiertos. Para la inyectividad, las dos condiciones coinciden. El \cref{ejer:s05-cosechando-sembrador-sesion-4} retoma el ejemplo.
 \end{ejer}
 \begin{ejer}[Para pensar; no se demuestra en clase]
 \label{ejer:s04-pensar-no-demuestra-clase}

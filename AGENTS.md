@@ -33,7 +33,7 @@ El complemento de S8 y S9 desarrolla el pegado de espacios proyectivos. S8 conse
 
 ## LaTeX y edición
 
-- Español matemático compacto y claro; reproducir todos los diagramas y dibujos matemáticos de las presentaciones, así como las tablas de las fuentes. La fidelidad a los títulos del esqueleto prevalece sobre reducir la cantidad de secciones.
+- Español matemático compacto y claro; reproducir todos los diagramas y dibujos matemáticos de las presentaciones, así como las tablas de las fuentes. Los cuadros de demostración «Qué hacemos / Por qué se vale» se integran en prosa, conservando cada paso y su justificación. La fidelidad a los títulos del esqueleto prevalece sobre reducir la cantidad de secciones.
 - Cada entorno numerado debe tener inmediatamente un `\label{entorno:etiqueta-descriptiva}`, único y consistente. Las referencias posteriores usan `\cref`, `\myref` (incluye nombre) o `\abvref`; no escribir tipo/número manualmente ni usar `\ref` sin una razón específica.
 - Para conjuntos explícitos usar `\set{...}` o `\set*{...}`, con `\given` cuando corresponda; no usar llaves y barras manuales para sustituir estos comandos.
 - En la declaración de aplicaciones usar `\colon`, como en `f\colon X\to Y`. Para igualdades definicionales usar `\coloneqq`. Reutilizar los operadores declarados en la plantilla, como `\Hom`, `\aut`, `\gal`, `\Proj` y `\res`. Los dos puntos de coordenadas homogéneas y grados de extensiones conservan su función matemática.

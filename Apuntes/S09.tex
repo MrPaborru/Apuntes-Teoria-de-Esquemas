@@ -943,17 +943,7 @@ Sea $X$ un esquema.
 En particular, todo abierto afín de un esquema reducido tiene anillo de secciones reducido. \emph{[Vakil, ej.~5.2.B; Liu, prop.~4.2(a)--(b).]}
 \end{prop}
 \begin{proof}
-Para (a), calculamos en los tallos $A_{\mathfrak p}$.
-\par\smallskip\noindent
-\begin{tabular}{@{}p{.56\linewidth}p{.40\linewidth}@{}}
-\textbf{Qué hacemos} & \textbf{Por qué se vale}\\[2pt]
-\hline
-$\Rightarrow$ Sea $a^n=0$. Si $\Spec A$ es reducido, $a/1=0$ en cada $A_{\mathfrak p}$, de modo que hay $u\notin\mathfrak p$ con $ua=0$. Así $\operatorname{Ann}(a)=A$ y $a=0$.
-& $a/1$ es nilpotente en el tallo reducido. Ningún primo contiene $\operatorname{Ann}(a)$, por lo que se aplica la \cref{prop:s09-maximos-minimales}(a).\\[4pt]
-$\Leftarrow$ Si $A$ es reducido, todos los $A_{\mathfrak p}$ son reducidos.
-& Es el \cref{lema:s09-localizacion-reducida} aplicado a los tallos.
-\end{tabular}
-\par\smallskip
+Para (a), supongamos que $\Spec A$ es reducido y que $a^n=0$. Como $a/1$ es nilpotente en cada tallo reducido $A_{\mathfrak p}$, se tiene $a/1=0$. Por el criterio de igualdad en una localización, existe $u\notin\mathfrak p$ con $ua=0$. Por tanto ningún primo contiene $\operatorname{Ann}(a)$, y la \cref{prop:s09-maximos-minimales}(a) da $\operatorname{Ann}(a)=A$. Así $a=0$. Recíprocamente, si $A$ es reducido, sus tallos son reducidos por el \cref{lema:s09-localizacion-reducida}.
 
 Para (b), si $X$ es reducido y $s^n=0$ en $\mathcal O(U)$, todos los gérmenes de $s$ son nulos. Cada punto tiene un entorno donde $s$ se anula y (G1) da $s=0$. Recíprocamente, si todos los anillos de secciones son reducidos y un germen $s_x$ cumple $s_x^n=0$, en algún entorno $V$ se tiene $(s|_V)^n=0$. Entonces $s|_V=0$ y $s_x=0$. Finalmente, en (c) cada tallo se calcula en una carta reducida por (a).
 \end{proof}
@@ -1139,20 +1129,11 @@ Un esquema es integral si y solo si es reducido e irreducible. \emph{[Vakil, ej.
 \]
 Ambos factores son no nulos, y $(1,0)(0,1)=0$ contradice que el anillo de secciones del abierto no vacío $U_1\cup U_2$ sea dominio.
 
-\emph{Reducido e irreducible implica integral.} Sea $U\ne\varnothing$ abierto. Probamos que $\mathcal O(U)$ es un dominio.
-\par\smallskip\noindent
-\begin{tabular}{@{}p{.51\linewidth}p{.45\linewidth}@{}}
-\textbf{Qué hacemos} & \textbf{Por qué se vale}\\[2pt]
-\hline
-Sean $f,g\in\mathcal O(U)$ con $fg=0$. En cada $x\in U$ se tiene $f_xg_x=0$, de modo que $f_x\in\mathfrak m_x$ o $g_x\in\mathfrak m_x$.
-& Por (G3), $\mathcal O(U)\ne0$. Los gérmenes no pueden ser ambos unidades, pues $0$ no es una unidad del anillo local $\mathcal O_{X,x}\ne0$.\\[4pt]
-Los conjuntos $V_U(f)=\set{x\in U\given f_x\in\mathfrak m_x}$ y $V_U(g)$ son cerrados y cubren $U$. Podemos suponer que $U=V_U(f)$.
-& Si $f_x$ es unidad, su inversa se representa por una sección $h$ y $fh=1$ en un entorno de $x$. El abierto $U$ es irreducible por el \cref{lema:s09-topologia-irreducibles}(b).\\[4pt]
-En cada afín $W=\Spec B\subseteq U$, la sección $f|_W$ está en $\Nil(B)=0$. Los afines cubren $U$ y (G1) da $f=0$.
-& Por la \cref{prop:s09-tallos-valores-afin}, $f|_W$ está en todos los primos. El anillo $B$ es reducido por la \cref{prop:s09-reducido-afines}(b).
-\end{tabular}
-\par\smallskip
-La irreducibilidad fuerza que $f$ se anule en todo punto. Que $X$ sea reducido permite concluir que $f=0$.
+\emph{Reducido e irreducible implica integral.} Sea $U\ne\varnothing$ abierto. Por (G3), $\mathcal O(U)\ne0$. Sean $f,g\in\mathcal O(U)$ con $fg=0$. En cada $x\in U$ se tiene $f_xg_x=0$. Como $0$ no es una unidad en el anillo local no nulo $\mathcal O_{X,x}$, al menos uno de los dos gérmenes pertenece a $\mathfrak m_x$.
+
+Así, los conjuntos $V_U(f)=\set{x\in U\given f_x\in\mathfrak m_x}$ y $V_U(g)$ cubren $U$. Son cerrados, pues si $f_x$ es unidad, podemos representar su inversa por una sección $h$ y obtener $fh=1$ en un entorno de $x$. Lo mismo vale para $g$. Por el \cref{lema:s09-topologia-irreducibles}(b), $U$ es irreducible, así que podemos suponer que $U=V_U(f)$.
+
+En cada afín $W=\Spec B\subseteq U$, la \cref{prop:s09-tallos-valores-afin} implica que $f|_W$ pertenece a todos los primos de $B$. Por la \cref{prop:s09-reducido-afines}(b), $B$ es reducido, de modo que $f|_W\in\Nil(B)=0$. Los afines cubren $U$, y por (G1) concluimos que $f=0$.
 \end{proof}
 
 \emph{Qué buscamos.} Leer la integralidad de un afín en su anillo.
@@ -1267,19 +1248,9 @@ Para (b), si $\varphi_i\colon A\to A_{f_i}$ e $I\subseteq A$ es un ideal, afirma
 \[
 I=\bigcap_{i=1}^n\varphi_i^{-1}(IA_{f_i}).
 \]
-\noindent
-\begin{tabular}{@{}p{.51\linewidth}p{.45\linewidth}@{}}
-\textbf{Qué hacemos} & \textbf{Por qué se vale}\\[2pt]
-\hline
-Todo $x\in I$ está en la intersección.
-& Su imagen en cada $A_{f_i}$ pertenece a $IA_{f_i}$.\\[4pt]
-Si $x$ está en la intersección, para cada $i$ existe $N_i$ con $f_i^{N_i}x\in I$. Tomamos un exponente común $N\ge1$. De $1=\sum_i g_if_i^N$ se sigue que $x=\sum_i g_if_i^Nx\in I$.
-& Escribimos $x/1=y_i/f_i^{m_i}$ con $y_i\in I$. Por la \cref{prop:s09-localizacion}, algún $f_i^{r_i}$ anula $f_i^{m_i}x-y_i$, así que sirve $N_i=r_i+m_i$. Las potencias generan $A$ por la \cref{prop:s09-cubrimientos-basicos}.\\[4pt]
-Una cadena ascendente de ideales $I_j$ se estabiliza en cada $A_{f_i}$ desde un índice $j_i$. La fórmula de intersección da $I_j=I_J$ para $j\ge J$, con $J=\max_i j_i$.
-& Cada $A_{f_i}$ es noetheriano y hay un número finito de localizaciones.
-\end{tabular}
-\par\smallskip
-La fórmula usa contracciones y vale aunque algún mapa $\varphi_i$ tenga núcleo no nulo.
+Todo $x\in I$ está en la intersección porque su imagen en cada $A_{f_i}$ pertenece a $IA_{f_i}$. Si $x$ está en la intersección, para cada $i$ podemos escribir $x/1=y_i/f_i^{m_i}$ con $y_i\in I$. Por la \cref{prop:s09-localizacion}, alguna potencia $f_i^{r_i}$ anula $f_i^{m_i}x-y_i$, de modo que $f_i^{r_i+m_i}x\in I$. Tomamos un exponente común $N\ge1$ con $f_i^Nx\in I$ para todo $i$. Por la \cref{prop:s09-cubrimientos-basicos}, podemos escribir $1=\sum_i g_if_i^N$, y así $x=\sum_i g_if_i^Nx\in I$. La fórmula usa contracciones y vale aunque algún mapa $\varphi_i$ tenga núcleo no nulo.
+
+Si $(I_j)$ es una cadena ascendente de ideales, en cada $A_{f_i}$ se estabiliza desde un índice $j_i$ porque ese anillo es noetheriano. Como hay finitas localizaciones, podemos tomar $J=\max_i j_i$. La fórmula de intersección da entonces $I_j=I_J$ para todo $j\ge J$.
 \end{proof}
 
 \emph{Qué buscamos.} Leer lo localmente noetheriano en cualquier abierto afín.
