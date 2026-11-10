@@ -49,3 +49,6 @@ latexmk.out
 /tmp/pdfs/
 /docs/criterios/
 
+
+# Carpeta auxiliar del asistente (extracciones, imágenes y reporte de cotejo)
+/.workbuddy/

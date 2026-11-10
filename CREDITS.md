@@ -14,7 +14,7 @@ La bibliografía del documento incluye obras de Ravi Vakil, Qing Liu, Robin Hart
 
 Las referencias concretas aparecen junto a los resultados y en la bibliografía del PDF, definida en [main.tex](main.tex). [Referencias.bib](Referencias.bib) conserva un registro bibliográfico de consulta. Una referencia bibliográfica no atribuye a sus autores la redacción de estos apuntes.
 
-Las referencias de las primeras sesiones conservan los localizadores indicados en los esqueletos. La lectura inicial de categorías remite al borrador de *The Rising Sea* del 18 de noviembre de 2017. En la sesión 9 se indica el borrador al que remiten los materiales. Los de valoración y reducción usan el del 8 de septiembre de 2024, mientras que el esqueleto de S9c indica el del 21 de octubre de 2025. Las citas de resultados mantienen la numeración de la fuente correspondiente.
+Las referencias de las primeras sesiones conservan los localizadores indicados en los esqueletos. La lectura inicial de categorías remite al borrador de *The Rising Sea* del 18 de noviembre de 2017. En la sesión 9 se indica el borrador al que remiten los materiales. Los de valoración y reducción usan el del 8 de septiembre de 2024, mientras que el esqueleto de S9c indica el del 21 de octubre de 2025. Las citas de resultados mantienen la numeración de la fuente correspondiente. Para S9c se conservan la [presentación inicial](Recursos/Presentaciones/S09c-beamer-handout.pdf) y la [presentación revisada](Recursos/Presentaciones/S09c-beamer-handout-actualizado.pdf).
 
 La sesión 8 incorpora dos lecturas complementarias proporcionadas por el profesor: *Absolute geometry and the Habiro topology*, de Lieven Le Bruyn (2013), para interpretar los dibujos de Mumford, y *On the prime spectrum of the p-adic integer polynomial ring with a depiction*, de Juan Serratos (2023), para comparar las fibras sobre los enteros p-ádicos. Las aportaciones seleccionadas están identificadas y citadas en el texto; las copias de lectura se conservan en [Recursos/Esqueletos](Recursos/Esqueletos).
 
@@ -22,7 +22,7 @@ La sesión 8 incorpora dos lecturas complementarias proporcionadas por el profes
 
 La plantilla LaTeX fue adaptada de los apuntes del autor de Homotopía Estable. Los logotipos incluidos en [Portada](Portada) corresponden al CIMAT y forman parte de la presentación gráfica del curso.
 
-Los dibujos de las rectas afines de la sesión 1 se redibujaron a partir de la [pizarra anotada](Recursos/Presentaciones/S01-pizarra-anotada.pdf), p. 28. La figura de especialización de la sesión 2 adapta los dos paneles del [diagrama suplementario](Recursos/Esqueletos/S02-diagrama-piramide-coliflor.pdf). La atribución de estos materiales se mantiene separada de la autoría de la redacción.
+Los dibujos de las rectas afines de la sesión 1 se redibujaron a partir de la [pizarra anotada](Recursos/Presentaciones/S01-pizarra-anotada.pdf), p. 28. La figura de especialización de la sesión 2 adapta los dos paneles del [diagrama suplementario](Recursos/Esqueletos/S02-diagrama-piramide-coliflor.pdf). El dibujo de Comunicación Afín de la sesión 9 adapta la diapositiva 20 de la [presentación revisada de S9c](Recursos/Presentaciones/S09c-beamer-handout-actualizado.pdf). La atribución de estos materiales se mantiene separada de la autoría de la redacción.
 
 ## Citar estos apuntes
 

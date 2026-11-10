@@ -42,4 +42,4 @@ Las instrucciones de mantenimiento completas están en [AGENTS.md](AGENTS.md).
 4. Actualiza el estado del README. Al crear un capítulo para una sesión nueva, actualiza `\NumClases` en `main.tex` con el número de sesiones numeradas apuntadas. Al añadir una parte, el contenido se integra en el capítulo correspondiente.
 5. Compila y revisa las páginas afectadas, el índice y las referencias. Incluye el PDF actualizado y los materiales incorporados en la propuesta de cambio.
 
-Las carpetas auxiliares de extracción o revisión deben quedar cubiertas por `.gitignore`. El commit debe explicar el cambio y las comprobaciones realizadas.
+Las carpetas auxiliares de extracción o revisión deben quedar cubiertas por `.gitignore`. Si el cotejo se registra en `.workbuddy/`, conserva allí el reporte local con las fuentes, las decisiones de edición y las comprobaciones de cada etapa. El commit debe resumir el cambio y las verificaciones realizadas.
