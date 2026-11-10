@@ -23,7 +23,7 @@ Para problemas al generar el PDF, utiliza la plantilla [Problema de compilación
 ## Criterios de edición
 
 - Conserva la notación del curso y la estructura de los esqueletos para los contenidos distintos. Integra los detalles complementarios de una clase en el argumento al que pertenecen.
-- Mantén todos los resultados, advertencias, ejemplos y diagramas distintos. Reúne los recordatorios repetidos sin perder sus precisiones.
+- Mantén todos los resultados, advertencias, ejemplos y diagramas distintos. Reúne los recordatorios repetidos sin perder sus precisiones. Integra en prosa los cuadros «Qué hacemos / Por qué se vale», con cada paso y su justificación.
 - Conserva las etiquetas existentes. Todo entorno numerado nuevo lleva inmediatamente una etiqueta descriptiva, como `\label{prop:nombre}`.
 - Usa `\cref` para el tipo y el número del entorno, `\myref` para incluir también su título o `\abvref` para la referencia abreviada. Estos comandos generan los hipervínculos internos.
 - Para conjuntos explícitos usa `\set{...}` o `\set*{...}`, con `\given` cuando corresponda.
