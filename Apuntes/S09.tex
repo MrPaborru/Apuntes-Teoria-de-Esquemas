@@ -1181,40 +1181,35 @@ En general, $\mathbb P^n_A$ es integral si $A$ es dominio, por el \cref{ejem:s09
 \emph{Advertencia.} Los tallos de $\Spec(k\times k)$ son cuerpos y $k\times k$ no es dominio: la integralidad se lee en los abiertos, no solo en los tallos. La unión disjunta de dos esquemas integrales no es integral. \emph{[Vakil, \S5.2.5.]}
 
 \subsection{Noetheriano}
-\emph{Qué buscamos.} Expresar la finitud de un esquema mediante anillos noetherianos en una cubierta afín.
+\emph{Qué buscamos.} Leer la finitud del esquema en los anillos de una cubierta afín.
 
 \begin{defi}[Esquemas noetherianos]
 \label{defi:s09-esquema-noetheriano}
 Un esquema es localmente noetheriano si tiene un cubrimiento por abiertos afines $\Spec A_i$ con los $A_i$ noetherianos. Es noetheriano si además es cuasicompacto; equivale a que dicho cubrimiento pueda tomarse finito. \emph{[Vakil, \S5.3.4; Liu, def.~3.45.]}
 \end{defi}
 
-\emph{Qué buscamos.} Comparar dos abiertos afines. \emph{Idea.} Tomar un básico de uno dentro de la intersección y, dentro de él, uno del otro; ambos lugares de no anulación se identifican.
+\emph{Qué buscamos.} Comparar dos abiertos afines. \emph{Idea.} Elegir un básico en la intersección y, dentro de él, un básico del otro afín. El segundo también es básico en el primero, porque es el lugar donde una misma sección es unidad.
+
+\begin{afirm}[El lugar donde una sección es unidad]
+\label{afirm:s09-lugar-unidad-seccion}
+\begin{enumerate}[label=(\alph*)]
+\item Sea $U=\Spec B$ y $s\in\mathcal O_X(U)$. Denotemos por $U_s$ el conjunto
+\[
+U_s\coloneqq\set*{y\in U\given s_y\text{ es una unidad en }\mathcal O_{X,y}}.
+\]
+Para $g\in B=\mathcal O_X(U)$ se tiene $U_g=D_B(g)$. Si $W\subseteq U$ es abierto, entonces $W_{s|_W}=U_s\cap W$, donde $W_{s|_W}$ es el lugar de unidades de la sección restringida.
+\item Sean $f,a\in A$ y $m\ge0$. Bajo la identificación $\Spec A_f\cong D_A(f)$, el básico $D_{A_f}(a/f^m)$ corresponde a $D_A(fa)$.
+\end{enumerate}
+\end{afirm}
 
 \begin{lema}[Intersección de dos abiertos afines]
 \label{lema:s09-interseccion-afines}
 Sean $U=\Spec A$ y $V=\Spec B$ abiertos de $X$. Su intersección es unión de abiertos básicos en ambos, de la forma $D_A(h)=D_B(h')$ con $h\in A$, $h'\in B$. \emph{[Vakil, prop.~5.3.1.]}
 \end{lema}
 \begin{proof}
-Para un punto $x$ de la intersección, elegimos $f\in A$ y $g\in B$ con
-\[
-x\in D_B(g)\subseteq D_A(f)\subseteq\Spec A\cap\Spec B.
-\]
-La restricción de $g$ a $D_A(f)=\Spec A_f$ es $g'=a/f^m$. Como $D_B(g)\subseteq D_A(f)$, es precisamente el lugar de $D_A(f)$ donde $g'$ es unidad. Por la \cref{prop:s09-tallos-valores-afin}, ese lugar es $D_{A_f}(g')=D_A(fa)$. Así $D_B(g)=D_A(fa)$ es un entorno básico en ambas cartas.
-\end{proof}
+Sea $x\in\Spec A\cap\Spec B$. Como los básicos forman una base, elegimos $f\in A$ con $x\in D_A(f)\subseteq\Spec A\cap\Spec B$. El abierto $D_A(f)$ también es abierto en $\Spec B$, de modo que podemos tomar $g\in B$ con $x\in D_B(g)\subseteq D_A(f)$.
 
-\emph{Qué buscamos.} Comprobar en una cubierta afín una propiedad que pasa a básicos y se comprueba en cubiertas por básicos.
-
-\begin{lema}[Lema de Comunicación Afín]
-\label{lema:s09-comunicacion-afin}
-Sea $P$ una propiedad de los abiertos afines de $X$ tal que, para todo $\Spec A\subseteq X$ afín:
-\begin{enumerate}[label=(\roman*)]
-\item si $\Spec A$ tiene $P$, todo $D(f)$ tiene $P$;
-\item si $(f_1,\ldots,f_n)=A$ y cada $D(f_i)$ tiene $P$, entonces $\Spec A$ tiene $P$.
-\end{enumerate}
-Si $X$ está cubierto por abiertos afines con $P$, todo abierto afín de $X$ tiene $P$. \emph{[Vakil, lema~5.3.2.]}
-\end{lema}
-\begin{proof}
-Sea $\Spec A\subseteq X$ y $\set{\Spec A_i}$ una cubierta con $P$. Por el \cref{lema:s09-interseccion-afines}, cada punto de $\Spec A$ tiene un entorno $D_A(g)=D_{A_i}(h)$ básico en ambas cartas. Como $\Spec A$ es cuasicompacto, bastan finitos $D_A(g_1),\ldots,D_A(g_m)$, cada uno básico en algún $\Spec A_{i_j}$. Por (i), cada uno tiene $P$; la propiedad pertenece al abierto, no a su descripción. Como cubren $\Spec A$, $(g_1,\ldots,g_m)=A$, y (ii) concluye.
+Pongamos $W=D_A(f)\cong\Spec A_f$ y escribamos $g|_W=a/f^m$. Por la \cref{afirm:s09-lugar-unidad-seccion}(a), el lugar donde $g|_W$ es unidad es $D_B(g)\cap W=D_B(g)$. Al calcularlo en $\Spec A_f$, el inciso (b) da $D_B(g)=D_{A_f}(a/f^m)=D_A(fa)$. Por tanto, $x$ tiene un entorno básico en los dos afines.
 \end{proof}
 
 % Beamer S09a, diapositiva 41: un básico común a dos afines.
@@ -1231,7 +1226,57 @@ Sea $\Spec A\subseteq X$ y $\set{\Spec A_i}$ una cubierta con $P$. Por el \cref{
 \end{tikzpicture}
 \end{center}
 
-\emph{Qué buscamos.} Ver que ser noetheriano pasa a básicos y se comprueba en cubiertas por básicos. \emph{Idea.} Recuperar un ideal como intersección de las contracciones de sus localizaciones y usar cadenas ascendentes.
+\emph{Qué buscamos.} Pasar de un cubrimiento afín a todos los abiertos afines. \emph{Idea.} Usar básicos comunes como los de la \cref{fig:s09-comunicacion-afin}, primero dentro de las cartas del cubrimiento y luego dentro del afín dado.
+
+\begin{lema}[Lema de Comunicación Afín]
+\label{lema:s09-comunicacion-afin}
+Sea $P$ una propiedad de los abiertos afines de $X$ tal que, para todo $\Spec A\subseteq X$ afín:
+\begin{enumerate}[label=(\roman*)]
+\item si $\Spec A$ tiene $P$, todo $D(f)$ tiene $P$;
+\item si $(f_1,\ldots,f_n)=A$ y cada $D(f_i)$ tiene $P$, entonces $\Spec A$ tiene $P$.
+\end{enumerate}
+Si $X$ está cubierto por abiertos afines con $P$, todo abierto afín de $X$ tiene $P$. \emph{[Vakil, lema~5.3.2.]}
+\end{lema}
+\begin{proof}
+Sea $\Spec A\subseteq X$ un abierto afín y sea $\set{\Spec A_i}$ un cubrimiento de $X$ por afines con $P$. Fijemos $x\in\Spec A$ y elijamos un $\Spec A_i$ que lo contenga. Por el \cref{lema:s09-interseccion-afines}, existe un básico común
+\[
+x\in W=D_A(g)=D_{A_i}(h),\qquad g\in A,\quad h\in A_i.
+\]
+
+Como $\Spec A_i$ tiene $P$, por (i) el básico $D_{A_i}(h)$ también la tiene. Las dos descripciones corresponden al mismo abierto $W$ de $X$, cuyo anillo de secciones es
+\[
+\mathcal O_X(W)\cong A_g\cong(A_i)_h
+\]
+por el \cref{coro:s05-gavilla-estructural}. Así, $D_A(g)$ tiene $P$. Estos abiertos cubren $\Spec A$, y la cuasicompacidad del \cref{prop:s02-espacio-cuasicompacto-toda-cubierta-abierta} permite elegir un subcubrimiento finito $D_A(g_1),\ldots,D_A(g_m)$.
+
+Por la \cref{prop:s09-cubrimientos-basicos}, los $g_j$ generan el ideal unidad de $A$. Aplicamos (ii) en $\Spec A$ a ese cubrimiento y concluimos que $\Spec A$ tiene $P$.
+\end{proof}
+
+% S09c, presentación actualizada, diapositiva 20.
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[every node/.style={font=\small}]
+\draw[grisCIMAT,rounded corners=10pt] (-4.2,-2.1) rectangle (4.2,2.65);
+\filldraw[fill=green!9,draw=green!45!black,thick] (-2.4,.45) ellipse (1.6 and 1.37);
+\filldraw[fill=green!9,draw=green!45!black,thick] (2.37,.24) ellipse (1.58 and 1.35);
+\draw[blue!65!black,thick] (0,.18) ellipse (2.72 and 1.2);
+\node[green!45!black] at (-2.5,2.12) {$\Spec A_1$};
+\node[green!45!black] at (2.31,1.92) {$\Spec A_2$};
+\node[blue!65!black] at (0,.96) {$\Spec A$};
+\filldraw[fill=orange!22,draw=orange!80!black,thick] (-1.43,.22) circle (.51);
+\filldraw[fill=orange!22,draw=orange!80!black,thick] (1.35,.1) circle (.51);
+\fill (-1.57,.24) circle (1.8pt) node[right=2pt] {$x$};
+\draw[grisCIMAT,densely dotted] (-1.43,-.29)--(-1.43,-1.43);
+\draw[grisCIMAT,densely dotted] (1.35,-.41)--(1.35,-1.43);
+\node[orange!80!black] at (-1.43,-1.67) {$W_1$};
+\node[orange!80!black] at (1.35,-1.67) {$W_2$};
+\node at (3.78,-1.7) {$X$};
+\end{tikzpicture}
+\caption{Comunicación afín. Cada $W_j$ es un abierto de $X$ con dos nombres, $D_A(g_j)$ y $D_{A_j}(h_j)$.}
+\label{fig:s09-comunicacion-afin}
+\end{figure}
+
+\emph{Qué buscamos.} Ver que ser noetheriano pasa a básicos y se comprueba en cubiertas por básicos. \emph{Idea.} Recuperar un ideal a partir de sus localizaciones y usar cadenas ascendentes.
 
 \begin{prop}[Noetheriano es afín-local]
 \label{prop:s09-noetheriano-afin-local}
@@ -1242,7 +1287,7 @@ Sea $\Spec A\subseteq X$ y $\set{\Spec A_i}$ una cubierta con $P$. Por el \cref{
 \emph{[Vakil, prop.~5.3.3(a); Atiyah--Macdonald, cap.~7.]}
 \end{prop}
 \begin{proof}
-Para (a), todo ideal de $A_f$ es el extendido de su contracción a $A$. Esta contracción es finitamente generada y sus generadores generan también el ideal localizado.
+Para (a), sea $\varphi\colon A\to A_f$ la localización y sea $J\subseteq A_f$ un ideal. Se tiene $J=\varphi^{-1}(J)A_f$, como en el \cref{ejer:s03-demuestra-todo-ideal-j-s}. Si $\varphi^{-1}(J)=(a_1,\ldots,a_r)$, lo que es posible porque $A$ es noetheriano, entonces $J=(a_1/1,\ldots,a_r/1)$.
 
 Para (b), si $\varphi_i\colon A\to A_{f_i}$ e $I\subseteq A$ es un ideal, afirmamos
 \[
@@ -1276,7 +1321,11 @@ Si $X$ es noetheriano:
 En particular, un anillo noetheriano tiene finitos primos minimales. \emph{[Vakil, ej.~5.1.C, 5.3.B y prop.~3.6.15; Liu, prop.~4.5(c) y 4.9.]}
 \end{prop}
 \begin{proof}
-Si $A$ es noetheriano, una cadena descendente de cerrados $Z_j$ de $\Spec A$ da una cadena ascendente de ideales $I(Z_j)=\bigcap_{\mathfrak p\in Z_j}\mathfrak p$. Esta se estaciona, y $Z_j=V(I(Z_j))$ por la \cref{prop:s09-nilradical}. Una cadena de cerrados en $X$ se estaciona al restringirla a cada miembro de una cubierta afín noetheriana finita. Tomando el máximo de los índices de estabilización obtenemos (a).
+Si $A$ es noetheriano, una cadena descendente de cerrados $Z_j=V(J_j)$ de $\Spec A$ da una cadena ascendente de ideales
+\[
+I(Z_j)=\bigcap_{\mathfrak p\in Z_j}\mathfrak p=\sqrt{J_j}
+\]
+por la \cref{prop:s09-nilradical}. Los ideales se estabilizan y, como $Z_j=V(I(Z_j))$, también lo hacen los cerrados. Para $X$, restringimos la cadena a cada carta de una cubierta afín noetheriana finita. El mayor de los índices de estabilización de las cartas sirve para $X$, lo que prueba (a).
 
 En un espacio noetheriano, todo cerrado es unión finita de cerrados irreducibles: de lo contrario elegimos un cerrado minimal que no lo sea. No puede ser irreducible; al escribirlo como unión de dos cerrados propios, la minimalidad da descomposiciones finitas de ambos, contradicción. Aplicado a $X$, sus componentes están entre los finitos irreducibles de una descomposición, y da (b).
 
@@ -1425,15 +1474,19 @@ con sumas finitas y coeficientes en $A$. La sustitución $y=\varpi x^{-1}$ defin
 
 \subsection*{Afirmaciones para completar en casa}
 
-El profesor señaló estas seis afirmaciones para completar en casa. Algunas forman parte de la tarea final del curso.
-\begin{itemize}
+El profesor señaló estas diez afirmaciones para completar en casa. Algunas forman parte de la tarea final del curso.
+\begin{enumerate}
 \item La reducción se lee en las secciones de todo abierto, \cref{prop:s09-reducido-afines}(b).
 \item Un cubrimiento por afines reducidos da un esquema reducido, \cref{prop:s09-reducido-afines}(c).
 \item El criterio de irreducibilidad de $V(I)$ por el radical de $I$, \cref{prop:s09-irreducibles-espectro}(a).
-\item El criterio de irreducibilidad de $\Spec A$ por el nilradical y los primos minimales, \cref{prop:s09-irreducibles-espectro}(d).
+\item La irreducibilidad de $\Spec A$ por el nilradical y los primos minimales, \cref{prop:s09-irreducibles-espectro}(d).
 \item Todo esquema integral es reducido e irreducible, \cref{prop:s09-integral-equivalencia}.
 \item El dominio $A[x,y]/(xy-\varpi)$ y su cociente módulo $\varpi$, \cref{prop:s09-familia-nodal}.
-\end{itemize}
+\item El lugar donde una sección es unidad y la igualdad $D_{A_f}(a/f^m)=D_A(fa)$, \cref{afirm:s09-lugar-unidad-seccion}.
+\item La cuasicompacidad de $\Spec A$ y el criterio del ideal unidad para un cubrimiento por básicos, \cref{prop:s02-espacio-cuasicompacto-toda-cubierta-abierta,prop:s09-cubrimientos-basicos}.
+\item La extensión de la contracción de un ideal localizado y la recuperación de un ideal a partir de sus extensiones en un cubrimiento por básicos, en la prueba de la \cref{prop:s09-noetheriano-afin-local}.
+\item Las componentes conexas de un esquema noetheriano y la finitud de los primos minimales de un anillo noetheriano, \cref{prop:s09-finitud-noetherianos}.
+\end{enumerate}
 \end{samepage}
 
 \begin{samepage}
@@ -1512,4 +1565,4 @@ Sea $n\ge1$ entero. Para cada primo $p$, determina cuáles de $t=0$, $t=n$ y $t=
 Con las fórmulas del \cref{ejem:s09-pegados-plano-proyectivo}, calcula $\varphi_{10}$ y $\varphi_{21}$ y comprueba que $\varphi_{10}\circ\varphi_{01}$ es la identidad de $D(u)\subseteq U_0$ y $\varphi_{21}\circ\varphi_{12}$ es la identidad de $D(v')\subseteq U_1$. Describe el complemento de $U_0$ en $\mathbb P^2_A$.
 \end{ejer}
 
-La próxima clase tratará morfismos de esquemas y subesquemas. El profesor anunció la correspondencia $\Hom(X,\Spec A)\cong\Hom(A,\Gamma(X,\mathcal O_X))$.
+La próxima clase retomará los morfismos a un afín de la \cref{prop:s08-propiedades-morfismo-canonico}(b).

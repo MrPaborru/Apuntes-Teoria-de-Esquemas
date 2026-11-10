@@ -23,7 +23,7 @@ El documento incluye la introducción y las **sesiones 1–9**, con materiales i
 
 Cada capítulo corresponde a una sesión. Las clases a, b, c, etc. de una misma sesión se integran en una exposición continua cuando completan argumentos anteriores. Los apuntes conservan los contenidos distintos de los esqueletos y los desarrollos, dibujos y diagramas de las presentaciones.
 
-La sesión 9 reúne **S9a, S9b y S9c**. Incluye valoración discreta y reducción, el cálculo de primos sobre un DVR, los cocientes de los enteros gaussianos, las cartas del espacio proyectivo y las propiedades de ser reducido, irreducible, integral y noetheriano. Los ejercicios y las seis afirmaciones asignadas para casa acompañan sus apartados. El desarrollo sobre modelos y buena reducción señala las nociones que el profesor aplazó.
+La sesión 9 reúne **S9a, S9b y S9c**. Incluye valoración discreta y reducción, el cálculo de primos sobre un DVR, los cocientes de los enteros gaussianos, las cartas del espacio proyectivo y las propiedades de ser reducido, irreducible, integral y noetheriano. La [presentación actualizada de S9c](Recursos/Presentaciones/S09c-beamer-handout-actualizado.pdf) amplía las demostraciones sobre comunicación afín y esquemas noetherianos. Los ejercicios y las diez afirmaciones de S9c para completar en casa acompañan sus apartados. El desarrollo sobre modelos y buena reducción señala las nociones que el profesor aplazó.
 
 El complemento desarrolla los pegados del plano proyectivo, las intersecciones de cartas, las secciones y el morfismo estructural. Sus dos diagramas se integran con las cuentas. Las seis afirmaciones finales sobre las propiedades de los espacios proyectivos y sus coordenadas homogéneas se conservan para completar.
 
