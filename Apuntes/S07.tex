@@ -14,14 +14,14 @@ Los axiomas de gavilla se heredan de $\mathcal O_X$. Los abiertos de $U$ que con
 
 \begin{defi}[Subespacio localmente anillado abierto]
 \label{defi:s07-subespacio-localmente-anillado-abierto}
-En la situación descrita en el \cref{lema:s07-restriccion-abierto}, $(U,\mathcal O_X|_U)$ es el subespacio localmente anillado abierto determinado por $U$. La inclusión $j\colon U\hookrightarrow X$ induce $j^\sharp\colon \mathcal O_X\to j_*(\mathcal O_X|_U)$; sobre un abierto $V\subseteq X$, el mapa es la restricción $\mathcal O_X(V)\to\mathcal O_X(V\cap U)$. Es un morfismo de espacios localmente anillados cuando $X$ lo es.
+En la situación descrita en el \cref{lema:s07-restriccion-abierto}, $(U,\mathcal O_X|_U)$ es el subespacio localmente anillado abierto determinado por $U$. La inclusión $j\colon U\hookrightarrow X$ induce $j^\sharp\colon \mathcal O_X\to j_*(\mathcal O_X|_U)$; sobre un abierto $V\subseteq X$, el mapa es la restricción $\mathcal O_X(V)\to\mathcal O_X(V\cap U)$. Si $X$ es localmente anillado, este morfismo también lo es: en cada $x\in U$, el mapa de tallos se identifica con la identidad de $\mathcal O_{X,x}$ por el \cref{lema:s07-restriccion-abierto}.
 \end{defi}
 
 \section{Esquemas}
 
 \begin{defi}[Esquema]
 \label{defi:s07-esquema}
-Un esquema es un espacio localmente anillado $(X,\mathcal O_X)$ en el que cada $x$ tiene un abierto $U\ni x$ isomorfo a $(\Spec A,\mathcal O_{\Spec A})$ como espacio localmente anillado, para algún anillo conmutativo $A$. Sus morfismos son los de espacios localmente anillados.
+Un esquema es un espacio localmente anillado $(X,\mathcal O_X)$ donde cada $x$ tiene un abierto $U\ni x$ isomorfo a $\Spec A$ como espacio localmente anillado. El anillo conmutativo $A$ puede depender de $x$. Los morfismos son los de espacios localmente anillados.
 \end{defi}
 
 \begin{obs}
@@ -31,7 +31,9 @@ No hace falta una definición adicional de morfismo de esquemas: es el morfismo 
 
 \begin{ejem}[El espacio afín $\mathbb A_A^n$]
 \label{ejem:s07-espacio-afin-n}
-Para $A$ un anillo conmutativo y $n\geq0$, $\mathbb A_A^n=\Spec A[x_1,\ldots,x_n]$ ya es un esquema afín. Si $A=k$ es algebraicamente cerrado, sus puntos cerrados son los ideales $(x_1-a_1,\ldots,x_n-a_n)$ y se identifican con $k^n$. Para $A=\mathbb Z$, el espacio registra puntos sobre cada primo de $\Spec\mathbb Z$.
+Para $A$ un anillo conmutativo y $n\geq0$, $\mathbb A_A^n=\Spec A[x_1,\ldots,x_n]$ ya es un esquema afín. Si $A=k$ es algebraicamente cerrado, el \cref{teo:s01-nullstellensatz-hilbert-enunciado} identifica sus puntos cerrados $(x_1-a_1,\ldots,x_n-a_n)$ con los puntos de $k^n$.
+
+La construcción es relativa a $A$. El homomorfismo de constantes $A\to A[x_1,\ldots,x_n]$ induce $\mathbb A_A^n\to\Spec A$. En particular, para $A=\mathbb Z$, los puntos sobre un primo de $\mathbb Z$ forman su fibra, en el sentido que se precisará en la \cref{defi:s08-esquema-sobre-anillo-fibra}.
 \end{ejem}
 
 \section{Abiertos afines}
@@ -41,7 +43,7 @@ Para $A$ un anillo conmutativo y $n\geq0$, $\mathbb A_A^n=\Spec A[x_1,\ldots,x_n
 Para $f\in A$, el abierto $D(f)\subseteq\Spec A$, con la gavilla estructural restringida, es isomorfo como espacio localmente anillado a $\Spec A_f$.
 \end{prop}
 \begin{proof}
-El homeomorfismo se obtiene en el \cref{teo:s03-correspondencia-localizaciones} $\Spec A_f\cong D(f)$. En la base común formada por los abiertos $D(fg)$, la gavilla restringida de $\Spec A$ tiene secciones $A_{fg}$, mientras que la gavilla de $\Spec A_f$ tiene secciones $(A_f)_{\bar g}$. Ambos anillos son la $A$-álgebra universal en la que $f$ y $g$ son unidades, de modo que son canónicamente isomorfos. La unicidad del \cref{teo:s05-toda-gavilla-sobre-base-extiende} da el isomorfismo de gavillas y, por consiguiente, de espacios localmente anillados.
+El \cref{coro:s03-inclusion-inducida-identifica-f-d} da el homeomorfismo $\Spec A_f\cong D(f)$. En la base común formada por los abiertos $D(fg)$, la gavilla restringida de $\Spec A$ tiene secciones $A_{fg}$, mientras que la gavilla de $\Spec A_f$ tiene secciones $(A_f)_{\bar g}$. Ambos anillos son la $A$-álgebra universal en la que $f$ y $g$ son unidades, de modo que son canónicamente isomorfos. La unicidad del \cref{teo:s05-toda-gavilla-sobre-base-extiende} da el isomorfismo de gavillas y, por consiguiente, de espacios localmente anillados.
 \end{proof}
 
 \begin{prop}[Todo abierto de un esquema es un esquema]
@@ -59,11 +61,7 @@ Si $V\subseteq X$ es abierto, $(V,\mathcal O_X|_V)$ es el subesquema abierto de 
 
 \begin{obs}
 \label{obs:s07-abiertos-d-f-forman-base}
-El homomorfismo $A\to A_f$ induce, por la \cref{prop:s07-d-f-abierto-afin}, el morfismo
-\[
-\Spec A_f\longrightarrow\Spec A
-\]
-es una inmersión abierta con imagen $D(f)$. Los abiertos $D(f)$ forman una base de abiertos afines en cada esquema afín. En cualquier esquema, cada punto tiene abiertos afines arbitrariamente pequeños: dentro de una carta afín se elige un básico contenido en el abierto dado. Por tanto los abiertos afines forman una base de la topología. El Lema de Comunicación Afín (Vakil, \S5.3), que permite verificar una propiedad en una sola cubierta afín, se enunciará más adelante.
+Por la \cref{prop:s07-d-f-abierto-afin}, el morfismo $\Spec A_f\to\Spec A$ inducido por $A\to A_f$ es una inmersión abierta con imagen $D(f)$. Los abiertos $D(f)$ forman una base de abiertos afines en cada esquema afín. En cualquier esquema, cada punto tiene abiertos afines arbitrariamente pequeños: dentro de una carta afín se elige un básico contenido en el abierto dado. Por tanto los abiertos afines forman una base de la topología. El Lema de Comunicación Afín (Vakil, \S5.3), que permite verificar una propiedad en una sola cubierta afín, se enunciará más adelante.
 \end{obs}
 
 \begin{ejem}[La hipérbola]
@@ -183,7 +181,7 @@ s_i|_{\psi_i^{-1}(W)\cap X_{ij}}=\varphi_{ij}^{\sharp}\bigl(s_j|_{\psi_j^{-1}(W)
 
 \begin{obs}
 \label{obs:s07-condicion-gavilla-pegado}
-Por la propiedad (c) del \cref{teo:s07-lema-pegado}, $\varphi_{ij}$ lleva $\psi_i^{-1}(W)\cap X_{ij}$ sobre $\psi_j^{-1}(W)\cap X_{ji}$. Así, ambos lados de la condición de la \cref{defi:s07-gavilla-estructural-pegado} son secciones sobre el mismo abierto. Además, $\mathcal O_X(W)$ es un subanillo del producto, pues las condiciones son igualdades entre homomorfismos de anillos. Falta verificar que sea una pregavilla y satisfaga los axiomas de gavilla.
+La igualdad de aplicaciones del \cref{sec:s07-paso-1} implica que $\varphi_{ij}$ lleva $\psi_i^{-1}(W)\cap X_{ij}$ sobre $\psi_j^{-1}(W)\cap X_{ji}$. Así, ambos lados de la condición de la \cref{defi:s07-gavilla-estructural-pegado} son secciones sobre el mismo abierto. Además, $\mathcal O_X(W)$ es un subanillo del producto, pues las condiciones son igualdades entre homomorfismos de anillos. Falta verificar que sea una pregavilla y satisfaga los axiomas de gavilla.
 \end{obs}
 
 \begin{prop}
@@ -249,13 +247,13 @@ El espacio $(X,\mathcal O_X)$ es un esquema, y cada $\psi_i\colon X_i\to X$ es u
 \psi_i^\sharp(W)\colon \mathcal O_X(W)\longrightarrow
 \mathcal O_{X_i}(\psi_i^{-1}(W)),\qquad (s_j)_j\longmapsto s_i.
 \]
-Sobre $W=\psi_i(V)$, este mapa es precisamente $\pi_i$. El \cref{lema:s07-proyeccion-coordenada-iso} muestra que ese mapa es un isomorfismo; junto con el homeomorfismo sobre un abierto del \cref{sec:s07-paso-2}, prueba que $\psi_i$ es una inmersión abierta. Las propiedades (a), (b) y (c) ya valían para los conjuntos subyacentes, y la compatibilidad de las coordenadas prueba (c) como igualdad de morfismos: en cada traslape,
+Sobre $W=\psi_i(V)$, este mapa es precisamente $\pi_i$. El \cref{lema:s07-proyeccion-coordenada-iso} muestra que ese mapa es un isomorfismo; junto con el homeomorfismo sobre un abierto del \cref{sec:s07-paso-2}, identifica $X_i$ con el espacio anillado restringido a $\psi_i(X_i)$. Las propiedades (a), (b) y (c) ya valían para los conjuntos subyacentes, y la compatibilidad de las coordenadas prueba (c) como igualdad de morfismos: en cada traslape,
 \[
 (\psi_j\circ\varphi_{ij})^\sharp
 =\varphi_{ij}^\sharp\circ\psi_j^\sharp=\psi_i^\sharp.
 \]
 
-\emph{$X$ es un esquema.} Para $x\in X_i$, el tallo $\mathcal O_{X,\psi_i(x)}$ es isomorfo a $\mathcal O_{X_i,x}$, que es local, pues $\psi_i(X_i)$ es abierto y $\psi_i$ es un isomorfismo sobre su imagen. Así, $X$ es localmente anillado. Los abiertos $\psi_i(X_i)$ cubren $X$. Como cada $X_i$ es un esquema y $\psi_i$ es un isomorfismo sobre su imagen, cada punto de $X$ tiene una base de abiertos afines. Por la \cref{defi:s07-esquema}, queda probada la existencia.
+\emph{$X$ es un esquema.} Para $x\in X_i$, el tallo $\mathcal O_{X,\psi_i(x)}$ es isomorfo a $\mathcal O_{X_i,x}$, que es local, pues $\psi_i(X_i)$ es abierto y $\psi_i$ es un isomorfismo sobre su imagen. Así, $X$ es localmente anillado. Los abiertos $\psi_i(X_i)$ cubren $X$. Como cada $X_i$ es un esquema y $\psi_i$ es un isomorfismo sobre su imagen, cada punto de $X$ tiene una base de abiertos afines. Por la \cref{defi:s07-esquema}, $X$ es un esquema. La identificación de cada $X_i$ con la restricción a su imagen hace que $\psi_i$ sea una inmersión abierta.
 \end{proof}
 
 \subsection{Paso 5: unicidad}

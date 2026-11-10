@@ -1,6 +1,6 @@
 \section{Lo que traemos de la Sesión 7}
 
-\emph{Advertencia. Dos correcciones de la sesión pasada.} El morfismo canónico entre el límite de un diagrama y el producto de sus objetos va del límite al producto: el límite es un cono sobre el diagrama sin flechas y se factoriza por el producto. La gavilla $\mathcal O_X$ del pegado se obtiene, sobre cada abierto, como un límite inverso o proyectivo de anillos. Un límite directo es un colímite sobre un conjunto dirigido; el pegado no es de ese tipo.
+\emph{Advertencia. Dos correcciones de la sesión pasada.} Las proyecciones del límite de un diagrama a sus objetos determinan, por la propiedad universal del producto, un morfismo canónico del límite al producto. La gavilla $\mathcal O_X$ del pegado se obtiene, sobre cada abierto, como un límite inverso o proyectivo de anillos. Un límite directo es un colímite sobre un conjunto dirigido; el pegado no es de ese tipo.
 
 Para los tallos, en cambio, $\mathcal O_{X,x}=\varinjlim_{U\ni x}\mathcal O_X(U)$ es un límite directo o colímite de las restricciones a vecindades cada vez menores.
 
@@ -598,12 +598,22 @@ Por la \cref{obs:s03-cuerpo-residual}, el cuerpo residual de $\mathfrak p$ es
 \[
 \kappa(\mathfrak p)=A_{\mathfrak p}/\mathfrak pA_{\mathfrak p}=\Frac(A/\mathfrak p).
 \]
-En un esquema, $\kappa(x)=\mathcal O_{X,x}/\mathfrak m_x$, y una carta afín conserva este cuerpo. Un homomorfismo $\varphi\colon A\to B$ induce $\Spec\varphi$, dado por $\mathfrak q\mapsto\varphi^{-1}(\mathfrak q)$; véanse el \cref{lema:s01-preimagen-primo} y el \cref{ejer:s02-b-morfismo-anillos-demuestra-1}. Además,
+En un esquema, $\kappa(x)=\mathcal O_{X,x}/\mathfrak m_x$, y una carta afín conserva este cuerpo.
+
+\begin{defi}[Morfismo inducido por un homomorfismo]
+\label{defi:s08-morfismo-inducido-homomorfismo}
+Un homomorfismo $\varphi\colon A\to B$ induce el morfismo de esquemas $\Spec\varphi\colon\Spec B\to\Spec A$ del \cref{teo:s06-todo-morfismo-anillos-b-induce}. En puntos es $\mathfrak q\mapsto\varphi^{-1}(\mathfrak q)$ por el \cref{lema:s01-preimagen-primo}. Es continuo por el \cref{ejer:s02-b-morfismo-anillos-demuestra-1}. El \cref{ejer:s06-b-f-cada-f-0} da
 \[
 (\Spec\varphi)^{-1}(D(f))=D(\varphi(f)).
 \]
+\end{defi}
 
-Una inmersión abierta identifica su fuente con un subesquema abierto de la meta; en particular, es inyectiva en puntos. Las cartas de la \cref{defi:s08-recta-proyectiva} son inmersiones abiertas. Su morfismo estructural se construyó en la \cref{obs:s08-morfismo-estructural}; para sus secciones y su no afinidad, véanse \cref{prop:s08-secciones-proyectiva,coro:s08-proyectiva-no-afin}. El criterio de afinidad y el plano menos el origen se trataron en \cref{prop:s08-propiedades-morfismo-canonico,obs:s08-canonico-identidad-inclusion,prop:s08-secciones-plano-menos-origen,coro:s08-plano-menos-origen-no-afin}.
+\begin{defi}[Inmersión abierta]
+\label{defi:s08-inmersion-abierta}
+Una inmersión abierta $j\colon X\to Y$ identifica $X$ con un subesquema abierto de $Y$, como en la \cref{defi:s07-subesquema-abierto-abierto-afin-inmersion}. Así, $j$ es inyectiva y su imagen es abierta.
+\end{defi}
+
+Las cartas de la \cref{defi:s08-recta-proyectiva} son inmersiones abiertas. Su morfismo estructural se construyó en la \cref{obs:s08-morfismo-estructural}; para sus secciones y su no afinidad, véanse \cref{prop:s08-secciones-proyectiva,coro:s08-proyectiva-no-afin}. El criterio de afinidad y el plano menos el origen se trataron en \cref{prop:s08-propiedades-morfismo-canonico,obs:s08-canonico-identidad-inclusion,prop:s08-secciones-plano-menos-origen,coro:s08-plano-menos-origen-no-afin}.
 
 \begin{defi}[Esquema sobre $A$, morfismo estructural y fibra]
 \label{defi:s08-esquema-sobre-anillo-fibra}
@@ -1175,7 +1185,7 @@ Si $a$ no es unidad, $b$ sí lo es. El mismo argumento, intercambiando las carta
 La cerradura de un punto $K$-racional corta la fibra especial en su reducción. Si $A=k[u]_{(u)}$, se interpreta como el límite cuando $u\to0$. Para $A=\mathbb Z_{(p)}$, con $p$ impar, $1/2=[2:1]$ se reduce a $t=2^{-1}$ en $\mathbb F_p$.
 \end{minipage}
 \end{center}
-\emph{Advertencia.} Para $A=\mathbb Z_{(2)}$, el punto $1/2=[2:1]$ se reduce a $[0:1]=\infty$. Hay que usar un representante con una coordenada unidad: $[1:1/2]$ no sirve.
+\emph{Advertencia.} Para $A=\mathbb Z_{(2)}$, el representante $[2:1]$ de $1/2$ ya está normalizado porque $1$ es unidad. Se reduce a $[0:1]=\infty$. El representante $[1:1/2]$ queda descartado porque $1/2\notin\mathbb Z_{(2)}$.
 
 \subsubsection{Lectura complementaria: el caso \texorpdfstring{$p$}{p}-ádico}
 
