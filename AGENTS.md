@@ -31,6 +31,8 @@ La clase 9c desarrolla las cuatro propiedades básicas. Su presentación actuali
 
 El complemento de S8 y S9 desarrolla el pegado de espacios proyectivos. S8 conserva la prueba con monomios de Laurent y reúne los hechos sobre abiertos básicos, el morfismo estructural, las intersecciones de cartas, la no afinidad y la distinción entre morfismos y funciones en puntos. S9 detalla el plano proyectivo con sus dos diagramas y la prueba general por generadores. Las seis afirmaciones finales se conservan sin demostración en el entorno numerado `afirm`, con etiquetas y referencias automáticas. El complemento usa el borrador de Vakil del 21 de octubre de 2025. NumClases sigue en 9.
 
+La clase 10 inicia la sesión «Morfismos y subesquemas» y completa la correspondencia relativa para morfismos con destino afín, usando el morfismo canónico y la propiedad universal de S8. El esqueleto fija el orden de las seis secciones. La clasificación de subesquemas cerrados de un afín queda como lectura. Los lemas de la inmersión cerrada del cociente y de los puntos con valores en un cuerpo quedan para la tarea final, con las pistas del Beamer.
+
 ## LaTeX y edición
 
 - Español matemático compacto y claro; reproducir todos los diagramas y dibujos matemáticos de las presentaciones, así como las tablas de las fuentes. Los cuadros de demostración «Qué hacemos / Por qué se vale» se integran en prosa, conservando cada paso y su justificación. La fidelidad a los títulos del esqueleto prevalece sobre reducir la cantidad de secciones.
@@ -38,7 +40,7 @@ El complemento de S8 y S9 desarrolla el pegado de espacios proyectivos. S8 conse
 - Para conjuntos explícitos usar `\set{...}` o `\set*{...}`, con `\given` cuando corresponda; no usar llaves y barras manuales para sustituir estos comandos.
 - En la declaración de aplicaciones usar `\colon`, como en `f\colon X\to Y`. Para igualdades definicionales usar `\coloneqq`. Reutilizar los operadores declarados en la plantilla, como `\Hom`, `\aut`, `\gal`, `\Proj` y `\res`. Los dos puntos de coordenadas homogéneas y grados de extensiones conservan su función matemática.
 - Evitar finales de párrafo de apenas palabras cortas mediante ajustes mínimos de redacción. Las fórmulas inline no deben partirse entre líneas. Conservar los ajustes editoriales del proyecto.
-- `NumClases` cuenta únicamente las sesiones numeradas actualmente apuntadas: la introducción o sesión 0 NO cuenta. Con las sesiones 1 a 9 desarrolladas, su valor es 9. Actualizar al añadir una nueva sesión; añadir una parte a una sesión existente no incrementa el total. Las sesiones pendientes no aparecen en el documento.
+- `NumClases` cuenta únicamente las sesiones numeradas actualmente apuntadas: la introducción o sesión 0 NO cuenta. Con las sesiones 1 a 10 desarrolladas, su valor es 10. Actualizar al añadir una nueva sesión; añadir una parte a una sesión existente no incrementa el total. Las sesiones pendientes no aparecen en el documento.
 - Conservar los estilos aprobados de portada, TOC, Introducción, referencias y ejercicios; no cambiarlos para incorporar contenido.
 
 ## Revisión y entrega

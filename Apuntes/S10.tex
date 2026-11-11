@@ -1,0 +1,543 @@
+\section{Dónde quedamos}
+\label{sec:s10-donde-quedamos}
+
+El \cref{teo:s06-plena-fidelidad} identifica los morfismos entre afines con homomorfismos de anillos. En la 8b construimos el morfismo canónico \(\eta_X\) y enunciamos la correspondencia para un esquema cualquiera con destino afín. La Tarea 3, ejercicio 7.5, la demuestra. Para el conteo de puntos en la 8c, los primos gaussianos en la 9b y las cuatro propiedades de la 9c, véanse los resultados \cref{prop:s08-puntos-cerrados-campo-finito,ejem:s09-enteros-gaussianos,obs:s09-cuatro-propiedades}. En el \cref{sec:s10-antecedentes} reunimos las herramientas de la sesión.
+
+\begin{obs}[Qué buscamos hoy]
+\label{obs:s10-objetivos}
+Los morfismos hacia un afín se leen en los anillos. Sobre una base \(A\), esta correspondencia identifica los morfismos de \(A\)-esquemas con homomorfismos de \(A\)-álgebras.
+\begin{enumerate}
+\item \textbf{Esquemas sobre una base.} Demostraremos la correspondencia relativa para los morfismos a \(\Spec B\).
+\item \textbf{Subesquemas.} El cociente \(A\to A/I\) da el modelo de una inmersión cerrada.
+\item \textbf{Puntos con valores en un cuerpo.} Un morfismo \(\Spec K\to X\) queda determinado por su imagen \(x\) y un homomorfismo \(\kappa(x)\to K\).
+\item \textbf{Finitud.} Estudiaremos morfismos afines, finitos y de tipo finito mediante los anillos de los abiertos afines.
+\end{enumerate}
+El ejemplo aritmético es el círculo \(x^2+y^2=1\) sobre \(\mathbb Z\) y sus puntos con valores en \(\mathbb F_p\).
+\end{obs}
+
+\section{Lo que se usa hoy}
+\label{sec:s10-antecedentes}
+
+Los anillos son conmutativos con unidad y los homomorfismos preservan \(1\). En esta sesión se cita \emph{The Rising Sea}, de Vakil, en el borrador del 21 de octubre de 2025, y \emph{Algebraic Geometry and Arithmetic Curves}, de Liu (Oxford, 2002). En los localizadores de Liu se antepone el capítulo al número impreso. Por ejemplo, la proposición 2.3.25 es la proposición 3.25 del capítulo 2, \S3.
+
+\subsection{Gavillas, tallos y espacios localmente anillados}
+
+\begin{defi}[{Gavilla, morfismo de gavillas e imagen directa}]
+\label{defi:s10-gavillas-imagen-directa}
+Recordemos las restricciones \(s\mapsto s|_V\) de una pregavilla y los axiomas de identidad (G1) y pegado (G2) de una gavilla, en \cref{defi:s04-pregavilla,defi:s04-gavilla}. Los morfismos \(\alpha\colon\mathcal F\to\mathcal G\) conmutan con las restricciones, como en \cref{defi:s04-morfismo-pregavillas}. Si \(f\colon X\to Y\) es continua, la imagen directa \(f_*\mathcal F\) es la gavilla dada por \((f_*\mathcal F)(V)=\mathcal F(f^{-1}(V))\) con las restricciones de \(\mathcal F\), como en \cref{defi:s07-imagen-directa}. \emph{[Vakil, 2.2.2 y 2.2.6.]}
+\end{defi}
+
+\begin{defi}[{Germen, tallo y morfismo en tallos}]
+\label{defi:s10-germen-tallo-morfismo}
+El germen \(s_x\) es la clase de \((U,s)\) en el tallo \(\mathcal F_x\) de \cref{defi:s04-tallo}. Restringir a un abierto \(V\subseteq U\) que contiene a \(x\) deja el mismo germen. Un morfismo de gavillas induce \(\alpha_x\colon\mathcal F_x\to\mathcal G_x\), dado por \(s_x\mapsto\alpha_U(s)_x\), según \cref{prop:s04-morfismo-induce-mapas-tallos}. Para \(f\colon X\to Y\) continua y \(f^\sharp\colon\mathcal O_Y\to f_*\mathcal O_X\), el morfismo de \cref{defi:s06-morfismo-espacios-anillados} induce
+\[
+ f_x^\sharp\colon\mathcal O_{Y,f(x)}\longrightarrow\mathcal O_{X,x},
+ \qquad s_{f(x)}\longmapsto\bigl(f_V^\sharp(s)\bigr)_x,
+ \qquad s\in\mathcal O_Y(V),\quad f(x)\in V.
+\]
+La compatibilidad con las restricciones y \(x\in f^{-1}(V)\) garantizan que la fórmula está bien definida. \emph{[Vakil, 2.2.3--2.2.5 y ej.~7.2.E.]}
+\end{defi}
+
+\begin{defi}[{Anillo local, homomorfismo local y cuerpo residual}]
+\label{defi:s10-local-residual}
+Un anillo local \(R\) tiene un único ideal máximo \(\mathfrak m\), y sus unidades son los elementos fuera de \(\mathfrak m\). Un homomorfismo \(\phi\colon R\to S\) entre anillos locales es local si \(\phi(\mathfrak m)\subseteq\mathfrak n\), o equivalentemente \(\phi^{-1}(\mathfrak n)=\mathfrak m\). La otra contención sigue de que \(\phi\) preserva las unidades, como en \cref{obs:s06-contencion-f-x-1-m}. Así se induce \(R/\mathfrak m\to S/\mathfrak n\), \(\bar a\mapsto\overline{\phi(a)}\), entre los cuerpos residuales. \emph{[Vakil, 7.3.1 y ej.~7.3.A.]}
+\end{defi}
+
+\begin{defi}[Espacio localmente anillado y sus morfismos]
+\label{defi:s10-espacio-localmente-anillado}
+En un espacio anillado \((X,\mathcal O_X)\), la condición de ser localmente anillado pide que cada tallo sea local. Para \(x\in U\) y \(s\in\mathcal O_X(U)\), el valor \(s(x)\) es la clase de \(s_x\) en \(\kappa(x)=\mathcal O_{X,x}/\mathfrak m_x\). Los morfismos \((f,f^\sharp)\) de espacios localmente anillados son los morfismos de espacios anillados con cada \(f_x^\sharp\) local, como en \cref{defi:s06-morfismo-espacios-anillados,defi:s06-morfismo-espacios-localmente-anillados}. Si \(h\colon Y\to Z\) es otro morfismo, para \(W\subseteq Z\) abierto se tiene
+\[
+ (h\circ f)_W^\sharp=f_{h^{-1}(W)}^\sharp\circ h_W^\sharp,
+ \qquad (h\circ f)_x^\sharp=f_x^\sharp\circ h_{f(x)}^\sharp.
+\]
+La composición de homomorfismos locales es local. \emph{[Vakil, 4.3.6, 4.3.7, 7.2.1 y 7.3.1. Liu, def.~2.2.20.]}
+\end{defi}
+
+\subsection{Esquemas, abiertos y morfismos de esquemas afines}
+
+\begin{defi}[{Espectro, cerrados, abiertos básicos y tallos}]
+\label{defi:s10-espectro-basicos-tallos}
+En \(\Spec A\), los cerrados \(V(I)\) son los primos que contienen a \(I\), y los básicos \(D(f)\) son los primos que omiten a \(f\). Recordemos de \cref{defi:s01-espectro-primo,defi:s02-s-definimos-v-s-p,defi:s02-f-abierto-distinguido-asociado-f,coro:s05-gavilla-estructural} que \(\mathcal O(D(f))=A_f\) y \(\mathcal O_{\mathfrak p}=A_{\mathfrak p}\). El germen de \(a\in A\) es \(a/1\) y su valor es la clase de \(a/1\) en \(\kappa(\mathfrak p)=A_{\mathfrak p}/\mathfrak p A_{\mathfrak p}\). Para \(\mathfrak m\) máximo se tiene \(\kappa(\mathfrak m)\cong A/\mathfrak m\). \emph{[Vakil, 3.4.1 y ej.~4.1.E.]}
+\end{defi}
+
+\begin{defi}[{Álgebras, anillos reducidos y espacios cuasicompactos}]
+\label{defi:s10-algebras-reducidos-cuasicompactos}
+Una \(A\)-álgebra es un anillo \(B\) con un homomorfismo \(\alpha\colon A\to B\). Un homomorfismo de \(A\)-álgebras \((B,\alpha)\to(C,\gamma)\) es un homomorfismo de anillos \(\beta\colon B\to C\) con \(\beta\circ\alpha=\gamma\). Un anillo es reducido si su único nilpotente es cero, y un esquema es reducido si cada tallo lo es, como en \cref{defi:s09-esquema-reducido}. Un espacio es cuasicompacto si cada cubrimiento abierto admite un subcubrimiento finito. \emph{[Vakil, ej.~1.2.D y 5.2.1.]}
+\end{defi}
+
+\begin{defi}[{Esquema, subesquema abierto y abierto afín}]
+\label{defi:s10-esquema-abiertos}
+Recordemos las \cref{defi:s06-esquema-afin,defi:s07-esquema,defi:s07-subesquema-abierto-abierto-afin-inmersion}. Para \(U\subseteq X\) abierto, la inclusión \(j_U\colon U\to X\) del subesquema con gavilla \(\mathcal O_X|_U\) induce las restricciones \(\mathcal O_X(V)\to\mathcal O_X(V\cap U)\) y la identidad en tallos. Escribimos \(\Gamma(X,\mathcal O_X)=\mathcal O_X(X)\) y \(r_W^U\colon\mathcal O_X(U)\to\mathcal O_X(W)\) para \(W\subseteq U\) abierto. Los \(D(f)\cong\Spec A_f\) son afines y, en cualquier esquema, los abiertos afines forman una base. En particular, los afines contenidos en un abierto lo cubren. \emph{[Vakil, 4.3.4 y ej.~4.3.D.]}
+\end{defi}
+
+\begin{prop}[El morfismo inducido por un homomorfismo]
+\label{prop:s10-morfismo-inducido}
+Para \(\phi\colon A\to B\), el morfismo \(\Spec\phi\colon\Spec B\to\Spec A\) de \cref{teo:s06-todo-morfismo-anillos-b-induce,ejer:s06-funtorialidad} satisface lo siguiente.
+\begin{enumerate}[label=(\alph*)]
+\item En puntos envía \(\mathfrak q\mapsto\phi^{-1}(\mathfrak q)\), y \((\Spec\phi)^{-1}(D(f))=D(\phi(f))\).
+\item En básicos induce \(A_f\to B_{\phi(f)}\), \(a/f^n\mapsto\phi(a)/\phi(f)^n\). Con \(f=1\), se recupera \(\phi\).
+\item Si \(\mathfrak p=\phi^{-1}(\mathfrak q)\), el mapa en tallos \(A_{\mathfrak p}\to B_{\mathfrak q}\), \(a/s\mapsto\phi(a)/\phi(s)\), es local.
+\item \(\Spec(\id_A)=\id_{\Spec A}\) y \(\Spec(\psi\circ\phi)=\Spec\phi\circ\Spec\psi\) para homomorfismos componibles.
+\end{enumerate}
+\emph{[Vakil, 3.2.M y ejs.~7.2.F y 7.3.C. Liu, prop.~2.3.14.]}
+\end{prop}
+
+\begin{teo}[Plena fidelidad de \(\Spec\)]
+\label{teo:s10-plena-fidelidad}
+Por \cref{teo:s06-plena-fidelidad}, \(\phi\mapsto\Spec\phi\) es una biyección de \(\Hom_{\mathbf{Ring}}(A,B)\) en los morfismos de espacios localmente anillados \(\Spec B\to\Spec A\). Su inversa envía \(g\) a \(g_{\Spec A}^\sharp\colon A\to B\), la componente en secciones globales. \emph{[Vakil, prop.~clave 7.3.2 y ej.~7.3.E. Liu, lema~2.3.23.]}
+\end{teo}
+
+\begin{lema}[Un morfismo con imagen en un abierto]
+\label{lema:s10-factorizacion-abierto}
+Si \(g\colon Z\to X\) tiene imagen en un abierto \(U\subseteq X\), existe un único \(g'\colon Z\to U\) con \(j_U\circ g'=g\). En puntos se obtiene por correstricción, y los mapas en tallos coinciden. En efecto, para \(V\subseteq U\) abierto, \(V\) también es abierto de \(X\) y \((g')_V^\sharp=g_V^\sharp\). \emph{[\Cref{ejer:s07-restriccion-morfismo-abierto}. Liu, ej.~2.2.12.]}
+\end{lema}
+
+\begin{lema}[Los morfismos se pegan]
+\label{lema:s10-pegado-morfismos}
+Si \(X=\bigcup_i U_i\) y los morfismos \(g_i\colon U_i\to Y\) coinciden al restringirlos a cada \(U_i\cap U_j\), existe un único \(g\colon X\to Y\) con \(g|_{U_i}=g_i\). Aquí \(g|_W\) denota \(g\circ j_W\). En particular, la igualdad de morfismos se puede verificar sobre una cubierta del dominio. Véase \cref{obs:s07-dar-morfismo-x-equivale-dar}. \emph{[Vakil, ejs.~7.2.A y 7.3.B. Liu, ej.~2.2.11.]}
+\end{lema}
+
+\begin{defi}[El morfismo canónico de la 8b]
+\label{defi:s10-canonico-ocho}
+Sea \(R=\Gamma(X,\mathcal O_X)\). En la \cref{defi:s08-morfismo-canonico} se construyó \(\eta_X\colon X\to\Spec R\) enviando \(x\) al núcleo de la evaluación \(R\to\kappa(x)\). Se tiene \(\eta_X^{-1}(D(f))=X_f=\set{x\in X\given f(x)\ne0}\). En ese básico se envía \(a/f^n\) a \(a|_{X_f}/(f|_{X_f})^n\). La componente global es \(\id_R\), según \cref{prop:s08-propiedades-morfismo-canonico}(a). \emph{[Vakil, ej.~esencial 7.3.G. Liu, prop.~2.3.25.]}
+\end{defi}
+
+\subsection{Resultados de las clases 8b, 8c y 9b}
+
+\begin{prop}[Las funciones globales de la recta proyectiva]
+\label{prop:s10-globales-proyectiva}
+Para el morfismo estructural \(\pi\colon\mathbb P_A^1\to\Spec A\) construido en \cref{obs:s08-morfismo-estructural}, la componente global \(A\to\Gamma(\mathbb P_A^1,\mathcal O)\) es un isomorfismo por \cref{prop:s08-secciones-proyectiva}. \emph{[Cf. Vakil, 4.4.8, para \(A\) un cuerpo.]}
+\end{prop}
+
+\begin{defi}[Esquema sobre un anillo y grado de un punto]
+\label{defi:s10-grado-punto}
+Un esquema sobre \(A\) tiene un morfismo estructural \(\pi\colon X\to\Spec A\), como en \cref{defi:s08-esquema-sobre-anillo-fibra}. Si \(A=k\) es un cuerpo, la estructura de \(k\)-álgebra en cada \(\kappa(x)\) es el compuesto
+\[
+ k\xrightarrow{\pi_{\Spec k}^\sharp}\Gamma(X,\mathcal O_X)
+ \longrightarrow\mathcal O_{X,x}\longrightarrow\kappa(x).
+\]
+Si \(\kappa(x)\) es finito sobre \(k\), el grado de \(x\) es \([\kappa(x):k]\). Un punto de grado \(1\) es racional, según \cref{defi:s08-grado-punto}.
+\end{defi}
+
+\begin{prop}[{Los puntos de \(\mathbb P^1_k\) y los de grado \(1\) sobre \(\mathbb F_q\)}]
+\label{prop:s10-puntos-proyectiva}
+Por \cref{prop:s08-puntos-proyectiva-cuerpo}, en la primera carta \(U_0=\Spec k[t]\) de \(\mathbb P^1_k\) están el genérico \((0)\) y los cerrados \((f)\) para \(f\) mónico irreducible, con cuerpo residual \(k[t]/(f)\) y grado \(\deg f\). Fuera de \(U_0\) está \(\infty\), de cuerpo residual \(k\). Para \(k=\mathbb F_q\) hay \(q+1\) puntos de grado \(1\), los \(q\) puntos \((t-a)\) y \(\infty\), como en \cref{prop:s08-puntos-cerrados-campo-finito}.
+\end{prop}
+
+\begin{ejem}[{Los primos de \(\mathbb Z[i]\) sobre cada primo de \(\mathbb Z\)}]
+\label{ejem:s10-primos-gaussianos}
+La evaluación \(t\mapsto i\) identifica \(\mathbb Z[t]/(t^2+1)\) con \(\mathbb Z[i]\). Por \cref{ejem:s09-enteros-gaussianos}, los primos que contienen a \(p\) son los del cociente \(\mathbb F_p[t]/(t^2+1)\). La tabla explicita los ideales y sus cuerpos residuales.
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}llll@{}}
+\hline
+\(p\) & \(t^2+1\) en \(\mathbb F_p[t]\) & Primos que contienen a \(p\) & Cuerpo residual \\
+\hline
+\(2\) & \((t+1)^2\) & \((2,i+1)=(1+i)\) & \(\mathbb F_2\) \\
+\(p\equiv1\pmod 4\) & \((t-c)(t+c)\), \(c^2=-1\) & \((p,i-c)\) y \((p,i+c)\) & \(\mathbb F_p\) en ambos \\
+\(p\equiv3\pmod 4\) & irreducible & \((p)\) & \(\mathbb F_p[t]/(t^2+1)\) \\
+\hline
+\end{tabular}
+\end{center}
+En los ideales de la segunda fila, \(c\) denota un representante entero de la raíz. El último cuerpo tiene \(p^2\) elementos. \emph{[Raíces verificadas en la fuente con PARI/GP para \(p<200\).]}
+\end{ejem}
+
+\subsection{Hechos de álgebra}
+
+\begin{prop}[Hechos de álgebra]
+\label{prop:s10-hechos-algebra}
+Usaremos los siguientes hechos.
+\begin{enumerate}[label=(H\arabic*)]
+\item \emph{Localización.} Para \(S\subseteq B\) multiplicativo, la igualdad de fracciones en \(S^{-1}B\) se caracteriza por
+\[
+ b_1/s_1=b_2/s_2 \quad\Longleftrightarrow\quad
+ u(s_2b_1-s_1b_2)=0\text{ para algún }u\in S.
+\]
+Un homomorfismo que lleva \(S\) a unidades se factoriza de manera única por \(B\to S^{-1}B\). Si \(\mathfrak q\) es primo, \(B_{\mathfrak q}\) es local con máximo \(\mathfrak q B_{\mathfrak q}\), y \(b/1\) pertenece a ese máximo si y solo si \(b\in\mathfrak q\). Véanse \cref{defi:s03-localizacion,prop:s03-propiedad-universal-localizacion,prop:s03-p-anillo-p-local-unico}. \emph{[Vakil, 1.2.3 y ejs.~1.2.D y 4.1.E.]}
+\item \emph{Cocientes.} Si \(q\colon A\to A/I\) es el cociente, \(P\mapsto q^{-1}(P)\) identifica \(\Spec(A/I)\) con los primos de \(A\) que contienen a \(I\), preservando la inclusión. La inversa es \(\mathfrak p\mapsto\mathfrak p/I\), según \cref{prop:s08-primos-cociente}. \emph{[Vakil, ej.~3.2.J.]}
+\item \emph{Núcleos.} Un homomorfismo a un cuerpo tiene núcleo primo y todo homomorfismo de cuerpos es inyectivo.
+\item \emph{El anillo \(\mathbb Z\).} Para cada anillo \(B\) hay un único homomorfismo \(\mathbb Z\to B\), dado por \(n\mapsto n\cdot 1\).
+\item \emph{Polinomios y cocientes.} Cada \(b\in B^n\) determina la única evaluación
+\[
+ \mathbb Z[t_1,\ldots,t_n]\longrightarrow B,\qquad h\longmapsto h(b).
+\]
+Si \(B\) es una \(A\)-álgebra, la evaluación \(A[t_1,\ldots,t_n]\to B\) es el único homomorfismo de \(A\)-álgebras que manda \(t_i\) a \(b_i\). Un mapa \(A\to B\) se factoriza de manera única por \(A/I\) si y solo si se anula en \(I\).
+\end{enumerate}
+\end{prop}
+\begin{proof}[Demostración (lectura)]
+Para (H1) y (H2) se aplican las referencias indicadas. En (H3), el producto de dos elementos no nulos de un cuerpo es no nulo y un cuerpo solo tiene un ideal propio. Para (H4), preservar \(1\) determina la imagen de cada entero. En (H5), las imágenes de los generadores y de los coeficientes determinan la evaluación. El mapa \(a+I\mapsto\phi(a)\) está bien definido precisamente cuando \(I\subseteq\ker\phi\).
+\end{proof}
+
+\section{Morfismos de esquemas y morfismos a un esquema afín}
+\label{sec:s10-morfismos}
+
+\subsection{Morfismos de esquemas}
+
+\begin{defi}[Morfismo de esquemas]
+\label{defi:s10-morfismo-esquemas}
+Un morfismo de esquemas \(g\colon X\to Y\) es un morfismo de espacios localmente anillados. Consta de la aplicación continua \(g\) y de los homomorfismos
+\[
+ g_V^\sharp\colon\mathcal O_Y(V)\longrightarrow\mathcal O_X(g^{-1}(V)),
+ \qquad V\subseteq Y\text{ abierto},
+\]
+compatibles con las restricciones y locales en tallos. Esto último equivale a que, si \(s\) se anula en \(g(x)\), entonces \(g_V^\sharp(s)\) se anula en \(x\). Un isomorfismo tiene inverso para la composición. \emph{[Vakil, 7.3.3. Liu, def.~2.3.13. Tarea 3, ej.~7.2.]}
+\end{defi}
+
+\begin{ejem}[Los primeros morfismos]
+\label{ejem:s10-primeros-morfismos}
+\begin{enumerate}[label=(\alph*)]
+\item \(\Spec\phi\colon\Spec B\to\Spec A\) para \(\phi\colon A\to B\), como en \cref{prop:s10-morfismo-inducido}. La inclusión \(\mathbb Z\to\mathbb Z[i]\) induce \(P\mapsto P\cap\mathbb Z\).
+\item La inclusión \(j_U\colon U\to X\) de \cref{defi:s10-esquema-abiertos}.
+\item El morfismo estructural \(\pi\colon\mathbb P^1_A\to\Spec A\) de \cref{obs:s08-morfismo-estructural}.
+\end{enumerate}
+\end{ejem}
+
+\begin{obs}[Por qué se pide que el morfismo en tallos sea local]
+\label{obs:s10-localidad-necesaria}
+Sea \(k\) un cuerpo. En \(\Spec k[y]_{(y)}\) hay dos puntos, \((0)\) y \((y)\). Enviemos el único punto de \(\Spec k(x)\) a \((y)\) y tomemos en secciones globales \(k[y]_{(y)}\to k(x)\), \(y\mapsto x\). Este homomorfismo existe porque todo polinomio fuera de \((y)\) se evalúa en un elemento no nulo de \(k(x)\). Sobre \(D(y)=\set{(0)}\) la preimagen es vacía y la componente de la gavilla es el homomorfismo al anillo cero. Se obtiene así un morfismo de espacios anillados. El único entorno abierto de \((y)\) es todo el espectro, así que en el tallo el mapa vuelve a enviar \(y\), del ideal máximo, a la unidad \(x\). La condición de localidad falla. \emph{[Vakil, ej.~7.2.G.]}
+\end{obs}
+
+\begin{defi}[Componente global y restricción]
+\label{defi:s10-componente-global}
+Para \(g\colon X\to Y\) escribimos
+\[
+ \Gamma(g)\coloneqq g_Y^\sharp\colon\Gamma(Y,\mathcal O_Y)\longrightarrow\Gamma(X,\mathcal O_X).
+\]
+Si \(W\subseteq X\) es abierto, \(g|_W\coloneqq g\circ j_W\) y \(r_W\) denota \(\Gamma(X,\mathcal O_X)\to\mathcal O_X(W)\). \emph{[Liu, \S2.3.2, diagrama (3.3).]}
+\end{defi}
+
+\begin{lema}[Reglas de la componente global]
+\label{lema:s10-reglas-globales}
+Sean \(g\colon X\to Y\) y \(h\colon Y\to Z\) morfismos de esquemas y \(W'\subseteq W\subseteq X\) abiertos.
+\begin{enumerate}[label=(\alph*)]
+\item \(\Gamma(h\circ g)=\Gamma(g)\circ\Gamma(h)\) y \(\Gamma(\id_X)=\id\). Si \(g\) es un isomorfismo, también lo es \(\Gamma(g)\).
+\item \(\Gamma(j_W)=r_W\) y \(\Gamma(g|_W)=r_W\circ\Gamma(g)\).
+\item \((g|_W)|_{W'}=g|_{W'}\).
+\end{enumerate}
+\emph{[Cf. Liu, \S2.3.2, diagrama (3.4).]}
+\end{lema}
+\begin{proof}[Demostración (lectura)]
+La fórmula de composición de \cref{defi:s10-espacio-localmente-anillado}, evaluada en el abierto total, da (a). Para (b) se aplica a la inclusión, cuyo mapa global es la restricción. Las inclusiones de abiertos componen, lo que da (c).
+\end{proof}
+
+\begin{lema}[El caso afín]
+\label{lema:s10-caso-afin}
+Si \(U\) es un esquema afín y \(A\) un anillo, la función
+\[
+ \rho_U\colon\Hom(U,\Spec A)\longrightarrow
+ \Hom_{\mathbf{Ring}}(A,\Gamma(U,\mathcal O_U)),\qquad
+ g\longmapsto\Gamma(g),
+\]
+es una biyección. \emph{[Liu, lema~2.3.23. \Cref{teo:s06-plena-fidelidad}.]}
+\end{lema}
+\begin{proof}[Demostración (lectura)]
+Para \(U=\Spec B\) es \cref{teo:s10-plena-fidelidad}. Un isomorfismo \(\theta\colon\Spec B\to U\) transporta esa biyección mediante \(g\mapsto g\circ\theta\) y \(\Gamma(g)\mapsto\Gamma(\theta)\circ\Gamma(g)\). Estas reglas son compatibles por \cref{lema:s10-reglas-globales}.
+\end{proof}
+
+\subsection{El teorema de la 8b}
+
+\begin{teo}[El teorema de la 8b]
+\label{teo:s10-morfismos-destino-afin}
+Para todo esquema \(X\) y todo anillo \(A\), la función
+\[
+ \rho_X\colon\Hom(X,\Spec A)\longrightarrow
+ \Hom_{\mathbf{Ring}}(A,\Gamma(X,\mathcal O_X)),\qquad
+ g\longmapsto\Gamma(g),
+\]
+es una biyección. Es natural en \(X\): si \(h\colon X'\to X\), se tiene \(\rho_{X'}(g\circ h)=\Gamma(h)\circ\rho_X(g)\). \emph{[\Cref{prop:s08-propiedades-morfismo-canonico}(b). Tarea 3, ej.~7.5. Vakil, ej.~esencial 7.3.G. Liu, prop.~2.3.25.]}
+\end{teo}
+
+\emph{Idea de la demostración del ejercicio 7.5.} Dado \(\varphi\colon A\to\Gamma(X,\mathcal O_X)\), se restringe a cada abierto de una cubierta afín \(X=\bigcup_i U_i\). El \cref{lema:s10-caso-afin} da un morfismo en cada \(U_i\). En un traslape, ambos morfismos coinciden al restringirlos a los afines contenidos en él, pues en cada uno inducen la misma restricción de \(\varphi\) por \cref{lema:s10-reglas-globales}. El \cref{lema:s10-pegado-morfismos} da el morfismo global. Sus secciones globales inducen \(\varphi\) porque coinciden en la cubierta. Si \(\Gamma(g)=\Gamma(h)\), las restricciones a cada \(U_i\) tienen la misma componente global y, por el caso afín, son iguales. La unicidad del pegado da \(g=h\). La naturalidad es la regla de composición de \cref{lema:s10-reglas-globales}.
+
+\begin{coro}[El morfismo canónico]
+\label{coro:s10-factorizacion-canonica}
+Todo \(g\colon X\to\Spec A\) se escribe \(g=\Spec(\Gamma(g))\circ\eta_X\), con \(\eta_X\) de \cref{defi:s08-morfismo-canonico}. Si \(A=\Gamma(X,\mathcal O_X)\), \(\eta_X\) es el único morfismo a \(\Spec A\) que induce la identidad. \emph{[Vakil, ej.~esencial 7.3.G.]}
+\end{coro}
+\begin{proof}[Demostración (lectura)]
+Es \cref{prop:s08-propiedades-morfismo-canonico}(a)--(b). La composición indicada tiene componente global \(\Gamma(g)\), y la unicidad se lee en \cref{teo:s10-morfismos-destino-afin}.
+\end{proof}
+
+\begin{ejem}[Los morfismos que salen de la recta proyectiva]
+\label{ejem:s10-proyectiva-destino-afin}
+Para anillos \(A\) y \(B\), los morfismos \(\mathbb P^1_A\to\Spec B\) corresponden a los homomorfismos \(B\to A\). Cada uno se factoriza como
+\[
+ \mathbb P^1_A\xrightarrow{\pi}\Spec A\longrightarrow\Spec B.
+\]
+El \cref{teo:s10-morfismos-destino-afin} da la correspondencia al identificar \(\Gamma(\mathbb P_A^1,\mathcal O)\) con \(A\) por \(\Gamma(\pi)\), como en \cref{prop:s10-globales-proyectiva}. Por la regla de composición, el morfismo obtenido del homomorfismo \(B\to A\) tiene esa factorización. Así, aun con fibras que contienen varios puntos, todo morfismo de \(\mathbb P^1_A\) a un afín pasa por su base.
+\end{ejem}
+
+
+\section{Esquemas sobre una base}
+\label{sec:s10-esquemas-base}
+
+\subsection{\texorpdfstring{\(S\)}{S}-esquemas}
+
+\begin{defi}[\(S\)-esquema y morfismo de \(S\)-esquemas]
+\label{defi:s10-esquema-s}
+Fijemos un esquema \(S\). Un \(S\)-esquema es un esquema \(X\) junto con su morfismo estructural \(\pi_X\colon X\to S\). Un morfismo de \(S\)-esquemas de \((X,\pi_X)\) a \((Y,\pi_Y)\) es un morfismo de esquemas \(g\colon X\to Y\) que satisface \(\pi_Y\circ g=\pi_X\). El triángulo de los morfismos estructurales conmuta:
+\[
+\begin{tikzcd}[column sep=small]
+ X \arrow[rr,"g"] \arrow[dr,"\pi_X"'] && Y \arrow[dl,"\pi_Y"] \\
+ & S &
+\end{tikzcd}
+\]
+Si \(S=\Spec A\) decimos \(A\)-esquema, en particular \(k\)-esquema para un cuerpo \(k\) y \(\mathbb Z\)-esquema para \(A=\mathbb Z\). Cada abierto \(U\subseteq X\) de un \(A\)-esquema tiene un anillo de secciones \(\mathcal O_X(U)\) que es \(A\)-álgebra por \(r_U\circ\Gamma(\pi_X)\colon A\to\mathcal O_X(U)\). \emph{[Vakil, 7.3.7. Liu, def.~2.3.21. \Cref{defi:s08-esquema-sobre-anillo-fibra}.]}
+\end{defi}
+
+\begin{ejem}[Primeros \(S\)-esquemas]
+\label{ejem:s10-primeros-s-esquemas}
+El espacio afín \(\mathbb A^n_A=\Spec A[t_1,\ldots,t_n]\) es un \(A\)-esquema por el \(\Spec\) de la inclusión de \(A\), y \(\mathbb P^1_A\) lo es por su morfismo estructural \(\pi\). Toda \(A\)-álgebra \(\alpha\colon A\to B\) da el \(A\)-esquema \((\Spec B,\Spec\alpha)\). Así, \(\Spec\mathbb Z[i]\) y \(\Spec\mathbb F_p\) son \(\mathbb Z\)-esquemas. Una extensión de cuerpos \(K/k\) da el \(k\)-esquema \(\Spec K\). \emph{[Liu, ej.~2.3.22.]}
+\end{ejem}
+
+\begin{prop}[Tarea 3, ejercicio 7.6]
+\label{prop:s10-spec-z-final}
+Todo esquema tiene un único morfismo a \(\Spec\mathbb Z\). Por tanto tiene una única estructura de \(\mathbb Z\)-esquema y cada morfismo de esquemas respeta esas estructuras. \emph{[Liu, ej.~2.3.27. Vakil, ej.~7.3.J.]}
+\end{prop}
+Por el \cref{teo:s10-morfismos-destino-afin} y (H4) de \cref{prop:s10-hechos-algebra}, hay un único morfismo \(X\to\Spec\mathbb Z\). Al componer por cualquier \(g\colon X\to Y\), la unicidad hace conmutar el triángulo sobre \(\Spec\mathbb Z\). Este es el contenido de la Tarea 3, ejercicio 7.6.
+
+\begin{lema}[La demostración completa de la clase]
+\label{lema:s10-morfismos-a-esquemas}
+Sea \(X\) un \(A\)-esquema con morfismo estructural \(\pi\colon X\to\Spec A\), y sea \(\alpha\colon A\to B\) una \(A\)-álgebra. Se da a \(\Gamma(X,\mathcal O_X)\) la estructura de \(A\)-álgebra por \(\Gamma(\pi)\) y a \(\Spec B\) la de \(A\)-esquema por \(\Spec\alpha\). Entonces \(g\mapsto\Gamma(g)\) es una biyección entre los morfismos de \(A\)-esquemas \(X\to\Spec B\) y los homomorfismos de \(A\)-álgebras \(B\to\Gamma(X,\mathcal O_X)\). En particular, para \(C\) una \(A\)-álgebra, los morfismos de \(A\)-esquemas \(\Spec C\to\Spec B\) son los \(\Spec\beta\) con \(\beta\colon B\to C\) un homomorfismo de \(A\)-álgebras. \emph{[Liu, cor.~2.3.26. Vakil, 7.3.7 y ej.~7.3.I.]}
+\end{lema}
+\begin{proof}
+Por el \cref{teo:s10-morfismos-destino-afin}, \(g\mapsto\Gamma(g)\) es una biyección entre los morfismos de esquemas \(X\to\Spec B\) y los homomorfismos de anillos \(B\to\Gamma(X,\mathcal O_X)\). Al pasar a secciones globales, la composición se invierte por \cref{lema:s10-reglas-globales}.
+
+Como \(\Gamma(\Spec\alpha)=\alpha\) por \cref{prop:s10-morfismo-inducido}, se tiene \(\Gamma(\Spec\alpha\circ g)=\Gamma(g)\circ\alpha\). Tanto \(\Spec\alpha\circ g\) como \(\pi\) tienen destino \(\Spec A\). La inyectividad del \cref{teo:s10-morfismos-destino-afin}, ahora para \(A\), da
+\[
+ \Spec\alpha\circ g=\pi \quad\Longleftrightarrow\quad
+ \Gamma(g)\circ\alpha=\Gamma(\pi).
+\]
+Así, el triángulo de esquemas sobre \(\Spec A\) conmuta exactamente cuando conmuta el triángulo de anillos.
+\[
+\begin{tikzcd}[column sep=small]
+ X \arrow[rr,"g"] \arrow[dr,"\pi"'] && \Spec B \arrow[dl,"\Spec\alpha"] \\
+ & \Spec A &
+\end{tikzcd}
+\qquad
+\begin{tikzcd}[column sep=small]
+ \Gamma(X,\mathcal O_X) && B \arrow[ll,"\Gamma(g)"'] \\
+ & A \arrow[ul,"\Gamma(\pi)"] \arrow[ur,"\alpha"'] &
+\end{tikzcd}
+\]
+La igualdad del lado de los anillos significa que \(\Gamma(g)\) respeta las estructuras de \(A\)-álgebra. La biyección inicial se restringe, pues, a la biyección relativa.
+
+Para \(X=\Spec C\) y \(\pi=\Spec\gamma\), donde \(\gamma\colon A\to C\) es la estructura de \(C\), tenemos \(\Gamma(X,\mathcal O_X)=C\) y \(\Gamma(\pi)=\gamma\). Por plena fidelidad de \(\Spec\), \(g=\Spec(\Gamma(g))\). La condición anterior es entonces \(\beta\circ\alpha=\gamma\) con \(\beta=\Gamma(g)\).
+\end{proof}
+
+\begin{ejem}[Dos lecturas del \cref{lema:s10-morfismos-a-esquemas}]
+\label{ejem:s10-dos-lecturas}
+\begin{enumerate}[label=(\alph*)]
+\item La conjugación \(c\colon\mathbb C\to\mathbb C\) da un endomorfismo de esquemas \(\Spec c\) de \(\Spec\mathbb C\). Con la estructura usual sobre \(\Spec\mathbb C\), ambos morfismos estructurales son la identidad y el triángulo exige \(c=\id_{\mathbb C}\). Pero \(c(i)=-i\ne i\), así que \(c\) no es \(\mathbb C\)-lineal. El esquema de un solo punto tiene al menos los dos endomorfismos \(\id\) y \(\Spec c\).
+\item Los morfismos de \(A\)-esquemas \(\mathbb P^1_A\to\mathbb A^1_A\) corresponden a los elementos de \(A\). En efecto, por \cref{prop:s10-globales-proyectiva,lema:s10-morfismos-a-esquemas} corresponden a los homomorfismos de \(A\)-álgebras \(A[t]\to A\), determinados por \(t\mapsto a\). El morfismo asociado es
+\[
+ \mathbb P^1_A\xrightarrow{\pi}\Spec A\xrightarrow{\Spec(\operatorname{ev}_a)}\mathbb A^1_A,
+ \qquad \operatorname{ev}_a(t)=a.
+\]
+\end{enumerate}
+\emph{[Para (a), Vakil, párrafo tras el ej.~7.3.E.]}
+\end{ejem}
+
+\subsection{Inmersiones abiertas y cerradas}
+
+\begin{defi}[{Inmersión abierta, inmersión cerrada y subesquema cerrado}]
+\label{defi:s10-inmersiones}
+Sea \(X\) un esquema.
+\begin{enumerate}[label=(\alph*)]
+\item Una \emph{inmersión abierta} \(g\colon Y\to X\) tiene imagen abierta y es la composición de un isomorfismo \(Y\to g(Y)\), con el subesquema abierto, y la inclusión \(j_{g(Y)}\). Véase \cref{defi:s07-subesquema-abierto-abierto-afin-inmersion}.
+\item Una \emph{inmersión cerrada} \(g\colon Z\to X\) satisface dos condiciones.
+\begin{enumerate}[label=(\roman*)]
+\item \(g\) es un homeomorfismo sobre un subconjunto cerrado \(g(Z)\subseteq X\).
+\item Para todo \(z\in Z\), \(g_z^\sharp\colon\mathcal O_{X,g(z)}\to\mathcal O_{Z,z}\) es sobreyectivo.
+\end{enumerate}
+\item Un \emph{subesquema cerrado} de \(X\) es un cerrado \(Z\subseteq X\) con una estructura de esquema \((Z,\mathcal O_Z)\) y una inmersión cerrada a \(X\) que en puntos es la inclusión.
+\end{enumerate}
+\emph{[Para (a), Vakil, 7.2.1 y 4.3.4, y Liu, def.~2.2.22. Para (b), Liu, defs.~2.2.22 y 2.3.13. Para (c), Liu, def.~2.3.19, y Vakil, 9.1.1.]}
+\end{defi}
+
+\begin{ejem}[Inmersiones de esquemas afines]
+\label{ejem:s10-inmersiones-afines}
+La inclusión \(D(f)\to\Spec A\) es una inmersión abierta. El \(\Spec\) de \(A\to A_f\) la identifica con \(\Spec A_f\to\Spec A\), según \cref{prop:s07-d-f-abierto-afin}. Por el \cref{lema:s10-inmersion-cociente}, el cociente por \(I\) da una inmersión cerrada con imagen \(V(I)\). Por ejemplo, \(\Spec\mathbb F_p\to\Spec\mathbb Z\) tiene imagen \((p)\), y \(\Spec(k[t]/(t-a))\to\mathbb A^1_k\), para \(a\in k\), tiene imagen \((t-a)\). \emph{[Liu, ej.~2.3.15 y lema~2.3.17.]}
+\end{ejem}
+
+\begin{obs}[El cerrado no determina el subesquema]
+\label{obs:s10-misma-imagen-cerrada}
+Los morfismos de \(\Spec(k[x]/(x))\) y \(\Spec(k[x]/(x^2))\) a \(\mathbb A^1_k\) son inmersiones cerradas con imagen \(\set{(x)}\). El primero tiene como dominio a \(\Spec k\), que es reducido, y el segundo tiene como dominio a \(\Spec(k[\varepsilon]/(\varepsilon^2))\), que tiene un nilpotente no nulo. Por \cref{ejem:s09-numeros-duales}, esos esquemas no son isomorfos. \emph{[Vakil, ej.~9.1.A. Clase 9c, 14:33.]}
+\end{obs}
+
+\begin{obs}[La definición de Vakil]
+\label{obs:s10-definicion-vakil}
+En Vakil, 9.1.1, se pide que para cada abierto afín \(\Spec B\subseteq X\) su preimagen sea un afín \(\Spec C\) con \(B\to C\) sobreyectivo. La equivalencia con \cref{defi:s10-inmersiones}(b) se indica en el ejercicio 9.1.H de Vakil y usa el cálculo de los tallos de la imagen directa en la demostración de Liu, prop.~2.2.24. Usamos la formulación de Liu, en términos de homeomorfismo y tallos.
+\end{obs}
+
+\begin{lema}
+\label{lema:s10-inmersion-cociente}
+Para un ideal \(I\subseteq A\), escribimos \(q\colon A\to A/I\) para el cociente. El morfismo \(\Spec q\colon\Spec(A/I)\to\Spec A\) es una inmersión cerrada con imagen \(V(I)\). \emph{[Liu, lema~2.3.17. Vakil, ej.~3.4.I y párrafo tras el ej.~9.1.D. \Cref{ejer:s01-i-cociente-demuestra-i-inyectivo}.]}
+\end{lema}
+La demostración se completa en el \cref{ejer:s10-inmersion-cociente}.
+
+\subsection{Puntos con valores en un cuerpo}
+
+\begin{defi}[{Puntos con valores en un esquema, en un anillo y en un cuerpo}]
+\label{defi:s10-puntos-valores}
+Un \(T\)-punto de \(X\) es un morfismo \(T\to X\), y \(X(T)\coloneqq\Hom(T,X)\). Para un anillo \(B\), escribimos \(X(B)\coloneqq X(\Spec B)\). Cuando \(B=K\) es un cuerpo, sus elementos se llaman \(K\)-puntos. Si \(X\) y \(T\) son \(S\)-esquemas, se toman los morfismos sobre \(S\). En particular, para un \(k\)-esquema \(X\) y una extensión \(K/k\), \(X(K)\) consta de los morfismos de \(k\)-esquemas \(\Spec K\to X\). \emph{[Vakil, 7.3.10. Liu, defs.~2.3.28 y 3.2.17.]}
+\end{defi}
+
+\begin{ejem}[Un primer conteo]
+\label{ejem:s10-primer-conteo}
+El esquema \(\Spec K\) de un cuerpo tiene un único punto, \((0)\), con tallo y cuerpo residual \(K\). Tomemos \(X=\Spec\mathbb Z[i]\). Por \cref{teo:s10-plena-fidelidad,ejem:s10-primos-gaussianos}, los elementos de \(X(\mathbb F_5)\) corresponden a los homomorfismos \(\mathbb Z[t]/(t^2+1)\to\mathbb F_5\). Por (H5), cada uno manda \(i\) a una raíz de \(t^2+1\) y cada raíz da uno. Las raíces son \(2\) y \(3\), así que hay dos \(\mathbb F_5\)-puntos. \emph{[Cálculo elemental, verificado en la fuente con PARI/GP.]}
+\end{ejem}
+
+\begin{lema}
+\label{lema:s10-puntos-cuerpo-residual}
+Sea \(X\) un esquema, \(K\) un cuerpo y \(*\) el único punto de \(\Spec K\).
+\begin{enumerate}[label=(\alph*)]
+\item Para \(s\colon\Spec K\to X\) y \(x=s(*)\), el homomorfismo local \(s_*^\sharp\colon\mathcal O_{X,x}\to K\) induce \(\iota_s\colon\kappa(x)\to K\). La regla \(s\mapsto(x,\iota_s)\) es una biyección entre \(\Hom(\Spec K,X)\) y los pares \((x,\iota)\) con \(x\in X\) e \(\iota\colon\kappa(x)\to K\) un homomorfismo de cuerpos.
+\item Si \(X\) es un \(k\)-esquema y \(K/k\) una extensión, \(s\) es un morfismo de \(k\)-esquemas si y solo si \(\iota_s\) es un homomorfismo de \(k\)-álgebras. En particular, \(X(k)\) está en biyección con los puntos de \(X\) de grado \(1\) sobre \(k\).
+\end{enumerate}
+\emph{[Vakil, ejs.~7.3.L(b) y 7.3.M. Liu, ejs.~2.3.18 y 2.3.29 y prop.~3.2.18(b).]}
+\end{lema}
+La demostración se completa en el \cref{ejer:s10-puntos-cuerpo-residual}. Para un punto dado \(x\), la segunda componente del par registra la elección del homomorfismo residual.
+
+\subsection{El ejemplo aritmético}
+
+\begin{prop}[Puntos con valores en un álgebra]
+\label{prop:s10-puntos-ecuaciones}
+Sean \(R=\mathbb Z[t_1,\ldots,t_n]/(f_1,\ldots,f_r)\), \(X=\Spec R\) y \(B\) un anillo. La función que a \(g\in X(B)\) asigna \((\Gamma(g)(\bar t_1),\ldots,\Gamma(g)(\bar t_n))\), donde \(\bar t_i\) es la clase de \(t_i\), da una biyección
+\[
+ X(B)\longrightarrow\set*{b\in B^n\given f_1(b)=\cdots=f_r(b)=0}.
+\]
+\emph{[Vakil, 7.3.11. Liu, ej.~2.3.32.]}
+\end{prop}
+Se usa la plena fidelidad para leer \(g\) como un homomorfismo \(R\to B\). Por (H5) de \cref{prop:s10-hechos-algebra}, la evaluación en \(b\) desciende a \(R\) precisamente cuando todas las ecuaciones se anulan en \(b\).
+
+\begin{prop}[{Los \(\mathbb F_p\)-puntos de \(\Spec\mathbb Z[i]\)}]
+\label{prop:s10-gaussianos-fp}
+Para \(X=\Spec\mathbb Z[i]\), el conjunto \(X(\mathbb F_p)\) está en biyección con las raíces de \(t^2+1\) en \(\mathbb F_p\). Hay un elemento para \(p=2\), dos para \(p\equiv1\pmod 4\) y ninguno para \(p\equiv3\pmod 4\). Cada uno tiene imagen en un primo que contiene a \(p\) con cuerpo residual \(\mathbb F_p\), y cada uno de esos primos es la imagen de exactamente un \(\mathbb F_p\)-punto. \emph{[Conteo verificado en la fuente con PARI/GP para \(p<200\).]}
+\end{prop}
+\begin{proof}[Demostración (lectura)]
+Por \cref{prop:s10-puntos-ecuaciones}, basta contar las raíces de \(t^2+1\) en la tabla del \cref{ejem:s10-primos-gaussianos}. Por \cref{lema:s10-puntos-cuerpo-residual}, la imagen debe tener cuerpo residual que se pueda incluir en \(\mathbb F_p\). Esto exige que el primo contenga a \(p\) y que su cuerpo residual sea \(\mathbb F_p\), cuyo único endomorfismo es la identidad.
+\end{proof}
+
+\begin{obs}[Dos \(K\)-puntos sobre un mismo punto]
+\label{obs:s10-dos-puntos-gaussianos}
+Supongamos \(p\equiv3\pmod4\). Tomemos el cuerpo \(K=\mathbb F_p[t]/(t^2+1)\), donde \(\tau\) denota la clase de \(t\). Los \(K\)-puntos de \(\Spec\mathbb Z[i]\) corresponden a \(\tau\) y \(-\tau\), las dos raíces distintas de \(t^2+1\) en \(K\). Ambos tienen como imagen \((p)\): el núcleo de cada evaluación es primo y contiene a \(p\) por la característica de \(K\), y la tabla del \cref{ejem:s10-primos-gaussianos} da un solo primo sobre \(p\). Su cuerpo residual es \(K\), generado por \(\tau\) sobre \(\mathbb F_p\). Las dos inclusiones residuales \(K\to K\) son la identidad y la que envía \(\tau\) a \(-\tau\).
+
+La segunda inclusión es el Frobenius \(y\mapsto y^p\) de \cref{prop:s08-cuerpos-finitos}. En efecto,
+\[
+ \tau^p=\tau(\tau^2)^{(p-1)/2}=\tau(-1)^{(p-1)/2}=-\tau,
+\]
+pues \((p-1)/2\) es impar. Así, los dos \(K\)-puntos se distinguen por su homomorfismo residual. \emph{[Cálculo elemental, verificado en la fuente con PARI/GP para \(p<200\).]}
+\end{obs}
+
+\begin{prop}[Los \(\mathbb F_q\)-puntos de \(\mathbb P^1_{\mathbb F_q}\)]
+\label{prop:s10-proyectiva-fq}
+Si \(q\) es una potencia de un primo \(p\), el conjunto de puntos \(\mathbb P^1_{\mathbb F_q}(\mathbb F_q)\) sobre la base \(\Spec\mathbb F_q\) tiene \(q+1\) elementos. Hay uno por cada punto de grado \(1\): los \((t-a)\) con \(a\in\mathbb F_q\) y el punto \(\infty\). Si \(q=p\), todo morfismo de esquemas \(\Spec\mathbb F_p\to\mathbb P^1_{\mathbb F_p}\) es un morfismo de \(\mathbb F_p\)-esquemas.
+\end{prop}
+\begin{proof}[Demostración (lectura)]
+El conteo resulta de \cref{lema:s10-puntos-cuerpo-residual}(b) y \cref{prop:s10-puntos-proyectiva}. Para \(q=p\), el compuesto del morfismo con la proyección estructural es un endomorfismo de \(\Spec\mathbb F_p\). Por plena fidelidad corresponde al único endomorfismo de anillos de \(\mathbb F_p\), que es la identidad.
+\end{proof}
+
+\begin{obs}[La base sí importa sobre \(\mathbb F_q\)]
+\label{obs:s10-frobenius-no-relativo}
+Para \(q=p^r\) con \(r\ge2\), el Frobenius \(F\colon\mathbb F_q\to\mathbb F_q\), \(y\mapsto y^p\), es un homomorfismo de anillos. Es distinto de la identidad, pues \(y^p=y\) tiene a lo más \(p<q\) soluciones. Si \(s\in\mathbb P^1_{\mathbb F_q}(\mathbb F_q)\), entonces \(\pi\circ s\circ\Spec F=\Spec F\ne\id\). Por ello \(s\circ\Spec F\) es un morfismo de esquemas que no respeta la base \(\Spec\mathbb F_q\). La convención sobre la base determina qué morfismos se cuentan. \emph{[Vakil, 7.3.10. \Cref{prop:s08-cuerpos-finitos}.]}
+\end{obs}
+
+\begin{obs}[Los \(\mathbb F_p\)-puntos del círculo]
+\label{obs:s10-circulo-fp}
+Sea \(C\coloneqq\Spec(\mathbb Z[x,y]/(x^2+y^2-1))\). Por \cref{prop:s10-puntos-ecuaciones}, \(C(\mathbb F_p)\) es el conjunto de soluciones de \(x^2+y^2=1\) en \(\mathbb F_p^2\). Sobre \(\mathbb F_5\) son \((0,\pm1)\) y \((\pm1,0)\), que son las imágenes posibles de \((\bar x,\bar y)\) bajo la evaluación.
+
+Para \(p\) impar, si una solución tiene \(x=-1\), entonces \(y=0\). Las demás están en una única recta \(y=t(x+1)\) por \((-1,0)\), de pendiente \(t=y/(x+1)\). Al sustituir en la ecuación del círculo se obtiene
+\[
+ (x+1)\bigl((1+t^2)x-(1-t^2)\bigr)=0.
+\]
+Para \(1+t^2\ne0\), la recta vuelve a cortar al círculo en
+\[
+ \left(\frac{1-t^2}{1+t^2},\,\frac{2t}{1+t^2}\right).
+\]
+La primera coordenada difiere de \(-1\) porque \(2\ne0\). Para \(1+t^2=0\), el segundo factor vale \(-2\), de modo que solo se obtiene \((-1,0)\). Según el \cref{ejem:s10-primos-gaussianos}, se excluyen dos pendientes si \(p\equiv1\pmod4\) y ninguna si \(p\equiv3\pmod4\). Al sumar \((-1,0)\) queda el conteo
+\[
+ \#C(\mathbb F_p)=
+ \begin{cases}
+  2,&p=2,\\
+  p-1,&p\equiv1\pmod4,\\
+  p+1,&p\equiv3\pmod4.
+ \end{cases}
+\]
+En característica \(2\), \(x^2+y^2-1=(x+y+1)^2\) y \(C(\mathbb F_2)=\set{(1,0),(0,1)}\).
+
+Por \cref{lema:s10-puntos-cuerpo-residual}, cada \(\mathbb F_p\)-punto viene de un punto \(c\) de \(C\) con cuerpo residual \(\mathbb F_p\) y de la única inclusión residual. Un \(c\) con cuerpo residual \(\mathbb F_{p^2}\) da dos \(\mathbb F_{p^2}\)-puntos, correspondientes a la identidad y al Frobenius. Forman una órbita como en \cref{obs:s08-orbitas-frobenius}.
+
+La proyección \(C\to\mathbb A^1_{\mathbb Z}\) inducida por la inclusión de \(\mathbb Z[x]\) es finita en el sentido de \cref{defi:s10-finitud}. La ecuación es mónica de grado dos en \(y\), por lo que su anillo es el \(\mathbb Z[x]\)-módulo libre \(\mathbb Z[x]\oplus\mathbb Z[x]\bar y\). \emph{[Cf. Vakil, 7.5.9, para la recta por \((1,0)\) sobre \(\mathbb Q\). Clase 8c, 43:11, para la órbita de Frobenius. Conteo verificado en las fuentes con Python y PARI/GP para \(p<200\).]}
+\end{obs}
+
+\section{Morfismos afines, finitos y de tipo finito}
+\label{sec:s10-finitud}
+
+\begin{defi}[{Morfismos cuasicompactos, afines, finitos y de tipo finito}]
+\label{defi:s10-finitud}
+Sea \(g\colon X\to Y\) un morfismo de esquemas.
+\begin{enumerate}[label=(\alph*)]
+\item Es \emph{cuasicompacto} si \(g^{-1}(V)\) es cuasicompacto para todo abierto afín \(V\subseteq Y\).
+\item Es \emph{afín} si \(g^{-1}(V)\) es afín para todo abierto afín \(V\subseteq Y\).
+\item Es \emph{finito} si, para todo abierto afín \(V=\Spec B\subseteq Y\), la preimagen \(g^{-1}(V)\) es un afín \(\Spec R\) y \(R\) es un \(B\)-módulo finitamente generado por medio del homomorfismo \(B\to R\) inducido por \(g\).
+\item Es \emph{localmente de tipo finito} si para todo abierto afín \(V=\Spec B\subseteq Y\) y todo abierto afín \(\Spec R\subseteq g^{-1}(V)\), la \(B\)-álgebra \(R\) es finitamente generada. Es \emph{de tipo finito} si además es cuasicompacto.
+\end{enumerate}
+Un \(A\)-esquema es de tipo finito si lo es su morfismo estructural. \emph{[Vakil, 8.3.1, 8.3.3, 8.3.5 y 8.3.9. Liu, def.~3.2.1 y ej.~3.3.15.]}
+\end{defi}
+
+\begin{obs}[Se comprueban en un cubrimiento]
+\label{obs:s10-finitud-cubiertas}
+Las condiciones (b), (c) y (d) de \cref{defi:s10-finitud} se pueden comprobar en una cubierta de \(Y\) por abiertos afines. Por ejemplo, para que \(g\) sea afín basta que las preimágenes de los abiertos de una cubierta afín de \(Y\) sean afines. Para un abierto \(\Spec B\) de esa cubierta, la condición de ser localmente de tipo finito se comprueba con una cubierta de su preimagen por afines \(\Spec R_i\) con \(R_i\) de tipo finito como \(B\)-álgebra. Para tipo finito se requiere, además, la cuasicompacidad de la preimagen, que permite tomar esa cubierta finita. \emph{[Vakil, prop.~8.3.4, ejs.~8.3.F y 8.3.N, y 8.3.9 con prop.~5.3.3(b). Liu, prop.~3.2.2.]}
+\end{obs}
+
+\begin{ejem}[Ejemplos y contraejemplos]
+\label{ejem:s10-ejemplos-finitud}
+\begin{enumerate}[label=(\alph*)]
+\item Todo morfismo \(\Spec R\to\Spec B\) es afín, pues se puede usar \(\Spec B\) como único abierto de la cubierta. Si \(A\ne0\), la preimagen de \(\Spec A\) bajo \(\pi\colon\mathbb P^1_A\to\Spec A\) es \(\mathbb P^1_A\), que no es afín por \cref{coro:s08-proyectiva-no-afin}.
+\item \(\Spec\mathbb Z[i]\to\Spec\mathbb Z\) es finito porque \(\mathbb Z[i]=\mathbb Z\oplus\mathbb Zi\) está generado como módulo por \(1\) e \(i\). También es finito \(\Spec L\to\Spec K\) para una extensión finita \(L/K\), y la proyección del círculo de \cref{obs:s10-circulo-fp}. En cambio, \(\mathbb A^1_k\to\Spec k\) para \(k\) un cuerpo no es finito, pues \(k[t]\) tiene dimensión infinita sobre \(k\).
+\item \(\mathbb A^n_A\to\Spec A\) y \(\mathbb P^n_A\to\Spec A\) son de tipo finito, pues se cubren por un número finito de cartas \(\Spec A[t_1,\ldots,t_n]\). Toda inmersión cerrada es de tipo finito: en cada afín de la base es un cociente por \cref{obs:s10-definicion-vakil}, y su preimagen es afín. El morfismo \(\Spec k[x_1,x_2,\ldots]\to\Spec k\) no es de tipo finito. Todo conjunto finito de polinomios usa un número finito de variables y deja otras fuera de la subálgebra que genera.
+\end{enumerate}
+\emph{[Vakil, 8.3.5 y 8.3.10 y ej.~9.1.B. Liu, prop.~3.2.4(a).]}
+\end{ejem}
+
+\section{Los subesquemas cerrados de un esquema afín (lectura)}
+\label{sec:s10-cerrados-afines}
+
+El modelo del \cref{lema:s10-inmersion-cociente} permite clasificar los subesquemas cerrados de un afín.
+
+\begin{teo}[Subesquemas cerrados de \(\Spec A\)]
+\label{teo:s10-clasificacion-cerrados}
+Si \(j\colon Z\to\Spec A\) es una inmersión cerrada, \(Z\) es afín y existe un único ideal \(J\subseteq A\) tal que \(j\) es la composición de un isomorfismo \(Z\to\Spec(A/J)\) con la inmersión cerrada \(\Spec(A/J)\to\Spec A\). Así, salvo isomorfismo compatible con la inmersión, los subesquemas cerrados de \(\Spec A\) corresponden a los ideales de \(A\). \emph{[Liu, prop.~2.3.20. En Vakil, forma parte de 9.1.1.]}
+\end{teo}
+
+\begin{obs}[El ideal de un subesquema cerrado]
+\label{obs:s10-ideal-cerrado}
+El ideal es \(J=\ker\Gamma(j)\), donde \(\Gamma(j)\colon A\to\Gamma(Z,\mathcal O_Z)\). En \cref{obs:s10-misma-imagen-cerrada}, los ideales son \((x)\) y \((x^2)\), aunque el cerrado subyacente es el mismo. \emph{[Liu, demostración de la prop.~2.3.20.]}
+\end{obs}
+
+\emph{Idea de la demostración (lectura).} Sea \(J\coloneqq\ker\Gamma(j)\). Como \(\Gamma(j)\) se factoriza por \(A/J\), el \cref{teo:s10-morfismos-destino-afin} hace que \(j\) se factorice por \(\Spec(A/J)\to\Spec A\). Para comparar las dos inmersiones, se cubre \(Z\) con finitos afines de la forma \(Z_g=j^{-1}(D(g))\). En efecto, el homeomorfismo sobre un cerrado permite elegir \(D(g)\) cuya preimagen esté contenida en una carta afín de \(Z\); allí \(Z_g\) es un básico. Además, \(Z\) es cuasicompacto por ser homeomorfo a un cerrado de \(\Spec A\). Las intersecciones de esas piezas son básicas en las piezas y por tanto son afines. Con \(\bar g=\Gamma(j)(g)\), la localización de las secciones compatibles de esa cubierta finita da
+\[
+ \Gamma(Z_g,\mathcal O_Z)=\Gamma(Z,\mathcal O_Z)_{\bar g}.
+\]
+Por exactitud de la localización, sobre cada \(D(g)\) las dos inmersiones tienen el mismo ideal núcleo \(J_g\). Fuera de \(j(Z)\), los básicos con preimagen vacía dan la misma fórmula y el ideal unidad. Dos inmersiones cerradas con el mismo núcleo de gavillas se identifican sobre el ambiente. \emph{[Liu, demostración de la prop.~2.3.20, con las props.~2.3.12 y 2.2.24.]}
+
+\subsection*{Lemas de hoy}
+
+Los siguientes ejercicios piden completar las demostraciones de los dos lemas y forman parte de la tarea final del curso.
+
+\begin{ejer}[Ejercicio 3 de la tarea final]
+\label{ejer:s10-inmersion-cociente}
+Demuestra que \(\Spec q\colon\Spec(A/I)\to\Spec A\) es una inmersión cerrada con imagen \(V(I)\), como en \cref{lema:s10-inmersion-cociente}.
+
+\emph{Pista.} Para el homeomorfismo usa el cálculo de la Sesión 1 y de la Tarea 2, ejercicios 1.1 y 1.6, que identifica \(V(J/I)\) con \(V(J)\) para \(J\supseteq I\). En tallos, para \(\mathfrak p\supseteq I\), considera el mapa \(A_{\mathfrak p}\to(A/I)_{\mathfrak p/I}\), \(a/s\mapsto\bar a/\bar s\), y observa que cada fracción del destino tiene representantes en el origen.
+\end{ejer}
+
+\begin{ejer}[Ejercicio 4 de la tarea final]
+\label{ejer:s10-puntos-cuerpo-residual}
+Demuestra la correspondencia del \cref{lema:s10-puntos-cuerpo-residual} entre los \(K\)-puntos y los pares \((x,\iota)\) con \(\iota\colon\kappa(x)\to K\). Para un \(k\)-esquema, comprueba cuándo el morfismo es sobre \(k\) y demuestra la correspondencia de sus \(k\)-puntos con los puntos de grado \(1\).
+
+\emph{Pista.} Como \(\Spec K\) tiene un solo punto, trabaja en cualquier abierto afín \(\Spec A\) que contenga a \(x\). El homomorfismo \(A\to K\) tiene núcleo \(\mathfrak p_x\), y la inclusión \(A/\mathfrak p_x\to K\) se extiende a \(\kappa(x)=\operatorname{Frac}(A/\mathfrak p_x)\). En sentido inverso usa \(A\to\kappa(x)\to K\) y comprueba que la elección del afín es irrelevante mediante el pegado de morfismos. Para la condición sobre \(k\), aplica el \cref{lema:s10-morfismos-a-esquemas} en el afín. Con \(K=k\), examina cuándo la inclusión residual que fija \(k\) es posible.
+\end{ejer}
+
+La Clase 11 usa el \cref{lema:s10-morfismos-a-esquemas} para construir productos fibrados, cambios de base y fibras.

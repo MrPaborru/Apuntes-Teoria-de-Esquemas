@@ -6,7 +6,7 @@ Apuntes personales de **Pablo Jair Aranda Pérez** para el curso de Teoría de E
 
 ## Contenido y estado
 
-El documento incluye la introducción y las **sesiones 1–9**, con materiales incorporados hasta **S9c** y el **complemento de S8 y S9 sobre el espacio proyectivo por pegado de cartas afines**. El programa completo contempla 24 sesiones; las que aún no están apuntadas no aparecen en el PDF.
+El documento incluye la introducción y las **sesiones 1–10**, incluido el **complemento de S8 y S9 sobre el espacio proyectivo por pegado de cartas afines**. El programa completo contempla 24 sesiones; las que aún no están apuntadas no aparecen en el PDF.
 
 | Sesión | Tema |
 | --- | --- |
@@ -20,6 +20,7 @@ El documento incluye la introducción y las **sesiones 1–9**, con materiales i
 | 7 | Definición de esquema y pegado |
 | 8 | Ejemplos globales: plano menos el origen, morfismo canónico, espacios proyectivos y superficies aritméticas |
 | 9 | Valoración discreta, buena reducción y propiedades básicas |
+| 10 | Morfismos y subesquemas |
 
 Cada capítulo corresponde a una sesión. Las clases a, b, c, etc. de una misma sesión se integran en una exposición continua cuando completan argumentos anteriores. Los apuntes conservan los contenidos distintos de los esqueletos y los desarrollos, dibujos y diagramas de las presentaciones.
 
@@ -27,7 +28,9 @@ La sesión 9 reúne **S9a, S9b y S9c**. Incluye valoración discreta y reducció
 
 El complemento desarrolla los pegados del plano proyectivo, las intersecciones de cartas, las secciones y el morfismo estructural. Sus dos diagramas se integran con las cuentas. Las seis afirmaciones finales sobre las propiedades de los espacios proyectivos y sus coordenadas homogéneas se conservan para completar.
 
-El contador de la portada registra las **nueve sesiones numeradas incorporadas**. La introducción se presenta por separado y las partes de cada sesión forman un único capítulo.
+La sesión 10 desarrolla la correspondencia para morfismos de esquemas sobre una base, las inmersiones, los puntos con valores en un cuerpo y las condiciones de finitud. Incluye el conteo de puntos del círculo sobre cuerpos primos finitos, la lectura sobre subesquemas cerrados de un afín y los dos lemas asignados en la tarea final.
+
+El contador de la portada registra las **diez sesiones numeradas incorporadas**. La introducción se presenta por separado y las partes de cada sesión forman un único capítulo.
 
 Este es un documento de estudio en elaboración. Las correcciones y precisiones matemáticas son bienvenidas.
 
