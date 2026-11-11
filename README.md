@@ -38,7 +38,7 @@ Este es un documento de estudio en elaboración. Las correcciones y precisiones 
 - [Consultar el programa del curso](Recursos/programa_geometria_algebraica_esquemas_2026_v3.pdf).
 - [Consultar los materiales de clase](Recursos): esqueletos, presentaciones y anotaciones.
 
-El documento incluye ejercicios propuestos. Las soluciones se reúnen en el [repositorio de tareas](https://github.com/MrPaborru/Tareas-Teoria-de-Esquemas).
+El documento incluye los ejercicios propuestos en clase. Las entregas, las soluciones y sus materiales se reúnen en el [repositorio de tareas](https://github.com/MrPaborru/Tareas-Teoria-de-Esquemas).
 
 ## Organización del repositorio
 
