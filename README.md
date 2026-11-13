@@ -6,7 +6,7 @@ Apuntes personales de **Pablo Jair Aranda Pérez** para el curso de Teoría de E
 
 ## Contenido y estado
 
-El documento incluye la introducción y las **sesiones 1–10**, incluido el **complemento de S8 y S9 sobre el espacio proyectivo por pegado de cartas afines**. El programa completo contempla 24 sesiones; las que aún no están apuntadas no aparecen en el PDF.
+El documento incluye la introducción y las **sesiones 1–11**, incluido el **complemento de S8 y S9 sobre el espacio proyectivo por pegado de cartas afines**. El programa completo contempla 24 sesiones; las que aún no están apuntadas no aparecen en el PDF.
 
 | Sesión | Tema |
 | --- | --- |
@@ -21,6 +21,7 @@ El documento incluye la introducción y las **sesiones 1–10**, incluido el **c
 | 8 | Ejemplos globales: plano menos el origen, morfismo canónico, espacios proyectivos y superficies aritméticas |
 | 9 | Valoración discreta, buena reducción y propiedades básicas |
 | 10 | Morfismos y subesquemas |
+| 11 | Productos fibrados, cambio de base y fibras |
 
 Cada capítulo corresponde a una sesión. Las clases a, b, c, etc. de una misma sesión se integran en una exposición continua cuando completan argumentos anteriores. Los apuntes conservan los contenidos distintos de los esqueletos y los desarrollos, dibujos y diagramas de las presentaciones.
 
@@ -30,7 +31,9 @@ El complemento desarrolla los pegados del plano proyectivo, las intersecciones d
 
 La sesión 10 desarrolla la correspondencia para morfismos de esquemas sobre una base, las inmersiones, los puntos con valores en un cuerpo y las condiciones de finitud. Incluye el conteo de puntos del círculo sobre cuerpos primos finitos, la lectura sobre subesquemas cerrados de un afín y los dos lemas asignados en la tarea final.
 
-El contador de la portada registra las **diez sesiones numeradas incorporadas**. La introducción se presenta por separado y las partes de cada sesión forman un único capítulo.
+La sesión 11 construye el producto fibrado de esquemas, su unicidad y el caso afín como espectro del producto tensorial, el cambio de base y las fibras de un morfismo. Incluye el ejemplo de $\mathbb C\otimes_{\mathbb R}\mathbb C$, la existencia general por pegado, el cambio de base de $\mathbb P^1_A$ y las fibras de $\Spec\mathbb Z[i]$, de la familia $xy=n$, de $\mathbb P^1_{\mathbb Z}$ y de la familia $T_1T_2^2=m$. Los cinco lemas y afirmaciones que el curso deja para completar se plantean como ejercicios, tres de ellos de la tarea final.
+
+El contador de la portada registra las **once sesiones numeradas incorporadas**. La introducción se presenta por separado y las partes de cada sesión forman un único capítulo.
 
 Este es un documento de estudio en elaboración. Las correcciones y precisiones matemáticas son bienvenidas.
 

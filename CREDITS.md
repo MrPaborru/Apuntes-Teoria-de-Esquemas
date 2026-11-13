@@ -18,6 +18,8 @@ Las referencias de las primeras sesiones conservan los localizadores indicados e
 
 La sesión 10 sigue el esqueleto «Morfismos y subesquemas» y el Beamer de la misma clase. Sus referencias a Vakil usan el borrador del 21 de octubre de 2025. Los localizadores de Liu incluyen el capítulo, la sección y el número del resultado.
 
+La sesión 11 sigue el esqueleto «Productos fibrados, cambio de base y fibras» y el Beamer de la misma clase, con las mismas convenciones de cita: Vakil en el borrador del 21 de octubre de 2025 y Liu con capítulo, sección y número de resultado. El dibujo de las fibras de $\mathbb P^1_{\mathbb Z}$ se redibujó a partir de la página 23 del esqueleto.
+
 La sesión 8 incorpora dos lecturas complementarias proporcionadas por el profesor: *Absolute geometry and the Habiro topology*, de Lieven Le Bruyn (2013), para interpretar los dibujos de Mumford, y *On the prime spectrum of the p-adic integer polynomial ring with a depiction*, de Juan Serratos (2023), para comparar las fibras sobre los enteros p-ádicos. Las aportaciones seleccionadas están identificadas y citadas en el texto; las copias de lectura se conservan en [Recursos/Esqueletos](Recursos/Esqueletos).
 
 ## Plantilla y elementos gráficos
